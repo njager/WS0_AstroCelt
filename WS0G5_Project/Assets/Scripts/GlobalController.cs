@@ -47,8 +47,12 @@ public class GlobalController : MonoBehaviour
     [Header("Particles")]
     public int abc = 90;
 
+    // Private 
+    private Star starToBeSelected; 
+    private Star selectedStar;
 
-    
+    // Borrowed from Brackey's, Reports on Internal state of a private variable publicly 
+    public bool StarWasSelected { get { return starToBeSelected != null; } }
 
     void Awake()
     {
