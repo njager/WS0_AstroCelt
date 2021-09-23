@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class Star : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Star : MonoBehaviour
     public bool starUsed = false;
     public Star starSelf;
     public Material normalColor;
-    public Material usedColor; 
+    public Material usedColor;
+    public Color hoverColor;
+    public Color usedColor2; 
 
 
     private GlobalController global;
@@ -26,6 +29,10 @@ public class Star : MonoBehaviour
         Debug.Log("Star Added");
     }
 
+    public void StarReset()
+    {
+        starUsed = false; 
+    }
 
     public void Selected()
     {
