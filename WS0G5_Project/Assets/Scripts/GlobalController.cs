@@ -21,15 +21,23 @@ public class GlobalController : MonoBehaviour
     public GameObject[] starlist;
 
     [Header("Checkers")]
-    public GameObject ResetChecker; 
+    public GameObject ResetChecker;
+
+    [Header("Tags")]
+    public string starTag = "Star";
 
     void Start()
     {
         
     }
 
+    void Starlister()
+    {
+        starlist = GameObject.FindGameObjectsWithTag(starTag);
+    }
+
     public void Update()
     {
-        
+        Starlister(); 
     }
 }
