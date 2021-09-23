@@ -15,7 +15,7 @@ public class Star : MonoBehaviour
     public Color hoverColor;
     public Color usedColor2; 
 
-
+    // Private varaibles 
     private GlobalController global;
 
     void Start()
