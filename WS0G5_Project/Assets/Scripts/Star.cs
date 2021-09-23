@@ -39,6 +39,21 @@ public class Star : MonoBehaviour
 
     }
 
+    public void OnMouseDown()
+    {
+       
+    }
+
+    public void OnMouseEnter()
+    {
+        
+    }
+
+    public void OnMouseExit()
+    {
+        
+    }
+
     public void StarUsed() 
     {
         global.startingStarList.Remove(this);
