@@ -8,6 +8,21 @@ public class GlobalController : MonoBehaviour
 
     [Header("Test Int")]
     public int testVar = 50;
+
+    [Header("LineRenderer")]
+    public LineRenderer lineRenderer;
+    public bool lineDrawn;
+
+    [Header("Audio")]
+    public GameObject testAudioBackgroundMusic;
+    public GameObject testAudiosoundEffect1;
+
+    [Header("Lists")]
+    public GameObject[] starlist;
+
+    [Header("Checkers")]
+    public GameObject ResetChecker; 
+
     void Start()
     {
         
