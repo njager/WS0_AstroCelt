@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GlobalController : MonoBehaviour
 {
@@ -28,7 +30,10 @@ public class GlobalController : MonoBehaviour
 
     void Start()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse was clicked!"); 
+        }
     }
 
     void Starlister()
