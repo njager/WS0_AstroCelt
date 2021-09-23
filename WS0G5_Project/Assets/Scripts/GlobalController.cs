@@ -23,9 +23,11 @@ public class GlobalController : MonoBehaviour
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    public GameObject[] startingStarList;
-    public GameObject[] activeStarList;
-    public GameObject[] usedStarList; 
+    List<GameObject> startingStarList = new List<GameObject>();
+    List<GameObject> activeStarList = new List<GameObject>();
+    List<GameObject> usedStarlistStarList = new List<GameObject>();
+    // public GameObject[] activeStarList;
+    // public GameObject[] usedStarList; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -65,7 +67,10 @@ public class GlobalController : MonoBehaviour
             RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (objectHit.collider != null)
             {
-
+                if (objectHit.collider.tag == starTag) 
+                {
+                    activeStarList.Add(objectHit);
+                }
             }
         }
     }
