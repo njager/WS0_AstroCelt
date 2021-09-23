@@ -9,6 +9,9 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public bool starUsed = false;
     public Star starSelf;
+    public Material normalColor;
+    public Material usedColor; 
+
 
     private GlobalController global;
 
