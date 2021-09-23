@@ -24,7 +24,8 @@ public class GlobalController : MonoBehaviour
 
     [Header("Lists")]
     public GameObject[] startingStarList;
-    public GameObject[] activeStarList; 
+    public GameObject[] activeStarList;
+    public GameObject[] usedStarList; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -32,19 +33,19 @@ public class GlobalController : MonoBehaviour
     [Header("Tags")]
     public string starTag = "Star";
 
-    void Start()
+    void Awake()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (instance != null)
         {
-            Debug.Log("Mouse was clicked!");
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero); 
-            if (objectHit.collider != null)
-            {
-
-            }
+            Debug.LogError("Somehow more than one GlobalController in scene!");
         }
+
+        instance = this;
+    }
+
+    public void Start()
+    {
+        
     }
 
     void Starlister()
@@ -54,6 +55,18 @@ public class GlobalController : MonoBehaviour
 
     public void Update()
     {
-        Starlister(); 
+        Starlister();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse was clicked");
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (objectHit.collider != null)
+            {
+
+            }
+        }
     }
 }
