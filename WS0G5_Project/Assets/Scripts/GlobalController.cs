@@ -23,11 +23,14 @@ public class GlobalController : MonoBehaviour
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    List<GameObject> startingStarList = new List<GameObject>();
-    List<GameObject> activeStarList = new List<GameObject>();
-    List<GameObject> usedStarlistStarList = new List<GameObject>();
-    // public GameObject[] activeStarList;
-    // public GameObject[] usedStarList; 
+    public List<GameObject> startingStarList;
+    public List<GameObject> activeStarList;
+    public List<GameObject> usedStarList;
+
+    [Header("Arrays")]
+    public GameObject[] startingStarArray; 
+    public GameObject[] activeStarArray;
+    public GameObject[] usedStarArray; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -52,7 +55,7 @@ public class GlobalController : MonoBehaviour
 
     void Starlister()
     {
-        startingStarList = GameObject.FindGameObjectsWithTag(starTag);
+        startingStagArray = GameObject.FindGameObjectsWithTag(starTag);
     }
 
     public void Update()
