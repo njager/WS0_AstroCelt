@@ -32,7 +32,14 @@ public class GlobalController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse was clicked!"); 
+            Debug.Log("Mouse was clicked!");
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero); 
+            if (objectHit.collider != null)
+            {
+
+            }
         }
     }
 
