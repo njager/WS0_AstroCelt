@@ -11,8 +11,8 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController instance; // Making Global into the base for inter-script structure. 
 
-    [Header("Test Int")]
-    public int testVar = 50;
+    [Header("Ints")]
+    public int ListCount = 0;
 
     [Header("LineRenderer")]
     public LineRenderer lineRenderer;
@@ -23,9 +23,9 @@ public class GlobalController : MonoBehaviour
     public AudioSource testAudiosoundEffect1;
 
     [Header("Lists")]
-    public List<GameObject> startingStarList;
+    public List<Star> startingStarList;
     public List<RaycastHit2D> activeStarList;
-    public List<GameObject> usedStarList;
+    public List<Star> usedStarList;
 
     [Header("Arrays")]
     public GameObject[] startingStarArray; 
@@ -56,7 +56,7 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
-        
+        Starlister(); 
     }
 
     void Starlister()
@@ -66,8 +66,6 @@ public class GlobalController : MonoBehaviour
 
     public void Update()
     {
-        Starlister();
-
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse was clicked");

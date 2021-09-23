@@ -1,18 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Star : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Star Attributes")]
+    public bool starUsed = false;
+    public Star starSelf;
+
+    private GlobalController global;
+
     void Start()
     {
-        
+        global = GlobalController.instance;
+
+        starUsed = false;
+        global.Star = starSelf;
+        global.startingStarList.Add(this);
+        global.ListCount++;
+        Debug.Log("Star Added");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Selected()
     {
-        
+
     }
+
+    public void StarUsed() 
+    {
+        global.startingStarList.Remove(this);
+        global.usedStarList.Add(this); 
+    }
+
 }

@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: d413a954deefa574488757c5c531af01, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ccf1695a0cca08a429dbeaa9306ab918, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c5adaac246da643a41d7d996724a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testVar: 50
+  ListCount: 0
   lineRenderer: {fileID: 0}
   lineDrawn: 0
   testAudioBackgroundMusic: {fileID: 174412628}
@@ -2023,7 +2023,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8539b9cdb3742124d9c90e20937079b0, type: 2}
+  - {fileID: 2100000, guid: eac9c0d784862a34fa39d06a7cde0a9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
