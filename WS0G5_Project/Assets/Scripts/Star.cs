@@ -12,7 +12,7 @@ public class Star : MonoBehaviour
     public Star starSelf;
     public Color hoverColor;
     public Color usedColor;
-    
+    public GameObject starGraphic; 
 
     //Global Setting
     GlobalController global;
@@ -31,6 +31,7 @@ public class Star : MonoBehaviour
         global.ListCount++;
         Debug.Log("Star Added");
 
+        rend = starGraphic.GetComponent<Renderer>();
         startColor = rend.material.color; 
     }
 
