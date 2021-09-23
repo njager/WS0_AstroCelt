@@ -12,6 +12,7 @@ public class Star : MonoBehaviour
     public Star starSelf;
     public Color hoverColor;
     public Color usedColor;
+    public Vector3 positionOffset;
     public GameObject starGraphic; 
 
     //Global Setting
@@ -54,7 +55,7 @@ public class Star : MonoBehaviour
 
     public Vector3 lineStartingPoint()
     {
-        return transform.position;
+        return transform.position + positionOffset;
     }
 
     public void OnMouseEnter()

@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 78.9852, y: 81.1037}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3573827871608290767
 Canvas:
@@ -244,6 +244,7 @@ MonoBehaviour:
   starSelf: {fileID: 4875646107116946667}
   hoverColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
   usedColor: {r: 0, g: 0, b: 0, a: 0.77254903}
+  positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 3570891433123180706}
 --- !u!1 &8289446259924608002
 GameObject:
