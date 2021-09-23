@@ -60,7 +60,7 @@ public class Star : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (!global.starWasSelected)
+        if (global.starWasSelected)
         {
             rend.material.color = hoverColor;
         }
