@@ -76,6 +76,7 @@ public class GlobalController : MonoBehaviour
             {
                 if (objectHit.collider.tag == starTag) 
                 {
+                    Debug.Log("Clicked on Star");
                     activeStarList.Add(objectHit);
                 }
             }
