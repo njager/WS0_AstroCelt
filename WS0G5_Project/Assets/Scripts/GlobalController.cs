@@ -19,12 +19,12 @@ public class GlobalController : MonoBehaviour
     public bool lineDrawn;
 
     [Header("Audio")]
-    public GameObject testAudioBackgroundMusic;
-    public GameObject testAudiosoundEffect1;
+    public AudioSource testAudioBackgroundMusic;
+    public AudioSource testAudiosoundEffect1;
 
     [Header("Lists")]
     public List<GameObject> startingStarList;
-    public List<GameObject> activeStarList;
+    public List<RaycastHit2D> activeStarList;
     public List<GameObject> usedStarList;
 
     [Header("Arrays")]
@@ -35,8 +35,14 @@ public class GlobalController : MonoBehaviour
     [Header("Checkers")]
     public GameObject ResetChecker;
 
+    [Header("Script References")]
+    public Star Star; 
+
     [Header("Tags")]
     public string starTag = "Star";
+
+    [Header("Particles")]
+    public int abc = 90;
 
     void Awake()
     {
@@ -55,7 +61,7 @@ public class GlobalController : MonoBehaviour
 
     void Starlister()
     {
-        startingStagArray = GameObject.FindGameObjectsWithTag(starTag);
+        startingStarArray = GameObject.FindGameObjectsWithTag(starTag);
     }
 
     public void Update()
@@ -77,4 +83,6 @@ public class GlobalController : MonoBehaviour
             }
         }
     }
+
+    
 }
