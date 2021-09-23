@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -20,7 +23,8 @@ public class GlobalController : MonoBehaviour
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    public GameObject[] starlist;
+    public GameObject[] startingStarList;
+    public GameObject[] activeStarList; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -45,7 +49,7 @@ public class GlobalController : MonoBehaviour
 
     void Starlister()
     {
-        starlist = GameObject.FindGameObjectsWithTag(starTag);
+        startingStarList = GameObject.FindGameObjectsWithTag(starTag);
     }
 
     public void Update()
