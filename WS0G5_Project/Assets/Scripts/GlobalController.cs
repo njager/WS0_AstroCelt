@@ -24,7 +24,7 @@ public class GlobalController : MonoBehaviour
 
     [Header("Lists")]
     public List<Star> startingStarList;
-    public List<RaycastHit2D> activeStarList;
+    public List<Star> activeStarList;
     public List<Star> usedStarList;
 
     [Header("Arrays")]
@@ -52,7 +52,7 @@ public class GlobalController : MonoBehaviour
     private Star selectedStar;
 
     // Borrowed from Brackey's, Reports on Internal state of a private variable publicly 
-    public bool StarWasSelected { get { return starToBeSelected != null; } }
+    public bool starWasSelected { get { return starToBeSelected != null; } }
 
     void Awake()
     {
@@ -77,22 +77,7 @@ public class GlobalController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Mouse was clicked");
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (objectHit.collider != null)
-            {
-                if (objectHit.collider.tag == starTag) 
-                {
-                    Debug.Log("Clicked on Star");
-                    activeStarList.Add(objectHit);
-                     
-                }
-            }
-        }
+       
     }
 
     public void drawLine(GameObject constellationLine, Vector3 initialPosition, Vector3 finalPosition)
@@ -111,6 +96,26 @@ public class GlobalController : MonoBehaviour
         Debug.DrawLine(initialPosition, finalPosition);
 
         constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
+    }
+
+    void OldRaycastCode()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse was clicked");
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (objectHit.collider != null)
+            {
+                if (objectHit.collider.tag == starTag)
+                {
+                    Debug.Log("Clicked on Star");
+                    activeStarList.Add(objectHit);
+
+                }
+            }
+        }
     }
 
 }

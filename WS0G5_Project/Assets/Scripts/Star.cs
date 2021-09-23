@@ -10,13 +10,16 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public bool starUsed = false;
     public Star starSelf;
-    public Material normalColor;
-    public Material usedColor;
     public Color hoverColor;
-    public Color usedColor2; 
+    public Color usedColor;
+    
 
-    // Private varaibles 
-    private GlobalController global;
+    //Global Setting
+    GlobalController global;
+
+    // Private Variables
+    private Renderer rend;
+    private Color startColor; 
 
     void Start()
     {
@@ -27,6 +30,8 @@ public class Star : MonoBehaviour
         global.startingStarList.Add(this);
         global.ListCount++;
         Debug.Log("Star Added");
+
+        startColor = rend.material.color; 
     }
 
     public void StarReset()
@@ -34,17 +39,16 @@ public class Star : MonoBehaviour
         starUsed = false; 
     }
 
-    public void Selected()
-    {
-
-    }
-
+   
     public void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
+
+        Debug.Log("Clicked on Star");
+        global.activeStarList.Add(this);
     }
 
     public Vector3 lineStartingPoint()
@@ -54,12 +58,15 @@ public class Star : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        
+        if (!global.starWasSelected)
+        {
+            rend.material.color = hoverColor;
+        }
     }
 
     public void OnMouseExit()
     {
-        
+        rend.material.color = startColor;
     }
 
     public void StarUsed() 
