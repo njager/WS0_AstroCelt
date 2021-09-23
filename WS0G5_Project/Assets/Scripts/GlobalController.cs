@@ -30,7 +30,10 @@ public class GlobalController : MonoBehaviour
     [Header("Arrays")]
     public GameObject[] startingStarArray; 
     public GameObject[] activeStarArray;
-    public GameObject[] usedStarArray; 
+    public GameObject[] usedStarArray;
+
+    [Header("Prefabs")]
+    public GameObject linePrefab; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -44,6 +47,9 @@ public class GlobalController : MonoBehaviour
     [Header("Particles")]
     public int abc = 90;
 
+
+    
+
     void Awake()
     {
         if (instance != null)
@@ -56,7 +62,8 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
-        Starlister(); 
+        Starlister();
+        Vector3 distance = new Vector3(0f,0f,0f);  
     }
 
     void Starlister()
@@ -78,10 +85,28 @@ public class GlobalController : MonoBehaviour
                 {
                     Debug.Log("Clicked on Star");
                     activeStarList.Add(objectHit);
+                    objectHit.transform
                 }
             }
         }
     }
 
-    
+    public void drawLine(GameObject constellationLine, Vector3 initialPosition, Vector3 finalPosition)
+    {
+        var distance = 0f; 
+        Vector3 centerPos = (initialPosition + finalPosition) / 2f;
+
+        constellationLine.transform.position = centerPos;
+
+        Vector3 direction = finalPosition - initialPosition;
+        direction = Vector3.Normalize(direction);
+        constellationLine.transform.right = direction;
+
+        distance = Vector3.Distance(initialPosition, finalPosition);
+
+        Debug.DrawLine(initialPosition, finalPosition);
+
+        constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
+    }
+
 }
