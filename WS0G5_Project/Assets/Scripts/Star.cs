@@ -41,7 +41,15 @@ public class Star : MonoBehaviour
 
     public void OnMouseDown()
     {
-       
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+    }
+
+    public Vector3 lineStartingPoint()
+    {
+        return transform.position;
     }
 
     public void OnMouseEnter()

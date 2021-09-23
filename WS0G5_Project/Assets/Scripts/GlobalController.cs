@@ -85,7 +85,7 @@ public class GlobalController : MonoBehaviour
                 {
                     Debug.Log("Clicked on Star");
                     activeStarList.Add(objectHit);
-                    objectHit.transform; 
+                     
                 }
             }
         }
