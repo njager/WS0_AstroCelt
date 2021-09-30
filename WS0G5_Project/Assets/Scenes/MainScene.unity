@@ -3976,6 +3976,7 @@ MonoBehaviour:
   Star: {fileID: 0}
   starTag: Star
   abc: 90
+  spawningFramework: {fileID: 560938485}
 --- !u!4 &353662683
 Transform:
   m_ObjectHideFlags: 0

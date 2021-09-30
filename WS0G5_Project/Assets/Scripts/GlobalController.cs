@@ -47,6 +47,10 @@ public class GlobalController : MonoBehaviour
     [Header("Particles")]
     public int abc = 90;
 
+    [Header("Spawning Framework")]
+
+    public GameObject spawningFramework; 
+
     // Private 
     private Star starToBeSelected; 
     private Star selectedStar;
@@ -66,6 +70,7 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
+        spawningFramework.SetActive(false); 
         Starlister();
         Vector3 distance = new Vector3(0f,0f,0f);  
     }
