@@ -13,6 +13,7 @@ public class GlobalController : MonoBehaviour
 
     [Header("Ints")]
     public int ListCount = 0;
+    public int cosmicEnergy; 
 
     [Header("LineRenderer")]
     public LineRenderer lineRenderer;
@@ -70,6 +71,7 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
+        cosmicEnergy = 500; 
         spawningFramework.SetActive(false); 
         Starlister();
         Vector3 distance = new Vector3(0f,0f,0f);  
