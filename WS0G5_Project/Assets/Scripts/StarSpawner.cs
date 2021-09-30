@@ -7,9 +7,13 @@ public class StarSpawner : MonoBehaviour
 {
     public GameObject starPrefab;
     public int starSpawnCount;
-    public Transform spawnPoint1;
-    public Transform spawnPoint2;
-    public Transform spawnPoint3;
+
+    [Header("Row 1")]
+    public Transform starSpawnPoint1_1;
+    public Transform starSpawnPoint2_1;
+    public Transform starSpawnPoint3_1;
+
+    
 
     void Start()
     {
