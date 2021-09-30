@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Star
   - Line
+  - SpawningRow
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
