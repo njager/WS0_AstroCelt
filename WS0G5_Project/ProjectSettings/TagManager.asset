@@ -8,6 +8,7 @@ TagManager:
   - Line
   - SpawningRow
   - SpawnPoint
+  - Grid
   layers:
   - Default
   - TransparentFX
