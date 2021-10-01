@@ -13,10 +13,10 @@ public class GlobalController : MonoBehaviour
 
     [Header("Ints")]
     public int ListCount = 0;
-    public int cosmicEnergy; 
+    public int cosmicEnergy;
 
     [Header("LineRenderer")]
-    public LineRenderer lineRenderer;
+    public LineRendererScript lineRenderer;
     public bool lineDrawn;
 
     [Header("Audio")]
@@ -40,7 +40,8 @@ public class GlobalController : MonoBehaviour
     public GameObject ResetChecker;
 
     [Header("Script References")]
-    public Star Star; 
+    public Star Star;
+    public DrawingScript drawingScript; 
 
     [Header("Tags")]
     public string starTag = "Star";

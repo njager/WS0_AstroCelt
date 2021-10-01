@@ -2499,6 +2499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163012954}
+  - component: {fileID: 163012955}
   m_Layer: 0
   m_Name: DrawingHolder
   m_TagString: Untagged
@@ -2520,6 +2521,22 @@ Transform:
   m_Father: {fileID: 1279924669}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163012955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163012953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c07f92b486de0429a238c00908925d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LineRenderer: {fileID: 0}
+  TransformOne: {fileID: 0}
+  TransformTwo: {fileID: 0}
+  activeStarCounter: 0
 --- !u!1 &171981987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,7 +4173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListCount: 0
   cosmicEnergy: 0
-  lineRenderer: {fileID: 1250478682}
+  lineRenderer: {fileID: 1250478684}
   lineDrawn: 0
   testAudioBackgroundMusic: {fileID: 174412628}
   testAudiosoundEffect1: {fileID: 987269602}
@@ -4169,6 +4186,7 @@ MonoBehaviour:
   linePrefab: {fileID: 0}
   ResetChecker: {fileID: 797493711}
   Star: {fileID: 2075864384}
+  drawingScript: {fileID: 163012955}
   starTag: Star
   abc: 90
   spawningFramework: {fileID: 560938485}
@@ -12502,6 +12520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967bbdd6e1d363c49ad95ebbde6acb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineRenderer: {fileID: 1250478682}
+  activeStarCounter: 0
 --- !u!1 &1251925427
 GameObject:
   m_ObjectHideFlags: 0

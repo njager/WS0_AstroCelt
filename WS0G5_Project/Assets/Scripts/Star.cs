@@ -42,7 +42,7 @@ public class Star : MonoBehaviour
     }
 
    
-    public void OnMouseDown()
+    public void OnClick()
     {
         //if (EventSystem.current.IsPointerOverGameObject())
         //{
