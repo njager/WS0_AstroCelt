@@ -20,8 +20,8 @@ public class GlobalController : MonoBehaviour
     public bool lineDrawn;
 
     [Header("Audio")]
-    public AudioSource testAudioBackgroundMusic;
-    public AudioSource testAudiosoundEffect1;
+    public GameObject testAudioBackgroundMusic;
+    public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
     public List<Star> startingStarList;
@@ -50,7 +50,8 @@ public class GlobalController : MonoBehaviour
 
     [Header("Spawning Framework")]
 
-    public GameObject spawningFramework; 
+    public GameObject spawningFramework;
+    public GameObject oldStarSpawner;
 
     // Private 
     private Star starToBeSelected; 
@@ -72,7 +73,7 @@ public class GlobalController : MonoBehaviour
     public void Start()
     {
         cosmicEnergy = 500; 
-        spawningFramework.SetActive(false); 
+        oldStarSpawner.SetActive(false); 
         Starlister();
         Vector3 distance = new Vector3(0f,0f,0f);  
     }
