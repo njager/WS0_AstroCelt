@@ -19,8 +19,8 @@ public class DrawingScript : MonoBehaviour
 
         if (global.lineRenderer.activeStarCounter == 1)
         {
-            LineRenderer.SetPosition(0, global.activeStarList[0].starPosition);
-            LineRenderer.SetPosition(1, TransformTwo.position);
+            //LineRenderer.SetPosition(0, global.activeStarList[0].starPosition);
+            //LineRenderer.SetPosition(1, TransformTwo.position);
         }
     }
 }
