@@ -13,10 +13,11 @@ public class Star : MonoBehaviour
     public Color hoverColor;
     public Color usedColor;
     public Vector3 positionOffset;
-    public GameObject starGraphic; 
+    public GameObject starGraphic;
+    public Transform starPosition; 
 
     //Global Setting
-    GlobalController global;
+    private GlobalController global;
 
     // Private Variables
     private Renderer rend;
@@ -33,7 +34,8 @@ public class Star : MonoBehaviour
         Debug.Log("Star Added");
 
         rend = starGraphic.GetComponent<Renderer>();
-        startColor = rend.material.color; 
+        startColor = rend.material.color;
+        starPosition = starSelf.transform;
     }
 
     public void StarReset()

@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class DrawingScript : MonoBehaviour
 {
-    public LineRenderer LineRenderer;
-    public Transform TransformOne;
-    public Transform TransformTwo;
-
-    public int activeStarCounter;
+    private LineRenderer LineRenderer;
+    private GlobalController global;
 
     void Start()
     {
-        LineRenderer.startColor = Color.white;
-        LineRenderer.endColor = Color.white;
+        global = GlobalController.instance;
+    }
 
+    public void drawLine()
+    {
         LineRenderer.startWidth = 0.3f;
         LineRenderer.endWidth = 0.3f;
 
-        LineRenderer.SetPosition(0, TransformOne.position);
-        LineRenderer.SetPosition(1, TransformTwo.position);
+        if (global.lineRenderer.activeStarCounter == 1)
+        {
+            LineRenderer.SetPosition(0, global.activeStarList[0].starPosition);
+            LineRenderer.SetPosition(1, TransformTwo.position);
+        }
     }
 }
