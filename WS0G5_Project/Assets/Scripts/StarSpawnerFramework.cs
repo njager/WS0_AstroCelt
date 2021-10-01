@@ -358,7 +358,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row1.Add(starSpawnPoint18_1);
         row1.Add(starSpawnPoint19_1);
         row1.Add(starSpawnPoint20_1);
-        Debug.Log(row1);
+        Debug.Log("Row 1 Added");
     }
     void SpawnStarRow2List()
     {
@@ -382,7 +382,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row2.Add(starSpawnPoint18_2);
         row2.Add(starSpawnPoint19_2);
         row2.Add(starSpawnPoint20_2);
-        Debug.Log(row2);
+        Debug.Log("Row 2 Added");
     }
     void SpawnStarRow3List()
     {
@@ -406,7 +406,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row3.Add(starSpawnPoint18_3);
         row3.Add(starSpawnPoint19_3);
         row3.Add(starSpawnPoint20_3);
-        Debug.Log(row3);
+        Debug.Log("Row 3 Added");
     }
     void SpawnStarRow4List()
     {
@@ -430,7 +430,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row4.Add(starSpawnPoint18_4);
         row4.Add(starSpawnPoint19_4);
         row4.Add(starSpawnPoint20_4);
-        Debug.Log(row4);
+        Debug.Log("Row 4 Added");
     }
     void SpawnStarRow5List()
     {
@@ -454,7 +454,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row5.Add(starSpawnPoint18_5);
         row5.Add(starSpawnPoint19_5);
         row5.Add(starSpawnPoint20_5);
-        Debug.Log(row5);
+        Debug.Log("Row 5 Added");
     }
     void SpawnStarRow6List()
     {
@@ -478,7 +478,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row6.Add(starSpawnPoint18_6);
         row6.Add(starSpawnPoint19_6);
         row6.Add(starSpawnPoint20_6);
-        Debug.Log(row6);
+        Debug.Log("Row 6 Added");
     }
     void SpawnStarRow7List()
     {
@@ -502,7 +502,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row7.Add(starSpawnPoint18_7);
         row7.Add(starSpawnPoint19_7);
         row7.Add(starSpawnPoint20_7);
-        Debug.Log(row7);
+        Debug.Log("Row 7 Added");
     }
     void SpawnStarRow8List()
     {
@@ -526,7 +526,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row8.Add(starSpawnPoint18_8);
         row8.Add(starSpawnPoint19_8);
         row8.Add(starSpawnPoint20_8);
-        Debug.Log(row8);
+        Debug.Log("Row 8 Added");
     }
     void SpawnStarRow9List()
     {
@@ -550,7 +550,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row9.Add(starSpawnPoint18_9);
         row9.Add(starSpawnPoint19_9);
         row9.Add(starSpawnPoint20_9);
-        Debug.Log(row7);
+        Debug.Log("Row 9 Added");
     }
     void SpawnStarRow10List()
     {
@@ -574,7 +574,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row10.Add(starSpawnPoint18_10);
         row10.Add(starSpawnPoint19_10);
         row10.Add(starSpawnPoint20_10);
-        Debug.Log(row10);
+        Debug.Log("Row 10 Added");
     }
     void SpawnStarRow11List()
     {
@@ -598,7 +598,7 @@ public class StarSpawnerFramework : MonoBehaviour
         row11.Add(starSpawnPoint18_11);
         row11.Add(starSpawnPoint19_11);
         row11.Add(starSpawnPoint20_11);
-        Debug.Log(row11);
+        Debug.Log("Row 11 Added");
     }
     void SpawnStarRow12List()
     {
@@ -622,6 +622,6 @@ public class StarSpawnerFramework : MonoBehaviour
         row12.Add(starSpawnPoint18_12);
         row12.Add(starSpawnPoint19_12);
         row12.Add(starSpawnPoint20_12);
-        Debug.Log(row12);
+        Debug.Log("Row 12 Added");
     }
 }

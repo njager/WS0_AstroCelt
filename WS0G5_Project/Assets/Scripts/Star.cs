@@ -44,10 +44,10 @@ public class Star : MonoBehaviour
    
     public void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //{
+            //return;
+        //}
 
         Debug.Log("Clicked on Star");
         global.activeStarList.Add(this);
