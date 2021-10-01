@@ -5242,6 +5242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starPrefab: {fileID: 4444467650669534561, guid: 8f327b8f6796dc445a9df8a0f662b1e6, type: 3}
+  verticalGrid: {fileID: 1347241961}
+  horizontalGrid: {fileID: 655899408}
   starSpawnCount: 0
   counter: 20
   row1: []

@@ -6,6 +6,8 @@ public class StarSpawnerFramework : MonoBehaviour
 {
     [Header("Other")]
     public GameObject starPrefab;
+    public GameObject verticalGrid;
+    public GameObject horizontalGrid;
     public int starSpawnCount;
     public int counter = 20;
 
@@ -308,6 +310,8 @@ public class StarSpawnerFramework : MonoBehaviour
     void Update()
     {
         SpawnStar(starPrefab);
+        verticalGrid.SetActive(false);
+        horizontalGrid.SetActive(false);
     }
 
     void SpawnStar(GameObject star)
