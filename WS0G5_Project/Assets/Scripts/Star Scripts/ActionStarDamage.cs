@@ -5,16 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class Star : MonoBehaviour
+public class ActionStarDamage : MonoBehaviour
 {
     [Header("Star Attributes")]
     public bool starUsed = false;
-    public Star starSelf;
+    public ActionStarDamage starSelf;
     public Color hoverColor;
     public Color usedColor;
     public Vector3 positionOffset;
     public GameObject starGraphic;
-    public Transform starPosition; 
+    private Transform starPosition; 
 
     //Global Setting
     private GlobalController global;
@@ -28,8 +28,8 @@ public class Star : MonoBehaviour
         global = GlobalController.instance;
 
         starUsed = false;
-        global.Star = starSelf;
-        global.startingStarList.Add(this);
+        // global.Star = starSelf;
+        //global.startingStarList.Add(this);
         global.ListCount++;
         Debug.Log("Star Added");
 
@@ -52,7 +52,7 @@ public class Star : MonoBehaviour
         //}
 
         Debug.Log("Clicked on Star");
-        global.activeStarList.Add(this);
+        //global.activeStarList.Add(this);
     }
 
     public Vector3 lineStartingPoint()
@@ -75,8 +75,8 @@ public class Star : MonoBehaviour
 
     public void StarUsed() 
     {
-        global.startingStarList.Remove(this);
-        global.usedStarList.Add(this); 
+       // global.startingStarList.Remove(this);
+       // global.usedStarList.Add(this); 
     }
 
 }
