@@ -15,22 +15,20 @@ public class DrawingScript : MonoBehaviour
     public Star star1;
     public Star star2; 
 
-    [Header("Positioning")]
+    [Header("Position")]
     public List<Vector3> transformHolder = new List<Vector3>();
+
+    [Header("Star Reporting")]
+    public int activeStarCounter = 0;
 
     private Vector3 initialPosition = Vector3.zero;
     public Transform drawingScriptSelf;
     public Quaternion intitalQuaternion;
 
-
-    [Header("Star Reporting")]
-    public int activeStarCounter = 0;
-
     public void Start()
     {
         lineStartingPoint = Vector3.zero;
-        lineStartingPoint = Vector3.zero; 
-        intitalQuaternion = Quaternion.identity;
+        lineStartingPoint = Vector3.zero;
         global = GlobalController.instance;
     }
 
@@ -49,6 +47,8 @@ public class DrawingScript : MonoBehaviour
 
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());

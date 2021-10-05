@@ -59,7 +59,8 @@ public class Star : MonoBehaviour
             global.drawingScript.activeStarCounter = 1;
             global.starSpawnerFrameworkScript.starActive = 1;
             global.drawingScript.star1 = this;
-            return; 
+            Debug.Log("Set activeStarCounter to 1");
+            return;
         }
         if (global.drawingScript.activeStarCounter == 1)
         {
@@ -67,6 +68,7 @@ public class Star : MonoBehaviour
             global.drawingScript.activeStarCounter = 2;
             global.starSpawnerFrameworkScript.starActive = 2;
             global.drawingScript.drawLine();
+            Debug.Log("Set activeStarCounter to 2");
             return;
         }
         if (global.drawingScript.activeStarCounter == 2)
