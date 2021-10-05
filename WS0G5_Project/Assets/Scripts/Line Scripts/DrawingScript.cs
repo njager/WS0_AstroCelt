@@ -16,6 +16,9 @@ public class DrawingScript : MonoBehaviour
     [Header("Positions Lists")]
     public List<Vector3> transformHolder = new List<Vector3>();
 
+    [Header("Star Reporting")]
+    public int activeStarCounter;
+
     public void Start()
     {
         global = GlobalController.instance;
@@ -31,7 +34,7 @@ public class DrawingScript : MonoBehaviour
         transformHolder.Add(lineStartingPoint.transform.position);
         transformHolder.Add(lineEndingPoint.position);
 
-        if (global.lineRenderer.activeStarCounter == 1)
+        if (activeStarCounter == 1)
         {
             //LineRenderer.SetPosition(0, global.activeStarList[0].starPosition);
             //LineRenderer.SetPosition(1, TransformTwo.position);

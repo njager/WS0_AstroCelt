@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StarSpawnerFramework : MonoBehaviour
 {
+    [Header("Other Scripts")]
+    public int starActive = 0;
+
     [Header("Other")]
     public GameObject starPrefab;
     public GameObject verticalGrid;

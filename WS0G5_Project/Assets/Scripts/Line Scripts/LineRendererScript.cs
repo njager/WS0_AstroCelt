@@ -14,11 +14,12 @@ public class LineRendererScript : MonoBehaviour
     [Header("Positions Lists")]
     public List<Vector3> pos = new List<Vector3>();
 
-    public int activeStarCounter;
+    
 
     public void Awake()
     {
-        lineRenderer
+        lineRenderer.GetComponentInParent<Transform>(); 
+
 
         pos.Add(object1.transform.position);
         pos.Add(object2.transform.position);

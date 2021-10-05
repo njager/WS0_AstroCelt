@@ -2564,6 +2564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRendererPrefab: {fileID: 0}
+  transformHolder: []
+  activeStarCounter: 0
 --- !u!1 &171981987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,8 +4202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListCount: 0
   cosmicEnergy: 0
-  lineRenderer: {fileID: 0}
-  lineDrawn: 0
   testAudioBackgroundMusic: {fileID: 174412628}
   testAudiosoundEffect1: {fileID: 987269602}
   startingStarList: []
@@ -4210,10 +4210,10 @@ MonoBehaviour:
   startingStarArray: []
   activeStarArray: []
   usedStarArray: []
-  linePrefab: {fileID: 0}
   ResetChecker: {fileID: 797493711}
   Star: {fileID: 2075864384}
   drawingScript: {fileID: 163012955}
+  starSpawnerFrameworkScript: {fileID: 560938487}
   starTag: Star
   abc: 90
   spawningFramework: {fileID: 560938485}
@@ -4988,6 +4988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5953c37c7eedb4ad0ae6bb0a47ce6144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starActive: 0
   starPrefab: {fileID: 4444467650669534561, guid: 8f327b8f6796dc445a9df8a0f662b1e6, type: 3}
   verticalGrid: {fileID: 1347241961}
   horizontalGrid: {fileID: 655899408}
@@ -14425,6 +14426,7 @@ MonoBehaviour:
   spawnPoint1: {fileID: 66873454}
   spawnPoint2: {fileID: 1334122368}
   spawnPoint3: {fileID: 1251925428}
+  starActive: 0
 --- !u!43 &1521765405
 Mesh:
   m_ObjectHideFlags: 0
@@ -19404,6 +19406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRendererPrefab: {fileID: 0}
+  transformHolder: []
+  activeStarCounter: 0
 --- !u!43 &2026476343
 Mesh:
   m_ObjectHideFlags: 0

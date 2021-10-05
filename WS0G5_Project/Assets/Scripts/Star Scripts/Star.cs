@@ -21,7 +21,7 @@ public class Star : MonoBehaviour
 
     // Private Variables
     private Renderer rend;
-    private Color startColor; 
+    private Color startColor;
 
     void Start()
     {
@@ -53,6 +53,9 @@ public class Star : MonoBehaviour
 
         Debug.Log("Clicked on Star");
         global.activeStarList.Add(this);
+
+        global.drawingScript.activeStarCounter = 1;
+        global.starSpawnerFrameworkScript.starActive = 1; 
     }
 
     public Vector3 lineStartingPoint()

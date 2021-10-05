@@ -13,7 +13,7 @@ public class StarSpawner : MonoBehaviour
     public Transform spawnPoint2;
     public Transform spawnPoint3;
 
-    
+    public int starActive = 0; 
 
     void Start()
     {

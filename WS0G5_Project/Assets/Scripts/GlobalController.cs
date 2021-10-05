@@ -13,11 +13,7 @@ public class GlobalController : MonoBehaviour
 
     [Header("Ints")]
     public int ListCount = 0;
-    public int cosmicEnergy;
-
-    [Header("LineRenderer")]
-    public LineRendererScript lineRenderer;
-    public bool lineDrawn;
+    public int cosmicEnergy; // Move to player stats 
 
     [Header("Audio")]
     public GameObject testAudioBackgroundMusic;
@@ -33,15 +29,13 @@ public class GlobalController : MonoBehaviour
     public GameObject[] activeStarArray;
     public GameObject[] usedStarArray;
 
-    [Header("Prefabs")]
-    public GameObject linePrefab; 
-
     [Header("Checkers")]
     public GameObject ResetChecker;
 
     [Header("Script References")]
     public Star Star;
-    public DrawingScript drawingScript; 
+    public DrawingScript drawingScript;
+    public StarSpawnerFramework starSpawnerFrameworkScript; 
 
     [Header("Tags")]
     public string starTag = "Star";
@@ -73,7 +67,7 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
-        cosmicEnergy = 500; 
+        // cosmicEnergy = 500; Move to player Stats script
         oldStarSpawner.SetActive(false); 
         Starlister();
         Vector3 distance = new Vector3(0f,0f,0f);  
