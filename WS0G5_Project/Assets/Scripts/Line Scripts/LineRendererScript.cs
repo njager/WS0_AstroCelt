@@ -18,6 +18,8 @@ public class LineRendererScript : MonoBehaviour
 
     public void Awake()
     {
+        lineRenderer
+
         pos.Add(object1.transform.position);
         pos.Add(object2.transform.position);
         lineRenderer.startWidth = 0.1f;

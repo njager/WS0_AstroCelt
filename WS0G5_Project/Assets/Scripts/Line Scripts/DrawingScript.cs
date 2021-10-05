@@ -10,7 +10,13 @@ public class DrawingScript : MonoBehaviour
     private LineRenderer importedLineRenderer;
     private GlobalController global;
 
-    void Start()
+    private Transform lineStartingPoint;
+    private Transform lineEndingPoint;
+
+    [Header("Positions Lists")]
+    public List<Vector3> transformHolder = new List<Vector3>();
+
+    public void Start()
     {
         global = GlobalController.instance;
     }
@@ -22,6 +28,8 @@ public class DrawingScript : MonoBehaviour
     {
         importedLineRenderer.startWidth = 0.3f;
         importedLineRenderer.endWidth = 0.3f;
+        transformHolder.Add(lineStartingPoint.transform.position);
+        transformHolder.Add(lineEndingPoint.position);
 
         if (global.lineRenderer.activeStarCounter == 1)
         {
