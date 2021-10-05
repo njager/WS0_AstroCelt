@@ -23,7 +23,7 @@ public class Star : MonoBehaviour
     private Renderer rend;
     private Color startColor;
 
-    void Start()
+    void Awake()
     {
         global = GlobalController.instance;
 
@@ -40,6 +40,7 @@ public class Star : MonoBehaviour
 
     public void StarReset()
     {
+        Debug.Log("Resetting Stars"); 
         starUsed = false;
         global.drawingScript.activeStarCounter = 0;
         global.starSpawnerFrameworkScript.starActive = 0;
@@ -55,12 +56,14 @@ public class Star : MonoBehaviour
         {
             global.drawingScript.activeStarCounter = 1;
             global.starSpawnerFrameworkScript.starActive = 1;
+            global.drawingScript.star1 = this;  
         }
         if (global.drawingScript.activeStarCounter == 1)
         {
+            global.drawingScript.star1 = this;
             global.drawingScript.activeStarCounter = 2;
             global.starSpawnerFrameworkScript.starActive = 2;
-            global.drawingScript.drawLine(); 
+            global.drawingScript.drawLine();
         }
         if (global.drawingScript.activeStarCounter == 2)
         {

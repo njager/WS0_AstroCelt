@@ -10,9 +10,11 @@ public class DrawingScript : MonoBehaviour
     private LineRenderer importedLineRenderer;
     private GlobalController global;
 
-    private Transform lineStartingPoint;
-    private Transform lineEndingPoint;
+    private Vector3 lineStartingPoint;
+    private Vector3 lineEndingPoint;
 
+    public Star star1;
+    public Star star2; 
 
     [Header("Positioning")]
     public List<Vector3> transformHolder = new List<Vector3>();
@@ -32,19 +34,22 @@ public class DrawingScript : MonoBehaviour
     }
 
 
-    public bool instancedLineRenderer { get { return importedLineRenderer != null; } }
+    // public bool instancedLineRenderer { get { return importedLineRenderer != null; } }
 
     public void drawLine()
     {
         if (activeStarCounter == 2)
         {
             importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, drawingScriptSelf);
+            Debug.Log("Spawned in Line");
+            lineStartingPoint = star1.transform.position;
+            lineEndingPoint = star2.transform.position;
 
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
             importedLineRenderer.useWorldSpace = true;
-            transformHolder.Add(lineStartingPoint.transform.position);
-            transformHolder.Add(lineEndingPoint.position);
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
         }
     }
