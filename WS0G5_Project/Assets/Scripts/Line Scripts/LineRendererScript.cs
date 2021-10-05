@@ -14,8 +14,7 @@ public class LineRendererScript : MonoBehaviour
     [Header("Positions Lists")]
     public List<Vector3> pos = new List<Vector3>();
 
-    
-
+   
     public void Awake()
     {
         lineRenderer.GetComponentInParent<Transform>(); 
