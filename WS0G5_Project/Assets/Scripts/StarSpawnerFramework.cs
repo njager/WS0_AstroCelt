@@ -293,8 +293,11 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform starSpawnPoint20_12;
 
     // Functions
+    private GlobalController global;
+
     void Start()
     {
+        global = GlobalController.instance;
         starSpawnCount = 0;
         SpawnStarRow1List();
         SpawnStarRow2List();
@@ -308,6 +311,14 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStarRow10List();
         SpawnStarRow11List();
         SpawnStarRow12List();
+    }
+
+    public void StarReset()
+    {
+        Debug.Log("Resetting Stars");
+        global.drawingScript.activeStarCounter = 0;
+        global.starSpawnerFrameworkScript.starActive = 0;
+        global.drawingScript.transformHolder = new List<Vector3>();
     }
 
     void Update()

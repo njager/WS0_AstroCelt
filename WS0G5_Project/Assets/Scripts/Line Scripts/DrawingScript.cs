@@ -37,7 +37,7 @@ public class DrawingScript : MonoBehaviour
 
     public void drawLine()
     {
-        if (activeStarCounter == 2)
+        if (activeStarCounter == 1)
         {
             LineRenderer importedLineRenderer = Instantiate(lineRendererPrefab);
             importedLineRenderer.useWorldSpace = true;
@@ -52,6 +52,8 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+            global.starSpawnerFrameworkScript.StarReset(); 
+
         }
         else
         {

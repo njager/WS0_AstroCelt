@@ -38,15 +38,7 @@ public class Star : MonoBehaviour
         starPosition = starSelf.transform;
     }
 
-    public void StarReset()
-    {
-        Debug.Log("Resetting Stars"); 
-        starUsed = false;
-        global.drawingScript.activeStarCounter = 0;
-        global.starSpawnerFrameworkScript.starActive = 0;
-        global.drawingScript.star1 = this;
-        global.drawingScript.star2 = this;
-    }
+    
 
 
    
@@ -65,15 +57,8 @@ public class Star : MonoBehaviour
         if (global.drawingScript.activeStarCounter == 1)
         {
             global.drawingScript.star2 = this;
-            global.drawingScript.activeStarCounter = 2;
-            global.starSpawnerFrameworkScript.starActive = 2;
             global.drawingScript.drawLine();
             Debug.Log("Set activeStarCounter to 2");
-            return;
-        }
-        if (global.drawingScript.activeStarCounter == 2)
-        {
-            StarReset();
             return;
         }
 
@@ -88,13 +73,13 @@ public class Star : MonoBehaviour
     {
         if (global.starWasSelected)
         {
-            rend.material.color = hoverColor;
+            //rend.material.color = hoverColor;
         }
     }
 
     public void OnMouseExit()
     {
-        rend.material.color = startColor;
+        //rend.material.color = startColor;
     }
 
     public void StarUsed() 
