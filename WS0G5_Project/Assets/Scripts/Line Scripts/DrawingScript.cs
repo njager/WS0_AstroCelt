@@ -5,9 +5,8 @@ using UnityEngine;
 public class DrawingScript : MonoBehaviour
 {
     [Header("Variables")]
-    public LineRenderer lineRendererPrefab; 
+    public LineRenderer lineRendererPrefab;
 
-    private LineRenderer importedLineRenderer;
     private GlobalController global;
 
     private Vector3 lineStartingPoint;
@@ -42,14 +41,14 @@ public class DrawingScript : MonoBehaviour
     {
         if (activeStarCounter == 2)
         {
-            importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, drawingScriptSelf);
+            LineRenderer importedLineRenderer = Instantiate(lineRendererPrefab);
+            importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
             lineStartingPoint = star1.transform.position;
             lineEndingPoint = star2.transform.position;
 
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
-            importedLineRenderer.useWorldSpace = true;
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());

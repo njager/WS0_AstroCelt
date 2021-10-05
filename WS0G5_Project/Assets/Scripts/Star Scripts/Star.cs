@@ -44,6 +44,8 @@ public class Star : MonoBehaviour
         starUsed = false;
         global.drawingScript.activeStarCounter = 0;
         global.starSpawnerFrameworkScript.starActive = 0;
+        global.drawingScript.star1 = this;
+        global.drawingScript.star2 = this;
     }
 
 
