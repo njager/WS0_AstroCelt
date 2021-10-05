@@ -40,27 +40,38 @@ public class Star : MonoBehaviour
 
     public void StarReset()
     {
-        starUsed = false; 
+        starUsed = false;
+        global.drawingScript.activeStarCounter = 0;
+        global.starSpawnerFrameworkScript.starActive = 0;
     }
+
 
    
-    public void OnClick()
+    public void OnMouseDown()
     {
-        //if (EventSystem.current.IsPointerOverGameObject())
-        //{
-            //return;
-        //}
-
         Debug.Log("Clicked on Star");
         global.activeStarList.Add(this);
+        if (global.drawingScript.activeStarCounter == 0)
+        {
+            global.drawingScript.activeStarCounter = 1;
+            global.starSpawnerFrameworkScript.starActive = 1;
+        }
+        if (global.drawingScript.activeStarCounter == 1)
+        {
+            global.drawingScript.activeStarCounter = 2;
+            global.starSpawnerFrameworkScript.starActive = 2;
+            global.drawingScript.drawLine(); 
+        }
+        if (global.drawingScript.activeStarCounter == 2)
+        {
+            StarReset(); 
+        }
 
-        global.drawingScript.activeStarCounter = 1;
-        global.starSpawnerFrameworkScript.starActive = 1; 
-    }
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //{
+        //return;
+        //}
 
-    public Vector3 lineStartingPoint()
-    {
-        return transform.position + positionOffset;
     }
 
     public void OnMouseEnter()

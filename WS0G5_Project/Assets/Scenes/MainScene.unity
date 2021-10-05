@@ -2563,8 +2563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c07f92b486de0429a238c00908925d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRendererPrefab: {fileID: 0}
+  lineRendererPrefab: {fileID: 5009269609317442848, guid: 4f531b43fa810446aa8221c178b27e1b, type: 3}
   transformHolder: []
+  drawingScriptSelf: {fileID: 163012954}
+  intitalQuaternion: {x: 0, y: 0, z: 0, w: 0}
   activeStarCounter: 0
 --- !u!1 &171981987
 GameObject:
@@ -19407,6 +19409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRendererPrefab: {fileID: 0}
   transformHolder: []
+  drawingScriptSelf: {fileID: 0}
+  intitalQuaternion: {x: 0, y: 0, z: 0, w: 0}
   activeStarCounter: 0
 --- !u!43 &2026476343
 Mesh:

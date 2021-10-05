@@ -36,19 +36,16 @@ public class DrawingScript : MonoBehaviour
 
     public void drawLine()
     {
-        importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, drawingScriptSelf);
-
-        importedLineRenderer.startWidth = 0.1f;
-        importedLineRenderer.endWidth = 0.1f;
-        importedLineRenderer.useWorldSpace = true;
-        transformHolder.Add(lineStartingPoint.transform.position);
-        transformHolder.Add(lineEndingPoint.position);
-        importedLineRenderer.SetPositions(transformHolder.ToArray());
-
-        if (activeStarCounter == 1)
+        if (activeStarCounter == 2)
         {
-            //LineRenderer.SetPosition(0, global.activeStarList[0].starPosition);
-            //LineRenderer.SetPosition(1, TransformTwo.position);
+            importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, drawingScriptSelf);
+
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.useWorldSpace = true;
+            transformHolder.Add(lineStartingPoint.transform.position);
+            transformHolder.Add(lineEndingPoint.position);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
         }
     }
 }
