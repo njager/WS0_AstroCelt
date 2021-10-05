@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DrawingScript : MonoBehaviour
 {
+    [Header("Variables")]
+    public GameObject lineRendererPrefab; 
+
     private LineRenderer importedLineRenderer;
     private GlobalController global;
 
