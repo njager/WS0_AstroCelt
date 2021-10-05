@@ -5,9 +5,6 @@ using UnityEngine;
 public class DrawingScript : MonoBehaviour
 {
     [Header("Variables")]
-    public Transform drawingScriptSelf;
-    public Quaternion intitalQuaternion;
-
     public LineRenderer lineRendererPrefab; 
 
     private LineRenderer importedLineRenderer;
@@ -21,15 +18,16 @@ public class DrawingScript : MonoBehaviour
     public List<Vector3> transformHolder = new List<Vector3>();
 
     private Vector3 initialPosition = Vector3.zero;
-    private Transform intitalTransform; 
+    public Transform drawingScriptSelf;
+    public Quaternion intitalQuaternion;
+
 
     [Header("Star Reporting")]
     public int activeStarCounter;
 
     public void Start()
     {
-        intitalQuaternion = Quaternion.identity; 
-        intitalTransform = drawingScriptSelf.transform;
+        intitalQuaternion = Quaternion.identity;
         global = GlobalController.instance;
     }
 
@@ -38,7 +36,7 @@ public class DrawingScript : MonoBehaviour
 
     public void drawLine()
     {
-        importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, intitalTransform);
+        importedLineRenderer = Instantiate(lineRendererPrefab, initialPosition, intitalQuaternion, drawingScriptSelf);
 
         importedLineRenderer.startWidth = 0.1f;
         importedLineRenderer.endWidth = 0.1f;
