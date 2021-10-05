@@ -5,14 +5,23 @@ using UnityEngine;
 public class LineRendererScript : MonoBehaviour
 {
     [Header("Self Reference")]
-    public LineRenderer LineRenderer;
+    public LineRenderer lineRenderer;
+    public GameObject object1;
+    public GameObject object2;
+    public List<Vector3> pos = new List<Vector3>();
 
     public int activeStarCounter;
 
-    void Start()
+    public void Start()
     {
-        LineRenderer.startColor = Color.white;
-        LineRenderer.endColor = Color.white;
+        pos.Add(object1.transform.position);
+        pos.Add(object2.transform.position);
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+        lineRenderer.SetPositions(pos.ToArray());
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
 
     }
 }
