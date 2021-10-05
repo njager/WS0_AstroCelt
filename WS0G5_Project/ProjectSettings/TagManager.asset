@@ -9,6 +9,7 @@ TagManager:
   - SpawningRow
   - SpawnPoint
   - Grid
+  - Holder
   layers:
   - Default
   - TransparentFX
