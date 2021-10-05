@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawingScript : MonoBehaviour
 {
-    private LineRenderer LineRenderer;
+    private LineRenderer importedLineRenderer;
     private GlobalController global;
 
     void Start()
@@ -12,10 +12,13 @@ public class DrawingScript : MonoBehaviour
         global = GlobalController.instance;
     }
 
+
+    public bool instancedLineRenderer { get { return importedLineRenderer != null; } }
+
     public void drawLine()
     {
-        LineRenderer.startWidth = 0.3f;
-        LineRenderer.endWidth = 0.3f;
+        importedLineRenderer.startWidth = 0.3f;
+        importedLineRenderer.endWidth = 0.3f;
 
         if (global.lineRenderer.activeStarCounter == 1)
         {
