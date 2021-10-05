@@ -56,18 +56,21 @@ public class Star : MonoBehaviour
         {
             global.drawingScript.activeStarCounter = 1;
             global.starSpawnerFrameworkScript.starActive = 1;
-            global.drawingScript.star1 = this;  
+            global.drawingScript.star1 = this;
+            return; 
         }
         if (global.drawingScript.activeStarCounter == 1)
         {
-            global.drawingScript.star1 = this;
+            global.drawingScript.star2 = this;
             global.drawingScript.activeStarCounter = 2;
             global.starSpawnerFrameworkScript.starActive = 2;
             global.drawingScript.drawLine();
+            return;
         }
         if (global.drawingScript.activeStarCounter == 2)
         {
-            StarReset(); 
+            StarReset();
+            return;
         }
 
         //if (EventSystem.current.IsPointerOverGameObject())

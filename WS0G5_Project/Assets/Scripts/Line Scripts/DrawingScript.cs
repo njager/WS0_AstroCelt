@@ -25,10 +25,12 @@ public class DrawingScript : MonoBehaviour
 
 
     [Header("Star Reporting")]
-    public int activeStarCounter;
+    public int activeStarCounter = 0;
 
     public void Start()
     {
+        lineStartingPoint = Vector3.zero;
+        lineStartingPoint = Vector3.zero; 
         intitalQuaternion = Quaternion.identity;
         global = GlobalController.instance;
     }
@@ -51,6 +53,10 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+        }
+        else
+        {
+            return; 
         }
     }
 }
