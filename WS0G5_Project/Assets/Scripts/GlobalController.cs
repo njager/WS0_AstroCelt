@@ -73,7 +73,6 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
-        // cosmicEnergy = 500; Move to player Stats script
         oldStarSpawner.SetActive(false); 
         Starlister();
         Vector3 distance = new Vector3(0f,0f,0f);  
@@ -106,24 +105,4 @@ public class GlobalController : MonoBehaviour
 
         constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
     }
-
-    void OldRaycastCode()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Mouse was clicked");
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            RaycastHit2D objectHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (objectHit.collider != null)
-            {
-                if (objectHit.collider.tag == starTag)
-                {
-                    Debug.Log("Clicked on Star");
-
-                }
-            }
-        }
-    }
-
 }
