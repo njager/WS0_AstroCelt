@@ -12,6 +12,7 @@ TagManager:
   - Holder
   - HealthStar
   - DamageStar
+  - Enemy
   layers:
   - Default
   - TransparentFX

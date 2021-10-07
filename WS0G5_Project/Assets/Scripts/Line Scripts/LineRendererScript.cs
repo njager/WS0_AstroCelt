@@ -8,11 +8,11 @@ public class LineRendererScript : MonoBehaviour
     public GameObject lineGameObject;
 
     public LineRenderer selfLine;
-    public float LineWidth = 0.5f; 
+    [SerializeField] float LineWidth = 0.5f; 
     private CapsuleCollider capsule;
 
 
-    public bool lineDrew = true;
+    public bool lineDrew = true; // Being checked in drawScript to see if line can draw
 
     [Header("Capsule Collider")]
     public Vector3 start;
@@ -37,27 +37,27 @@ public class LineRendererScript : MonoBehaviour
         capsule.height = (end - start).magnitude;
     }
 
-    void OnColliderEnter()
+    void OnTriggerEnter(Collider col)
     {
         Debug.Log("Hit!");
-        //GameObject other = collision.gameObject; 
-        //if (other.CompareTag("Line"))
-        //{
-        //    if (other != lineGameObject)
-       //     {
-    //          Debug.Log("Destroying"); 
-      //          lineDrew = false;
-        //        Destroy(lineGameObject);
-       //         return;
-         //   }
-      //  }
-      //  else
-     //   {
-     //       return; 
-    //    }
+        GameObject other = col.gameObject; 
+        if (other.CompareTag("Line"))
+        {
+           if(other != lineGameObject)
+           {
+              Debug.Log("Destroying"); 
+              lineDrew = false;
+              Destroy(lineGameObject);
+              return;
+           }
+        }
+        else
+        {
+          return; 
+        }
     }
     public void OnDestroy()
     {
-        Debug.Log("Yep Destoryed"); 
+        Debug.Log("Line Renderer Destroyed"); 
     }
 }

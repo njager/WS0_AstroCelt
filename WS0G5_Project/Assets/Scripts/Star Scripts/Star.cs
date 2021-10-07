@@ -43,6 +43,7 @@ public class Star : MonoBehaviour
         Debug.Log("Clicked on Star");
         if (global.drawingScript.activeStarCounter == 0)
         {
+            global.drawingScript.startingStar = this; 
             global.drawingScript.activeStarCounter = 1;
             global.drawingScript.star1 = this;
             Debug.Log("Set activeStarCounter to 1");

@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Enemy Attributes")]
+    public EnemyStats myStats;
+    public GameObject enemyGraphic;
+    public EnemyScript enemySelf; 
+
+    private int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
+    // 18
+    private GlobalController global; // Creating global variable
+    private int enemyCount; 
+
+
     void Start()
     {
-        
+        enemyCount = 0; 
+        global = GlobalController.instance;
+        global.currentEnemy = this;
+        enemyHealth = myStats.vitality; 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        enemyTimer(); 
+    }
+
+    public void enemyTimer()
+    {
+        return; 
+    }
+   
+    public void enemyAttacksPlayer(int damage)
+    {
+        global.playerScript.playerDamaged(damage); 
+    }
+
+    public void enemyDie()
+    {
+        Destroy(this); 
+    }
+
+    public void EnemyDamaged(int health)
+    {
+        enemyHealth -= health; 
+        if(enemyHealth <= 0)
+        {
+            enemyDie();
+            global.Win(); 
+        }
     }
 }

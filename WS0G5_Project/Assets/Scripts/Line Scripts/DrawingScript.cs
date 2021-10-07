@@ -17,7 +17,8 @@ public class DrawingScript : MonoBehaviour
     private Vector3 lineEndingPoint;
 
     public Star star1;
-    public Star star2; 
+    public Star star2;
+    public Star startingStar;
 
     [Header("Position")]
     public List<Vector3> transformHolder = new List<Vector3>();
@@ -26,11 +27,10 @@ public class DrawingScript : MonoBehaviour
     public int activeStarCounter = 0;
     public List<Star> usedStarList = new List<Star>();
 
-    private Vector3 initialPosition = Vector3.zero;
     public Transform drawingScriptSelf;
     public Quaternion intitalQuaternion;
 
-    public void Start()
+    public void Start() 
     {
         lineStartingPoint = Vector3.zero;
         lineStartingPoint = Vector3.zero;

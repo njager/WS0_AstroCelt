@@ -27,11 +27,14 @@ public class GlobalController : MonoBehaviour
     public int constellationPotentialDamage = 0;
     public int constellationFinalDamage = 0;
     public int constellationPotentialHealth = 0;
-    public int constellationFinalHealth = 0; 
+    public int constellationFinalHealth = 0;
+    public int constellationStarCount = 0;
 
     [Header("Characters")]
     public GameObject player;
     public GameObject enemyForRound1;
+
+    public EnemyScript currentEnemy; 
     
     [Header("Ints")]
     public int ListCount = 0;
@@ -55,6 +58,8 @@ public class GlobalController : MonoBehaviour
     public Star Star;
     public DrawingScript drawingScript;
     public StarSpawnerFramework starSpawnerFrameworkScript;
+    public PlayerScript playerScript;
+    public EnemyScript enemyScript; 
     public PlayerStats playerStats; 
 
     [Header("Tags")]
@@ -113,16 +118,67 @@ public class GlobalController : MonoBehaviour
     {
         foreach (Star star in constellationBeingBuilt.ToList())
         {
-            if(star.myStarClass.starType == "BaseStar")
+            if(star.myStarClass.starType == "Star")
             {
                 constellationPotential += star.myStarClass.constellationValue; 
 
+            }
+            if(star.myStarClass.starType == "HealthStar")
+            {
+                constellationPotentialHealth += star.myStarClass.constellationValue; 
+            }
+            if (star.myStarClass.starType == "DamageStar")
+            {
+                constellationPotentialDamage += star.myStarClass.constellationValue;
             }
         }
     }
 
     public void ConstelltionBuilt()
     {
+        foreach (Star star in constellationBeingBuilt)
+        {
+            constellationStarCount += 1; 
+        }
+        foreach (Star star in constellationBeingBuilt)
 
-    } 
+            if (constellationStarCount <= 3)
+            {
+                if(star == drawingScript.startingStar)
+                {
+                    Debug.Log("Constellation Built!");
+                    if(constellationPotentialDamage < 0)
+                    {
+                        if (constellationPotentialHealth < 0)
+                        {
+                            Debug.Log("Can't have both Health and Action Stars"); 
+                        }
+                        else
+                        {
+                            constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
+                            currentEnemy.EnemyDamaged(constellationFinalHealth);
+                        }
+                    }
+                    if(constellationPotentialHealth < 0)
+                    {
+                        if (constellationPotentialDamage < 0)
+                        {
+                            Debug.Log("Can't have both Health and Action Stars");
+                        }
+                        else
+                        {
+                            constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
+                            playerScript.PlayerHealed(constellationFinalHealth); 
+                        }
+                    }
+                }
+            } 
+    }
+    public void constellationClear()
+    {
+        Debug.Log("Clearing constellation");
+        {
+
+        }
+    }
 }

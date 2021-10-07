@@ -1,4 +1,3 @@
-using System.IO.IsolatedStorage;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats
 {
-    public float vitality;
-    public float damage;  
+    public int vitality;
+    public int damage;
+    public bool weaknessActivated;
 }
