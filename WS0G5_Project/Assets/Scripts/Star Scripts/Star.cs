@@ -42,6 +42,10 @@ public class Star : MonoBehaviour
     
     public void OnMouseDown()
     {
+        if (this == global.drawingScript.startingStar)
+        {
+            global.ConstellationBuilt(); 
+        }
         if (starFullyUsed == false)
         {
             Debug.Log("Clicked on Star");

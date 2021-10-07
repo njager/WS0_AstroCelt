@@ -115,7 +115,7 @@ public class GlobalController : MonoBehaviour
         loseCanvas.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void ConstelltionBuilding()
+    public void ConstellationBuilding()
     {
         foreach (Star star in constellationBeingBuilt.ToList())
         {
@@ -135,8 +135,9 @@ public class GlobalController : MonoBehaviour
         }
     }
 
-    public void ConstelltionBuilt()
+    public void ConstellationBuilt()
     {
+        ConstellationBuilding();
         foreach (Star star in constellationBeingBuilt)
         {
             constellationStarCount += 1; 
@@ -153,12 +154,14 @@ public class GlobalController : MonoBehaviour
                         if (constellationPotentialHealth < 0)
                         {
                             Debug.Log("Can't have both Health and Action Stars. Try again.");
+                            enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                             StartCoroutine(constellationClearBad()); 
                         }
                         else
                         {
                             constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
                             currentEnemy.EnemyDamaged(constellationFinalHealth);
+                            Debug.Log(currentEnemy.enemyHealth); 
                         }
                     }
                     if(constellationPotentialHealth < 0)
@@ -166,6 +169,7 @@ public class GlobalController : MonoBehaviour
                         if (constellationPotentialDamage < 0)
                         {
                             Debug.Log("Can't have both Health and Action Stars");
+                            enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                             StartCoroutine(constellationClearBad());
                         }
                         else
@@ -216,6 +220,7 @@ public class GlobalController : MonoBehaviour
         constellationPotential = 0;
         constellationFinalDamage = 0;
         constellationFinalHealth = 0;
-        return;
+        enumeratorCheckGood = 0;
+        yield return new WaitUntil(() => enumeratorCheckGood == 0);
     }
 }

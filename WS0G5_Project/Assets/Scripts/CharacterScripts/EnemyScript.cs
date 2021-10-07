@@ -9,15 +9,13 @@ public class EnemyScript : MonoBehaviour
     public GameObject enemyGraphic;
     public EnemyScript enemySelf; 
 
-    private int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
+    public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     // 18
     private GlobalController global; // Creating global variable
-    private int enemyCount; 
-
-
+   
     void Start()
     {
-        enemyCount = 0; 
+        EnemyStats.enemyCount += 1; 
         global = GlobalController.instance;
         global.currentEnemy = this;
         enemyHealth = myStats.vitality; 
@@ -49,7 +47,7 @@ public class EnemyScript : MonoBehaviour
         if(enemyHealth <= 0)
         {
             enemyDie();
-            global.Win(); 
+            global.Win(); // Remove when there is multiple enemies
         }
     }
 }
