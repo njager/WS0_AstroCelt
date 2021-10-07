@@ -48,12 +48,14 @@ public class DrawingScript : MonoBehaviour
         {
             GameObject lineRenderer = Instantiate(lineRendererPrefab); 
             LineRenderer importedLineRenderer = lineRenderer.GetComponent<LineRenderer>(); 
+            LineRendererScript lineScript = lineRenderer.GetComponent<LineRendererScript>();
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            Debug.Log(lineRenderer.GetComponent<LineRendererScript>().lineDrew); 
-            if (lineRenderer.GetComponent<LineRendererScript>().lineDrew == true)
+            Debug.Log(lineScript.lineDrew); 
+            if (lineScript.lineDrew == true)
             {
                 Debug.Log("Line Drew");
+                lineScript.ToggleBool(); 
                 usedStarList.Add(star1);
                 usedStarList.Add(star2);
                 lineStartingPoint = star1.transform.position;

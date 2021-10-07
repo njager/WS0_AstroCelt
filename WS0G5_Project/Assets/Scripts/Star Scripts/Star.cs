@@ -11,6 +11,7 @@ public class Star : MonoBehaviour
     public StarClass myStarClass; 
     public bool starUsed = false;
     public GameObject starSelf;
+    public GameObject starGraphicSelf; 
     public Color hoverColor;
     public Color usedColor;
     public Vector3 positionOffset;
@@ -21,7 +22,7 @@ public class Star : MonoBehaviour
     private Transform starPosition; 
 
     // Private Variables
-    private Renderer rend;
+    private SpriteRenderer rend;
     private Color startColor;
 
     public void Start()
@@ -32,7 +33,7 @@ public class Star : MonoBehaviour
         global.ListCount++;
         Debug.Log("Star Added");
 
-        rend = starGraphic.GetComponent<Renderer>();
+        rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
         starPosition = starSelf.transform;
     }
