@@ -13,9 +13,14 @@ public class GlobalController : MonoBehaviour
 
     // Attribute system
     [Header("Classes")]
-    public StarClass starClass;
-    public CharacterStats characterStats;
-    public ConstellatonHolder constellatonHolder; 
+    // public StarClass starClass;
+    // public CharacterStats characterStats;
+    // public ConstellatonHolder constellatonHolder;
+
+    // UI Canvases
+    [Header("Canvases")]
+    public GameObject winCanvas;
+    public GameObject loseCanvas; 
 
     [Header("Ints")]
     public int ListCount = 0;
@@ -88,21 +93,13 @@ public class GlobalController : MonoBehaviour
        
     }
 
-    public void drawLine(GameObject constellationLine, Vector3 initialPosition, Vector3 finalPosition)
+    public void Win()
     {
-        var distance = 0f; 
-        Vector3 centerPos = (initialPosition + finalPosition) / 2f;
 
-        constellationLine.transform.position = centerPos;
+    }
 
-        Vector3 direction = finalPosition - initialPosition;
-        direction = Vector3.Normalize(direction);
-        constellationLine.transform.right = direction;
+    public void Lose()
+    {
 
-        distance = Vector3.Distance(initialPosition, finalPosition);
-
-        Debug.DrawLine(initialPosition, finalPosition);
-
-        constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
     }
 }

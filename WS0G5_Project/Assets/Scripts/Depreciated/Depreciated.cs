@@ -24,4 +24,22 @@ public class Depreciated : MonoBehaviour
             }
         }
     }
+
+    public void drawLine(GameObject constellationLine, Vector3 initialPosition, Vector3 finalPosition) // Grabbed online, may be better 
+    {
+        var distance = 0f;
+        Vector3 centerPos = (initialPosition + finalPosition) / 2f;
+
+        constellationLine.transform.position = centerPos;
+
+        Vector3 direction = finalPosition - initialPosition;
+        direction = Vector3.Normalize(direction);
+        constellationLine.transform.right = direction;
+
+        distance = Vector3.Distance(initialPosition, finalPosition);
+
+        Debug.DrawLine(initialPosition, finalPosition);
+
+        constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
+    }
 }
