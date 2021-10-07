@@ -35,14 +35,8 @@ public class GlobalController : MonoBehaviour
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    public List<Star> startingStarList;
-    public List<Star> activeStarList;
-    public List<Star> usedStarList;
-
-    [Header("Arrays")]
-    public GameObject[] startingStarArray; 
-    public GameObject[] activeStarArray;
-    public GameObject[] usedStarArray;
+    public List<Transform> startingStarSpawnPointList = new List<Transform>();
+    public List<Star> constellationBeingBuilt; 
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -85,14 +79,8 @@ public class GlobalController : MonoBehaviour
     {
         Time.timeScale = 1f; 
         oldStarSpawner.SetActive(false); 
-        Starlister();
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false); 
-    }
-
-    void Starlister()
-    {
-        startingStarArray = GameObject.FindGameObjectsWithTag(starTag);
     }
 
     public void Update()
@@ -111,4 +99,16 @@ public class GlobalController : MonoBehaviour
         loseCanvas.SetActive(true);
         Time.timeScale = 0f;
     }
+    public void ConstelltionBuilding()
+    {
+        foreach (Star star in constellationBeingBuilt.ToList())
+        {
+            if star.star
+        }
+    }
+
+    public void ConstelltionBuilt()
+    {
+
+    } 
 }

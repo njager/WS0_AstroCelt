@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class DrawingScript : MonoBehaviour
 {
@@ -20,6 +24,7 @@ public class DrawingScript : MonoBehaviour
 
     [Header("Star Reporting")]
     public int activeStarCounter = 0;
+    public List<Star> usedStarList = new List<Star>();
 
     private Vector3 initialPosition = Vector3.zero;
     public Transform drawingScriptSelf;
@@ -32,6 +37,11 @@ public class DrawingScript : MonoBehaviour
         global = GlobalController.instance;
     }
 
+    public void update()
+    {
+        usedStars();
+    }
+
 
     // public bool instancedLineRenderer { get { return importedLineRenderer != null; } }
 
@@ -42,6 +52,8 @@ public class DrawingScript : MonoBehaviour
             LineRenderer importedLineRenderer = Instantiate(lineRendererPrefab);
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
+            usedStarList.Add(star1);
+            usedStarList.Add(star2);
             lineStartingPoint = star1.transform.position;
             lineEndingPoint = star2.transform.position;
 
@@ -58,6 +70,14 @@ public class DrawingScript : MonoBehaviour
         else
         {
             return; 
+        }
+    }
+
+    public void usedStars()
+    {
+        foreach (Star star in usedStarList.ToList())
+        {
+            star.StarUsed();
         }
     }
 }

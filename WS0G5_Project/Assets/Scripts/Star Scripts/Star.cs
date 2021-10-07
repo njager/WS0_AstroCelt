@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class Star : MonoBehaviour
 {
     [Header("Star Attributes")]
+    public StarClass myStarClass; 
     public bool starUsed = false;
     public Star starSelf;
     public Color hoverColor;
@@ -25,6 +26,7 @@ public class Star : MonoBehaviour
 
     void Awake()
     {
+        myStarClass = global.starSpawnerFrameworkScript.baseStar;  
         global = GlobalController.instance;
 
         starUsed = false;
@@ -39,13 +41,9 @@ public class Star : MonoBehaviour
     }
 
     
-
-
-   
     public void OnMouseDown()
     {
         Debug.Log("Clicked on Star");
-        global.activeStarList.Add(this);
         if (global.drawingScript.activeStarCounter == 0)
         {
             global.drawingScript.activeStarCounter = 1;
@@ -84,8 +82,9 @@ public class Star : MonoBehaviour
 
     public void StarUsed() 
     {
-        global.startingStarList.Remove(this);
-        global.usedStarList.Add(this); 
+        rend.material.color = usedColor;
+        global.constellationBeingBuilt.Add(this);
+        
     }
 
 }
