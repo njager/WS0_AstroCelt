@@ -142,49 +142,46 @@ public class GlobalController : MonoBehaviour
         {
             constellationStarCount += 1; 
         }
-        foreach (Star star in constellationBeingBuilt)
-
-            if (constellationStarCount >= 3)
+        
+        if (constellationStarCount >= 3)
+        {
+            Debug.Log("Constellation Building!");
+            if(constellationPotentialDamage > 0)
             {
-                if(star == drawingScript.startingStar)
+                if (constellationPotentialHealth > 0)
                 {
-                    Debug.Log("Constellation Building!");
-                    if(constellationPotentialDamage > 0)
-                    {
-                        if (constellationPotentialHealth > 0)
-                        {
-                            Debug.Log("Can't have both Health and Action Stars. Try again.");
-                            enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                            StartCoroutine(constellationClearBad()); 
-                        }
-                        else
-                        {
-                            Debug.Log("Constellation Built!");
-                            constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
-                            currentEnemy.EnemyDamaged(constellationFinalHealth);
-                            Debug.Log(currentEnemy.enemyHealth);
-                            enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                            StartCoroutine(constellationClearGood());
-                        }
-                    }
-                    if(constellationPotentialHealth > 0)
-                    {
-                        if (constellationPotentialDamage > 0)
-                        {
-                            Debug.Log("Can't have both Health and Action Stars");
-                            enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                            StartCoroutine(constellationClearBad());
-                        }
-                        else
-                        {
-                            constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
-                            playerScript.PlayerHealed(constellationFinalHealth);
-                            enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                            StartCoroutine(constellationClearGood());
-                        }
-                    }
+                      Debug.Log("Can't have both Health and Action Stars. Try again.");
+                      enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                      StartCoroutine(constellationClearBad()); 
                 }
-            } 
+                else
+                {
+                Debug.Log("Constellation Built!");
+                constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
+                currentEnemy.EnemyDamaged(constellationFinalHealth);
+                Debug.Log(currentEnemy.enemyHealth);
+                enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                StartCoroutine(constellationClearGood());
+                }
+            }
+            if(constellationPotentialHealth > 0)
+            {
+                if (constellationPotentialDamage > 0)
+                {
+                    Debug.Log("Can't have both Health and Action Stars");
+                    enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearBad());
+                }
+                else
+                {
+                    constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
+                    playerScript.PlayerHealed(constellationFinalHealth);
+                    enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearGood());
+                }
+            }
+                
+        } 
     }
     IEnumerator constellationClearBad()
     {
@@ -198,6 +195,7 @@ public class GlobalController : MonoBehaviour
             star.starUsed = false;
             constellationBeingBuilt.Remove(star); 
         }
+        drawingScript.starCount = 0;
         constellationPotentialHealth = 0;
         constellationPotentialDamage = 0;
         constellationPotential = 0;
@@ -220,6 +218,7 @@ public class GlobalController : MonoBehaviour
             star.StarUsed(); 
             constellationBeingBuilt.Remove(star);
         }
+        drawingScript.starCount = 0;
         constellationPotentialHealth = 0;
         constellationPotentialDamage = 0;
         constellationPotential = 0;

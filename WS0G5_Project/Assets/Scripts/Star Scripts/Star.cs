@@ -51,24 +51,37 @@ public class Star : MonoBehaviour
             Debug.Log("Clicked on Star");
             if (global.drawingScript.activeStarCounter == 0)
             {
-                global.drawingScript.startingStar = this;
-                global.drawingScript.activeStarCounter = 1;
-                global.drawingScript.star1 = this;
-                Debug.Log("Set activeStarCounter to 1");
-                return;
+                if (global.drawingScript.starCount == 0)
+                {
+                    global.drawingScript.startingStar = this;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.star1 = this;
+                    Debug.Log("Set activeStarCounter to 1");
+                    return;
+                }
+                else 
+                {
+                    global.drawingScript.star2 = this;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.drawLine();
+                    Debug.Log("Else Triggered");
+                }
             }
             if (global.drawingScript.activeStarCounter == 1)
             {
-                if (global.drawingScript.star1 == this)
+                if (global.drawingScript.starCount == 0)
                 {
-                    Debug.Log("Click a different Star");
-                    global.drawingScript.activeStarCounter = 1;
+                    if (global.drawingScript.star1 == this)
+                    {
+                        Debug.Log("Click a different Star");
+                        global.drawingScript.activeStarCounter = 1;
+                        return;
+                    }
+                    global.drawingScript.star2 = this;
+                    global.drawingScript.drawLine();
+                    Debug.Log("Set activeStarCounter to 2");
                     return;
                 }
-                global.drawingScript.star2 = this;
-                global.drawingScript.drawLine();
-                Debug.Log("Set activeStarCounter to 2");
-                return;
             }
         }
         else
