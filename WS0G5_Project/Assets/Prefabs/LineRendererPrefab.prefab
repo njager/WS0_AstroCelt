@@ -158,4 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 5009269609317442848}
-  lineDrew: 0
+  lineDrew: 1

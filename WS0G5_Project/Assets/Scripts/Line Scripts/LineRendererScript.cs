@@ -11,13 +11,15 @@ public class LineRendererScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Line")
+        Debug.Log("Hit!");
+        GameObject other = collision.gameObject; 
+        if (other.CompareTag("Line"))
         {
-            if (collision.gameObject != lineRenderer)
+            if (other != lineRenderer)
             {
                 Debug.Log("Destroying"); 
                 lineDrew = false;
-                Destroy(this);
+                Destroy(lineRenderer);
                 return;
             }
         }
@@ -26,5 +28,8 @@ public class LineRendererScript : MonoBehaviour
             return; 
         }
     }
-}   
-
+    public void OnDestroy()
+    {
+        Debug.Log("Yep Destoryed"); 
+    }
+}

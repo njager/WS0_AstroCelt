@@ -51,7 +51,7 @@ public class DrawingScript : MonoBehaviour
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
             Debug.Log(lineRenderer.GetComponent<LineRendererScript>().lineDrew); 
-            if (lineRenderer.GetComponent<LineRendererScript>().lineDrew == false)
+            if (lineRenderer.GetComponent<LineRendererScript>().lineDrew == true)
             {
                 Debug.Log("Line Drew");
                 usedStarList.Add(star1);

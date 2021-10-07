@@ -50,6 +50,12 @@ public class Star : MonoBehaviour
         }
         if (global.drawingScript.activeStarCounter == 1)
         {
+            if(global.drawingScript.star1 == this)
+            {
+                Debug.Log("Click a different Star");
+                global.drawingScript.activeStarCounter = 1;
+                return;
+            }
             global.drawingScript.star2 = this;
             global.drawingScript.drawLine();
             Debug.Log("Set activeStarCounter to 2");
