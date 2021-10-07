@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterStats
+public class EnemyStats
 {
     public float vitality;
-    public float damage; 
-    public int cosmicEnergy; 
+    public float damage;  
 }
