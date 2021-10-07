@@ -80,6 +80,29 @@ public class DrawingScript : MonoBehaviour
 
     public void drawingLine(LineRenderer importedLineRenderer, LineRendererScript lineScript) 
     {
+        if (starCount > 0)
+        {
+            lineScript.ToggleBool();
+            bool lineCheck = lineScript.getLineDrew();
+            if (lineCheck == false)
+            {
+                lineScript.ToggleBool();
+                return;
+            }
+            global.constellationBeingBuilt.Add(star2);
+            lineStartingPoint = starNext.transform.position;
+            lineEndingPoint = star2.transform.position;
+
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
+            starNext = star2;
+            global.starSpawnerFrameworkScript.StarReset();
+        }
         if (starCount == 0)
         {
             lineScript.ToggleBool();
@@ -103,29 +126,6 @@ public class DrawingScript : MonoBehaviour
             importedLineRenderer.SetPositions(transformHolder.ToArray());
             starNext = star2;
             starCount++;
-            global.starSpawnerFrameworkScript.StarReset();
-        }
-        if (starCount > 0)
-        {
-            lineScript.ToggleBool();
-            bool lineCheck = lineScript.getLineDrew();
-            if (lineCheck == false)
-            {
-                lineScript.ToggleBool();
-                return;
-            }
-            global.constellationBeingBuilt.Add(star2);
-            lineStartingPoint = starNext.transform.position;
-            lineEndingPoint = star2.transform.position;
-
-            importedLineRenderer.startWidth = 0.1f;
-            importedLineRenderer.endWidth = 0.1f;
-            importedLineRenderer.startColor = Color.white;
-            importedLineRenderer.endColor = Color.white;
-            transformHolder.Add(lineStartingPoint);
-            transformHolder.Add(lineEndingPoint);
-            importedLineRenderer.SetPositions(transformHolder.ToArray());
-            starNext = star2;
             global.starSpawnerFrameworkScript.StarReset();
         }
 
