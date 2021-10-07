@@ -102,20 +102,20 @@ public class LineRendererScript : MonoBehaviour
         {
            if(other != lineGameObject)
            {
-                if (linePlaced != false)
+                //if (linePlaced != false)
                 {
-                    ToggleBool(); 
+                    //ToggleBool(); 
                 }
-                if (isLinePlaced == false)
+                //if (isLinePlaced == false)
                 {
                     lineDrew = false;
                     Debug.Log("Destroying");
                     Destroy(lineGameObject);
                     return;
                 }
-                else
+                //else
                 {
-                    return; 
+                    //return; 
                 }
            }
         }

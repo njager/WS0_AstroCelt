@@ -59,17 +59,17 @@ public class DrawingScript : MonoBehaviour
             if (lineScript.lineDrew == true)
             {
                 drawingLine(importedLineRenderer, lineScript);
-                bool lineCheck = lineScript.getLinePlaced(); 
-                if (lineCheck != true)
+                //bool lineCheck = lineScript.getLinePlaced(); 
+                //if (lineCheck != true)
                 {
-                    lineScript.ToggleBool(); 
+                    //lineScript.ToggleBool(); 
                 }
 
             }
             else
             {
                 Debug.Log("Line Collided with Line");
-                lineScript.ToggleBool(); 
+                //lineScript.ToggleBool(); 
             }
         }
         else
@@ -82,12 +82,12 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
-            lineScript.ToggleBool();
-            bool lineCheck = lineScript.getLineDrew();
-            if (lineCheck == false)
+            //lineScript.ToggleBool();
+            //bool lineCheck = lineScript.getLineDrew();
+            //if (lineCheck == false)
             {
-                lineScript.ToggleBool();
-                return;
+                //lineScript.ToggleBool();
+                //return;
             }
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
@@ -105,12 +105,12 @@ public class DrawingScript : MonoBehaviour
         }
         if (starCount == 0)
         {
-            lineScript.ToggleBool();
-            bool lineCheck = lineScript.getLineDrew();
-            if (lineCheck == false)
+            //lineScript.ToggleBool();
+            //bool lineCheck = lineScript.getLineDrew();
+            //if (lineCheck == false)
             {
-                lineScript.ToggleBool();
-                return;
+                //lineScript.ToggleBool();
+                //return;
             }
             global.constellationBeingBuilt.Add(star1);
             global.constellationBeingBuilt.Add(star2);

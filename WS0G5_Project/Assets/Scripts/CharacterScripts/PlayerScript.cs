@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject playerSelf; 
 
     private int playerHealthLimit;
+    public int showHealth; // I want to see health in inspector 
     private GlobalController global; // Global Controller reference
 
     void Start()
@@ -22,7 +23,9 @@ public class PlayerScript : MonoBehaviour
 
     public void playerDamaged(int damage)
     {
-        PlayerStats.playerVitality -= damage; 
+        PlayerStats.playerVitality -= damage;
+        Debug.Log("Player Hit"); 
+        showHealth = PlayerStats.playerVitality; 
     }
 
     public void PlayerHealed(int health)

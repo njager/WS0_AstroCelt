@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStats:
-    vitality: 18
+    vitality: 2
     damage: 1
     weaknessActivated: 0
   enemyGameObject: {fileID: 1475303926191799721}
   enemySelf: {fileID: 1475303926191799727}
+  timeBetweenAttacks: 2
+  rate: 0
+  enemyDamage: 0
   enemyHealth: 0
 --- !u!1 &1475303926906567920
 GameObject:
