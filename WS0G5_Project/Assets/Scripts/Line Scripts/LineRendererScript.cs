@@ -8,13 +8,16 @@ public class LineRendererScript : MonoBehaviour
     public GameObject lineGameObject;
 
     public LineRenderer selfLine;
-    [SerializeField] float LineWidth = 0.5f; 
+    [SerializeField] float LineWidth = 0.5f; // Referencing line Renderer width for capsule collider
     private CapsuleCollider capsule;
+    [SerializeField] int boolCount; // Use a count varaible to only toggle once
 
 
     public bool lineDrew = true; // Being checked in drawScript to see if line can draw
     public bool isLinePlaced; // Bool, set in drawing script, so that the lines that are placed and valid don't destroy upon collision 
-    private bool lineStateChange; // Use bool to holder the opposite of is line placed to then change it to that
+    private bool lineStateChange1; // Use bool to holder the opposite of is line placed to then change it to that
+    private bool lineStateChange2;
+    private bool linePlaced; 
 
     [Header("Capsule Collider")]
     public Vector3 start;
@@ -24,8 +27,8 @@ public class LineRendererScript : MonoBehaviour
 
     public void Start()
     {
-        offset = 0.85f;
-        isLinePlaced = false; 
+        boolCount = 0; 
+        offset = 0.85f; 
         selfLine = lineGameObject.GetComponent<LineRenderer>();
         capsule = lineGameObject.GetComponent<CapsuleCollider>(); 
         capsule.radius = LineWidth / 2;
@@ -35,13 +38,33 @@ public class LineRendererScript : MonoBehaviour
     
     public void ToggleBool() //So DrawScript can change the bool inside the script
     {
-        if (isLinePlaced != !isLinePlaced)
+        if (boolCount == 0)
         {
-            lineStateChange = !isLinePlaced;
-            isLinePlaced = lineStateChange;
-            Debug.Log(isLinePlaced); 
+            if (isLinePlaced != !isLinePlaced)
+            {
+                Debug.Log("Triggered");
+                lineStateChange1 = !isLinePlaced;
+                isLinePlaced = lineStateChange1;
+                Debug.Log(isLinePlaced);
+                return;
+            }
+        }
+        else
+        {
             return; 
         }
+    }
+
+    public bool getLinePlaced()
+    {
+        if (linePlaced != true)
+        {
+            Debug.Log("Triggered linePlaced");
+            lineStateChange2 = !isLinePlaced;
+            isLinePlaced = lineStateChange2;
+            Debug.Log(isLinePlaced);
+        }
+        return linePlaced; 
     }
 
     public void Update()
@@ -54,6 +77,11 @@ public class LineRendererScript : MonoBehaviour
         capsule.height = ((end - start)*offset).magnitude;
     }
 
+    public bool getLineDrew()
+    {
+        return lineDrew; 
+    }
+
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Hit!");
@@ -62,10 +90,14 @@ public class LineRendererScript : MonoBehaviour
         {
            if(other != lineGameObject)
            {
+                if (linePlaced != false)
+                {
+                    ToggleBool(); 
+                }
                 if (isLinePlaced == false)
                 {
-                    Debug.Log("Destroying");
                     lineDrew = false;
+                    Debug.Log("Destroying");
                     Destroy(lineGameObject);
                     return;
                 }
