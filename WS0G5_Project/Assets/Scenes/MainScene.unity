@@ -3154,6 +3154,7 @@ MonoBehaviour:
     weaknessActivated: 0
   enemyGraphic: {fileID: 0}
   enemySelf: {fileID: 0}
+  enemyHealth: 0
 --- !u!1 &310840456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,20 +3318,21 @@ MonoBehaviour:
   currentEnemy: {fileID: 0}
   ListCount: 0
   roundCount: 0
+  enumeratorCheckBad: 0
+  enumeratorCheckGood: 0
   testAudioBackgroundMusic: {fileID: 174412628}
   testAudiosoundEffect1: {fileID: 987269602}
   startingStarSpawnPointList: []
   constellationBeingBuilt: []
-  constellationBaseStarPotential: []
-  constellationHealthStarPotential: []
-  constellationDamageStarPotential: []
+  constellationFinalStars: []
+  lineRendererList: []
   ResetChecker: {fileID: 797493711}
   Star: {fileID: 2075864384}
   drawingScript: {fileID: 163012955}
   starSpawnerFrameworkScript: {fileID: 560938487}
-  playerScript: {fileID: 0}
-  enemyScript: {fileID: 0}
-  playerStats: {fileID: 0}
+  playerScript: {fileID: 1392798452}
+  enemyScript: {fileID: 291168588}
+  playerStats: {fileID: 1392798453}
   starTag: Star
   abc: 90
   spawningFramework: {fileID: 560938485}
