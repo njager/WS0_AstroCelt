@@ -7,18 +7,18 @@ public class LineRendererScript : MonoBehaviour
     [Header("Self Reference")]
     public LineRenderer lineRenderer;
 
-    public bool lineDrew; 
-
-    public void Start()
-    {
-        lineDrew = true; 
-    }
+    public bool lineDrew = true; 
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Line")
         {
-            Destroy(this); 
+            lineDrew = false;
+            Destroy(this);
+        }
+        else
+        {
+            return; 
         }
     }
 }   

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class DrawingScript : MonoBehaviour
 {
     [Header("Variables")]
-    public LineRenderer lineRendererPrefab;
+    public LineRenderer lineRendererPrefab; 
 
     private GlobalController global;
 
@@ -42,30 +42,35 @@ public class DrawingScript : MonoBehaviour
         usedStars();
     }
 
-
-    // public bool instancedLineRenderer { get { return importedLineRenderer != null; } }
-
     public void drawLine()
     {
         if (activeStarCounter == 1)
         {
             LineRenderer importedLineRenderer = Instantiate(lineRendererPrefab);
+            LineRendererScript getDrawBool = importedLineRenderer.GetComponent<LineRendererScript>(); 
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            usedStarList.Add(star1);
-            usedStarList.Add(star2);
-            lineStartingPoint = star1.transform.position;
-            lineEndingPoint = star2.transform.position;
+            if (getDrawBool.lineDrew == true)
+            {
+                Debug.Log("Line Drew");
+                usedStarList.Add(star1);
+                usedStarList.Add(star2);
+                lineStartingPoint = star1.transform.position;
+                lineEndingPoint = star2.transform.position;
 
-            importedLineRenderer.startWidth = 0.1f;
-            importedLineRenderer.endWidth = 0.1f;
-            importedLineRenderer.startColor = Color.white;
-            importedLineRenderer.endColor = Color.white;
-            transformHolder.Add(lineStartingPoint);
-            transformHolder.Add(lineEndingPoint);
-            importedLineRenderer.SetPositions(transformHolder.ToArray());
-            global.starSpawnerFrameworkScript.StarReset(); 
-
+                importedLineRenderer.startWidth = 0.1f;
+                importedLineRenderer.endWidth = 0.1f;
+                importedLineRenderer.startColor = Color.white;
+                importedLineRenderer.endColor = Color.white;
+                transformHolder.Add(lineStartingPoint);
+                transformHolder.Add(lineEndingPoint);
+                importedLineRenderer.SetPositions(transformHolder.ToArray());
+                global.starSpawnerFrameworkScript.StarReset();
+            }
+            else
+            {
+                Debug.Log("Line Collided with Line");
+            }
         }
         else
         {
