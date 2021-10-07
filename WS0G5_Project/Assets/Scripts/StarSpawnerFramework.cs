@@ -315,6 +315,10 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStarRow10List();
         SpawnStarRow11List();
         SpawnStarRow12List();
+
+        SpawnStar(baseStar);
+        SpawnStar(actionHealthStar);
+        SpawnStar(actionDamageStar);
     }
 
     public void StarReset()
@@ -327,12 +331,11 @@ public class StarSpawnerFramework : MonoBehaviour
 
     void Update()
     {
-        SpawnStar(baseStar);
         verticalGrid.SetActive(false);
         horizontalGrid.SetActive(false);
     }
 
-    void SpawnStar(StarClass star)
+    void SpawnStar(StarClass star) // Hand Built Calls Per Level
     {
         if (starSpawnCount == 0)
         {
@@ -351,6 +354,51 @@ public class StarSpawnerFramework : MonoBehaviour
             Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
+        }
+        if (starSpawnCount == 3)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Star Spawned!");
+            starSpawnCount++;
+        }
+        if (starSpawnCount == 4)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Star Spawned!");
+            starSpawnCount++;
+        }
+        if (starSpawnCount == 5)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Star Spawned!");
+            starSpawnCount++;
+            return; 
+        }
+        if (starSpawnCount == 6)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint5_3.position, starSpawnPoint5_3.rotation);
+            Debug.Log("Health Star Spawned!");
+            starSpawnCount++;
+        }
+        if (starSpawnCount == 7)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Health Star Spawned!");
+            starSpawnCount++;
+            return; 
+        }
+        if (starSpawnCount == 8)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Action Star Spawned!");
+            starSpawnCount++;
+        }
+        if (starSpawnCount == 9)
+        {
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Debug.Log("Action Star Spawned!");
+            starSpawnCount++;
+            return;
         }
     }
 

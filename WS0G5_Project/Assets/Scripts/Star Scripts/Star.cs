@@ -33,8 +33,8 @@ public class Star : MonoBehaviour
         global.ListCount++;
         Debug.Log("Star Added");
 
-        rend = starGraphic.GetComponent<Renderer>();
-        startColor = rend.material.color;
+        // rend = starGraphic.GetComponent<Renderer>();
+        //startColor = rend.material.color;
         starPosition = starSelf.transform;
     }
 
