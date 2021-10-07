@@ -78,9 +78,11 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
+        Time.timeScale = 1f; 
         oldStarSpawner.SetActive(false); 
         Starlister();
-        Vector3 distance = new Vector3(0f,0f,0f);  
+        winCanvas.SetActive(false);
+        loseCanvas.SetActive(false); 
     }
 
     void Starlister()
@@ -95,11 +97,13 @@ public class GlobalController : MonoBehaviour
 
     public void Win()
     {
-
+        winCanvas.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Lose()
     {
-
+        loseCanvas.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
