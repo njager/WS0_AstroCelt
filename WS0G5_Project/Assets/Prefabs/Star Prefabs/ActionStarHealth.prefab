@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1679491186687530817}
   m_Layer: 0
   m_Name: ActionStarHealth
-  m_TagString: Star
+  m_TagString: HealthStar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

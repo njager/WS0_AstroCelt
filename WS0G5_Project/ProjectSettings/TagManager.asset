@@ -10,6 +10,8 @@ TagManager:
   - SpawnPoint
   - Grid
   - Holder
+  - HealthStar
+  - DamageStar
   layers:
   - Default
   - TransparentFX

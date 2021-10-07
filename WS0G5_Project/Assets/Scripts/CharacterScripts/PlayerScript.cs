@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public GameObject playerSelf; 
+
     private int playerHealthLimit;
     private GlobalController global; // Global Controller reference
 

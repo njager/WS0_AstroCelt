@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class StarSpawnerFramework : MonoBehaviour
 {
+    [Header("Stars")]
+    public StarClass baseStar;
+    public StarClass actionHealthStar;
+    public StarClass actionDamageStar; 
+
     [Header("Other Scripts")]
     public int starActive = 0;
 
     [Header("Other")]
-    public GameObject starPrefab;
     public GameObject verticalGrid;
     public GameObject horizontalGrid;
     public int starSpawnCount;
@@ -315,7 +319,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void StarReset()
     {
-        Debug.Log("Resetting Stars");
+        Debug.Log("Resetting Star Clicks");
         global.drawingScript.activeStarCounter = 0;
         global.starSpawnerFrameworkScript.starActive = 0;
         global.drawingScript.transformHolder = new List<Vector3>();
@@ -323,28 +327,28 @@ public class StarSpawnerFramework : MonoBehaviour
 
     void Update()
     {
-        SpawnStar(starPrefab);
+        SpawnStar(baseStar);
         verticalGrid.SetActive(false);
         horizontalGrid.SetActive(false);
     }
 
-    void SpawnStar(GameObject star)
+    void SpawnStar(StarClass star)
     {
         if (starSpawnCount == 0)
         {
-            Instantiate(star, starSpawnPoint3_7.position, starSpawnPoint3_7.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint3_7.position, starSpawnPoint3_7.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
         }
         if (starSpawnCount == 1)
         {
-            Instantiate(star, starSpawnPoint5_12.position, starSpawnPoint5_12.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint5_12.position, starSpawnPoint5_12.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
         }
         if (starSpawnCount == 2)
         {
-            Instantiate(star, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
         }
