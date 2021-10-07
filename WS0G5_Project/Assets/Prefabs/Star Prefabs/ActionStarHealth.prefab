@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6657636607174309373}
-  - component: {fileID: 4191064865580078985}
+  - component: {fileID: 5129354411995770683}
   - component: {fileID: 1679491186687530817}
   m_Layer: 0
   m_Name: ActionStarHealth
@@ -74,7 +74,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4191064865580078985
+--- !u!114 &5129354411995770683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,13 +83,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4444467650669534561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b1495b7c4e54b04ad3d09a3c99f99e, type: 3}
+  m_Script: {fileID: 11500000, guid: ca143f7160e91074c87d32d6b0b9fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStarClass:
+    starPrefab: {fileID: 0}
+    constellationValue: 0
+    starType: 
   starUsed: 0
-  starSelf: {fileID: 4191064865580078985}
-  hoverColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
-  usedColor: {r: 0, g: 0, b: 0, a: 1}
+  starSelf: {fileID: 5129354411995770683}
+  hoverColor: {r: 0, g: 0, b: 0, a: 0.43529412}
+  usedColor: {r: 0, g: 0.21568628, b: 0.092228256, a: 0.8392157}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 2643344414835712437}
 --- !u!135 &1679491186687530817

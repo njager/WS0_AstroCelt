@@ -22,6 +22,13 @@ public class GlobalController : MonoBehaviour
     public GameObject winCanvas;
     public GameObject loseCanvas;
 
+    [Header("Constellation Variables")]
+    public int constellationPotential = 0; 
+    public int constellationPotentialDamage = 0;
+    public int constellationFinalDamage = 0;
+    public int constellationPotentialHealth = 0;
+    public int constellationFinalHealth = 0; 
+
     [Header("Characters")]
     public GameObject player;
     public GameObject enemyForRound1;
@@ -36,7 +43,10 @@ public class GlobalController : MonoBehaviour
 
     [Header("Lists")]
     public List<Transform> startingStarSpawnPointList = new List<Transform>();
-    public List<Star> constellationBeingBuilt; 
+    public List<Star> constellationBeingBuilt = new List<Star>();
+    public List<Star> constellationBaseStarPotential = new List<Star>();
+    public List<Star> constellationHealthStarPotential = new List<Star>();
+    public List<Star> constellationDamageStarPotential = new List<Star>();
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -103,7 +113,11 @@ public class GlobalController : MonoBehaviour
     {
         foreach (Star star in constellationBeingBuilt.ToList())
         {
-            if star.star
+            if(star.myStarClass.starType == "BaseStar")
+            {
+                constellationPotential += star.myStarClass.constellationValue; 
+
+            }
         }
     }
 

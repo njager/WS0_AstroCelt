@@ -15,10 +15,10 @@ public class Star : MonoBehaviour
     public Color usedColor;
     public Vector3 positionOffset;
     public GameObject starGraphic;
-    private Transform starPosition; 
 
     //Global Setting
     private GlobalController global;
+    private Transform starPosition; 
 
     // Private Variables
     private Renderer rend;
@@ -31,7 +31,6 @@ public class Star : MonoBehaviour
 
         starUsed = false;
         global.Star = starSelf;
-        global.startingStarList.Add(this);
         global.ListCount++;
         Debug.Log("Star Added");
 
@@ -47,7 +46,6 @@ public class Star : MonoBehaviour
         if (global.drawingScript.activeStarCounter == 0)
         {
             global.drawingScript.activeStarCounter = 1;
-            global.starSpawnerFrameworkScript.starActive = 1;
             global.drawingScript.star1 = this;
             Debug.Log("Set activeStarCounter to 1");
             return;
@@ -59,25 +57,16 @@ public class Star : MonoBehaviour
             Debug.Log("Set activeStarCounter to 2");
             return;
         }
-
-        //if (EventSystem.current.IsPointerOverGameObject())
-        //{
-        //return;
-        //}
-
     }
 
     public void OnMouseEnter()
     {
-        if (global.starWasSelected)
-        {
-            //rend.material.color = hoverColor;
-        }
+        rend.material.color = hoverColor;
     }
 
     public void OnMouseExit()
     {
-        //rend.material.color = startColor;
+        rend.material.color = startColor;
     }
 
     public void StarUsed() 

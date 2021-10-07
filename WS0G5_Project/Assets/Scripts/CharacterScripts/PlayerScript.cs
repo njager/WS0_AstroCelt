@@ -20,16 +20,16 @@ public class PlayerScript : MonoBehaviour
         global.playerStats.Start(); 
     }
 
-    public void playerDamaged()
+    public void playerDamaged(int damage)
     {
-        PlayerStats.playerVitality -= 1; 
+        PlayerStats.playerVitality -= damage; 
     }
 
-    public void PlayerHealed()
+    public void PlayerHealed(int health)
     {
         if(PlayerStats.playerVitality != playerHealthLimit)
         {
-            PlayerStats.playerVitality += 1; 
+            PlayerStats.playerVitality += health; 
         }
         else
         {

@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6657636607174309373}
-  - component: {fileID: 2841398635131932998}
+  - component: {fileID: 396533184005801767}
   - component: {fileID: 4733624221583474251}
   m_Layer: 0
   m_Name: ActionStarDamage
@@ -74,7 +74,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2841398635131932998
+--- !u!114 &396533184005801767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,13 +83,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4444467650669534561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbda2a57be4ea4559b5f3fcc4de905cc, type: 3}
+  m_Script: {fileID: 11500000, guid: ca143f7160e91074c87d32d6b0b9fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStarClass:
+    starPrefab: {fileID: 0}
+    constellationValue: 0
+    starType: 
   starUsed: 0
-  starSelf: {fileID: 2841398635131932998}
-  hoverColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
-  usedColor: {r: 0, g: 0, b: 0, a: 1}
+  starSelf: {fileID: 396533184005801767}
+  hoverColor: {r: 0, g: 0, b: 0, a: 0.4117647}
+  usedColor: {r: 0.21698111, g: 0, b: 0, a: 0.827451}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 1415552392092473133}
 --- !u!135 &4733624221583474251
