@@ -87,12 +87,6 @@ public class Star : MonoBehaviour
         rend.material.color = startColor;
     }
 
-    public void StarTempUsed() 
-    {
-        global.constellationBeingBuilt.Add(this);
-        
-    }
-
     public void StarUsed()
     {
         rend.material.color = usedColor;
