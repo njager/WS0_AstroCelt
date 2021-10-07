@@ -7,15 +7,19 @@ public class LineRendererScript : MonoBehaviour
     [Header("Self Reference")]
     public LineRenderer lineRenderer;
 
-    [Header("Two Points for Line to Draw")]
-    //public GameObject object1;
-    //public GameObject object2;
+    public bool lineDrew; 
 
-    [Header("Positions Lists")]
-    public List<Vector3> pos = new List<Vector3>();
-   
-    public void Awake()
+    public void Start()
     {
-        lineRenderer.GetComponentInParent<Transform>(); 
+        lineDrew = true; 
     }
-}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Line")
+        {
+            Destroy(this); 
+        }
+    }
+}   
+

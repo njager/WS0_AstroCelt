@@ -87,11 +87,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStarClass:
-    starPrefab: {fileID: 0}
-    constellationValue: 0
-    starType: 
+    starPrefab: {fileID: 4444467650669534561}
+    constellationValue: 1
+    starType: Star
   starUsed: 0
-  starSelf: {fileID: 4875646107116946667}
+  starSelf: {fileID: 184723350597108648}
   hoverColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 0.43529412}
   usedColor: {r: 0, g: 0, b: 0, a: 0.87058824}
   positionOffset: {x: 0, y: 0, z: 0}

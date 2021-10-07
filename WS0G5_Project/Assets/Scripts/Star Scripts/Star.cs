@@ -10,7 +10,7 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public StarClass myStarClass; 
     public bool starUsed = false;
-    public Star starSelf;
+    public GameObject starSelf;
     public Color hoverColor;
     public Color usedColor;
     public Vector3 positionOffset;
@@ -24,18 +24,16 @@ public class Star : MonoBehaviour
     private Renderer rend;
     private Color startColor;
 
-    void Awake()
+    public void Start()
     {
-        myStarClass = global.starSpawnerFrameworkScript.baseStar;  
         global = GlobalController.instance;
 
         starUsed = false;
-        global.Star = starSelf;
         global.ListCount++;
         Debug.Log("Star Added");
 
-        // rend = starGraphic.GetComponent<Renderer>();
-        //startColor = rend.material.color;
+        rend = starGraphic.GetComponent<Renderer>();
+        startColor = rend.material.color;
         starPosition = starSelf.transform;
     }
 

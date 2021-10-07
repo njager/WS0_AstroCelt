@@ -72,7 +72,7 @@ public class DrawingScript : MonoBehaviour
             return; 
         }
     }
-
+    
     public void usedStars()
     {
         foreach (Star star in usedStarList.ToList())

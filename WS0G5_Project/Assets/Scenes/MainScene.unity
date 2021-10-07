@@ -2255,6 +2255,7 @@ MonoBehaviour:
   star2: {fileID: 0}
   transformHolder: []
   activeStarCounter: 0
+  usedStarList: []
   drawingScriptSelf: {fileID: 163012954}
   intitalQuaternion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &171981987
@@ -3510,18 +3511,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1397895599}
   loseCanvas: {fileID: 799168041}
+  constellationPotential: 0
+  constellationPotentialDamage: 0
+  constellationFinalDamage: 0
+  constellationPotentialHealth: 0
+  constellationFinalHealth: 0
   player: {fileID: 291168586}
   enemyForRound1: {fileID: 1392798450}
   ListCount: 0
   roundCount: 0
   testAudioBackgroundMusic: {fileID: 174412628}
   testAudiosoundEffect1: {fileID: 987269602}
-  startingStarList: []
-  activeStarList: []
-  usedStarList: []
-  startingStarArray: []
-  activeStarArray: []
-  usedStarArray: []
+  startingStarSpawnPointList: []
+  constellationBeingBuilt: []
+  constellationBaseStarPotential: []
+  constellationHealthStarPotential: []
+  constellationDamageStarPotential: []
   ResetChecker: {fileID: 797493711}
   Star: {fileID: 2075864384}
   drawingScript: {fileID: 163012955}
@@ -4884,7 +4889,6 @@ MonoBehaviour:
     starPrefab: {fileID: 4444467650669534561, guid: bdac1c7c45872454f9afe057496ce6f1, type: 3}
     constellationValue: 1
     starType: DamageStar
-  starActive: 0
   verticalGrid: {fileID: 1347241961}
   horizontalGrid: {fileID: 655899408}
   starSpawnCount: 0
@@ -18896,6 +18900,7 @@ MonoBehaviour:
   star2: {fileID: 0}
   transformHolder: []
   activeStarCounter: 0
+  usedStarList: []
   drawingScriptSelf: {fileID: 0}
   intitalQuaternion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!43 &2026476343
