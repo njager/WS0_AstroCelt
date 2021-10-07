@@ -11,6 +11,12 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController instance; // Making Global into the base for inter-script structure. 
 
+    // Attribute system
+    [Header("Classes")]
+    public StarClass starClass;
+    public CharacterStats characterStats;
+    public ConstellatonHolder constellatonHolder; 
+
     [Header("Ints")]
     public int ListCount = 0;
     public int cosmicEnergy; // Move to player stats 

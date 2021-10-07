@@ -10,9 +10,7 @@ public class ConstellatonHolder : MonoBehaviour
 {
     public GameObject currentConstellation; 
 
-    public GameObject dad;
-
-    public Star Stardada;
+    public GameObject[] constellationUsed;
 
     private GlobalController global; 
 
