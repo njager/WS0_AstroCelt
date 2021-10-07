@@ -25,8 +25,12 @@ public class LineRendererScript : MonoBehaviour
 
     public float offset; // Change capsule collider so that lines can touch inside stars
 
+    private GlobalController global; 
+
     public void Start()
     {
+        global = GlobalController.instance;
+        global.lineRendererList.Add(this);
         boolCount = 0; 
         offset = 0.85f; 
         selfLine = lineGameObject.GetComponent<LineRenderer>();
@@ -114,6 +118,7 @@ public class LineRendererScript : MonoBehaviour
     }
     public void OnDestroy()
     {
+        global.lineRendererList.Remove(this); 
         Debug.Log("Line Renderer Destroyed"); 
     }
 }

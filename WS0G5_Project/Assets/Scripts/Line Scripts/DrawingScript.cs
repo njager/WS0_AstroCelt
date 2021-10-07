@@ -39,7 +39,7 @@ public class DrawingScript : MonoBehaviour
 
     public void update()
     {
-        usedStars();
+
     }
 
     public void drawLine()
@@ -83,8 +83,8 @@ public class DrawingScript : MonoBehaviour
             lineScript.ToggleBool();
             return; 
         }
-        usedStarList.Add(star1);
-        usedStarList.Add(star2);
+        global.constellationBeingBuilt.Add(star1);
+        global.constellationBeingBuilt.Add(star2);
         lineStartingPoint = star1.transform.position;
         lineEndingPoint = star2.transform.position;
 
@@ -98,11 +98,4 @@ public class DrawingScript : MonoBehaviour
         global.starSpawnerFrameworkScript.StarReset();
     }
     
-    public void usedStars()
-    {
-        foreach (Star star in usedStarList.ToList())
-        {
-            star.StarUsed();
-        }
-    }
 }

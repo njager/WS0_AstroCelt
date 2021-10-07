@@ -10,6 +10,7 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public StarClass myStarClass; 
     public bool starUsed = false;
+    public bool starFullyUsed = false; 
     public GameObject starSelf;
     public GameObject starGraphicSelf; 
     public Color hoverColor;
@@ -41,27 +42,34 @@ public class Star : MonoBehaviour
     
     public void OnMouseDown()
     {
-        Debug.Log("Clicked on Star");
-        if (global.drawingScript.activeStarCounter == 0)
+        if (starFullyUsed == false)
         {
-            global.drawingScript.startingStar = this; 
-            global.drawingScript.activeStarCounter = 1;
-            global.drawingScript.star1 = this;
-            Debug.Log("Set activeStarCounter to 1");
-            return;
-        }
-        if (global.drawingScript.activeStarCounter == 1)
-        {
-            if(global.drawingScript.star1 == this)
+            Debug.Log("Clicked on Star");
+            if (global.drawingScript.activeStarCounter == 0)
             {
-                Debug.Log("Click a different Star");
+                global.drawingScript.startingStar = this;
                 global.drawingScript.activeStarCounter = 1;
+                global.drawingScript.star1 = this;
+                Debug.Log("Set activeStarCounter to 1");
                 return;
             }
-            global.drawingScript.star2 = this;
-            global.drawingScript.drawLine();
-            Debug.Log("Set activeStarCounter to 2");
-            return;
+            if (global.drawingScript.activeStarCounter == 1)
+            {
+                if (global.drawingScript.star1 == this)
+                {
+                    Debug.Log("Click a different Star");
+                    global.drawingScript.activeStarCounter = 1;
+                    return;
+                }
+                global.drawingScript.star2 = this;
+                global.drawingScript.drawLine();
+                Debug.Log("Set activeStarCounter to 2");
+                return;
+            }
+        }
+        else
+        {
+            Debug.Log("Star Used Up");
         }
     }
 
@@ -75,11 +83,17 @@ public class Star : MonoBehaviour
         rend.material.color = startColor;
     }
 
-    public void StarUsed() 
+    public void StarTempUsed() 
     {
-        rend.material.color = usedColor;
         global.constellationBeingBuilt.Add(this);
         
+    }
+
+    public void StarUsed()
+    {
+        rend.material.color = usedColor;
+        starFullyUsed = true;
+        return; 
     }
 
 }

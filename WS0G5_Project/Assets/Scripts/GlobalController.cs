@@ -38,18 +38,19 @@ public class GlobalController : MonoBehaviour
     
     [Header("Ints")]
     public int ListCount = 0;
-    public int roundCount = 0; 
+    public int roundCount = 0;
+    public int enumeratorCheckBad;
+    public int enumeratorCheckGood;
 
     [Header("Audio")]
     public GameObject testAudioBackgroundMusic;
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    public List<Transform> startingStarSpawnPointList = new List<Transform>();
-    public List<Star> constellationBeingBuilt = new List<Star>();
-    public List<Star> constellationBaseStarPotential = new List<Star>();
-    public List<Star> constellationHealthStarPotential = new List<Star>();
-    public List<Star> constellationDamageStarPotential = new List<Star>();
+    public List<Transform> startingStarSpawnPointList = new List<Transform>(); // Transforms used to not use for random spawning stars
+    public List<Star> constellationBeingBuilt = new List<Star>(); // Temporary used stars
+    public List<Star> constellationFinalStars = new List<Star>(); // Final used stars
+    public List<LineRendererScript> lineRendererList = new List<LineRendererScript>(); // Line Renderer list for deletion purposes
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -142,7 +143,7 @@ public class GlobalController : MonoBehaviour
         }
         foreach (Star star in constellationBeingBuilt)
 
-            if (constellationStarCount <= 3)
+            if (constellationStarCount >= 3)
             {
                 if(star == drawingScript.startingStar)
                 {
@@ -151,7 +152,8 @@ public class GlobalController : MonoBehaviour
                     {
                         if (constellationPotentialHealth < 0)
                         {
-                            Debug.Log("Can't have both Health and Action Stars"); 
+                            Debug.Log("Can't have both Health and Action Stars. Try again.");
+                            StartCoroutine(constellationClearBad()); 
                         }
                         else
                         {
@@ -164,6 +166,7 @@ public class GlobalController : MonoBehaviour
                         if (constellationPotentialDamage < 0)
                         {
                             Debug.Log("Can't have both Health and Action Stars");
+                            StartCoroutine(constellationClearBad());
                         }
                         else
                         {
@@ -174,11 +177,45 @@ public class GlobalController : MonoBehaviour
                 }
             } 
     }
-    public void constellationClear()
+    IEnumerator constellationClearBad()
     {
-        Debug.Log("Clearing constellation");
+        Debug.Log("Clearing Constellation");
+        foreach (LineRendererScript lineRenderer in lineRendererList.ToList()) 
         {
-
+            Destroy(lineRenderer.gameObject); 
         }
+        foreach (Star star in constellationBeingBuilt.ToList())
+        {
+            star.starUsed = false;
+            constellationBeingBuilt.Remove(star); 
+        }
+        constellationPotentialHealth = 0;
+        constellationPotentialDamage = 0;
+        constellationPotential = 0;
+        constellationFinalDamage = 0;
+        constellationFinalHealth = 0;
+        enumeratorCheckBad = 0; 
+        yield return new WaitUntil(() => enumeratorCheckBad == 0);
+    }
+
+    IEnumerator constellationClearGood()
+    {
+        Debug.Log("Clearing Constellation");
+        foreach (Star star in constellationBeingBuilt.ToList())
+        {
+            constellationFinalStars.Add(star); 
+            constellationBeingBuilt.Remove(star); 
+        }
+        foreach (Star star in constellationFinalStars.ToList())
+        {
+            star.StarUsed(); 
+            constellationBeingBuilt.Remove(star);
+        }
+        constellationPotentialHealth = 0;
+        constellationPotentialDamage = 0;
+        constellationPotential = 0;
+        constellationFinalDamage = 0;
+        constellationFinalHealth = 0;
+        return;
     }
 }
