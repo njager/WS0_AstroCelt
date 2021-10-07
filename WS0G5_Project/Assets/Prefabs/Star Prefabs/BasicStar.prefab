@@ -50,10 +50,11 @@ MonoBehaviour:
     constellationValue: 1
     starType: Star
   starUsed: 0
+  starFullyUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 184723351919661527}
   hoverColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 0.43529412}
-  usedColor: {r: 0, g: 0, b: 0, a: 0.87058824}
+  usedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.87058824}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 184723350597108648}
 --- !u!135 &8879191325765608833

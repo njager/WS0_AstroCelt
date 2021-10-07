@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStats:
-    vitality: 100
+    vitality: 18
     damage: 1
     weaknessActivated: 0
   enemyGameObject: {fileID: 1475303926191799721}

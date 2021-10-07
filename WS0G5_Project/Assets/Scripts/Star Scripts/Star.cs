@@ -103,6 +103,8 @@ public class Star : MonoBehaviour
     public void StarUsed()
     {
         rend.material.color = usedColor;
+        startColor = usedColor;
+        hoverColor = usedColor; 
         starFullyUsed = true;
         return; 
     }

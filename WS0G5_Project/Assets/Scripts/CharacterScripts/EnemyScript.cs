@@ -10,7 +10,6 @@ public class EnemyScript : MonoBehaviour
     public EnemyScript enemySelf; 
 
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
-    // 18
     private GlobalController global; // Creating global variable
    
     void Start()

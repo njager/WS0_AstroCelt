@@ -12,6 +12,8 @@ public class LineRendererScript : MonoBehaviour
     private CapsuleCollider capsule;
     [SerializeField] int boolCount; // Use a count varaible to only toggle once
 
+    private Star initialStar;
+    private Star finalStar; 
 
     public bool lineDrew = true; // Being checked in drawScript to see if line can draw
     public bool isLinePlaced; // Bool, set in drawing script, so that the lines that are placed and valid don't destroy upon collision 
@@ -38,6 +40,12 @@ public class LineRendererScript : MonoBehaviour
         capsule.radius = LineWidth / 2;
         capsule.center = Vector3.zero;
         capsule.direction = 2; // Z-axis for easier "LookAt" orientation
+    }
+
+    public void setStars(Star star1, Star star2)
+    {
+        initialStar = star1; 
+        initialStar = star2;
     }
     
     public void ToggleBool() //So DrawScript can change the bool inside the script
@@ -118,7 +126,10 @@ public class LineRendererScript : MonoBehaviour
     }
     public void OnDestroy()
     {
-        global.lineRendererList.Remove(this); 
-        Debug.Log("Line Renderer Destroyed"); 
+        global.lineRendererList.Remove(this);
+        global.constellationBeingBuilt.Remove(initialStar);
+        global.constellationBeingBuilt.Remove(finalStar);
+        Debug.Log("Line Renderer Destroyed");
+        Debug.Log("Stars removed"); 
     }
 }
