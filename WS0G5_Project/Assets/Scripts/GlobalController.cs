@@ -150,30 +150,31 @@ public class GlobalController : MonoBehaviour
             {
                 if (constellationPotentialHealth > 0)
                 {
-                      Debug.Log("Can't have both Health and Action Stars. Try again.");
-                      enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                      StartCoroutine(constellationClearBad()); 
+                    Debug.Log("Can't have both Health and Action Stars. Try again.");
+                    enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearBad()); 
                 }
                 else
                 {
-                Debug.Log("Constellation Built!");
-                constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
-                currentEnemy.EnemyDamaged(constellationFinalHealth);
-                Debug.Log(currentEnemy.enemyHealth);
-                enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                StartCoroutine(constellationClearGood());
+                    Debug.Log("Constellation Built for Damage!");
+                    constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
+                    currentEnemy.EnemyDamaged(constellationFinalHealth);
+                    Debug.Log(currentEnemy.enemyHealth);
+                    enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearGood());
                 }
             }
             if(constellationPotentialHealth > 0)
             {
                 if (constellationPotentialDamage > 0)
                 {
-                    Debug.Log("Can't have both Health and Action Stars");
+                    Debug.Log("Can't have both Health and Action Stars. Try Again.");
                     enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                     StartCoroutine(constellationClearBad());
                 }
                 else
                 {
+                    Debug.Log("Constellation Built for Health!");
                     constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
                     playerScript.PlayerHealed(constellationFinalHealth);
                     enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn

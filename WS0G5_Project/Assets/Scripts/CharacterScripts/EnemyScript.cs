@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     [Header("Enemy Attributes")]
     public EnemyStats myStats;
-    public GameObject enemyGraphic;
+    public GameObject enemyGameObject;
     public EnemyScript enemySelf; 
 
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     {
         EnemyStats.enemyCount += 1; 
         global = GlobalController.instance;
-        global.currentEnemy = this;
+        global.currentEnemy = enemySelf;
         enemyHealth = myStats.vitality; 
     }
 
