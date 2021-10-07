@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         global = GlobalController.instance; 
-        playerHealthLimit = PlayerStats.playerVitality;
+        playerHealthLimit = global.playerStats.startingPlayerVitality;
     }
 
     public void PlayerReset()
@@ -25,6 +25,13 @@ public class PlayerScript : MonoBehaviour
 
     public void PlayerHealed()
     {
-
+        if(PlayerStats.playerVitality != playerHealthLimit)
+        {
+            PlayerStats.playerVitality += 1; 
+        }
+        else
+        {
+            Debug.Log("Can't Heal, At Max Health!"); 
+        }
     }
 }

@@ -3509,8 +3509,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1397895599}
   loseCanvas: {fileID: 799168041}
+  player: {fileID: 291168586}
+  enemyForRound1: {fileID: 1392798450}
   ListCount: 0
-  cosmicEnergy: 0
+  roundCount: 0
   testAudioBackgroundMusic: {fileID: 174412628}
   testAudiosoundEffect1: {fileID: 987269602}
   startingStarList: []
@@ -3523,6 +3525,7 @@ MonoBehaviour:
   Star: {fileID: 2075864384}
   drawingScript: {fileID: 163012955}
   starSpawnerFrameworkScript: {fileID: 560938487}
+  playerStats: {fileID: 291168589}
   starTag: Star
   abc: 90
   spawningFramework: {fileID: 560938485}
@@ -12053,7 +12056,7 @@ GameObject:
   - component: {fileID: 1392798451}
   - component: {fileID: 1392798452}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyRound1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
