@@ -13,8 +13,13 @@ public class LineRendererScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Line")
         {
-            lineDrew = false;
-            Destroy(this);
+            if (collision.gameObject != lineRenderer)
+            {
+                Debug.Log("Destroying"); 
+                lineDrew = false;
+                Destroy(this);
+                return;
+            }
         }
         else
         {

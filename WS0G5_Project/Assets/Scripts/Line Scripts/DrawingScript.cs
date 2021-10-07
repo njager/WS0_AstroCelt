@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class DrawingScript : MonoBehaviour
 {
     [Header("Variables")]
-    public LineRenderer lineRendererPrefab; 
+    public GameObject lineRendererPrefab; 
 
     private GlobalController global;
 
@@ -46,11 +46,12 @@ public class DrawingScript : MonoBehaviour
     {
         if (activeStarCounter == 1)
         {
-            LineRenderer importedLineRenderer = Instantiate(lineRendererPrefab);
-            LineRendererScript getDrawBool = importedLineRenderer.GetComponent<LineRendererScript>(); 
+            GameObject lineRenderer = Instantiate(lineRendererPrefab); 
+            LineRenderer importedLineRenderer = lineRenderer.GetComponent<LineRenderer>(); 
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            if (getDrawBool.lineDrew == true)
+            Debug.Log(lineRenderer.GetComponent<LineRendererScript>().lineDrew); 
+            if (lineRenderer.GetComponent<LineRendererScript>().lineDrew == false)
             {
                 Debug.Log("Line Drew");
                 usedStarList.Add(star1);
