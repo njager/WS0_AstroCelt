@@ -20,11 +20,15 @@ public class GlobalController : MonoBehaviour
     // UI Canvases
     [Header("Canvases")]
     public GameObject winCanvas;
-    public GameObject loseCanvas; 
+    public GameObject loseCanvas;
 
+    [Header("Characters")]
+    public GameObject player;
+    public GameObject enemyForRound1;
+    
     [Header("Ints")]
     public int ListCount = 0;
-    public int cosmicEnergy; // Move to player stats 
+    public int roundCount = 0; 
 
     [Header("Audio")]
     public GameObject testAudioBackgroundMusic;
@@ -46,7 +50,8 @@ public class GlobalController : MonoBehaviour
     [Header("Script References")]
     public Star Star;
     public DrawingScript drawingScript;
-    public StarSpawnerFramework starSpawnerFrameworkScript; 
+    public StarSpawnerFramework starSpawnerFrameworkScript;
+    public PlayerStats playerStats; 
 
     [Header("Tags")]
     public string starTag = "Star";

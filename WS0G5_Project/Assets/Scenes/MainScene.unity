@@ -3306,6 +3306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291168587}
+  - component: {fileID: 291168589}
   - component: {fileID: 291168588}
   m_Layer: 0
   m_Name: Player
@@ -3341,6 +3342,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37014b76df6864eb6718ae3a41082e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &291168589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291168586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b33aa9b735caed48bf4a51496536a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPlayerVitality: 400
+  startingPlayerDamage: 10
+  startingPlayerCosmicEnergy: 500
 --- !u!1 &310840456
 GameObject:
   m_ObjectHideFlags: 0

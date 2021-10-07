@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     // Vitality
-    public static float playerVitality;
-    public float startingPlayerVitality = 400f; 
+    public static int playerVitality;
+    public int startingPlayerVitality = 400; 
 
     // Damage
     public static int playerDamage;
