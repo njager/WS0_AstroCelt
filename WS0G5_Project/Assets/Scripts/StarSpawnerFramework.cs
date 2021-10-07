@@ -357,19 +357,19 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 3)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint11_11.position, starSpawnPoint11_11.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
         }
         if (starSpawnCount == 4)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint16_5.position, starSpawnPoint16_5.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
         }
         if (starSpawnCount == 5)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint19_10.position, starSpawnPoint19_10.rotation);
             Debug.Log("Star Spawned!");
             starSpawnCount++;
             return; 
@@ -382,20 +382,20 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 7)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint2_11.position, starSpawnPoint2_11.rotation);
             Debug.Log("Health Star Spawned!");
             starSpawnCount++;
             return; 
         }
         if (starSpawnCount == 8)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint9_8.position, starSpawnPoint9_8.rotation);
             Debug.Log("Action Star Spawned!");
             starSpawnCount++;
         }
         if (starSpawnCount == 9)
         {
-            Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            Instantiate(star.starPrefab, starSpawnPoint15_8.position, starSpawnPoint15_8.rotation);
             Debug.Log("Action Star Spawned!");
             starSpawnCount++;
             return;
