@@ -10,7 +10,9 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public StarClass myStarClass; 
     public bool starUsed = false;
+    public bool starFullyUsed = false; 
     public GameObject starSelf;
+    public GameObject starGraphicSelf; 
     public Color hoverColor;
     public Color usedColor;
     public Vector3 positionOffset;
@@ -21,7 +23,7 @@ public class Star : MonoBehaviour
     private Transform starPosition; 
 
     // Private Variables
-    private Renderer rend;
+    private SpriteRenderer rend;
     private Color startColor;
 
     public void Start()
@@ -32,7 +34,7 @@ public class Star : MonoBehaviour
         global.ListCount++;
         Debug.Log("Star Added");
 
-        rend = starGraphic.GetComponent<Renderer>();
+        rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
         starPosition = starSelf.transform;
     }
@@ -40,27 +42,54 @@ public class Star : MonoBehaviour
     
     public void OnMouseDown()
     {
-        Debug.Log("Clicked on Star");
-        if (global.drawingScript.activeStarCounter == 0)
+        if (this == global.drawingScript.startingStar)
         {
-            global.drawingScript.startingStar = this; 
-            global.drawingScript.activeStarCounter = 1;
-            global.drawingScript.star1 = this;
-            Debug.Log("Set activeStarCounter to 1");
-            return;
-        }
-        if (global.drawingScript.activeStarCounter == 1)
-        {
-            if(global.drawingScript.star1 == this)
-            {
-                Debug.Log("Click a different Star");
-                global.drawingScript.activeStarCounter = 1;
-                return;
-            }
             global.drawingScript.star2 = this;
+            global.drawingScript.activeStarCounter = 1;
             global.drawingScript.drawLine();
-            Debug.Log("Set activeStarCounter to 2");
-            return;
+            global.ConstellationBuilt(); 
+        }
+        if (starFullyUsed == false)
+        {
+            Debug.Log("Clicked on Star");
+            if (global.drawingScript.activeStarCounter == 0)
+            {
+                if (global.drawingScript.starCount == 0)
+                {
+                    global.drawingScript.startingStar = this;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.star1 = this;
+                    Debug.Log("Set activeStarCounter to 1");
+                    return;
+                }
+                else 
+                {
+                    global.drawingScript.star2 = this;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.drawLine();
+                    Debug.Log("Else Triggered");
+                }
+            }
+            if (global.drawingScript.activeStarCounter == 1)
+            {
+                if (global.drawingScript.starCount == 0)
+                {
+                    if (global.drawingScript.star1 == this)
+                    {
+                        Debug.Log("Click a different Star");
+                        global.drawingScript.activeStarCounter = 1;
+                        return;
+                    }
+                    global.drawingScript.star2 = this;
+                    global.drawingScript.drawLine();
+                    Debug.Log("Set activeStarCounter to 2");
+                    return;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Star Used Up");
         }
     }
 
@@ -74,11 +103,13 @@ public class Star : MonoBehaviour
         rend.material.color = startColor;
     }
 
-    public void StarUsed() 
+    public void StarUsed()
     {
         rend.material.color = usedColor;
-        global.constellationBeingBuilt.Add(this);
-        
+        startColor = usedColor;
+        hoverColor = usedColor; 
+        starFullyUsed = true;
+        return; 
     }
 
 }

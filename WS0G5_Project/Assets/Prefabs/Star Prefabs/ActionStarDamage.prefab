@@ -48,11 +48,13 @@ MonoBehaviour:
   myStarClass:
     starPrefab: {fileID: 4444467650669534561}
     constellationValue: 1
-    starType: ActionStarDamage
+    starType: DamageStar
   starUsed: 0
-  starSelf: {fileID: 1415552392743437630}
-  hoverColor: {r: 0, g: 0, b: 0, a: 0.4117647}
-  usedColor: {r: 0.21698111, g: 0, b: 0, a: 0.827451}
+  starFullyUsed: 0
+  starSelf: {fileID: 4444467650669534561}
+  starGraphicSelf: {fileID: 1415552392743437630}
+  hoverColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.8039216}
+  usedColor: {r: 0.6037736, g: 0, b: 0, a: 0.7294118}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 1415552392092473133}
 --- !u!135 &4733624221583474251

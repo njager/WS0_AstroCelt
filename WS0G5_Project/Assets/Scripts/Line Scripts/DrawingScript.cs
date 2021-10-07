@@ -18,7 +18,10 @@ public class DrawingScript : MonoBehaviour
 
     public Star star1;
     public Star star2;
+    public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star startingStar;
+
+    public int starCount; // Know if drawing for first time
 
     [Header("Position")]
     public List<Vector3> transformHolder = new List<Vector3>();
@@ -32,14 +35,15 @@ public class DrawingScript : MonoBehaviour
 
     public void Start() 
     {
+        starCount = 0; 
         lineStartingPoint = Vector3.zero;
         lineStartingPoint = Vector3.zero;
         global = GlobalController.instance;
     }
 
-    public void update()
+    public void Update()
     {
-        usedStars();
+
     }
 
     public void drawLine()
@@ -48,29 +52,24 @@ public class DrawingScript : MonoBehaviour
         {
             GameObject lineRenderer = Instantiate(lineRendererPrefab); 
             LineRenderer importedLineRenderer = lineRenderer.GetComponent<LineRenderer>(); 
+            LineRendererScript lineScript = lineRenderer.GetComponent<LineRendererScript>();
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            Debug.Log(lineRenderer.GetComponent<LineRendererScript>().lineDrew); 
-            if (lineRenderer.GetComponent<LineRendererScript>().lineDrew == true)
+            Debug.Log(lineScript.lineDrew); 
+            if (lineScript.lineDrew == true)
             {
-                Debug.Log("Line Drew");
-                usedStarList.Add(star1);
-                usedStarList.Add(star2);
-                lineStartingPoint = star1.transform.position;
-                lineEndingPoint = star2.transform.position;
+                drawingLine(importedLineRenderer, lineScript);
+                //bool lineCheck = lineScript.getLinePlaced(); 
+                //if (lineCheck != true)
+                {
+                    //lineScript.ToggleBool(); 
+                }
 
-                importedLineRenderer.startWidth = 0.1f;
-                importedLineRenderer.endWidth = 0.1f;
-                importedLineRenderer.startColor = Color.white;
-                importedLineRenderer.endColor = Color.white;
-                transformHolder.Add(lineStartingPoint);
-                transformHolder.Add(lineEndingPoint);
-                importedLineRenderer.SetPositions(transformHolder.ToArray());
-                global.starSpawnerFrameworkScript.StarReset();
             }
             else
             {
                 Debug.Log("Line Collided with Line");
+                //lineScript.ToggleBool(); 
             }
         }
         else
@@ -78,12 +77,58 @@ public class DrawingScript : MonoBehaviour
             return; 
         }
     }
-    
-    public void usedStars()
+
+    public void drawingLine(LineRenderer importedLineRenderer, LineRendererScript lineScript) 
     {
-        foreach (Star star in usedStarList.ToList())
+        if (starCount > 0)
         {
-            star.StarUsed();
+            //lineScript.ToggleBool();
+            //bool lineCheck = lineScript.getLineDrew();
+            //if (lineCheck == false)
+            {
+                //lineScript.ToggleBool();
+                //return;
+            }
+            global.constellationBeingBuilt.Add(star2);
+            lineStartingPoint = starNext.transform.position;
+            lineEndingPoint = star2.transform.position;
+
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
+            starNext = star2;
+            global.starSpawnerFrameworkScript.StarReset();
         }
+        if (starCount == 0)
+        {
+            //lineScript.ToggleBool();
+            //bool lineCheck = lineScript.getLineDrew();
+            //if (lineCheck == false)
+            {
+                //lineScript.ToggleBool();
+                //return;
+            }
+            global.constellationBeingBuilt.Add(star1);
+            global.constellationBeingBuilt.Add(star2);
+            lineStartingPoint = star1.transform.position;
+            lineEndingPoint = star2.transform.position;
+
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
+            starNext = star2;
+            starCount++;
+            global.starSpawnerFrameworkScript.StarReset();
+        }
+
     }
+    
 }

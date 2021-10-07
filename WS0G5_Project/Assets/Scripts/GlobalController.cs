@@ -38,18 +38,19 @@ public class GlobalController : MonoBehaviour
     
     [Header("Ints")]
     public int ListCount = 0;
-    public int roundCount = 0; 
+    public int roundCount = 0;
+    public int enumeratorCheckBad;
+    public int enumeratorCheckGood;
 
     [Header("Audio")]
     public GameObject testAudioBackgroundMusic;
     public GameObject testAudiosoundEffect1;
 
     [Header("Lists")]
-    public List<Transform> startingStarSpawnPointList = new List<Transform>();
-    public List<Star> constellationBeingBuilt = new List<Star>();
-    public List<Star> constellationBaseStarPotential = new List<Star>();
-    public List<Star> constellationHealthStarPotential = new List<Star>();
-    public List<Star> constellationDamageStarPotential = new List<Star>();
+    public List<Transform> startingStarSpawnPointList = new List<Transform>(); // Transforms used to not use for random spawning stars
+    public List<Star> constellationBeingBuilt = new List<Star>(); // Temporary used stars
+    public List<Star> constellationFinalStars = new List<Star>(); // Final used stars
+    public List<LineRendererScript> lineRendererList = new List<LineRendererScript>(); // Line Renderer list for deletion purposes
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -114,7 +115,7 @@ public class GlobalController : MonoBehaviour
         loseCanvas.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void ConstelltionBuilding()
+    public void ConstellationBuilding()
     {
         foreach (Star star in constellationBeingBuilt.ToList())
         {
@@ -134,51 +135,97 @@ public class GlobalController : MonoBehaviour
         }
     }
 
-    public void ConstelltionBuilt()
+    public void ConstellationBuilt()
     {
+        ConstellationBuilding();
         foreach (Star star in constellationBeingBuilt)
         {
             constellationStarCount += 1; 
         }
-        foreach (Star star in constellationBeingBuilt)
-
-            if (constellationStarCount <= 3)
-            {
-                if(star == drawingScript.startingStar)
-                {
-                    Debug.Log("Constellation Built!");
-                    if(constellationPotentialDamage < 0)
-                    {
-                        if (constellationPotentialHealth < 0)
-                        {
-                            Debug.Log("Can't have both Health and Action Stars"); 
-                        }
-                        else
-                        {
-                            constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
-                            currentEnemy.EnemyDamaged(constellationFinalHealth);
-                        }
-                    }
-                    if(constellationPotentialHealth < 0)
-                    {
-                        if (constellationPotentialDamage < 0)
-                        {
-                            Debug.Log("Can't have both Health and Action Stars");
-                        }
-                        else
-                        {
-                            constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
-                            playerScript.PlayerHealed(constellationFinalHealth); 
-                        }
-                    }
-                }
-            } 
-    }
-    public void constellationClear()
-    {
-        Debug.Log("Clearing constellation");
+        
+        if (constellationStarCount >= 3)
         {
-
+            Debug.Log("Constellation Building!");
+            if(constellationPotentialDamage > 0)
+            {
+                if (constellationPotentialHealth > 0)
+                {
+                    Debug.Log("Can't have both Health and Action Stars. Try again.");
+                    enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearBad()); 
+                }
+                else
+                {
+                    Debug.Log("Constellation Built for Damage!");
+                    constellationFinalDamage += (constellationPotential + constellationPotentialDamage);
+                    currentEnemy.EnemyDamaged(constellationFinalHealth);
+                    Debug.Log(currentEnemy.enemyHealth);
+                    enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearGood());
+                }
+            }
+            if(constellationPotentialHealth > 0)
+            {
+                if (constellationPotentialDamage > 0)
+                {
+                    Debug.Log("Can't have both Health and Action Stars. Try Again.");
+                    enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearBad());
+                }
+                else
+                {
+                    Debug.Log("Constellation Built for Health!");
+                    constellationFinalHealth += (constellationPotential + constellationPotentialHealth);
+                    playerScript.PlayerHealed(constellationFinalHealth);
+                    enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearGood());
+                }
+            }
+                
+        } 
+    }
+    IEnumerator constellationClearBad()
+    {
+        Debug.Log("Clearing Constellation");
+        foreach (LineRendererScript lineRenderer in lineRendererList.ToList()) 
+        {
+            Destroy(lineRenderer.gameObject); 
         }
+        foreach (Star star in constellationBeingBuilt.ToList())
+        {
+            star.starUsed = false;
+            constellationBeingBuilt.Remove(star); 
+        }
+        drawingScript.starCount = 0;
+        constellationPotentialHealth = 0;
+        constellationPotentialDamage = 0;
+        constellationPotential = 0;
+        constellationFinalDamage = 0;
+        constellationFinalHealth = 0;
+        enumeratorCheckBad = 0; 
+        yield return new WaitUntil(() => enumeratorCheckBad == 0);
+    }
+
+    IEnumerator constellationClearGood()
+    {
+        Debug.Log("Clearing Constellation");
+        foreach (Star star in constellationBeingBuilt.ToList())
+        {
+            constellationFinalStars.Add(star); 
+            constellationBeingBuilt.Remove(star); 
+        }
+        foreach (Star star in constellationFinalStars.ToList())
+        {
+            star.StarUsed(); 
+            constellationBeingBuilt.Remove(star);
+        }
+        drawingScript.starCount = 0;
+        constellationPotentialHealth = 0;
+        constellationPotentialDamage = 0;
+        constellationPotential = 0;
+        constellationFinalDamage = 0;
+        constellationFinalHealth = 0;
+        enumeratorCheckGood = 0;
+        yield return new WaitUntil(() => enumeratorCheckGood == 0);
     }
 }

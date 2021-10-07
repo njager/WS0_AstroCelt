@@ -6,36 +6,54 @@ public class EnemyScript : MonoBehaviour
 {
     [Header("Enemy Attributes")]
     public EnemyStats myStats;
-    public GameObject enemyGraphic;
-    public EnemyScript enemySelf; 
+    public GameObject enemyGameObject;
+    public EnemyScript enemySelf;
+    public float timeBetweenAttacks = 2f;
+    private float countdown = 2f;
 
-    private int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
-    // 18
+    [Header("Rate of Damage")]
+    [SerializeField] float rate; 
+
+    [Header("Enemy Varaibles")]
+    public int enemyDamage; // Grab the damage from My Stats
+    public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
-    private int enemyCount; 
-
-
+   
     void Start()
     {
-        enemyCount = 0; 
+        rate = 0.1f; 
+        EnemyStats.enemyCount += 1; 
         global = GlobalController.instance;
-        global.currentEnemy = this;
-        enemyHealth = myStats.vitality; 
+        global.currentEnemy = enemySelf;
+        enemyHealth = myStats.vitality;
+        enemyDamage = myStats.damage;
     }
 
     void Update()
     {
-        enemyTimer(); 
+        if (countdown <= 0f)
+        {
+            StartCoroutine(enemyTimer());
+            countdown = timeBetweenAttacks;
+            return;
+        }
+
+        countdown -= Time.deltaTime; // Timer goes down according to update
+
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
     }
 
-    public void enemyTimer()
+    IEnumerator enemyTimer()
     {
-        return; 
+        enemyAttacksPlayer(enemyDamage);
+        yield return new WaitForSeconds(1f / rate);
+
     }
    
     public void enemyAttacksPlayer(int damage)
     {
-        global.playerScript.playerDamaged(damage); 
+        global.playerScript.playerDamaged(damage);
+        Debug.Log("EnemyAttacks"); 
     }
 
     public void enemyDie()
@@ -49,7 +67,7 @@ public class EnemyScript : MonoBehaviour
         if(enemyHealth <= 0)
         {
             enemyDie();
-            global.Win(); 
+            global.Win(); // Remove when there is multiple enemies
         }
     }
 }

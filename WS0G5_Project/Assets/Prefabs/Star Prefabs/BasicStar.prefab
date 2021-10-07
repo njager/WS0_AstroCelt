@@ -50,11 +50,13 @@ MonoBehaviour:
     constellationValue: 1
     starType: Star
   starUsed: 0
-  starSelf: {fileID: 184723351919661527}
+  starFullyUsed: 0
+  starSelf: {fileID: 4444467650669534561}
+  starGraphicSelf: {fileID: 184723351919661527}
   hoverColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 0.43529412}
-  usedColor: {r: 0, g: 0, b: 0, a: 0.87058824}
+  usedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.87058824}
   positionOffset: {x: 0, y: 0, z: 0}
-  starGraphic: {fileID: 184723351919661527}
+  starGraphic: {fileID: 184723350597108648}
 --- !u!135 &8879191325765608833
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -133,6 +135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bda53cbe8fe9884c8b82a07b1ed06fb, type: 3}
+--- !u!1 &184723350597108648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 340390863720056779, guid: 6bda53cbe8fe9884c8b82a07b1ed06fb, type: 3}
+  m_PrefabInstance: {fileID: 443898439904592995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &184723350597108649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 340390863720056778, guid: 6bda53cbe8fe9884c8b82a07b1ed06fb, type: 3}

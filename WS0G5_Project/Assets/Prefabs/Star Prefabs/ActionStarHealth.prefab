@@ -50,9 +50,11 @@ MonoBehaviour:
     constellationValue: 1
     starType: HealthStar
   starUsed: 0
-  starSelf: {fileID: 2643344415938704787}
-  hoverColor: {r: 0, g: 0, b: 0, a: 0.43529412}
-  usedColor: {r: 0, g: 0.21568628, b: 0.092228256, a: 0.8392157}
+  starFullyUsed: 0
+  starSelf: {fileID: 4444467650669534561}
+  starGraphicSelf: {fileID: 2643344415938704787}
+  hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0.60784316}
+  usedColor: {r: 0, g: 0.6698113, b: 0.034113824, a: 0.6313726}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 2643344414835712437}
 --- !u!135 &1679491186687530817
