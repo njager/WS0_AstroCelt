@@ -1,9 +1,12 @@
+using System.IO.IsolatedStorage;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+[System.Serializable]
+public class CharacterStats
 {
-    public int Vitality;
-    public int Damage; 
+    public float vitality;
+    public float damage; 
+    public int cosmicEnergy; 
 }
