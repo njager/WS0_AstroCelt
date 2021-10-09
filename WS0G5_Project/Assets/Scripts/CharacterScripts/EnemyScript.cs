@@ -58,7 +58,8 @@ public class EnemyScript : MonoBehaviour
 
     public void enemyDie()
     {
-        Destroy(this); 
+        Destroy(this);
+        global.enemySwitcherFrameworkScript.EnemySwitch();
     }
 
     public void EnemyDamaged(int health)

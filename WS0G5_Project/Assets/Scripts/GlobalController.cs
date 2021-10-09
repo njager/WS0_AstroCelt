@@ -61,7 +61,9 @@ public class GlobalController : MonoBehaviour
     public StarSpawnerFramework starSpawnerFrameworkScript;
     public PlayerScript playerScript;
     public EnemyScript enemyScript; 
-    public PlayerStats playerStats; 
+    public PlayerStats playerStats;
+    public ResetBehavior resetBehavior;
+    public EnemySwitcherScript enemySwitcherFrameworkScript; 
 
     [Header("Tags")]
     public string starTag = "Star";
