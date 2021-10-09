@@ -19,6 +19,8 @@ public class UITest : MonoBehaviour
     [SerializeField] int playerMaxHealth;
     [SerializeField] int enemyHealth;
     [SerializeField] int enemyMaxHealth;
+    [SerializeField] float chargeTime;
+    [SerializeField] float maxCharge;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -49,6 +51,13 @@ public class UITest : MonoBehaviour
         int minutes = (int)(t % 60); //return the remainder of the minutes divide by 60 as an int
         timerText.text = string.Format("{0}:{1}", minutes.ToString("00"), seconds.ToString("00"));
 
+        //set the charge timer and reset
+        chargeTime += Time.deltaTime;
+        if(chargeTime >= maxCharge)
+        {
+            chargeTime = 0;
+        }
+
         //update the text
         SetText();
     }
@@ -64,5 +73,8 @@ public class UITest : MonoBehaviour
         //update health bars
         playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
         enemyHealthBar.fillAmount = (float)enemyHealth / (float)enemyMaxHealth;
+
+        //update charge bar
+        enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
     }
 }
