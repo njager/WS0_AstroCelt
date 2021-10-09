@@ -205,6 +205,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1832313341416078, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
   m_PrefabInstance: {fileID: 1832313500317015}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &297869710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4806982168357804686, guid: 66aaed95e5d65a040a29fbf81470cc97, type: 3}
+  m_PrefabInstance: {fileID: 2818670692613619426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &466829581 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 541112478433685617, guid: 100a6d5e73b3c524ea18c0e553de8e37, type: 3}
@@ -246,15 +257,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 0
+  enemyMaxCount: 0
   timer: 0
   ceCount: 0
   playerHealth: 0
+  playerMaxHealth: 0
   enemyHealth: 0
+  enemyMaxHealth: 0
   ceCountText: {fileID: 1872521732}
   enemyCountText: {fileID: 841325288}
   playerHealthText: {fileID: 81349666}
   enemyHealthText: {fileID: 1476493490}
   timerText: {fileID: 466829581}
+  playerHealthBar: {fileID: 297869710}
+  enemyHealthBar: {fileID: 0}
 --- !u!4 &840480608
 Transform:
   m_ObjectHideFlags: 0

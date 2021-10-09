@@ -27,6 +27,8 @@ public class UITest : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerHealthText;
     [SerializeField] TextMeshProUGUI enemyHealthText;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] Image playerHealthBar;
+    [SerializeField] Image enemyHealthBar;
 
 
     // Start is called before the first frame update
@@ -57,6 +59,9 @@ public class UITest : MonoBehaviour
         ceCountText.text = ceCount.ToString();
         playerHealthText.text = playerHealth.ToString() + "/" + playerMaxHealth.ToString();
         enemyHealthText.text = enemyHealth.ToString() + "/" + enemyMaxHealth.ToString();
+
+        //update health bars
+        playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
 
     }
 }
