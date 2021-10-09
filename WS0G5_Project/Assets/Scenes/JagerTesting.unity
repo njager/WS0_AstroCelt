@@ -264,6 +264,8 @@ MonoBehaviour:
   playerMaxHealth: 0
   enemyHealth: 0
   enemyMaxHealth: 0
+  chargeTime: 0
+  maxCharge: 0
   ceCountText: {fileID: 1872521732}
   enemyCountText: {fileID: 841325288}
   playerHealthText: {fileID: 81349666}
@@ -1098,6 +1100,26 @@ PrefabInstance:
     - target: {fileID: 8530260791118416435, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
       propertyPath: m_Name
       value: Resource Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 840480607}
+    - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NewStarsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UITest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}

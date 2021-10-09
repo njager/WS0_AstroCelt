@@ -77,4 +77,10 @@ public class UITest : MonoBehaviour
         //update charge bar
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
     }
+
+    //function for making new stars
+    public void NewStarsButton()
+    {
+        Debug.Log("You made some new stars, nice!");
+    }
 }
