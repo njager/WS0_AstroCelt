@@ -318,6 +318,11 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStar(actionDamageStar);
     }
 
+    public void FrameworkReset() // Meant for game resetting 
+    {
+
+    }
+
     public void StarReset()
     {
         Debug.Log("Resetting Star Clicks");
