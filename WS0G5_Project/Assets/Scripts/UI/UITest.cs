@@ -29,6 +29,7 @@ public class UITest : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
+    [SerializeField] Image enemyChargeBar;
 
 
     // Start is called before the first frame update

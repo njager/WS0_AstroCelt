@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 999595303566094017}
   - component: {fileID: 4806982168357804686}
   m_Layer: 5
-  m_Name: HealthSpectrum
+  m_Name: PlayerHealthSpectrum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
