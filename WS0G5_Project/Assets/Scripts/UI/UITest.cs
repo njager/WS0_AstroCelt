@@ -62,6 +62,6 @@ public class UITest : MonoBehaviour
 
         //update health bars
         playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
-
+        enemyHealthBar.fillAmount = (float)enemyHealth / (float)enemyMaxHealth;
     }
 }
