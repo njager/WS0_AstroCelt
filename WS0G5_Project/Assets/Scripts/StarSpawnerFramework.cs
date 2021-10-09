@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarSpawnerFramework : MonoBehaviour
 {
-    [Header("Stars")]
+    [Header("Stars")] // Were the prefabs are stored to refer to specific stars, this data is also in the prefab itself, which is where I grab most of the time 
     public StarClass baseStar;
     public StarClass actionHealthStar;
     public StarClass actionDamageStar; 
@@ -15,7 +15,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int starSpawnCount;
     public int counter = 20;
 
-    [Header("Lists")]
+    [Header("Lists")] // Lists to contain spawn points so we could iterate through them if need be
     public List<Transform> row1= new List<Transform>();
     public List<Transform> row2 = new List<Transform>();
     public List<Transform> row3 = new List<Transform>();
@@ -28,7 +28,14 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row10 = new List<Transform>();
     public List<Transform> row11 = new List<Transform>();
     public List<Transform> row12 = new List<Transform>();
+    public List<Transform> row13 = new List<Transform>();
+    public List<Transform> row14 = new List<Transform>();
+    public List<Transform> row15 = new List<Transform>();
+    public List<Transform> row16 = new List<Transform>();
+    public List<Transform> row17 = new List<Transform>();
 
+
+    // Structure for refering to a spawn point goes 
     [Header("Row 1")]
     public Transform starSpawnPoint1_1;
     public Transform starSpawnPoint2_1;
@@ -293,6 +300,116 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform starSpawnPoint19_12;
     public Transform starSpawnPoint20_12;
 
+    [Header("Row 13")]
+    public Transform starSpawnPoint1_13;
+    public Transform starSpawnPoint2_13;
+    public Transform starSpawnPoint3_13;
+    public Transform starSpawnPoint4_13;
+    public Transform starSpawnPoint5_13;
+    public Transform starSpawnPoint6_13;
+    public Transform starSpawnPoint7_13;
+    public Transform starSpawnPoint8_13;
+    public Transform starSpawnPoint9_13;
+    public Transform starSpawnPoint10_13;
+    public Transform starSpawnPoint11_13;
+    public Transform starSpawnPoint12_13;
+    public Transform starSpawnPoint13_13;
+    public Transform starSpawnPoint14_13;
+    public Transform starSpawnPoint15_13;
+    public Transform starSpawnPoint16_13;
+    public Transform starSpawnPoint17_13;
+    public Transform starSpawnPoint18_13;
+    public Transform starSpawnPoint19_13;
+    public Transform starSpawnPoint20_13;
+
+    [Header("Row 14")]
+    public Transform starSpawnPoint1_14;
+    public Transform starSpawnPoint2_14;
+    public Transform starSpawnPoint3_14;
+    public Transform starSpawnPoint4_14;
+    public Transform starSpawnPoint5_14;
+    public Transform starSpawnPoint6_14;
+    public Transform starSpawnPoint7_14;
+    public Transform starSpawnPoint8_14;
+    public Transform starSpawnPoint9_14;
+    public Transform starSpawnPoint10_14;
+    public Transform starSpawnPoint11_14;
+    public Transform starSpawnPoint12_14;
+    public Transform starSpawnPoint13_14;
+    public Transform starSpawnPoint14_14;
+    public Transform starSpawnPoint15_14;
+    public Transform starSpawnPoint16_14;
+    public Transform starSpawnPoint17_14;
+    public Transform starSpawnPoint18_14;
+    public Transform starSpawnPoint19_14;
+    public Transform starSpawnPoint20_14;
+
+    [Header("Row 15")]
+    public Transform starSpawnPoint1_15;
+    public Transform starSpawnPoint2_15;
+    public Transform starSpawnPoint3_15;
+    public Transform starSpawnPoint4_15;
+    public Transform starSpawnPoint5_15;
+    public Transform starSpawnPoint6_15;
+    public Transform starSpawnPoint7_15;
+    public Transform starSpawnPoint8_15;
+    public Transform starSpawnPoint9_15;
+    public Transform starSpawnPoint10_15;
+    public Transform starSpawnPoint11_15;
+    public Transform starSpawnPoint12_15;
+    public Transform starSpawnPoint13_15;
+    public Transform starSpawnPoint14_15;
+    public Transform starSpawnPoint15_15;
+    public Transform starSpawnPoint16_15;
+    public Transform starSpawnPoint17_15;
+    public Transform starSpawnPoint18_15;
+    public Transform starSpawnPoint19_15;
+    public Transform starSpawnPoint20_15;
+
+    [Header("Row 16")]
+    public Transform starSpawnPoint1_16;
+    public Transform starSpawnPoint2_16;
+    public Transform starSpawnPoint3_16;
+    public Transform starSpawnPoint4_16;
+    public Transform starSpawnPoint5_16;
+    public Transform starSpawnPoint6_16;
+    public Transform starSpawnPoint7_16;
+    public Transform starSpawnPoint8_16;
+    public Transform starSpawnPoint9_16;
+    public Transform starSpawnPoint10_16;
+    public Transform starSpawnPoint11_16;
+    public Transform starSpawnPoint12_16;
+    public Transform starSpawnPoint13_16;
+    public Transform starSpawnPoint14_16;
+    public Transform starSpawnPoint15_16;
+    public Transform starSpawnPoint16_16;
+    public Transform starSpawnPoint17_16;
+    public Transform starSpawnPoint18_16;
+    public Transform starSpawnPoint19_16;
+    public Transform starSpawnPoint20_16;
+
+    [Header("Row 17")]
+    public Transform starSpawnPoint1_17;
+    public Transform starSpawnPoint2_17;
+    public Transform starSpawnPoint3_17;
+    public Transform starSpawnPoint4_17;
+    public Transform starSpawnPoint5_17;
+    public Transform starSpawnPoint6_17;
+    public Transform starSpawnPoint7_17;
+    public Transform starSpawnPoint8_17;
+    public Transform starSpawnPoint9_17;
+    public Transform starSpawnPoint10_17;
+    public Transform starSpawnPoint11_17;
+    public Transform starSpawnPoint12_17;
+    public Transform starSpawnPoint13_17;
+    public Transform starSpawnPoint14_17;
+    public Transform starSpawnPoint15_17;
+    public Transform starSpawnPoint16_17;
+    public Transform starSpawnPoint17_17;
+    public Transform starSpawnPoint18_17;
+    public Transform starSpawnPoint19_17;
+    public Transform starSpawnPoint20_17;
+
     // Functions
     private GlobalController global;
 
@@ -300,7 +417,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         global = GlobalController.instance;
         starSpawnCount = 0;
-        SpawnStarRow1List();
+        SpawnStarRow1List(); // Adds rows into list if needed to be referenced
         SpawnStarRow2List();
         SpawnStarRow3List();
         SpawnStarRow4List();
