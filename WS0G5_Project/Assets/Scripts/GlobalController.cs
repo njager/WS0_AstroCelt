@@ -11,11 +11,13 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController instance; // Making Global into the base for inter-script structure. 
 
-    // Attribute system
-    [Header("Classes")]
-    // public StarClass starClass;
-    // public CharacterStats characterStats;
-    // public ConstellatonHolder constellatonHolder;
+    /// <summary>
+    /// What making this a static script means is that this particular version will always exist during runtime without having to be attached to an object (though I do so I can store variables in it, but you could just store those variables in instanced scripts)
+    /// 
+    /// This is extremely useful as an intermediary for having scripts talk to eachother without having to instance a version of that script in another script. By just doing that private GlobalController.instance() I significantly lower the amount of referrel calls needed
+    /// since I can have everything referenced and called back to from global. What I do to make it even cleaner is make objects that only hold the script and do nothing else for function calls in the Unity scene, and then put them in script references meaning I can call 
+    /// functions in my other script from a completely other scripts 
+    /// </summary>
 
     // UI Canvases
     [Header("Canvases")]

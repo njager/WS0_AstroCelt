@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarSpawnerFramework : MonoBehaviour
 {
-    [Header("Stars")]
+    [Header("Stars")] // Were the prefabs are stored to refer to specific stars, this data is also in the prefab itself, which is where I grab most of the time 
     public StarClass baseStar;
     public StarClass actionHealthStar;
     public StarClass actionDamageStar; 
@@ -15,7 +15,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int starSpawnCount;
     public int counter = 20;
 
-    [Header("Lists")]
+    [Header("Lists")] // Lists to contain spawn points so we could iterate through them if need be
     public List<Transform> row1= new List<Transform>();
     public List<Transform> row2 = new List<Transform>();
     public List<Transform> row3 = new List<Transform>();
@@ -28,6 +28,17 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row10 = new List<Transform>();
     public List<Transform> row11 = new List<Transform>();
     public List<Transform> row12 = new List<Transform>();
+    public List<Transform> row13 = new List<Transform>();
+    public List<Transform> row14 = new List<Transform>();
+    public List<Transform> row15 = new List<Transform>();
+    public List<Transform> row16 = new List<Transform>();
+    public List<Transform> row17 = new List<Transform>();
+
+
+
+
+    // Structure for refering to a spawn point goes starSpawnPoint(point number in row)_(what row that point is in)
+
 
     [Header("Row 1")]
     public Transform starSpawnPoint1_1;
@@ -293,6 +304,116 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform starSpawnPoint19_12;
     public Transform starSpawnPoint20_12;
 
+    [Header("Row 13")]
+    public Transform starSpawnPoint1_13;
+    public Transform starSpawnPoint2_13;
+    public Transform starSpawnPoint3_13;
+    public Transform starSpawnPoint4_13;
+    public Transform starSpawnPoint5_13;
+    public Transform starSpawnPoint6_13;
+    public Transform starSpawnPoint7_13;
+    public Transform starSpawnPoint8_13;
+    public Transform starSpawnPoint9_13;
+    public Transform starSpawnPoint10_13;
+    public Transform starSpawnPoint11_13;
+    public Transform starSpawnPoint12_13;
+    public Transform starSpawnPoint13_13;
+    public Transform starSpawnPoint14_13;
+    public Transform starSpawnPoint15_13;
+    public Transform starSpawnPoint16_13;
+    public Transform starSpawnPoint17_13;
+    public Transform starSpawnPoint18_13;
+    public Transform starSpawnPoint19_13;
+    public Transform starSpawnPoint20_13;
+
+    [Header("Row 14")]
+    public Transform starSpawnPoint1_14;
+    public Transform starSpawnPoint2_14;
+    public Transform starSpawnPoint3_14;
+    public Transform starSpawnPoint4_14;
+    public Transform starSpawnPoint5_14;
+    public Transform starSpawnPoint6_14;
+    public Transform starSpawnPoint7_14;
+    public Transform starSpawnPoint8_14;
+    public Transform starSpawnPoint9_14;
+    public Transform starSpawnPoint10_14;
+    public Transform starSpawnPoint11_14;
+    public Transform starSpawnPoint12_14;
+    public Transform starSpawnPoint13_14;
+    public Transform starSpawnPoint14_14;
+    public Transform starSpawnPoint15_14;
+    public Transform starSpawnPoint16_14;
+    public Transform starSpawnPoint17_14;
+    public Transform starSpawnPoint18_14;
+    public Transform starSpawnPoint19_14;
+    public Transform starSpawnPoint20_14;
+
+    [Header("Row 15")]
+    public Transform starSpawnPoint1_15;
+    public Transform starSpawnPoint2_15;
+    public Transform starSpawnPoint3_15;
+    public Transform starSpawnPoint4_15;
+    public Transform starSpawnPoint5_15;
+    public Transform starSpawnPoint6_15;
+    public Transform starSpawnPoint7_15;
+    public Transform starSpawnPoint8_15;
+    public Transform starSpawnPoint9_15;
+    public Transform starSpawnPoint10_15;
+    public Transform starSpawnPoint11_15;
+    public Transform starSpawnPoint12_15;
+    public Transform starSpawnPoint13_15;
+    public Transform starSpawnPoint14_15;
+    public Transform starSpawnPoint15_15;
+    public Transform starSpawnPoint16_15;
+    public Transform starSpawnPoint17_15;
+    public Transform starSpawnPoint18_15;
+    public Transform starSpawnPoint19_15;
+    public Transform starSpawnPoint20_15;
+
+    [Header("Row 16")]
+    public Transform starSpawnPoint1_16;
+    public Transform starSpawnPoint2_16;
+    public Transform starSpawnPoint3_16;
+    public Transform starSpawnPoint4_16;
+    public Transform starSpawnPoint5_16;
+    public Transform starSpawnPoint6_16;
+    public Transform starSpawnPoint7_16;
+    public Transform starSpawnPoint8_16;
+    public Transform starSpawnPoint9_16;
+    public Transform starSpawnPoint10_16;
+    public Transform starSpawnPoint11_16;
+    public Transform starSpawnPoint12_16;
+    public Transform starSpawnPoint13_16;
+    public Transform starSpawnPoint14_16;
+    public Transform starSpawnPoint15_16;
+    public Transform starSpawnPoint16_16;
+    public Transform starSpawnPoint17_16;
+    public Transform starSpawnPoint18_16;
+    public Transform starSpawnPoint19_16;
+    public Transform starSpawnPoint20_16;
+
+    [Header("Row 17")]
+    public Transform starSpawnPoint1_17;
+    public Transform starSpawnPoint2_17;
+    public Transform starSpawnPoint3_17;
+    public Transform starSpawnPoint4_17;
+    public Transform starSpawnPoint5_17;
+    public Transform starSpawnPoint6_17;
+    public Transform starSpawnPoint7_17;
+    public Transform starSpawnPoint8_17;
+    public Transform starSpawnPoint9_17;
+    public Transform starSpawnPoint10_17;
+    public Transform starSpawnPoint11_17;
+    public Transform starSpawnPoint12_17;
+    public Transform starSpawnPoint13_17;
+    public Transform starSpawnPoint14_17;
+    public Transform starSpawnPoint15_17;
+    public Transform starSpawnPoint16_17;
+    public Transform starSpawnPoint17_17;
+    public Transform starSpawnPoint18_17;
+    public Transform starSpawnPoint19_17;
+    public Transform starSpawnPoint20_17;
+
     // Functions
     private GlobalController global;
 
@@ -300,7 +421,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         global = GlobalController.instance;
         starSpawnCount = 0;
-        SpawnStarRow1List();
+        SpawnStarRow1List(); // Adds rows into list if needed to be referenced
         SpawnStarRow2List();
         SpawnStarRow3List();
         SpawnStarRow4List();
@@ -336,7 +457,7 @@ public class StarSpawnerFramework : MonoBehaviour
         horizontalGrid.SetActive(false);
     }
 
-    void SpawnStar(StarClass star) // Hand Built Calls Per Level
+    void SpawnStar(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to 
     {
         if (starSpawnCount == 0)
         {
@@ -381,14 +502,14 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint19_10);
             return; 
         }
-        if (starSpawnCount == 6)
+        if (starSpawnCount == 6) // Health Stars
         {
             Instantiate(star.starPrefab, starSpawnPoint5_3.position, starSpawnPoint5_3.rotation);
             Debug.Log("Health Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint5_3);
         }
-        if (starSpawnCount == 7)
+        if (starSpawnCount == 7) 
         {
             Instantiate(star.starPrefab, starSpawnPoint2_11.position, starSpawnPoint2_11.rotation);
             Debug.Log("Health Star Spawned!");
@@ -396,7 +517,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint2_11);
             return; 
         }
-        if (starSpawnCount == 8)
+        if (starSpawnCount == 8) // Action Stars
         {
             Instantiate(star.starPrefab, starSpawnPoint9_8.position, starSpawnPoint9_8.rotation);
             Debug.Log("Action Star Spawned!");
@@ -700,5 +821,130 @@ public class StarSpawnerFramework : MonoBehaviour
         row12.Add(starSpawnPoint19_12);
         row12.Add(starSpawnPoint20_12);
         Debug.Log("Row 12 Added");
+    }
+
+    void SpawnStarRow13List()
+    {
+        row13.Add(starSpawnPoint1_13);
+        row13.Add(starSpawnPoint2_13);
+        row13.Add(starSpawnPoint3_13);
+        row13.Add(starSpawnPoint4_13);
+        row13.Add(starSpawnPoint5_13);
+        row13.Add(starSpawnPoint6_13);
+        row13.Add(starSpawnPoint7_13);
+        row13.Add(starSpawnPoint8_13);
+        row13.Add(starSpawnPoint9_13);
+        row13.Add(starSpawnPoint10_13);
+        row13.Add(starSpawnPoint11_13);
+        row13.Add(starSpawnPoint12_13);
+        row13.Add(starSpawnPoint13_13);
+        row13.Add(starSpawnPoint14_13);
+        row13.Add(starSpawnPoint15_13);
+        row13.Add(starSpawnPoint16_13);
+        row13.Add(starSpawnPoint17_13);
+        row13.Add(starSpawnPoint18_13);
+        row13.Add(starSpawnPoint19_13);
+        row13.Add(starSpawnPoint20_13);
+        Debug.Log("Row 13 Added");
+    }
+
+    void SpawnStarRow14List()
+    {
+        row14.Add(starSpawnPoint1_14);
+        row14.Add(starSpawnPoint2_14);
+        row14.Add(starSpawnPoint3_14);
+        row14.Add(starSpawnPoint4_14);
+        row14.Add(starSpawnPoint5_14);
+        row14.Add(starSpawnPoint6_14);
+        row14.Add(starSpawnPoint7_14);
+        row14.Add(starSpawnPoint8_14);
+        row14.Add(starSpawnPoint9_14);
+        row14.Add(starSpawnPoint10_14);
+        row14.Add(starSpawnPoint11_14);
+        row14.Add(starSpawnPoint12_14);
+        row14.Add(starSpawnPoint13_14);
+        row14.Add(starSpawnPoint14_14);
+        row14.Add(starSpawnPoint15_14);
+        row14.Add(starSpawnPoint16_14);
+        row14.Add(starSpawnPoint17_14);
+        row14.Add(starSpawnPoint18_14);
+        row14.Add(starSpawnPoint19_14);
+        row14.Add(starSpawnPoint20_14);
+        Debug.Log("Row 14 Added");
+    }
+
+    void SpawnStarRow15List()
+    {
+        row15.Add(starSpawnPoint1_15);
+        row15.Add(starSpawnPoint2_15);
+        row15.Add(starSpawnPoint3_15);
+        row15.Add(starSpawnPoint4_15);
+        row15.Add(starSpawnPoint5_15);
+        row15.Add(starSpawnPoint6_15);
+        row15.Add(starSpawnPoint7_15);
+        row15.Add(starSpawnPoint8_15);
+        row15.Add(starSpawnPoint9_15);
+        row15.Add(starSpawnPoint10_15);
+        row15.Add(starSpawnPoint11_15);
+        row15.Add(starSpawnPoint12_15);
+        row15.Add(starSpawnPoint13_15);
+        row15.Add(starSpawnPoint14_15);
+        row15.Add(starSpawnPoint15_15);
+        row15.Add(starSpawnPoint16_15);
+        row15.Add(starSpawnPoint17_15);
+        row15.Add(starSpawnPoint18_15);
+        row15.Add(starSpawnPoint19_15);
+        row15.Add(starSpawnPoint20_15);
+        Debug.Log("Row 15 Added");
+    }
+
+    void SpawnStarRow16List()
+    {
+        row16.Add(starSpawnPoint1_16);
+        row16.Add(starSpawnPoint2_16);
+        row16.Add(starSpawnPoint3_16);
+        row16.Add(starSpawnPoint4_16);
+        row16.Add(starSpawnPoint5_16);
+        row16.Add(starSpawnPoint6_16);
+        row16.Add(starSpawnPoint7_16);
+        row16.Add(starSpawnPoint8_16);
+        row16.Add(starSpawnPoint9_16);
+        row16.Add(starSpawnPoint10_16);
+        row16.Add(starSpawnPoint11_16);
+        row16.Add(starSpawnPoint12_16);
+        row16.Add(starSpawnPoint13_16);
+        row16.Add(starSpawnPoint14_16);
+        row16.Add(starSpawnPoint15_16);
+        row16.Add(starSpawnPoint16_16);
+        row16.Add(starSpawnPoint17_16);
+        row16.Add(starSpawnPoint18_16);
+        row16.Add(starSpawnPoint19_16);
+        row16.Add(starSpawnPoint20_16);
+        Debug.Log("Row 16 Added");
+    }
+
+    void SpawnStarRow17List()
+    {
+        row17.Add(starSpawnPoint1_17);
+        row17.Add(starSpawnPoint2_17);
+        row17.Add(starSpawnPoint3_17);
+        row17.Add(starSpawnPoint4_17);
+        row17.Add(starSpawnPoint5_17);
+        row17.Add(starSpawnPoint6_17);
+        row17.Add(starSpawnPoint7_17);
+        row17.Add(starSpawnPoint8_17);
+        row17.Add(starSpawnPoint9_17);
+        row17.Add(starSpawnPoint10_17);
+        row17.Add(starSpawnPoint11_17);
+        row17.Add(starSpawnPoint12_17);
+        row17.Add(starSpawnPoint13_17);
+        row17.Add(starSpawnPoint14_17);
+        row17.Add(starSpawnPoint15_17);
+        row17.Add(starSpawnPoint16_17);
+        row17.Add(starSpawnPoint17_17);
+        row17.Add(starSpawnPoint18_17);
+        row17.Add(starSpawnPoint19_17);
+        row17.Add(starSpawnPoint20_17);
+        Debug.Log("Row 17 Added");
     }
 }
