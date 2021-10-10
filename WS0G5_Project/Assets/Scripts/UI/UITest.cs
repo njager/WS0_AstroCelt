@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class UITest : MonoBehaviour
 {
     //public variables
-
+    //[Header("Public Variables")]
+    //public static Transform pfPopup;
 
     //private variables
     [Header("Variables")]
@@ -39,6 +40,7 @@ public class UITest : MonoBehaviour
     {
         //Set up the text
         SetText();
+        Popup.Create(Vector3.zero, 5);
     }
 
     // Update is called once per frame
@@ -60,6 +62,15 @@ public class UITest : MonoBehaviour
 
         //update the text
         SetText();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Popup.Create(new Vector3(0,-5, 0), 3);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Popup.Create(new Vector3(0, 5, 0), 7);
+        }
     }
 
     //sets the text objects

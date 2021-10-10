@@ -78,6 +78,9 @@ public class GlobalController : MonoBehaviour
     public GameObject spawningFramework;
     public GameObject oldStarSpawner;
 
+    [Header("UI Variables")]
+    public static Transform pfPopup;
+
     // Private 
     private Star starToBeSelected; 
     private Star selectedStar;
