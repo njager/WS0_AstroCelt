@@ -32,7 +32,7 @@ public class LineRendererScript : MonoBehaviour
     public void Start()
     {
         global = GlobalController.instance;
-        global.lineRendererList.Add(this);
+        global.lineRendererList.Add(this); // Add itself u
         boolCount = 0; 
         offset = 0.85f; 
         selfLine = lineGameObject.GetComponent<LineRenderer>();
@@ -42,7 +42,7 @@ public class LineRendererScript : MonoBehaviour
         capsule.direction = 2; // Z-axis for easier "LookAt" orientation
     }
 
-    public void setStars(Star star1, Star star2)
+    public void setStars(Star star1, Star star2) // Grab the stasrs that filled up the line, triggered in DrawScript
     {
         initialStar = star1; 
         initialStar = star2;
@@ -94,7 +94,7 @@ public class LineRendererScript : MonoBehaviour
         return lineDrew; 
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col) // Here it detects the other script 
     {
         Debug.Log("Hit!");
         GameObject other = col.gameObject; 
@@ -102,20 +102,20 @@ public class LineRendererScript : MonoBehaviour
         {
            if(other != lineGameObject)
            {
-                //if (linePlaced != false)
+                if (linePlaced != false)
                 {
-                    //ToggleBool(); 
+                    ToggleBool(); 
                 }
-                //if (isLinePlaced == false)
+                if (isLinePlaced == false)
                 {
                     lineDrew = false;
                     Debug.Log("Destroying");
                     Destroy(lineGameObject);
                     return;
                 }
-                //else
+                else
                 {
-                    //return; 
+                    return; 
                 }
            }
         }
