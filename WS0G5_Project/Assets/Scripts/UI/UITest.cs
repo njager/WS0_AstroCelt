@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using CodeMonkey.Utils;
 
 public class UITest : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class UITest : MonoBehaviour
     [SerializeField] int enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
+    private float spawnTimer = 1f;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -40,7 +42,7 @@ public class UITest : MonoBehaviour
     {
         //Set up the text
         SetText();
-        Popup.Create(Vector3.zero, 5);
+        //Popup.Create(Vector3.zero, 5);
     }
 
     // Update is called once per frame
@@ -60,16 +62,29 @@ public class UITest : MonoBehaviour
             chargeTime = 0;
         }
 
+        //cycle popup spawning
+        spawnTimer -= Time.deltaTime;
+        if(spawnTimer < 0)
+        {
+            Popup.Create(Vector3.zero, 1);
+            spawnTimer = 1f;
+        }
+
         //update the text
         SetText();
 
+        //test popup
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Popup.Create(new Vector3(0,-5, 0), 3);
+            Popup.Create(new Vector3(-500, 0, 0), 3);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             Popup.Create(new Vector3(0, 5, 0), 7);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9);
         }
     }
 
