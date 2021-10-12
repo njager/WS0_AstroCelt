@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using CodeMonkey.Utils;
 
 public class Popup : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Popup : MonoBehaviour
     private TextMeshPro textMesh;
     private float disappearTimer;
     private Color textColor;
+    private const float DISAPPEAR_TIMER_MAX = 1f;
 
     //public variables
     public static GameObject pfPopupStatic;
@@ -31,12 +33,12 @@ public class Popup : MonoBehaviour
     }
 
     //create the popup at position with certain #
-    public static Popup Create(Vector3 position, int outputAmount)
+    public static Popup Create(Vector3 position, int outputAmount, bool isDamage)
     {
         Transform instantiatePopupTransform = GrabPopupTransform();
         Transform popupTransform = Instantiate(instantiatePopupTransform, position, Quaternion.identity);
         Popup popup = popupTransform.GetComponent<Popup>();
-        popup.Setup(outputAmount);
+        popup.Setup(outputAmount, isDamage);
 
         return popup;
     }
@@ -48,11 +50,21 @@ public class Popup : MonoBehaviour
     }
 
     //make the output amount into the text for the popup
-    public void Setup(int outputAmount)
+    public void Setup(int outputAmount, bool isDamage)
     {
         textMesh.SetText(outputAmount.ToString());
-        textColor = textMesh.color;
-        disappearTimer = 1f;
+        if (!isDamage)
+        {
+            //textMesh.fontSize = 36;
+            textColor = UtilsClass.GetColorFromString("5ECC71");
+        }
+        else
+        {
+            textColor = UtilsClass.GetColorFromString("DD6666");
+            //textMesh.fontSize = 36;
+        }
+        textMesh.color = textColor;
+        disappearTimer = DISAPPEAR_TIMER_MAX;
     }
 
     private void Update()
@@ -66,6 +78,18 @@ public class Popup : MonoBehaviour
         if (transform.parent != null && transform.parent.tag == "Reference")
         {
             Debug.Log("Has a parent is reference");
+        }
+
+        if (disappearTimer > DISAPPEAR_TIMER_MAX * .5f)
+        {
+            //first half of popup lifetime
+            float increaseScaleAmount = 1f;
+            transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
+        }
+        else
+        {
+            float decreaseScaleAmount = 1f;
+            transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 
         disappearTimer -= Time.deltaTime;

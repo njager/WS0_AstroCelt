@@ -62,11 +62,14 @@ public class UITest : MonoBehaviour
             chargeTime = 0;
         }
 
+        //check type of output
+        bool isDamage = Random.Range(0, 100) < 60;
+
         //cycle popup spawning
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0)
         {
-            Popup.Create(Vector3.zero, 1);
+            Popup.Create(new Vector3(-100, 0, 1), 1, isDamage);
             spawnTimer = 1f;
         }
 
@@ -74,17 +77,17 @@ public class UITest : MonoBehaviour
         SetText();
 
         //test popup
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             Popup.Create(new Vector3(-500, 0, 0), 3);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             Popup.Create(new Vector3(0, 5, 0), 7);
-        }
+        }*/
         if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9);
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
         }
     }
 
