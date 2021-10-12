@@ -67,6 +67,11 @@ public class LineRendererScript : MonoBehaviour
         }
     }
 
+    public void ResetList()
+    {
+        Destroy(this);
+    }
+
     public bool getLinePlaced()
     {
         if (linePlaced != true)

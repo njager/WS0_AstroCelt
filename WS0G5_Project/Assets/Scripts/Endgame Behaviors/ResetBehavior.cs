@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ResetBehavior : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class ResetBehavior : MonoBehaviour
     // Update is called once per frame
     public void GameReset()
     {
-        global.starSpawnerFrameworkScript.FrameworkReset(); 
+        global.starSpawnerFrameworkScript.FrameworkReset();
+        foreach (LineRendererScript line in global.lineRendererResetList.ToList())
+        {
+
+        }
     }
 }
