@@ -120,6 +120,8 @@ public class LineRendererScript : MonoBehaviour
                 }
                 else
                 {
+                    CapsuleCollider _capsule = lineGameObject.GetComponent<CapsuleCollider>();
+                    _capsule.isTrigger = false; 
                     return; 
                 }
            }

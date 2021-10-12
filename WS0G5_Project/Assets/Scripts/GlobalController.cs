@@ -63,8 +63,10 @@ public class GlobalController : MonoBehaviour
     public DrawingScript drawingScript;
     public StarSpawnerFramework starSpawnerFrameworkScript;
     public PlayerScript playerScript;
-    public EnemyScript enemyScript; 
+    public EnemyScript enemyScript;
+    public EnemyStats enemyStatsReference; 
     public PlayerStats playerStats;
+    public UIController UIController; 
     public ResetBehavior resetBehavior;
     public EnemySwitcherScript enemySwitcherFrameworkScript; 
 

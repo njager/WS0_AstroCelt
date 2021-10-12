@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     public EnemyScript enemySelf;
     public float timeBetweenAttacks = 2f;
     private float countdown = 2f;
+    public int enemyCount = 0; // Here to debug errors 
 
     [Header("Rate of Damage")]
     [SerializeField] float rate; 
@@ -27,6 +28,11 @@ public class EnemyScript : MonoBehaviour
         global.currentEnemy = enemySelf;
         enemyHealth = myStats.vitality;
         enemyDamage = myStats.damage;
+    }
+
+    public void ResetBehavior()
+    {
+
     }
 
     void Update()
