@@ -10,7 +10,7 @@ public class EnemyScript : MonoBehaviour
     public EnemyScript enemySelf;
     public float timeBetweenAttacks = 2f;
     private float countdown = 2f;
-    public int enemyCount = 0; // Here to debug errors 
+    public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
 
     [Header("Rate of Damage")]
     [SerializeField] float rate; 
@@ -23,16 +23,22 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         rate = 0.1f; 
-        EnemyStats.enemyCount += 1; 
+        StaticVariables.masterEnemyCount += 1; 
         global = GlobalController.instance;
         global.currentEnemy = enemySelf;
+        enemyStartHealth = myStats.vitality;
         enemyHealth = myStats.vitality;
         enemyDamage = myStats.damage;
     }
 
-    public void ResetBehavior()
+    public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 
     {
+        Destroy(this);
+    }
 
+    public void OnDestroy() // Just for our purposes 
+    {
+        Debug.Log("Deleted Enemy Successfully");
     }
 
     void Update()

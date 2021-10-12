@@ -16,7 +16,7 @@ public class EnemySwitcherScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EnemyStats.enemyCount == 4) // For later when ther's multiple enemies 
+        if (StaticVariables.masterEnemyCount == 4) // For later when ther's multiple enemies 
         {
             global.Win(); 
         }   
@@ -24,7 +24,7 @@ public class EnemySwitcherScript : MonoBehaviour
 
     public void ResetEnemies()
     {
-        global.enemyScript.enemyCount = 0;
+        StaticVariables.masterEnemyCount = 0;
     }
 
     public void EnemySwitch() // Use this to reset the level for when an enemy dies, and we need to switch over without re-instancing the scene. 

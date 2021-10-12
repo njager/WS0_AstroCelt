@@ -68,7 +68,8 @@ public class GlobalController : MonoBehaviour
     public PlayerStats playerStats;
     public UIController UIController; 
     public ResetBehavior resetBehavior;
-    public EnemySwitcherScript enemySwitcherFrameworkScript; 
+    public EnemySwitcherScript enemySwitcherFrameworkScript;
+    public StaticVariables staticVariablesReference;
 
     [Header("Tags")]
     public string starTag = "Star";

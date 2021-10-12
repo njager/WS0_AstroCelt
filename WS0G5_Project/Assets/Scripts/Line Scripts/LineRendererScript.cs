@@ -67,12 +67,12 @@ public class LineRendererScript : MonoBehaviour
         }
     }
 
-    public void ResetList()
+    public void ResetList() // For Reset Behavior
     {
         Destroy(this);
     }
 
-    public bool getLinePlaced()
+    public bool getLinePlaced() // Line Placed
     {
         if (linePlaced != true)
         {
@@ -84,7 +84,7 @@ public class LineRendererScript : MonoBehaviour
         return linePlaced; 
     }
 
-    public void Update()
+    private void Update() // Update Loop
     {
         start = selfLine.GetPosition(0);
         end = selfLine.GetPosition(1);
@@ -94,35 +94,32 @@ public class LineRendererScript : MonoBehaviour
         capsule.height = ((end - start)*offset).magnitude;
     }
 
-    public bool getLineDrew()
+    public bool getLineDrew() // Trying to get the bool to self report 
     {
         return lineDrew; 
     }
 
-    void OnTriggerEnter(Collider col) // Here it detects the other script 
+    void OnTriggerEnter(Collider col) // Here it detects the other gameObject
     {
-        Debug.Log("Hit!");
-        GameObject other = col.gameObject; 
+        Debug.Log("Hit!"); // Debug Hit
+        GameObject other = col.gameObject; // Col GameObject 
         if (other.CompareTag("Line"))
         {
            if(other != lineGameObject)
-           {
-                if (linePlaced != false)
+            { 
+                if (isLinePlaced == true)
                 {
-                    ToggleBool(); 
+                    CapsuleCollider _capsule = lineGameObject.GetComponent<CapsuleCollider>();
+                    _capsule.enabled = false;
+                    Debug.Log("Trigger Off");
+                    return;
                 }
-                if (isLinePlaced == false)
+                else
                 {
                     lineDrew = false;
                     Debug.Log("Destroying");
                     Destroy(lineGameObject);
                     return;
-                }
-                else
-                {
-                    CapsuleCollider _capsule = lineGameObject.GetComponent<CapsuleCollider>();
-                    _capsule.isTrigger = false; 
-                    return; 
                 }
            }
         }

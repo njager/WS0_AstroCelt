@@ -16,14 +16,15 @@ public class UIController : MonoBehaviour
     [SerializeField] int enemyCount;
     [SerializeField] int enemyMaxCount;
     [SerializeField] float timer;
-    [SerializeField] int ceCount;
-    [SerializeField] int playerHealth;
+    [SerializeField] int _ceCount;
+    [SerializeField] int _playerHealth;
     [SerializeField] int playerMaxHealth;
-    [SerializeField] int enemyHealth;
+    [SerializeField] int _enemyHealth;
     [SerializeField] int enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
     private float spawnTimer = 1f;
+    private GlobalController global;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -40,14 +41,27 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        global = GlobalController.instance;
         //Set up the text
         SetText();
-        //Popup.Create(Vector3.zero, 5);
+        //Popup.Create(Vector3.zero, 5; // Jager Test Line
+
+
+        // Grabbing Static Variables First
+        enemyCount = StaticVariables.masterEnemyCount;
+        _ceCount = global.playerStats.returnStartingCosmicEnergy();
+        _enemyHealth = global.currentEnemy.enemyHealth;
+        playerMaxHealth = global.playerStats.returnStartingVitality();
+        enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Update Variables
+        UpdateUIVariables();
+
         //timer code
         float t = Time.timeSinceLevelLoad; // time since scene loaded
         int seconds = (int)(t % 60); // return the remainder of the seconds divide by 60 as an int
@@ -69,7 +83,7 @@ public class UIController : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, isDamage);
+            // Popup.Create(new Vector3(-100, 0, 1), 1, isDamage); 
             spawnTimer = 1f;
         }
 
@@ -85,23 +99,31 @@ public class UIController : MonoBehaviour
         {
             Popup.Create(new Vector3(0, 5, 0), 7);
         }*/
-        if (Input.GetMouseButtonDown(0))
+        // if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
+            // Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
+
         }
+    }
+
+    void UpdateUIVariables() // Trying to keep Update Clutter down
+    {
+        enemyCount = StaticVariables.masterEnemyCount;
+        _ceCount = PlayerStats.playerCosmicEnergy;
+        _enemyHealth = global.currentEnemy.enemyHealth;
     }
 
     //sets the text objects
     void SetText()
     {
         enemyCountText.text = enemyCount.ToString() + "/" + enemyMaxCount.ToString();
-        ceCountText.text = ceCount.ToString();
-        playerHealthText.text = playerHealth.ToString() + "/" + playerMaxHealth.ToString();
-        enemyHealthText.text = enemyHealth.ToString() + "/" + enemyMaxHealth.ToString();
+        ceCountText.text = _ceCount.ToString();
+        playerHealthText.text = _playerHealth.ToString() + "/" + playerMaxHealth.ToString();
+        enemyHealthText.text = _enemyHealth.ToString() + "/" + enemyMaxHealth.ToString();
 
         //update health bars
-        playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
-        enemyHealthBar.fillAmount = (float)enemyHealth / (float)enemyMaxHealth;
+        playerHealthBar.fillAmount = (float)_playerHealth / (float)playerMaxHealth;
+        enemyHealthBar.fillAmount = (float)_enemyHealth / (float)enemyMaxHealth;
 
         //update charge bar
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;

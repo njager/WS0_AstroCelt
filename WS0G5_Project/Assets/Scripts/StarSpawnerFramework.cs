@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using TMPro;
 
 public class StarSpawnerFramework : MonoBehaviour
 {
@@ -12,8 +16,9 @@ public class StarSpawnerFramework : MonoBehaviour
     [Header("Other")]
     public GameObject verticalGrid;
     public GameObject horizontalGrid;
-    public int starSpawnCount;
+    public int starSpawnCount; // Check star spawn count
     public int counter = 20;
+    private int iEnumeratorFramework = 0;
 
     [Header("Lists")] // Lists to contain spawn points so we could iterate through them if need be
     public List<Transform> row1= new List<Transform>();
@@ -33,8 +38,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row15 = new List<Transform>();
     public List<Transform> row16 = new List<Transform>();
     public List<Transform> row17 = new List<Transform>();
-
-
+    public List<GameObject> usedTransform = new List<GameObject>();
 
 
     // Structure for refering to a spawn point goes starSpawnPoint(point number in row)_(what row that point is in)
@@ -348,6 +352,8 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform starSpawnPoint19_14;
     public Transform starSpawnPoint20_14;
 
+   
+
     [Header("Row 15")]
     public Transform starSpawnPoint1_15;
     public Transform starSpawnPoint2_15;
@@ -439,9 +445,21 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStar(actionDamageStar);
     }
 
-    public void FrameworkReset() // Meant for game resetting 
+    public void FrameworkReset() // Public Call to be used in Reset Behavior
     {
+        iEnumeratorFramework = 1;
+        StartCoroutine(FrameworkResetting());
+    }
 
+    IEnumerator FrameworkResetting() // Meant for game resetting 
+    {
+        foreach (GameObject starThatWasSpawned in usedTransform.ToList())
+        {
+            usedTransform.Remove(starThatWasSpawned); // Know what stars were spawned
+            Destroy(starThatWasSpawned); // Clear off spawned Stars 
+        }
+        iEnumeratorFramework = 0;
+        yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
     }
 
     public void StarReset()
@@ -461,10 +479,11 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         if (starSpawnCount == 0)
         {
-            Instantiate(star.starPrefab, starSpawnPoint3_7.position, starSpawnPoint3_7.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_7.position, starSpawnPoint3_7.rotation);
             Debug.Log("Star Spawned!");
             global.startingStarSpawnPointList.Add(starSpawnPoint3_7); 
             starSpawnCount++;
+            usedTransform.Add(starToBeSpawned); 
         }
         if (starSpawnCount == 1)
         {
