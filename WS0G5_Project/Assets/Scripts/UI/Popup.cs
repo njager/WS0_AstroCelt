@@ -12,6 +12,7 @@ public class Popup : MonoBehaviour
     private float disappearTimer;
     private Color textColor;
     private const float DISAPPEAR_TIMER_MAX = 1f;
+    private static int sortingOrder;
 
     //public variables
     public static GameObject pfPopupStatic;
@@ -65,6 +66,9 @@ public class Popup : MonoBehaviour
         }
         textMesh.color = textColor;
         disappearTimer = DISAPPEAR_TIMER_MAX;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
     }
 
     private void Update()
@@ -80,7 +84,7 @@ public class Popup : MonoBehaviour
             Debug.Log("Has a parent is reference");
         }
 
-        if (disappearTimer > DISAPPEAR_TIMER_MAX * .5f)
+        /*if (disappearTimer > DISAPPEAR_TIMER_MAX * .5f)
         {
             //first half of popup lifetime
             float increaseScaleAmount = 1f;
@@ -90,7 +94,7 @@ public class Popup : MonoBehaviour
         {
             float decreaseScaleAmount = 1f;
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
-        }
+        }*/
 
         disappearTimer -= Time.deltaTime;
         if(disappearTimer < 0)
