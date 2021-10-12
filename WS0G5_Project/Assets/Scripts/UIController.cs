@@ -111,6 +111,7 @@ public class UIController : MonoBehaviour
         enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.playerCosmicEnergy;
         _enemyHealth = global.currentEnemy.enemyHealth;
+        return; 
     }
 
     //sets the text objects

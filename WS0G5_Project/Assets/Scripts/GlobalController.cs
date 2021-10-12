@@ -59,17 +59,17 @@ public class GlobalController : MonoBehaviour
     public GameObject ResetChecker;
 
     [Header("Script References")]
-    public Star Star;
+    public Star Star; // Needed for inter-script referencing 
     public DrawingScript drawingScript;
-    public StarSpawnerFramework starSpawnerFrameworkScript;
-    public PlayerScript playerScript;
-    public EnemyScript enemyScript;
-    public EnemyStats enemyStatsReference; 
+    public StarSpawnerFramework starSpawnerFrameworkScript; // Needed for inter-script referencing 
+    public PlayerScript playerScript; // Needed for inter-script referencing 
+    public EnemyScript enemyScript; // Needed for inter-script referencing 
     public PlayerStats playerStats;
-    public UIController UIController; 
-    public ResetBehavior resetBehavior;
-    public EnemySwitcherScript enemySwitcherFrameworkScript;
-    public StaticVariables staticVariablesReference;
+    public UIController UIController; // In Case
+    public ResetBehavior resetBehavior; // Needed to trigger the behavior for EnemySwitcherFrameworkScriptt
+    public EnemySwitcherScript enemySwitcherFrameworkScript; // InCase
+    public StaticVariables staticVariablesReference; // For a method call in UIController
+    public NewStarMapScript newStarMapScript; // For use in 
 
     [Header("Tags")]
     public string starTag = "Star";
