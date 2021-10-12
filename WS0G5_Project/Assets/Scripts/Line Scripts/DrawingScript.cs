@@ -46,6 +46,12 @@ public class DrawingScript : MonoBehaviour
 
     }
 
+    public void ResetList()
+    {
+        activeStarCounter = 0;
+        starCount = 0;
+    }
+
     public void drawLine()
     {
         if (activeStarCounter == 1)

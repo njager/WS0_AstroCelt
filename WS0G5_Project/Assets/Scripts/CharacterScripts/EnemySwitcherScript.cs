@@ -22,6 +22,11 @@ public class EnemySwitcherScript : MonoBehaviour
         }   
     }
 
+    public void ResetEnemies()
+    {
+
+    }
+
     public void EnemySwitch() // Use this to reset the level for when an enemy dies, and we need to switch over without re-instancing the scene. 
     {
         global.resetBehavior.GameReset(); 
