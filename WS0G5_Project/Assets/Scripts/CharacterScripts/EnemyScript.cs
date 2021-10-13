@@ -41,11 +41,11 @@ public class EnemyScript : MonoBehaviour
         Debug.Log("Deleted Enemy Successfully");
     }
 
-    void Update()
+    /*void Update()
     {
         if (countdown <= 0f)
         {
-            StartCoroutine(enemyTimer());
+            //StartCoroutine(enemyTimer());
             countdown = timeBetweenAttacks;
             return;
         }
@@ -60,7 +60,7 @@ public class EnemyScript : MonoBehaviour
         enemyAttacksPlayer(enemyDamage);
         yield return new WaitForSeconds(1f / rate);
 
-    }
+    }*/
    
     public void enemyAttacksPlayer(int damage)
     {

@@ -2223,6 +2223,17 @@ Transform:
   m_Father: {fileID: 1812455998}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &159195490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4806982168357804686, guid: 66aaed95e5d65a040a29fbf81470cc97, type: 3}
+  m_PrefabInstance: {fileID: 654755030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &163012953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,15 +5074,15 @@ MonoBehaviour:
   _enemyHealth: 0
   enemyMaxHealth: 0
   chargeTime: 0
-  maxCharge: 0
+  maxCharge: 2
   ceCountText: {fileID: 1503609109}
   enemyCountText: {fileID: 699788430}
   playerHealthText: {fileID: 1836619604}
   enemyHealthText: {fileID: 2110125475}
   timerText: {fileID: 2066300476}
-  playerHealthBar: {fileID: 1976281684}
+  playerHealthBar: {fileID: 159195490}
   enemyHealthBar: {fileID: 2128306194}
-  enemyChargeBar: {fileID: 1645556691}
+  enemyChargeBar: {fileID: 989544250}
 --- !u!1 &376836823
 GameObject:
   m_ObjectHideFlags: 0
@@ -12851,6 +12862,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &989544250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6386275056401183861, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
+  m_PrefabInstance: {fileID: 787331388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002290161
 GameObject:
   m_ObjectHideFlags: 0
@@ -17322,9 +17344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33aa9b735caed48bf4a51496536a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPlayerVitality: 400
+  _startingVitality: 400
   startingPlayerDamage: 10
-  startingPlayerCosmicEnergy: 500
+  _startingCosmicEnergy: 400
 --- !u!1 &1394949215
 GameObject:
   m_ObjectHideFlags: 0
@@ -20362,17 +20384,6 @@ Transform:
   m_Father: {fileID: 1470352900}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1645556691 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1832312846566855, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
-  m_PrefabInstance: {fileID: 787331388}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1646960233
 GameObject:
   m_ObjectHideFlags: 0
@@ -24862,17 +24873,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &1976281684 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2818670693429763340, guid: 66aaed95e5d65a040a29fbf81470cc97, type: 3}
-  m_PrefabInstance: {fileID: 654755030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2008510177
 GameObject:
   m_ObjectHideFlags: 0

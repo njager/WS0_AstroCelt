@@ -7,13 +7,14 @@ public class PlayerScript : MonoBehaviour
     public GameObject playerSelf; 
 
     private int playerHealthLimit;
+    private int _startingPlayerVitality = PlayerStats.startingPlayerVitality;
     public int showHealth; // I want to see health in inspector 
     private GlobalController global; // Global Controller reference
 
     void Start()
     {
         global = GlobalController.instance; 
-        playerHealthLimit = global.playerStats.startingPlayerVitality;
+        playerHealthLimit = _startingPlayerVitality;
     }
 
     public void PlayerReset()

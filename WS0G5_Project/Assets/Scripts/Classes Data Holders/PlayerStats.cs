@@ -7,7 +7,8 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Vitality")]
     public static int playerVitality;
-    public int startingPlayerVitality = 400; 
+    public static int startingPlayerVitality;
+    [SerializeField] int _startingVitality = 400;
 
     [Header("Damage")]
     public static int playerDamage;
@@ -15,26 +16,30 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Cosmic Energy")] 
     public static int playerCosmicEnergy;
-    public int startingPlayerCosmicEnergy = 500;
+    public static int startingPlayerCosmicEnergy;  
+    [SerializeField] int _startingCosmicEnergy = 400;
 
     // UI Start Methods, by doing this I explicitly request and send back data
 
-    public int returnStartingVitality() // Needed because race conditions for Start Methods
+    public static int returnStartingVitality() // Needed because race conditions for Start Methods
     {
-        int _returnVitality = startingPlayerVitality; 
+        int _returnVitality = 400; 
         return _returnVitality;
     }
 
-    public int returnStartingCosmicEnergy() // Needed because race conditions for Start Methods
+    public static int returnStartingCosmicEnergy() // Needed because race conditions for Start Methods
     {
-        int _returnCE = startingPlayerCosmicEnergy;
+        int _returnCE = 500;
         return _returnCE;
     }
 
     public void Start()
     {
+        startingPlayerVitality = _startingVitality;
+        startingPlayerCosmicEnergy = _startingCosmicEnergy;
         playerVitality = startingPlayerVitality;
         playerDamage = startingPlayerDamage;
-        playerCosmicEnergy = startingPlayerCosmicEnergy; 
+        playerCosmicEnergy = startingPlayerCosmicEnergy;
+
     }
 }
