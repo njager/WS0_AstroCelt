@@ -11,8 +11,21 @@ public class NewStarMapScript : MonoBehaviour
         global = GlobalController.instance; 
     }
 
+    public void Update()
+    {
+        
+    }
+
     public void NewStars()
     {
+
         Debug.Log("Loading in New Stars"); 
+        
+        
+    }
+
+    public void ChangingStarMap() 
+    { 
+
     }
 }

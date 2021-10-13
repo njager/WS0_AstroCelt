@@ -5065,14 +5065,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33c0b09086a008458051438dcf67805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 0
-  enemyMaxCount: 0
+  _enemyCount: 0
+  _enemyMaxCount: 0
   timer: 0
   _ceCount: 0
   _playerHealth: 0
   _playerMaxHealth: 0
   _enemyHealth: 0
-  enemyMaxHealth: 0
+  _enemyMaxHealth: 0
   chargeTime: 0
   maxCharge: 2
   ceCountText: {fileID: 1503609109}
