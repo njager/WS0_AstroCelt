@@ -13,14 +13,14 @@ public class UIController : MonoBehaviour
 
     //private variables
     [Header("Variables")]
-    [SerializeField] int enemyCount;
-    [SerializeField] int enemyMaxCount;
+    [SerializeField] int _enemyCount;
+    [SerializeField] int _enemyMaxCount;
     [SerializeField] float timer;
     [SerializeField] int _ceCount;
     [SerializeField] int _playerHealth;
     [SerializeField] int _playerMaxHealth;
     [SerializeField] int _enemyHealth;
-    [SerializeField] int enemyMaxHealth;
+    [SerializeField] int _enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
     //private float spawnTimer = 1f;
@@ -47,12 +47,13 @@ public class UIController : MonoBehaviour
 
 
         // Grabbing Static Variables First
-        enemyCount = StaticVariables.masterEnemyCount;
+        _enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
         _enemyHealth = global.currentEnemy.enemyHealth;
+        _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        enemyMaxHealth = global.currentEnemy.enemyStartHealth;
-        enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
+        _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
 
         //Set up the text
         SetText();
@@ -111,26 +112,27 @@ public class UIController : MonoBehaviour
 
     void UpdateUIVariables() // Trying to keep Update Clutter down
     {
-        enemyCount = StaticVariables.masterEnemyCount;
+        _enemyCount = global.staticVariablesReference.returnCurrentEnemyCount();
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
-        _enemyHealth = global.currentEnemy.enemyHealth;
+        _enemyHealth = global.currentEnemy.returnCurrentEnemyHealth();
+        _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        enemyMaxHealth = global.currentEnemy.enemyStartHealth;
-        enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
+        _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
         return; 
     }
 
     //sets the text objects
     void SetText()
     {
-        enemyCountText.text = enemyCount.ToString() + "/" + enemyMaxCount.ToString();
+        enemyCountText.text = _enemyCount.ToString() + "/" + _enemyMaxCount.ToString();
         ceCountText.text = _ceCount.ToString();
         playerHealthText.text = _playerHealth.ToString() + "/" + _playerMaxHealth.ToString();
-        enemyHealthText.text = _enemyHealth.ToString() + "/" + enemyMaxHealth.ToString();
+        enemyHealthText.text = _enemyHealth.ToString() + "/" + _enemyMaxHealth.ToString();
 
         //update health bars
         playerHealthBar.fillAmount = (float)_playerHealth / (float)_playerMaxHealth;
-        enemyHealthBar.fillAmount = (float)_enemyHealth / (float)enemyMaxHealth;
+        enemyHealthBar.fillAmount = (float)_enemyHealth / (float)_enemyMaxHealth;
 
         //update charge bar
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;

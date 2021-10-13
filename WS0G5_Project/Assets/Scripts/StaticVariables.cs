@@ -18,10 +18,16 @@ public class StaticVariables : MonoBehaviour
 
     public static int expectedEnemyCount; // By making it static, we could have an event where enemies spawn in to the pre-built level
 
-    public int returnExpectedEnemyCount()
+    public int returnExpectedEnemyCount() // Use this to set the UI for Max
     {
         int returnLevelExpectedEnemyCount = levelExpectedEnemyCount; // Grabbing value from edtor 
         return returnLevelExpectedEnemyCount; // Giving that value to UI start method. 
+    }
+
+    public int returnCurrentEnemyCount()
+    {
+        int _currentCount = masterEnemyCount;
+        return _currentCount;
     }
 
     public void Start()

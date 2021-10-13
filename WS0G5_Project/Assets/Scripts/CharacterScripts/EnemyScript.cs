@@ -4,31 +4,47 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    // Commented out my own timer code but left it in just in case 
     [Header("Enemy Attributes")]
     public EnemyStats myStats;
     public GameObject enemyGameObject;
     public EnemyScript enemySelf;
     public float timeBetweenAttacks = 2f;
-    private float countdown = 2f;
+    //private float countdown = 2f;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
 
     [Header("Rate of Damage")]
-    [SerializeField] float rate; 
+    //[SerializeField] float rate; 
 
     [Header("Enemy Varaibles")]
     public int enemyDamage; // Grab the damage from My Stats
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
-   
+
+    void Awake() // Do this to set Enemy Count
+    {
+        StaticVariables.masterEnemyCount += 1;
+    }
+
     void Start()
     {
-        rate = 0.1f; 
-        StaticVariables.masterEnemyCount += 1; 
+        //rate = 0.1f; 
         global = GlobalController.instance;
         global.currentEnemy = enemySelf;
         enemyStartHealth = myStats.vitality;
         enemyHealth = myStats.vitality;
         enemyDamage = myStats.damage;
+    }
+
+    public void Update()
+    {
+       
+    }
+
+    public int returnCurrentEnemyHealth()
+    {
+        int _returnEnemyHealth = enemyHealth;
+        return _returnEnemyHealth; 
     }
 
     public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 
