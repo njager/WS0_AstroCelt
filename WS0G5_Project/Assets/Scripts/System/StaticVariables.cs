@@ -20,7 +20,7 @@ public class StaticVariables : MonoBehaviour
 
     public int returnExpectedEnemyCount() // Use this to set the UI for Max
     {
-        int returnLevelExpectedEnemyCount = levelExpectedEnemyCount; // Grabbing value from edtor 
+        int returnLevelExpectedEnemyCount = levelExpectedEnemyCount; // Grabbing value from editor 
         return returnLevelExpectedEnemyCount; // Giving that value to UI start method. 
     }
 
@@ -32,7 +32,6 @@ public class StaticVariables : MonoBehaviour
 
     public void Start()
     {
-        masterEnemyCount = 0; // Expected Start value for stating script, to be edited by enemy instance
         expectedEnemyCount = levelExpectedEnemyCount;
 
     }
