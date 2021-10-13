@@ -8901,7 +8901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2818670694218806037, guid: 66aaed95e5d65a040a29fbf81470cc97, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 125
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 2818670694218806037, guid: 66aaed95e5d65a040a29fbf81470cc97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10171,11 +10171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1832313341416078, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -159
+      value: -152
       objectReference: {fileID: 0}
     - target: {fileID: 1832313341416078, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 125
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 1832313341416078, guid: 12665d32895cf1c498fe9eac254bc44f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20366,7 +20366,7 @@ GameObject:
   - component: {fileID: 1624599506}
   - component: {fileID: 1624599507}
   m_Layer: 0
-  m_Name: PlayerGraphic (1)
+  m_Name: PlayerGraphic
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
