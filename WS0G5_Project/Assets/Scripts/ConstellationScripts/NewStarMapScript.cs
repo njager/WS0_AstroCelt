@@ -25,7 +25,7 @@ public class NewStarMapScript : MonoBehaviour
     }
 
     public void ChangingStarMap() 
-    { 
-
+    {
+        global.starSpawnerFrameworkScript.SpawnStar2(global.starSpawnerFrameworkScript.baseStar); 
     }
 }
