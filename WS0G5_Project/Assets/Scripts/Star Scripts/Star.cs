@@ -46,8 +46,8 @@ public class Star : MonoBehaviour
         {
             global.drawingScript.star2 = this;
             global.drawingScript.activeStarCounter = 1;
-            global.drawingScript.drawLine();
-            global.constellationBuilding.ConstellationBuilt(); 
+            global.drawingScript.starCount = -1; 
+            global.drawingScript.drawLine(); 
         }
         if (starFullyUsed == false)
         {

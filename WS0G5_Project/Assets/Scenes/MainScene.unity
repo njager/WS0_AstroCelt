@@ -5339,7 +5339,7 @@ MonoBehaviour:
   _enemyHealth: 0
   _enemyMaxHealth: 0
   chargeTime: 0
-  maxCharge: 3.5
+  maxCharge: 3
   ceCountText: {fileID: 1503609109}
   enemyCountText: {fileID: 699788430}
   playerHealthText: {fileID: 1836619604}
@@ -17515,7 +17515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1361405397
 Transform:
   m_ObjectHideFlags: 0
@@ -17775,9 +17775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33aa9b735caed48bf4a51496536a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingVitality: 400
-  startingPlayerDamage: 10
-  _startingCosmicEnergy: 400
+  _startingVitality: 20
+  startingPlayerDamage: 1
+  _startingCosmicEnergy: 200
 --- !u!1 &1394949215
 GameObject:
   m_ObjectHideFlags: 0
@@ -28261,6 +28261,14 @@ PrefabInstance:
     - target: {fileID: 1475303926191799721, guid: 51fc105051cd8aa4886a807c3f06c1f0, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: 51fc105051cd8aa4886a807c3f06c1f0, type: 3}
+      propertyPath: myStats.damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: 51fc105051cd8aa4886a807c3f06c1f0, type: 3}
+      propertyPath: myStats.vitality
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51fc105051cd8aa4886a807c3f06c1f0, type: 3}

@@ -12,11 +12,17 @@ public class StaticVariables : MonoBehaviour
     /// </summary>\
     ///
 
+    private GlobalController global;
+
     public int levelExpectedEnemyCount; // Can adjust in the editor 
 
     public static int masterEnemyCount;
 
     public static int lineCount;
+
+    public static int enemyCurrentHealth;
+
+    public static int enemyStartingHealth; 
 
     public int startingCount = 0; 
 
@@ -38,6 +44,19 @@ public class StaticVariables : MonoBehaviour
         return _currentCount;
     }
 
+    public int returnCurrentEnemyHealth()
+    {
+        int _returnEnemyHealth = enemyCurrentHealth;
+        return _returnEnemyHealth;
+    }
+
+    public int returnStartEnemyHealth()
+    {
+        int _returnEnemyStartHealth = enemyStartingHealth;
+        return _returnEnemyStartHealth;
+    }
+
+
     public int returnLineCount() // Using this to set line id
     {
         int _temp = lineCount;
@@ -48,5 +67,12 @@ public class StaticVariables : MonoBehaviour
     {
         lineCount = startingCount;
         expectedEnemyCount = levelExpectedEnemyCount;
+    }
+
+    public void Start()
+    {
+        global = GlobalController.instance;
+        enemyStartingHealth = global.currentEnemy.enemyHealth;
+        enemyCurrentHealth = enemyStartingHealth; 
     }
 }

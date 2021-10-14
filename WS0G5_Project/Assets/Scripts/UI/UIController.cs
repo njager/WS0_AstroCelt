@@ -114,10 +114,10 @@ public class UIController : MonoBehaviour
     {
         _enemyCount = global.staticVariablesReference.returnCurrentEnemyCount();
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
-        _enemyHealth = global.currentEnemy.returnCurrentEnemyHealth();
+        _enemyHealth = global.staticVariablesReference.returnCurrentEnemyHealth();
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth();
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
         return; 
     }

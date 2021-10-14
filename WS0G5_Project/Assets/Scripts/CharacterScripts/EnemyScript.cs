@@ -26,25 +26,15 @@ public class EnemyScript : MonoBehaviour
         StaticVariables.masterEnemyCount += 1;
     }
 
+
     void Start()
     {
-        //rate = 0.1f; 
+        //rate = 0.1f;
         global = GlobalController.instance;
         global.currentEnemy = enemySelf;
-        enemyStartHealth = myStats.vitality;
         enemyHealth = myStats.vitality;
+        enemyStartHealth = myStats.vitality;
         enemyDamage = myStats.damage;
-    }
-
-    public void Update()
-    {
-       
-    }
-
-    public int returnCurrentEnemyHealth()
-    {
-        int _returnEnemyHealth = enemyHealth;
-        return _returnEnemyHealth; 
     }
 
     public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 
@@ -57,43 +47,22 @@ public class EnemyScript : MonoBehaviour
         Debug.Log("Deleted Enemy Successfully");
     }
 
-    /*void Update()
-    {
-        if (countdown <= 0f)
-        {
-            //StartCoroutine(enemyTimer());
-            countdown = timeBetweenAttacks;
-            return;
-        }
-
-        countdown -= Time.deltaTime; // Timer goes down according to update
-
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-    }
-
-    IEnumerator enemyTimer()
-    {
-        enemyAttacksPlayer(enemyDamage);
-        yield return new WaitForSeconds(1f / rate);
-
-    }*/
-   
-    public void enemyAttacksPlayer(int damage)
+    public void enemyAttacksPlayer(int damage) // Enemy Attack
     {
         global.playerScript.playerDamaged(damage);
         Debug.Log("EnemyAttacks"); 
     }
 
-    public void enemyDie()
+    public void enemyDie() // Death
     {
         Destroy(this);
         global.enemySwitcherFrameworkScript.EnemySwitch();
     }
 
-    public void EnemyDamaged(int health)
+    public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers
     {
-        enemyHealth -= health; 
-        if(enemyHealth <= 0)
+        StaticVariables.enemyCurrentHealth -= _health;
+        if(StaticVariables.enemyCurrentHealth <= 0)
         {
             enemyDie();
             global.Win(); // Remove when there is multiple enemies

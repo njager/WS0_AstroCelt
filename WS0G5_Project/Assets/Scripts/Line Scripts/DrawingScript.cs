@@ -68,7 +68,7 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
-            lineScript.SetStars(starNext, star2); // Should give stars to specific instance of LineRendererScript
+            lineScript.SetStars(starNext, star2); // Should give stars to specific instance of LineRendererScript, it does
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
@@ -101,6 +101,10 @@ public class DrawingScript : MonoBehaviour
             starNext = star2;
             starCount++;
             global.starSpawnerFrameworkScript.StarReset();
+        }
+        if(starCount == -1)
+        {
+            global.constellationBuilding.ConstellationBuilt(); 
         }
 
     }
