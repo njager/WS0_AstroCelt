@@ -2131,6 +2131,7 @@ MonoBehaviour:
   star2: {fileID: 0}
   starNext: {fileID: 0}
   startingStar: {fileID: 0}
+  emptyStar: {fileID: 2075864384}
   shouldNextStar: 0
   starCount: 0
   transformHolder: []
@@ -3682,7 +3683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235563300}
   m_Layer: 0
-  m_Name: StarsHolder
+  m_Name: VoidStarHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17583,7 +17584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365886405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0003004, y: 0.891885, z: -388.9593}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1279924669}
@@ -17602,9 +17603,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyStar: {fileID: 2075864384}
-  startingStar: {fileID: 0}
+  startingStarGO: {fileID: 0}
   startingStarPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
+  constellationCheck: []
+  lineFinal: []
 --- !u!1001 &1377312719
 PrefabInstance:
   m_ObjectHideFlags: 0
