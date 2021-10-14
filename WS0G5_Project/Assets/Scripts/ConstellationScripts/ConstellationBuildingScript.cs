@@ -15,12 +15,17 @@ public class ConstellationBuildingScript : MonoBehaviour
     public Star emptyStar;
     private bool enumeratorTriggered;
     private float _timer = 0f;
+    public GameObject startingStar;
+    public Vector3 startingStarPosition;
+    public Vector3 offset; 
 
     private List<Star> constellationCheck = new List<Star>();
 
     // Start is called before the first frame update
     void Start()
     {
+        startingStar = emptyStar.gameObject; 
+        offset = new Vector3(0.5f, 0.5f, 0f); 
         global = GlobalController.instance;
         conBool = false;
         enumeratorTriggered = false;
@@ -29,6 +34,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        startingStarPosition = startingStar.transform.position; 
         checkCount = 0;
         ConstellationCheck();
 

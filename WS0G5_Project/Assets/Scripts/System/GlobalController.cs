@@ -71,6 +71,7 @@ public class GlobalController : MonoBehaviour
     public StaticVariables staticVariablesReference; // For a method call in UIController
     public NewStarMapScript newStarMapScript; // For use in UIController
     public ConstellationBuildingScript constellationBuilding; // To build constellation
+    public Popup popUpReference; 
 
     [Header("Tags")]
     public string starTag = "Star";
@@ -85,13 +86,6 @@ public class GlobalController : MonoBehaviour
 
     [Header("UI Variables")]
     public static Transform pfPopup;
-
-    // Private 
-    private Star starToBeSelected; 
-    private Star selectedStar;
-
-    // Borrowed from Brackey's, Reports on Internal state of a private variable publicly 
-    public bool starWasSelected { get { return starToBeSelected != null; } }
 
     void Awake()
     {
@@ -109,11 +103,6 @@ public class GlobalController : MonoBehaviour
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false); 
-    }
-
-    public void Update()
-    {
-       
     }
 
     public void Win()
