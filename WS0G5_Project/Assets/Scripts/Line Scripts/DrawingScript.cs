@@ -79,6 +79,7 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+            Debug.Log("Added Line to List");
             global.lineRendererList.Add(lineScript);
             starNext = star2;
             global.starSpawnerFrameworkScript.StarReset();
@@ -98,6 +99,7 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
             starNext = star2;
+            Debug.Log("Added Line to List");
             global.lineRendererList.Add(lineScript);
             starCount++;
             global.starSpawnerFrameworkScript.StarReset();
@@ -115,6 +117,7 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+            Debug.Log("Added Line to List");
             global.lineRendererList.Add(lineScript);
             starNext = star2;
             global.starSpawnerFrameworkScript.StarReset();

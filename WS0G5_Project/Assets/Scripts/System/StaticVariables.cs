@@ -56,7 +56,6 @@ public class StaticVariables : MonoBehaviour
         return _returnEnemyStartHealth;
     }
 
-
     public int returnLineCount() // Using this to set line id
     {
         int _temp = lineCount;

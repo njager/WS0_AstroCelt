@@ -105,12 +105,13 @@ public class LineRendererScript : MonoBehaviour
     }
     public void OnDestroy()
     {
+        //Debug.Log("Line Renderer Destroyed");
         global.drawingScript.starNext = initialStar; 
         global.lineRendererList.Remove(this);
+        Debug.Log("Removed Line from List");
         global.constellationBeingBuilt.Remove(initialStar);
         global.constellationBeingBuilt.Remove(finalStar);
-        Debug.Log("Line Renderer Destroyed");
-        Debug.Log("Stars removed"); 
+        //Debug.Log("That Line's Stars removed"); 
     }
 }
 

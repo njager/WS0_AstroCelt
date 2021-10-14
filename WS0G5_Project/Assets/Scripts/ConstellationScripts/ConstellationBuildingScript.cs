@@ -476,16 +476,25 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.constellationStarCount += 1;
         }
-        if ((global.constellationStarCount >= 3) & (conBool == false))
+        if ((global.constellationStarCount >= 3) & (conBool == false)) // Checks to make sure there are no duplicates and that there are more than 3 stars in the constellation list
         {
+            if (global.constellationPotentialDamage == 0) // First check to see if only base stars have been tabulated, and thus an improper constellation
+            {
+                if (global.constellationPotentialHealth == 0) // No actionb star, no action done, and stars become usable again 
+                {
+                    Debug.Log("Constellation Is Only Base Stars! \nTry Again!");
+                    global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearBad()); // Improper so fully clear
+                }
+            }
             Debug.Log("Constellation Building!");
             if (global.constellationPotentialDamage > 0)
             {
                 if (global.constellationPotentialHealth > 0)
                 {
-                    Debug.Log("Can't have both Health and Action Stars. Try again.");
+                    Debug.Log("Can't have both Health and Action Stars. \nTry again.");
                     global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearBad());
+                    StartCoroutine(constellationClearBad()); // Fully Clear
                 }
                 else
                 {
@@ -494,16 +503,16 @@ public class ConstellationBuildingScript : MonoBehaviour
                     global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
                     Debug.Log(global.currentEnemy.enemyHealth);
                     global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearGood());
+                    StartCoroutine(constellationClearGood()); // Keep Persitent Proper Constellations
                 }
             }
             if (global.constellationPotentialHealth > 0)
             {
                 if (global.constellationPotentialDamage > 0)
                 {
-                    Debug.Log("Can't have both Health and Action Stars. Try Again.");
+                    Debug.Log("Can't have both Health and Action Stars. \nTry Again.");
                     global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearBad());
+                    StartCoroutine(constellationClearBad()); // Fully Clear
                 }
                 else
                 {
@@ -511,7 +520,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     global.constellationFinalHealth += (global.constellationPotential + global.constellationPotentialHealth);
                     global.playerScript.PlayerHealed(global.constellationFinalHealth);
                     global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearGood());
+                    StartCoroutine(constellationClearGood()); // Keep Persistent Proper Constellations 
                 }
             }
 
