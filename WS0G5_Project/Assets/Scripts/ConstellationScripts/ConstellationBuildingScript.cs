@@ -10,17 +10,70 @@ public class ConstellationBuildingScript : MonoBehaviour
 {
     [Header("Constellation Variables")]
     private GlobalController global;
+    private bool conBool; // Use to see if star was clicked on 3 times
+    private int checkCount;
+    public Star emptyStar;
+    private bool enumeratorTriggered;
+    private float _timer = 0f;
+
+    private List<Star> constellationCheck = new List<Star>();
 
     // Start is called before the first frame update
     void Start()
     {
         global = GlobalController.instance;
+        conBool = false;
+        enumeratorTriggered = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        checkCount = 0;
+        ConstellationCheck();
 
+        if(enumeratorTriggered == true)
+        {
+            TimerTrigger();
+            DoubleDeleting(); 
+        }
+    }
+
+    IEnumerator TimerTrigger()
+    {
+        _timer = _timer + 0.01f;
+        yield return new WaitUntil(() => _timer > 3.0);
+    }
+
+    public void DoubleDeleting()
+    {
+        Debug.Log("Double Deleting");
+        foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
+        {
+            Destroy(lineRenderer.gameObject);
+        }
+        enumeratorTriggered = false;
+        _timer = 0f; 
+    }
+
+
+    public void ConstellationCheck()
+    {
+        foreach (Star star in global.constellationBeingBuilt.ToList())
+        {
+            constellationCheck.Add(star);
+            checkCount += 1; 
+        }
+        if(checkCount < 5)
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("Too many Stars!");
+            global.enumeratorCheckBad = 1; // Delete half or finished Constellation 
+            StartCoroutine(constellationClearBad());
+        }
     }
 
     public void ConstellationBuilding()
@@ -45,13 +98,236 @@ public class ConstellationBuildingScript : MonoBehaviour
 
     public void ConstellationBuilt()
     {
+        conBool = false; 
         ConstellationBuilding();
         foreach (Star star in global.constellationBeingBuilt)
         {
             global.constellationStarCount += 1;
         }
 
-        if (global.constellationStarCount >= 3)
+        // Using this to check for duplicates
+        int _tempCount = 0;
+        Star _temp1 = emptyStar;
+        Star _temp2 = emptyStar;
+        Star _temp3 = emptyStar;
+        Star _temp4 = emptyStar;
+        Star _temp5 = emptyStar; 
+
+        foreach (Star star in global.constellationBeingBuilt)
+        {
+            if(_tempCount == 0)
+            {
+                _temp1 = star;
+            }
+            if (_tempCount == 1)
+            {
+                _temp2 = star;
+            }
+            if (_tempCount == 2)
+            {
+                _temp3 = star;
+            }
+            if (_tempCount == 3)
+            {
+                _temp4 = star;
+            }
+            if (_tempCount == 4)
+            {
+                _temp5 = star;
+            }
+            _tempCount++;
+            if (_temp1 == _temp2)
+            {
+                if(_temp1 != emptyStar)
+                {
+                    if (_temp2 != emptyStar)
+                    {
+                        if(_temp1 == _temp2)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false; 
+                        }
+                    }
+                }
+            }
+            if (_temp1 == _temp3)
+            {
+                if (_temp1 != emptyStar)
+                {
+                    if (_temp3 != emptyStar)
+                    {
+                        if (_temp1 == _temp3)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp1 == _temp4)
+            {
+                if (_temp1 != emptyStar)
+                {
+                    if (_temp4 != emptyStar)
+                    {
+                        if (_temp1 == _temp4)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp1 == _temp5)
+            {
+                if (_temp1 != emptyStar)
+                {
+                    if (_temp5 != emptyStar)
+                    {
+                        if (_temp1 == _temp5)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp2 == _temp3)
+            {
+                if (_temp2 != emptyStar)
+                {
+                    if (_temp3 != emptyStar)
+                    {
+                        if (_temp2 == _temp3)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp2 == _temp4)
+            {
+                if (_temp2 != emptyStar)
+                {
+                    if (_temp4 != emptyStar)
+                    {
+                        if (_temp2 == _temp4)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp2 == _temp5)
+            {
+                if (_temp2 != emptyStar)
+                {
+                    if (_temp5 != emptyStar)
+                    {
+                        if (_temp2 == _temp5)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp3 == _temp4)
+            {
+                if (_temp3 != emptyStar)
+                {
+                    if (_temp4 != emptyStar)
+                    {
+                        if (_temp3 == _temp4)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp3 == _temp5)
+            {
+                if (_temp3 != emptyStar)
+                {
+                    if (_temp5 != emptyStar)
+                    {
+                        if (_temp3 == _temp5)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp4 == _temp5)
+            {
+                if (_temp4 != emptyStar)
+                {
+                    if (_temp5 != emptyStar)
+                    {
+                        if (_temp4 == _temp5)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        Debug.Log("Hey here's ConBool: " + conBool); 
+
+        if (conBool == true)
+        {
+            global.enumeratorCheckBad = 1; // Delete Constellation  
+            StartCoroutine(constellationClearBad());
+        }
+
+        if ((global.constellationStarCount >= 3) & (conBool == false))
         {
             Debug.Log("Constellation Building!");
             if (global.constellationPotentialDamage > 0)
@@ -110,6 +386,8 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        enumeratorTriggered = true;
+        conBool = false;
         global.enumeratorCheckBad = 0;
         yield return new WaitUntil(() => global.enumeratorCheckBad == 0);
     }
@@ -133,6 +411,8 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        enumeratorTriggered = true;
+        conBool = false;
         global.enumeratorCheckGood = 0;
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
     }

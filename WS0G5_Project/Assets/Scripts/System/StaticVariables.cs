@@ -22,6 +22,10 @@ public class StaticVariables : MonoBehaviour
 
     public static int expectedEnemyCount; // By making it static, we could have an event where enemies spawn in to the pre-built level
 
+    public static int constellationDamageStarCount; // Use to limit to 1 action star in a constellation 
+
+    public static int constellationHealthStarCount; // Use to limit to 1 action star in a constellation. 
+
     public int returnExpectedEnemyCount() // Use this to set the UI for Max
     {
         int returnLevelExpectedEnemyCount = levelExpectedEnemyCount; // Grabbing value from editor 
