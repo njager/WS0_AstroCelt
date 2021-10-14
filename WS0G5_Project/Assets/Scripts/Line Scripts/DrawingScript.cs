@@ -51,9 +51,9 @@ public class DrawingScript : MonoBehaviour
     {
         if (activeStarCounter == 1)
         {
-            GameObject lineRenderer = Instantiate(lineRendererPrefab); 
-            LineRenderer importedLineRenderer = lineRenderer.GetComponent<LineRenderer>(); 
-            LineRendererScript lineScript = lineRenderer.GetComponent<LineRendererScript>();
+            GameObject _lineRenderer = Instantiate(lineRendererPrefab); 
+            LineRenderer importedLineRenderer = _lineRenderer.GetComponent<LineRenderer>(); 
+            LineRendererScript lineScript = _lineRenderer.GetComponent<LineRendererScript>();
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
             drawingLine(importedLineRenderer, lineScript);
@@ -68,6 +68,7 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
+            lineScript.SetStars(starNext, star2); // Should give stars to specific instance of LineRendererScript
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
@@ -84,6 +85,7 @@ public class DrawingScript : MonoBehaviour
         }
         if (starCount == 0)
         {
+            lineScript.SetStars(star1, star2);
             global.constellationBeingBuilt.Add(star1);
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = star1.transform.position;

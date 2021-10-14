@@ -12,15 +12,9 @@ public class LineRendererScript : MonoBehaviour
     private CapsuleCollider capsule;
     [SerializeField] int myCount; // Use a count varaible to only toggle once
     
-
+    // Store the specific stars used to make line; 
     private Star initialStar;
     private Star finalStar; 
-
-    public bool lineDrew = true; // Being checked in drawScript to see if line can draw
-    public bool isLinePlaced; // Bool, set in drawing script, so that the lines that are placed and valid don't destroy upon collision 
-    private bool lineStateChange1; // Use bool to holder the opposite of is line placed to then change it to that
-    private bool lineStateChange2;
-    private bool linePlaced; 
 
     [Header("Capsule Collider")]
     public Vector3 start;
@@ -33,10 +27,10 @@ public class LineRendererScript : MonoBehaviour
     public void Awake()
     {
         global = GlobalController.instance;
-        myCount = increaseCount();
+        myCount = IncreaseCount();
     }
 
-    public int increaseCount()
+    public int IncreaseCount()
     {
         StaticVariables.lineCount += 1;
         int _TempCount = global.staticVariablesReference.returnLineCount();
@@ -54,10 +48,12 @@ public class LineRendererScript : MonoBehaviour
         capsule.direction = 2; // Z-axis for easier "LookAt" orientation
     }
 
-    public void setStars(Star star1, Star star2) // Grab the stars that filled up the line, triggered in DrawScript
+    public void SetStars(Star star1, Star star2) // Grab the stars that filled up the line, triggered in DrawScript
     {
-        initialStar = star1; 
+        initialStar = star1;
+        // Debug.Log(initialStar);
         finalStar = star2;
+        // Debug.Log(finalStar);
     }
     
     public void ResetList() // For Reset Behavior
@@ -73,11 +69,6 @@ public class LineRendererScript : MonoBehaviour
         capsule.transform.position = start + (end - start) / 2;
         capsule.transform.LookAt(start);
         capsule.height = ((end - start)*offset).magnitude;
-    }
-
-    public bool getLineDrew() // Trying to get the bool to self report 
-    {
-        return lineDrew; 
     }
 
     void OnTriggerEnter(Collider col) // Here it detects the other gameObject
