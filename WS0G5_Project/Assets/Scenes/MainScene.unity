@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875841}
+  - component: {fileID: 1875842}
   m_Layer: 0
   m_Name: LoseChecker
   m_TagString: Untagged
@@ -183,6 +184,18 @@ Transform:
   m_Father: {fileID: 810105075}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1875842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda1a15d0b31b49119b957646b61758b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2313422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2131,7 @@ MonoBehaviour:
   star2: {fileID: 0}
   starNext: {fileID: 0}
   startingStar: {fileID: 0}
+  shouldNextStar: 0
   starCount: 0
   transformHolder: []
   activeStarCounter: 0
@@ -7175,6 +7189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502017152}
+  - component: {fileID: 502017153}
   m_Layer: 0
   m_Name: WinChecker
   m_TagString: Untagged
@@ -7196,6 +7211,18 @@ Transform:
   m_Father: {fileID: 810105075}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &502017153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502017151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e766dc39df67747d79798118e9d68c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506385692
 GameObject:
   m_ObjectHideFlags: 0
@@ -28301,7 +28328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6657636607174309373, guid: 8f327b8f6796dc445a9df8a0f662b1e6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6657636607174309373, guid: 8f327b8f6796dc445a9df8a0f662b1e6, type: 3}
       propertyPath: m_LocalPosition.x

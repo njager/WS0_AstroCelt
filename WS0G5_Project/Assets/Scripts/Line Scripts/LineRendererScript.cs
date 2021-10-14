@@ -98,6 +98,45 @@ public class LineRendererScript : MonoBehaviour
             Destroy(lineGameObject);
             return;
         }
+        if (other.CompareTag("Star"))
+        {
+            Star _star = other.GetComponent<Star>();  
+            if(_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
+        if (other.CompareTag("HealthStar"))
+        {
+            Star _star = other.GetComponent<Star>();
+            if (_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
+        if (other.CompareTag("DamageStar"))
+        {
+            Star _star = other.GetComponent<Star>();
+            if (_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
         else
         {
           return; 

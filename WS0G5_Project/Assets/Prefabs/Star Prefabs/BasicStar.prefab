@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6657636607174309373}
   - component: {fileID: 4875646107116946667}
   - component: {fileID: 8879191325765608833}
+  - component: {fileID: 5268516002537983628}
   m_Layer: 0
   m_Name: BasicStar
   m_TagString: Star
@@ -65,11 +66,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4444467650669534561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.27
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5268516002537983628
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444467650669534561}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &443898439904592995
 PrefabInstance:
   m_ObjectHideFlags: 0
