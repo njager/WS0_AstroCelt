@@ -20,7 +20,6 @@ public class Star : MonoBehaviour
 
     //Global Setting
     private GlobalController global;
-    private Transform starPosition; 
 
     // Private Variables
     private SpriteRenderer rend;
@@ -36,7 +35,6 @@ public class Star : MonoBehaviour
 
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
-        starPosition = starSelf.transform;
     }
 
     
@@ -57,17 +55,17 @@ public class Star : MonoBehaviour
                 if (global.drawingScript.starCount == 0)
                 {
                     global.drawingScript.startingStar = this;
-                    global.drawingScript.activeStarCounter = 1;
                     global.drawingScript.star1 = this;
-                    Debug.Log("Set activeStarCounter to 1");
+                    global.drawingScript.activeStarCounter = 1;
+                    //Debug.Log("Set activeStarCounter to 1");
                     return;
                 }
-                else 
+                if (global.drawingScript.starCount >= 0)
                 {
                     global.drawingScript.star2 = this;
                     global.drawingScript.activeStarCounter = 1;
                     global.drawingScript.drawLine();
-                    Debug.Log("Else Triggered");
+                    //Debug.Log("Else Triggered");
                 }
             }
             if (global.drawingScript.activeStarCounter == 1)
@@ -76,13 +74,19 @@ public class Star : MonoBehaviour
                 {
                     if (global.drawingScript.star1 == this)
                     {
-                        Debug.Log("Click a different Star");
+                        Debug.Log("Please click a different Star");
+                        global.drawingScript.activeStarCounter = 1;
+                        return;
+                    }
+                    if (global.drawingScript.starNext == this)
+                    {
+                        Debug.Log("Please click a different Star");
                         global.drawingScript.activeStarCounter = 1;
                         return;
                     }
                     global.drawingScript.star2 = this;
                     global.drawingScript.drawLine();
-                    Debug.Log("Set activeStarCounter to 2");
+                    //Debug.Log("Set activeStarCounter to 2");
                     return;
                 }
             }

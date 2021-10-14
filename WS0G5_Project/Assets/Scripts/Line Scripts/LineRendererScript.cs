@@ -72,7 +72,7 @@ public class LineRendererScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col) // Here it detects the other gameObject
     {
-        Debug.Log("Hit!"); // Debug Hit
+        //Debug.Log("Hit!"); // Debug Hit
         GameObject other = col.gameObject; // Col GameObject 
         if (other.CompareTag("Line"))
         {
