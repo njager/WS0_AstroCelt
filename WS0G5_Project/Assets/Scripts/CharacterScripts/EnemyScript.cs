@@ -50,7 +50,7 @@ public class EnemyScript : MonoBehaviour
     public void enemyAttacksPlayer(int damage) // Enemy Attack
     {
         global.playerScript.playerDamaged(damage);
-        Debug.Log("EnemyAttacks"); 
+        //Debug.Log("Enemy Attacks"); 
     }
 
     public void enemyDie() // Death

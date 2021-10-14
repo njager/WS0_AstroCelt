@@ -16,13 +16,15 @@ public class DrawingScript : MonoBehaviour
     private Vector3 lineStartingPoint;
     private Vector3 lineEndingPoint;
 
+    [Header("Star References")]
     public Star star1;
     public Star star2;
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star startingStar;
+    public Star emptyStar; // Need something to start the game
 
+    [HeaderAttribute("Drawing Script Ints")]
     public int shouldNextStar; // Used in line renderer count; 
-
     public int starCount; // Know if drawing for first time
 
     [Header("Position")]
@@ -34,6 +36,11 @@ public class DrawingScript : MonoBehaviour
 
     public Transform drawingScriptSelf;
     public Quaternion intitalQuaternion;
+
+    public void Awake()
+    {
+        startingStar = emptyStar;
+    }
 
     public void Start() 
     {

@@ -13,10 +13,12 @@ public class ConstellationBuildingScript : MonoBehaviour
     private bool conBool; // Use to see if star was clicked on 3 times
     private int checkCount;
     public Star emptyStar;
+    private int _tempStarCount = 0; // Use for duplicate of staarting star for value calculation
     // private bool enumeratorTriggered;
     private float _timer = 0f;
-    public GameObject startingStar;
-    public Vector3 startingStarPosition;
+    public GameObject startingStarGO; // In-Script reference to global's starting star
+    private Star startingStar_Star; 
+    public Vector3 startingStarPosition; // 
     public Vector3 offset; 
 
     private List<Star> constellationCheck = new List<Star>();
@@ -25,7 +27,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startingStar = emptyStar.gameObject; 
+        startingStarGO = emptyStar.gameObject; // Need something to hold data during runtime
         offset = new Vector3(0.5f, 0.5f, 0f); 
         global = GlobalController.instance;
         conBool = false;
@@ -35,9 +37,14 @@ public class ConstellationBuildingScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        startingStarPosition = startingStar.transform.position; 
+        startingStar_Star = global.drawingScript.startingStar;
+        startingStarGO = startingStar_Star.gameObject; 
+        startingStarPosition = startingStarGO.transform.position; 
         checkCount = 0;
         ConstellationCheck();
+
+
+
         /*
         if(enumeratorTriggered == true)
         {
@@ -94,18 +101,49 @@ public class ConstellationBuildingScript : MonoBehaviour
             }
             if (star.myStarClass.starType == "HealthStar")
             {
-                global.constellationPotentialHealth += star.myStarClass.constellationValue;
+                if (star == global.drawingScript.startingStar)
+                {
+                    if(_tempStarCount == 0)
+                    {
+                        global.constellationPotentialHealth -= 1; 
+                    }
+                    else
+                    {
+                        global.constellationPotentialHealth += star.myStarClass.constellationValue;
+                    }
+                        
+                }
+                else
+                {
+                    global.constellationPotentialHealth += star.myStarClass.constellationValue;
+                }
+                
             }
             if (star.myStarClass.starType == "DamageStar")
             {
-                global.constellationPotentialDamage += star.myStarClass.constellationValue;
+                if (star == global.drawingScript.startingStar)
+                {
+                    if (_tempStarCount == 0)
+                    {
+                        global.constellationPotentialDamage -= 1;
+                    }
+                    else
+                    {
+                        global.constellationPotentialDamage += star.myStarClass.constellationValue;
+                    }
+
+                }
+                else
+                {
+                    global.constellationPotentialDamage += star.myStarClass.constellationValue;
+                }
             }
         }
     }
 
-    public void DuplicateChecker() // Moved to it's own method so it can return out of the structure
+    // Using this to check for duplicates in global.constellationBeingBuilt
+    public void DuplicateChecker() // Moved to it's own method so it can return out of the structure when True
     {
-        // Using this to check for duplicates
         int _tempCount = 0;
         Star _temp1 = emptyStar;
         Star _temp2 = emptyStar;
@@ -116,27 +154,27 @@ public class ConstellationBuildingScript : MonoBehaviour
 
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
-            if (_tempCount == 0) // Star 1 in list check
+            if (_tempCount == 0) // Star 1 in list
             {
                 _temp1 = star;
             }
-            if (_tempCount == 1) // Star 2 in list check
+            if (_tempCount == 1) // Star 2 in list
             {
                 _temp2 = star;
             }
-            if (_tempCount == 2) // Star 3 in list check
+            if (_tempCount == 2) // Star 3 in list 
             {
                 _temp3 = star;
             }
-            if (_tempCount == 3) // Star 4 in list check
+            if (_tempCount == 3) // Star 4 in list 
             {
                 _temp4 = star;
             }
-            if (_tempCount == 4) // Star 5 in list check
+            if (_tempCount == 4) // Star 5 in list 
             {
                 _temp5 = star;
             }
-            if (_tempCount == 5) // Star 6 in list check
+            if (_tempCount == 5) // Star 6 in list 
             {
                 _temp6 = star;
             }
@@ -501,7 +539,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 if (global.constellationPotentialHealth > 0)
                 {
-                    Debug.Log("Can't have both Health and Action Stars. \nTry again.");
+                    Debug.Log("Can't have both Health and Action Stars. \n\nTry again.");
                     global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                     StartCoroutine(constellationClearBad()); // Fully Clear
                 }
@@ -518,7 +556,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("You have too many action stars! \nOnly 1 Allowed");
+                        Debug.Log("You have too many action stars! \n\nOnly 1 Allowed");
                         global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                         StartCoroutine(constellationClearBad()); // Fully Clear
                     }
@@ -575,6 +613,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.starSpawnerFrameworkScript.StarResetForClear(); // Needed to reset drawing
         //enumeratorTriggered = true; // Thought I needed but will leave to trigger secondary behavior if need be
         conBool = false;
+        _tempStarCount = 0;
         global.enumeratorCheckBad = 0;
         yield return new WaitUntil(() => global.enumeratorCheckBad == 0);
     }
@@ -603,8 +642,9 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
         conBool = false;
-        global.enumeratorCheckGood = 0;
+        _tempStarCount = 0;
         global.starSpawnerFrameworkScript.StarResetForClear();
+        global.enumeratorCheckGood = 0; // Needs to be last, it's my exit condition
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
     }
 }

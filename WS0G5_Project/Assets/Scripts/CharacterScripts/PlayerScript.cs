@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     public void playerDamaged(int damage)
     {
         PlayerStats.playerVitality -= damage;
-        Debug.Log("Player Hit"); 
+        //Debug.Log("Player Hit"); 
         showHealth = PlayerStats.playerVitality; 
     }
 
