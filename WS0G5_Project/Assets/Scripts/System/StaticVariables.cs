@@ -16,6 +16,10 @@ public class StaticVariables : MonoBehaviour
 
     public static int masterEnemyCount;
 
+    public static int lineCount;
+
+    public int startingCount = 0; 
+
     public static int expectedEnemyCount; // By making it static, we could have an event where enemies spawn in to the pre-built level
 
     public int returnExpectedEnemyCount() // Use this to set the UI for Max
@@ -30,9 +34,15 @@ public class StaticVariables : MonoBehaviour
         return _currentCount;
     }
 
-    public void Start()
+    public int returnLineCount() // Using this to set line id
     {
-        expectedEnemyCount = levelExpectedEnemyCount;
+        int _temp = lineCount;
+        return _temp; 
+    }
 
+    public void Awake()
+    {
+        lineCount = startingCount;
+        expectedEnemyCount = levelExpectedEnemyCount;
     }
 }

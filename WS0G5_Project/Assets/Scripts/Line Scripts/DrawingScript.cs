@@ -41,11 +41,6 @@ public class DrawingScript : MonoBehaviour
         global = GlobalController.instance;
     }
 
-    public void Update()
-    {
-
-    }
-
     public void ResetList()
     {
         activeStarCounter = 0;
@@ -61,22 +56,7 @@ public class DrawingScript : MonoBehaviour
             LineRendererScript lineScript = lineRenderer.GetComponent<LineRendererScript>();
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            Debug.Log(lineScript.lineDrew); 
-            if (lineScript.lineDrew == true)
-            {
-                drawingLine(importedLineRenderer, lineScript);
-                //bool lineCheck = lineScript.getLinePlaced(); 
-                //if (lineCheck != true)
-                {
-                    //lineScript.ToggleBool(); 
-                }
-
-            }
-            else
-            {
-                Debug.Log("Line Collided with Line");
-                //lineScript.ToggleBool(); 
-            }
+            drawingLine(importedLineRenderer, lineScript);
         }
         else
         {
@@ -88,13 +68,6 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
-            //lineScript.ToggleBool();
-            //bool lineCheck = lineScript.getLineDrew();
-            //if (lineCheck == false)
-            {
-                //lineScript.ToggleBool();
-                //return;
-            }
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
@@ -111,13 +84,6 @@ public class DrawingScript : MonoBehaviour
         }
         if (starCount == 0)
         {
-            //lineScript.ToggleBool();
-            //bool lineCheck = lineScript.getLineDrew();
-            //if (lineCheck == false)
-            {
-                //lineScript.ToggleBool();
-                //return;
-            }
             global.constellationBeingBuilt.Add(star1);
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = star1.transform.position;

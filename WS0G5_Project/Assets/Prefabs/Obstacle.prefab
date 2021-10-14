@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 8349802243853365261}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Line
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
