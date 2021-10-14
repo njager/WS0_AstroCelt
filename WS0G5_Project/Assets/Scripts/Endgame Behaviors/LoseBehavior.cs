@@ -14,7 +14,7 @@ public class LoseBehavior : MonoBehaviour
 
     void Update()
     {
-        if(PlayerStats.playerVitality < 0)
+        if(PlayerStats.playerVitality <= 0)
         {
             global.Lose(); 
         }

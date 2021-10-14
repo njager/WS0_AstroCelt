@@ -66,10 +66,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4444467650669534561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.275
+  m_Radius: 0.28
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1712081453613264479
 Rigidbody:
