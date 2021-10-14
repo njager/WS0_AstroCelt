@@ -10,16 +10,11 @@ public class LineRendererScript : MonoBehaviour
     public LineRenderer selfLine;
     [SerializeField] float LineWidth = 0.5f; // Referencing line Renderer width for capsule collider
     private CapsuleCollider capsule;
-    [SerializeField] int boolCount; // Use a count varaible to only toggle once
-
+    [SerializeField] int myCount; // Use a count varaible to only toggle once
+    
+    // Store the specific stars used to make line; 
     private Star initialStar;
     private Star finalStar; 
-
-    public bool lineDrew = true; // Being checked in drawScript to see if line can draw
-    public bool isLinePlaced; // Bool, set in drawing script, so that the lines that are placed and valid don't destroy upon collision 
-    private bool lineStateChange1; // Use bool to holder the opposite of is line placed to then change it to that
-    private bool lineStateChange2;
-    private bool linePlaced; 
 
     [Header("Capsule Collider")]
     public Vector3 start;
@@ -27,59 +22,45 @@ public class LineRendererScript : MonoBehaviour
 
     public float offset; // Change capsule collider so that lines can touch inside stars
 
-    private GlobalController global; 
+    private GlobalController global;
+
+    public void Awake()
+    {
+        global = GlobalController.instance;
+        myCount = IncreaseCount();
+    }
+
+    public int IncreaseCount()
+    {
+        StaticVariables.lineCount += 1;
+        int _TempCount = global.staticVariablesReference.returnLineCount();
+        return _TempCount; 
+    }
 
     public void Start()
     {
-        global = GlobalController.instance;
-        global.lineRendererList.Add(this); // Add itself u
-        boolCount = 0; 
-        offset = 0.85f; 
+        offset = 0.75f; 
         selfLine = lineGameObject.GetComponent<LineRenderer>();
         capsule = lineGameObject.GetComponent<CapsuleCollider>(); 
-        capsule.radius = LineWidth / 2;
+        capsule.radius = LineWidth / 3;
         capsule.center = Vector3.zero;
         capsule.direction = 2; // Z-axis for easier "LookAt" orientation
     }
 
-    public void setStars(Star star1, Star star2) // Grab the stasrs that filled up the line, triggered in DrawScript
+    public void SetStars(Star star1, Star star2) // Grab the stars that filled up the line, triggered in DrawScript
     {
-        initialStar = star1; 
-        initialStar = star2;
+        initialStar = star1;
+        // Debug.Log(initialStar);
+        finalStar = star2;
+        // Debug.Log(finalStar);
     }
     
-    public void ToggleBool() //So DrawScript can change the bool inside the script
+    public void ResetList() // For Reset Behavior
     {
-        if (boolCount == 0)
-        {
-            if (isLinePlaced != !isLinePlaced)
-            {
-                Debug.Log("Triggered");
-                lineStateChange1 = !isLinePlaced;
-                isLinePlaced = lineStateChange1;
-                Debug.Log(isLinePlaced);
-                return;
-            }
-        }
-        else
-        {
-            return; 
-        }
+        Destroy(this);
     }
 
-    public bool getLinePlaced()
-    {
-        if (linePlaced != true)
-        {
-            Debug.Log("Triggered linePlaced");
-            lineStateChange2 = !isLinePlaced;
-            isLinePlaced = lineStateChange2;
-            Debug.Log(isLinePlaced);
-        }
-        return linePlaced; 
-    }
-
-    public void Update()
+    private void Update() // Update Loop
     {
         start = selfLine.GetPosition(0);
         end = selfLine.GetPosition(1);
@@ -89,35 +70,72 @@ public class LineRendererScript : MonoBehaviour
         capsule.height = ((end - start)*offset).magnitude;
     }
 
-    public bool getLineDrew()
+    void OnTriggerEnter(Collider col) // Here it detects the other gameObject
     {
-        return lineDrew; 
-    }
-
-    void OnTriggerEnter(Collider col) // Here it detects the other script 
-    {
-        Debug.Log("Hit!");
-        GameObject other = col.gameObject; 
+        //Debug.Log("Hit!"); // Debug Hit
+        GameObject other = col.gameObject; // Col GameObject 
         if (other.CompareTag("Line"))
         {
            if(other != lineGameObject)
-           {
-                if (linePlaced != false)
+            {
+                if (myCount < other.GetComponent<LineRendererScript>().myCount)
                 {
-                    ToggleBool(); 
-                }
-                if (isLinePlaced == false)
-                {
-                    lineDrew = false;
-                    Debug.Log("Destroying");
-                    Destroy(lineGameObject);
+                    Destroy(col); 
+                    Debug.Log("Destroying Other Line");
                     return;
                 }
                 else
                 {
-                    return; 
+                    Debug.Log("Destroying Self");
+                    Destroy(lineGameObject);
+                    return;
                 }
            }
+        }
+        if (other.CompareTag("Obstacle")) // Hit an Obstacle, destroy self
+        {
+            Debug.Log("Destroying Self");
+            Destroy(lineGameObject);
+            return;
+        }
+        if (other.CompareTag("Star"))
+        {
+            Star _star = other.GetComponent<Star>();  
+            if(_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
+        if (other.CompareTag("HealthStar"))
+        {
+            Star _star = other.GetComponent<Star>();
+            if (_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
+        if (other.CompareTag("DamageStar"))
+        {
+            Star _star = other.GetComponent<Star>();
+            if (_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.Log("Hit Star Without Clicking");
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
         }
         else
         {
@@ -126,10 +144,29 @@ public class LineRendererScript : MonoBehaviour
     }
     public void OnDestroy()
     {
+        //Debug.Log("Line Renderer Destroyed");
+        SettingUpNextStar(); // Explained below 
         global.lineRendererList.Remove(this);
+        Debug.Log("Removed Line from List");
         global.constellationBeingBuilt.Remove(initialStar);
         global.constellationBeingBuilt.Remove(finalStar);
-        Debug.Log("Line Renderer Destroyed");
-        Debug.Log("Stars removed"); 
+        //Debug.Log("That Line's Stars removed"); 
+    }
+
+    public void SettingUpNextStar() // This was an on destory behavior that I wanted to occur everytime, but when a constellation clear it needs to not set the next star
+    {
+        if (global.drawingScript.shouldNextStar == 0)
+        {
+            global.drawingScript.starNext = initialStar;
+            return; 
+        }
+        if (global.drawingScript.shouldNextStar == 1)
+        {
+            Debug.LogError("Yeah this happened");
+            return;
+        }
     }
 }
+
+// Keeping as a line to look at later
+// global.drawingScript.starNext = other.GetComponent<LineRendererScript>().initialStar;

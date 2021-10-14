@@ -16,11 +16,15 @@ public class DrawingScript : MonoBehaviour
     private Vector3 lineStartingPoint;
     private Vector3 lineEndingPoint;
 
+    [Header("Star References")]
     public Star star1;
     public Star star2;
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star startingStar;
+    public Star emptyStar; // Need something to start the game
 
+    [HeaderAttribute("Drawing Script Ints")]
+    public int shouldNextStar; // Used in line renderer count; 
     public int starCount; // Know if drawing for first time
 
     [Header("Position")]
@@ -33,44 +37,36 @@ public class DrawingScript : MonoBehaviour
     public Transform drawingScriptSelf;
     public Quaternion intitalQuaternion;
 
+    public void Awake()
+    {
+        startingStar = emptyStar;
+    }
+
     public void Start() 
     {
         starCount = 0; 
+        shouldNextStar = 0;
         lineStartingPoint = Vector3.zero;
         lineStartingPoint = Vector3.zero;
         global = GlobalController.instance;
     }
 
-    public void Update()
+    public void ResetList()
     {
-
+        activeStarCounter = 0;
+        starCount = 0;
     }
 
     public void drawLine()
     {
         if (activeStarCounter == 1)
         {
-            GameObject lineRenderer = Instantiate(lineRendererPrefab); 
-            LineRenderer importedLineRenderer = lineRenderer.GetComponent<LineRenderer>(); 
-            LineRendererScript lineScript = lineRenderer.GetComponent<LineRendererScript>();
+            GameObject _lineRenderer = Instantiate(lineRendererPrefab); 
+            LineRenderer importedLineRenderer = _lineRenderer.GetComponent<LineRenderer>(); 
+            LineRendererScript lineScript = _lineRenderer.GetComponent<LineRendererScript>();
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
-            Debug.Log(lineScript.lineDrew); 
-            if (lineScript.lineDrew == true)
-            {
-                drawingLine(importedLineRenderer, lineScript);
-                //bool lineCheck = lineScript.getLinePlaced(); 
-                //if (lineCheck != true)
-                {
-                    //lineScript.ToggleBool(); 
-                }
-
-            }
-            else
-            {
-                Debug.Log("Line Collided with Line");
-                //lineScript.ToggleBool(); 
-            }
+            drawingLine(importedLineRenderer, lineScript);
         }
         else
         {
@@ -82,17 +78,10 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
-            //lineScript.ToggleBool();
-            //bool lineCheck = lineScript.getLineDrew();
-            //if (lineCheck == false)
-            {
-                //lineScript.ToggleBool();
-                //return;
-            }
+            lineScript.SetStars(starNext, star2); // Should give stars to specific instance of LineRendererScript, it does
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
-
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
             importedLineRenderer.startColor = Color.white;
@@ -100,23 +89,18 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+            Debug.Log("Added Line to List");
+            global.lineRendererList.Add(lineScript);
             starNext = star2;
             global.starSpawnerFrameworkScript.StarReset();
         }
         if (starCount == 0)
         {
-            //lineScript.ToggleBool();
-            //bool lineCheck = lineScript.getLineDrew();
-            //if (lineCheck == false)
-            {
-                //lineScript.ToggleBool();
-                //return;
-            }
+            lineScript.SetStars(star1, star2);
             global.constellationBeingBuilt.Add(star1);
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = star1.transform.position;
             lineEndingPoint = star2.transform.position;
-
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
             importedLineRenderer.startColor = Color.white;
@@ -125,8 +109,29 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
             starNext = star2;
+            Debug.Log("Added Line to List");
+            global.lineRendererList.Add(lineScript);
             starCount++;
             global.starSpawnerFrameworkScript.StarReset();
+        }
+        if(starCount == -1)
+        {
+            lineScript.SetStars(starNext, star2); 
+            global.constellationBeingBuilt.Add(star2);
+            lineStartingPoint = starNext.transform.position;
+            lineEndingPoint = star2.transform.position;
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
+            Debug.Log("Added Line to List");
+            global.lineRendererList.Add(lineScript);
+            starNext = star2;
+            global.starSpawnerFrameworkScript.StarReset();
+            global.constellationBuilding.ConstellationBuilt(); 
         }
 
     }

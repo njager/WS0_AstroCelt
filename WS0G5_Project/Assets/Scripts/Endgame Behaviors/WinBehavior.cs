@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class WinBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private GlobalController global;
+
     void Start()
     {
-        
+        global = GlobalController.instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(StaticVariables.enemyCurrentHealth <= 0)
+        {
+            global.Win(); // For now
+        }
     }
 }

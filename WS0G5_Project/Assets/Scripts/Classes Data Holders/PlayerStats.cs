@@ -5,22 +5,41 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Vitality
+    [Header("Vitality")]
     public static int playerVitality;
-    public int startingPlayerVitality = 400; 
+    public static int startingPlayerVitality;
+    [SerializeField] int _startingVitality = 400;
 
-    // Damage
+    [Header("Damage")]
     public static int playerDamage;
     public int startingPlayerDamage = 10; 
 
-    // Cosmic Energy 
+    [Header("Cosmic Energy")] 
     public static int playerCosmicEnergy;
-    public int startingPlayerCosmicEnergy = 500; 
+    public static int startingPlayerCosmicEnergy;  
+    [SerializeField] int _startingCosmicEnergy = 400;
+
+    // UI Start Methods, by doing this I explicitly request and send back data
+
+    public static int returnStartingVitality() // Needed because race conditions for Start Methods
+    {
+        int _returnVitality = 400; 
+        return _returnVitality;
+    }
+
+    public static int returnStartingCosmicEnergy() // Needed because race conditions for Start Methods
+    {
+        int _returnCE = 500;
+        return _returnCE;
+    }
 
     public void Start()
     {
+        startingPlayerVitality = _startingVitality;
+        startingPlayerCosmicEnergy = _startingCosmicEnergy;
         playerVitality = startingPlayerVitality;
         playerDamage = startingPlayerDamage;
-        playerCosmicEnergy = startingPlayerCosmicEnergy; 
+        playerCosmicEnergy = startingPlayerCosmicEnergy;
+
     }
 }
