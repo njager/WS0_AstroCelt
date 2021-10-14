@@ -466,6 +466,15 @@ public class ConstellationBuildingScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  Future note to self:
+    ///  When there is a lot of action stars in the future, 
+    ///  build a helper function to add to a count variable in an iterable loop for the global.constellationBeingBuilt,
+    ///  Where if the star's tag isn't "Star", the count goes up. 
+    ///  Then I know how many action stars there are in the proposed constellation.
+    ///  Why not change it now? Don't want to debug for it just yet. 
+    /// </summary>
+
     public void ConstellationBuilt()
     {
         Vector3 _new_position = startingStarPosition + offset;
@@ -498,12 +507,21 @@ public class ConstellationBuildingScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Constellation Built for Damage!");
-                    global.constellationFinalDamage = ((global.constellationPotential + global.constellationPotentialDamage)-1); // Have to subtract by one since the starting star gets added twice
-                    global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
-                    Debug.Log(global.currentEnemy.enemyHealth);
-                    global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearGood()); // Keep Persitent Proper Constellations
+                    if(global.constellationPotentialDamage == 1) // Checking action star count
+                    {
+                        Debug.Log("Constellation Built for Damage!");
+                        global.constellationFinalDamage = ((global.constellationPotential + global.constellationPotentialDamage) - 1); // Have to subtract by one since the starting star gets added twice
+                        global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
+                        Debug.Log(global.currentEnemy.enemyHealth);
+                        global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                        StartCoroutine(constellationClearGood()); // Keep Persitent Proper Constellations
+                    }
+                    else
+                    {
+                        Debug.Log("You have too many action stars! \nOnly 1 Allowed");
+                        global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                        StartCoroutine(constellationClearBad()); // Fully Clear
+                    }
                 }
             }
             if (global.constellationPotentialHealth > 0)
@@ -516,11 +534,20 @@ public class ConstellationBuildingScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Constellation Built for Health!");
-                    global.constellationFinalHealth += ((global.constellationPotential + global.constellationPotentialHealth)-1); // Have to subtract by one since the starting star gets added twice
-                    global.playerScript.PlayerHealed(global.constellationFinalHealth);
-                    global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearGood()); // Keep Persistent Proper Constellations 
+                    if (global.constellationPotentialDamage == 1) // Checking action star count
+                    {
+                        Debug.Log("Constellation Built for Health!");
+                        global.constellationFinalHealth += ((global.constellationPotential + global.constellationPotentialHealth) - 1); // Have to subtract by one since the starting star gets added twice
+                        global.playerScript.PlayerHealed(global.constellationFinalHealth);
+                        global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                        StartCoroutine(constellationClearGood()); // Keep Persistent Proper Constellations 
+                    }
+                    else
+                    {
+                        Debug.Log("You have too many action stars! \nOnly 1 Allowed");
+                        global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                        StartCoroutine(constellationClearBad()); // Fully Clear
+                    }
                 }
             }
 
