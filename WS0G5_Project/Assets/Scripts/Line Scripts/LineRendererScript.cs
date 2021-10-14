@@ -39,11 +39,10 @@ public class LineRendererScript : MonoBehaviour
 
     public void Start()
     {
-        global.lineRendererList.Add(this); // Add itself 
-        offset = 0.85f; 
+        offset = 0.75f; 
         selfLine = lineGameObject.GetComponent<LineRenderer>();
         capsule = lineGameObject.GetComponent<CapsuleCollider>(); 
-        capsule.radius = LineWidth / 2;
+        capsule.radius = LineWidth / 3;
         capsule.center = Vector3.zero;
         capsule.direction = 2; // Z-axis for easier "LookAt" orientation
     }

@@ -72,7 +72,6 @@ public class DrawingScript : MonoBehaviour
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
-
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
             importedLineRenderer.startColor = Color.white;
@@ -80,6 +79,7 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
+            global.lineRendererList.Add(lineScript);
             starNext = star2;
             global.starSpawnerFrameworkScript.StarReset();
         }
@@ -90,7 +90,6 @@ public class DrawingScript : MonoBehaviour
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = star1.transform.position;
             lineEndingPoint = star2.transform.position;
-
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
             importedLineRenderer.startColor = Color.white;
@@ -99,11 +98,26 @@ public class DrawingScript : MonoBehaviour
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
             starNext = star2;
+            global.lineRendererList.Add(lineScript);
             starCount++;
             global.starSpawnerFrameworkScript.StarReset();
         }
         if(starCount == -1)
         {
+            lineScript.SetStars(starNext, star2); 
+            global.constellationBeingBuilt.Add(star2);
+            lineStartingPoint = starNext.transform.position;
+            lineEndingPoint = star2.transform.position;
+            importedLineRenderer.startWidth = 0.1f;
+            importedLineRenderer.endWidth = 0.1f;
+            importedLineRenderer.startColor = Color.white;
+            importedLineRenderer.endColor = Color.white;
+            transformHolder.Add(lineStartingPoint);
+            transformHolder.Add(lineEndingPoint);
+            importedLineRenderer.SetPositions(transformHolder.ToArray());
+            global.lineRendererList.Add(lineScript);
+            starNext = star2;
+            global.starSpawnerFrameworkScript.StarReset();
             global.constellationBuilding.ConstellationBuilt(); 
         }
 
