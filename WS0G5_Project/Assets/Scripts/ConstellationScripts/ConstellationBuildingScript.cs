@@ -411,7 +411,6 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
-        enumeratorTriggered = true;
         conBool = false;
         global.enumeratorCheckGood = 0;
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
