@@ -21,6 +21,8 @@ public class DrawingScript : MonoBehaviour
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star startingStar;
 
+    public int shouldNextStar; // Used in line renderer count; 
+
     public int starCount; // Know if drawing for first time
 
     [Header("Position")]
@@ -36,6 +38,7 @@ public class DrawingScript : MonoBehaviour
     public void Start() 
     {
         starCount = 0; 
+        shouldNextStar = 0;
         lineStartingPoint = Vector3.zero;
         lineStartingPoint = Vector3.zero;
         global = GlobalController.instance;

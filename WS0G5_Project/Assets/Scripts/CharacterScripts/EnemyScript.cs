@@ -62,10 +62,5 @@ public class EnemyScript : MonoBehaviour
     public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers
     {
         StaticVariables.enemyCurrentHealth -= _health;
-        if(StaticVariables.enemyCurrentHealth <= 0)
-        {
-            enemyDie();
-            global.Win(); // Remove when there is multiple enemies
-        }
     }
 }

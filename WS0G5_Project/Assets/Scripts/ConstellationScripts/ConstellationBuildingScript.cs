@@ -499,7 +499,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Constellation Built for Damage!");
-                    global.constellationFinalDamage = (global.constellationPotential + global.constellationPotentialDamage);
+                    global.constellationFinalDamage = ((global.constellationPotential + global.constellationPotentialDamage)-1);
                     global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
                     Debug.Log(global.currentEnemy.enemyHealth);
                     global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
@@ -517,7 +517,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Constellation Built for Health!");
-                    global.constellationFinalHealth += (global.constellationPotential + global.constellationPotentialHealth);
+                    global.constellationFinalHealth += ((global.constellationPotential + global.constellationPotentialHealth)-1);
                     global.playerScript.PlayerHealed(global.constellationFinalHealth);
                     global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                     StartCoroutine(constellationClearGood()); // Keep Persistent Proper Constellations 
@@ -531,6 +531,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         Debug.Log("Clearing Constellation");
         foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
         {
+            global.drawingScript.shouldNextStar = 1;
             Destroy(lineRenderer.gameObject);
         }
         foreach (Star star in global.constellationBeingBuilt.ToList())
@@ -539,13 +540,12 @@ public class ConstellationBuildingScript : MonoBehaviour
             global.constellationBeingBuilt.Remove(star);
         }
         // All the values that need to go back to 0 
-        global.drawingScript.starCount = 0;
         global.constellationPotentialHealth = 0;
         global.constellationPotentialDamage = 0;
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
-        global.starSpawnerFrameworkScript.StarReset(); // Needed to reset drawing
+        global.starSpawnerFrameworkScript.StarResetForClear(); // Needed to reset drawing
         //enumeratorTriggered = true; // Thought I needed but will leave to trigger secondary behavior if need be
         conBool = false;
         global.enumeratorCheckBad = 0;
@@ -570,7 +570,6 @@ public class ConstellationBuildingScript : MonoBehaviour
             star.StarUsed();
             global.constellationBeingBuilt.Remove(star);
         }
-        global.drawingScript.starCount = 0;
         global.constellationPotentialHealth = 0;
         global.constellationPotentialDamage = 0;
         global.constellationPotential = 0;
@@ -578,7 +577,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationFinalHealth = 0;
         conBool = false;
         global.enumeratorCheckGood = 0;
-        global.starSpawnerFrameworkScript.StarReset();
+        global.starSpawnerFrameworkScript.StarResetForClear();
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
     }
 }

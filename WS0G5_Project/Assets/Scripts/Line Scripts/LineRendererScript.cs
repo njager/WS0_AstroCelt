@@ -106,12 +106,25 @@ public class LineRendererScript : MonoBehaviour
     public void OnDestroy()
     {
         //Debug.Log("Line Renderer Destroyed");
-        global.drawingScript.starNext = initialStar; 
+        SettingUpNextStar(); // Explained below 
         global.lineRendererList.Remove(this);
         Debug.Log("Removed Line from List");
         global.constellationBeingBuilt.Remove(initialStar);
         global.constellationBeingBuilt.Remove(finalStar);
         //Debug.Log("That Line's Stars removed"); 
+    }
+
+    public void SettingUpNextStar() // This was an on destory behavior that I wanted to occur everytime, but when a constellation clear it needs to not set the next star
+    {
+        if (global.drawingScript.shouldNextStar == 0)
+        {
+            global.drawingScript.starNext = initialStar;
+            return; 
+        }
+        if (global.drawingScript.shouldNextStar == 1)
+        {
+            return;
+        }
     }
 }
 
