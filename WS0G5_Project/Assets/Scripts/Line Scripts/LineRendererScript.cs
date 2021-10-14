@@ -123,6 +123,7 @@ public class LineRendererScript : MonoBehaviour
         }
         if (global.drawingScript.shouldNextStar == 1)
         {
+            Debug.LogError("Yeah this happened");
             return;
         }
     }
