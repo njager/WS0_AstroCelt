@@ -18,14 +18,17 @@ public class NewStarMapScript : MonoBehaviour
 
     public void NewStars()
     {
+        Debug.Log("Loading in New Stars");
+        ChangingStarMap(); 
+    }
 
-        Debug.Log("Loading in New Stars"); 
-        
-        
+    public void LoadingScreen()
+    {
+
     }
 
     public void ChangingStarMap() 
     {
-        global.starSpawnerFrameworkScript.SpawnStar2(global.starSpawnerFrameworkScript.baseStar); 
+        global.starSpawnerFrameworkScript.NewStarMap(); 
     }
 }

@@ -478,7 +478,7 @@ public class StarSpawnerFramework : MonoBehaviour
     }
 
     // First Star Map Counts 
-    // Normal Stars = 39
+    // Normal Stars = 38
     // Health Stars = 2
     // Damage Stars = 4
 
@@ -806,7 +806,7 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Add(starToBeSpawned);
             return; 
         }
-        if (starSpawnCount == 40) // Action Star Start
+        if (starSpawnCount == 40) // Damage Star Start
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_3.position, starSpawnPoint5_3.rotation);
             Debug.Log("Action Star Spawned!");
@@ -830,7 +830,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint13_14);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 43) // Action Star End
+        if (starSpawnCount == 43) // Damage Star End
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_16.position, starSpawnPoint5_6.rotation);
             Debug.Log("Action Star Spawned!");
@@ -842,7 +842,14 @@ public class StarSpawnerFramework : MonoBehaviour
 
     void SpawnObstacle() // Instance obstacles as well
     {
+        // Eventually that is
+    }
 
+    public void NewStarMap()
+    {
+        SpawnStar2(baseStar); // Wave 2 Base Stars
+        SpawnStar2(actionHealthStar); // Wave 2 Health Stars
+        SpawnStar2(actionDamageStar); // Wave 2 Damage Stars
     }
 
     public void SpawnStar2(StarClass star) // Trigger from New Stars Script
