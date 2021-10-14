@@ -4,23 +4,23 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class ConstellationBuildingScript : MonoBehaviour
 {
     [Header("Constellation Variables")]
-    private GlobalController global; 
+    private GlobalController global;
 
     // Start is called before the first frame update
     void Start()
     {
-        global = GlobalController.instance; 
+        global = GlobalController.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ConstellationBuilding()

@@ -69,7 +69,8 @@ public class GlobalController : MonoBehaviour
     public ResetBehavior resetBehavior; // Needed to trigger the behavior for EnemySwitcherFrameworkScriptt
     public EnemySwitcherScript enemySwitcherFrameworkScript; // InCase
     public StaticVariables staticVariablesReference; // For a method call in UIController
-    public NewStarMapScript newStarMapScript; // For use in 
+    public NewStarMapScript newStarMapScript; // For use in UIController
+    public ConstellationBuildingScript constellationBuilding; // To build constellation
 
     [Header("Tags")]
     public string starTag = "Star";
