@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime; 
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -11,7 +12,7 @@ public class StarSpawnerFramework : MonoBehaviour
     [Header("Stars")] // Were the prefabs are stored to refer to specific stars, this data is also in the prefab itself, which is where I grab most of the time 
     public StarClass baseStar;
     public StarClass actionHealthStar;
-    public StarClass actionDamageStar; 
+    public StarClass actionDamageStar;
 
     [Header("Other")]
     public GameObject verticalGrid;
@@ -422,6 +423,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     [Header("Star Spawning")]
     public List<Transform> masterRowList = new List<Transform>();
+    public List<Transform> usedTransformList = new List<Transform>();
 
     // Functions
     private GlobalController global;
@@ -882,16 +884,37 @@ public class StarSpawnerFramework : MonoBehaviour
         NewSpawnStars(actionDamageStar); // Wave 2 Damage Stars
     }
 
+    public int newPointsUsed = 1; 
+
+    public void GrabNewPoints()
+    {
+        newPointsUsed = 1;
+        foreach (GameObject GOtoGrabTransform in usedTransform.ToList())
+        {
+            usedTransformList.Add(GOtoGrabTransform.transform); 
+        }
+        masterRowList.Except(usedTransformList); // Very handy call from Systems.Linq, removes all elements in one list from another. 
+    }
+
     public void NewSpawnStars(StarClass starPrefab) // Iterate through master list and remove used points from this round
     {
+        if (newPointsUsed == 1)
+        {
 
+        }
+        else
+        {
+            newPointsUsed = 0;
+            foreach
+        }
     }
 
     /// <summary>
-    /// Note for later rebuild that occured while doing this. Can trigger a lot of startup behavior in Awake calls and then have that be the "loading" of the level. Have a loading bar screen that only triggers when each necessary Awake call triggers, this way low end machines aren't subject to bad behavior
+    /// Note for later rebuild that occured while doing this. Can trigger a lot of startup behavior in Awake calls and then have that be the "loading" of the level. 
+    /// Have a loading bar screen that only untriggers when each necessary Awake call triggers to tell it to stop, this way low end machines aren't subject to bad behavior
     /// </summary>
 
-    public void CollateLists()
+    public void CollateLists() // Put all points in one list to iterate through
     {
         foreach (Transform _transform in row1.ToList())// Add Row 1
         {
@@ -929,7 +952,6 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             masterRowList.Add(_transform);
         }
-
         foreach (Transform _transform in row10.ToList()) // Add Row 10
         {
             masterRowList.Add(_transform);
