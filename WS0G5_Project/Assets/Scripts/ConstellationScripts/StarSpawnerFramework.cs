@@ -422,8 +422,9 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform starSpawnPoint20_17;
 
     [Header("Star Spawning")]
-    public List<Transform> masterRowList = new List<Transform>();
-    public List<Transform> usedTransformList = new List<Transform>();
+    public List<Transform> masterRowList = new List<Transform>(); // Lists for all points
+    public List<Transform> usedTransformList = new List<Transform>(); // Lists to grab the used transforms to exclude them
+    public List<Transform> newSpawnPointList = new List<Transform>(); // Lists to use for new star generation 
 
     // Functions
     private GlobalController global;
@@ -884,10 +885,21 @@ public class StarSpawnerFramework : MonoBehaviour
         NewSpawnStars(actionDamageStar); // Wave 2 Damage Stars
     }
 
-    public int newPointsUsed = 1; 
+    public int newPointsUsed = 1; // Trigger variable
+    public int pointAdded = 0; // Count variable
 
-    public void GrabNewPoints()
+    public void ClearPoints()
     {
+        foreach (Transform _transform in usedTransformList.ToList())
+        {
+            usedTransformList.Remove(_transform);
+        }
+        Debug.Log("Cleared Points");
+    }
+
+    public void GrabNewPoints() // Helper method to grab new points if need be
+    {
+        ClearPoints();
         newPointsUsed = 1;
         foreach (GameObject GOtoGrabTransform in usedTransform.ToList())
         {
@@ -898,14 +910,17 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewSpawnStars(StarClass starPrefab) // Iterate through master list and remove used points from this round
     {
-        if (newPointsUsed == 1)
+        if (newPointsUsed == 1) // How to grab only a set amount of points? 
         {
-
+            for (int i = 0, i < newSpawnPointList.Count; i++)
+            {
+                newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]); 
+            }
         }
         else
         {
             newPointsUsed = 0;
-            foreach
+            // Not sure if needed yet
         }
     }
 
