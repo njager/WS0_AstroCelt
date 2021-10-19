@@ -424,12 +424,14 @@ public class StarSpawnerFramework : MonoBehaviour
     [Header("Star Spawning")]
     public List<Transform> masterRowList = new List<Transform>(); // Lists for all points
     public List<Transform> usedTransformList = new List<Transform>(); // Lists to grab the used transforms to exclude them
-    public List<Transform> newSpawnPointList = new List<Transform>(); // Lists to use for new star generation 
+    public List<Transform> newSpawnPointList = new List<Transform>(); // Lists to use for new star generation
+    public int newPointsUsed = 1; // Trigger variable
+    public int pointCount = 46; // Count To variable
 
     // Functions
     private GlobalController global;
 
-    private void Awake()
+    private void Awake() // Set up lists before Starts trigger
     {
         SpawnStarRow1List(); // Adds rows into list if needed to be referenced
         SpawnStarRow2List();
@@ -885,8 +887,7 @@ public class StarSpawnerFramework : MonoBehaviour
         NewSpawnStars(actionDamageStar); // Wave 2 Damage Stars
     }
 
-    public int newPointsUsed = 1; // Trigger variable
-    public int pointAdded = 0; // Count variable
+    
 
     public void ClearPoints()
     {
@@ -912,7 +913,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         if (newPointsUsed == 1) // How to grab only a set amount of points? 
         {
-            for (int i = 0, i < newSpawnPointList.Count; i++)
+            for (int i = 0; i < pointCount; i++)
             {
                 newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]); 
             }
@@ -921,6 +922,10 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             newPointsUsed = 0;
             // Not sure if needed yet
+            for (int i = 0; i < pointCount; i++)
+            {
+                newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]);
+            }
         }
     }
 
@@ -999,7 +1004,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             masterRowList.Add(_transform);
         }
-        Debug.Log(masterRowList);
+        Debug.Log(masterRowList.Count());
     }
    
     void SpawnStarRow1List()
