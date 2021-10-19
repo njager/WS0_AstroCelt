@@ -426,10 +426,8 @@ public class StarSpawnerFramework : MonoBehaviour
     // Functions
     private GlobalController global;
 
-    void Start()
+    private void Awake()
     {
-        global = GlobalController.instance;
-        starSpawnCount = 0;
         SpawnStarRow1List(); // Adds rows into list if needed to be referenced
         SpawnStarRow2List();
         SpawnStarRow3List();
@@ -448,7 +446,12 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStarRow16List();
         SpawnStarRow17List();
         CollateLists();
+    }
 
+    void Start()
+    {
+        global = GlobalController.instance;
+        starSpawnCount = 0;
         SpawnStar(baseStar);
         SpawnStar(actionHealthStar);
         SpawnStar(actionDamageStar);
@@ -879,14 +882,87 @@ public class StarSpawnerFramework : MonoBehaviour
         NewSpawnStars(actionDamageStar); // Wave 2 Damage Stars
     }
 
-    public void NewSpawnStars(StarClass starPrefab)
+    public void NewSpawnStars(StarClass starPrefab) // Iterate through master list and remove used points from this round
     {
 
     }
 
+    /// <summary>
+    /// Note for later rebuild that occured while doing this. Can trigger a lot of startup behavior in Awake calls and then have that be the "loading" of the level. Have a loading bar screen that only triggers when each necessary Awake call triggers, this way low end machines aren't subject to bad behavior
+    /// </summary>
+
     public void CollateLists()
     {
+        foreach (Transform _transform in row1.ToList())// Add Row 1
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row2.ToList()) // Add Row 2
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row3.ToList()) // Add Row 3
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row4.ToList()) // Add Row 4
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row5.ToList()) // Add Row 5
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row6.ToList()) // Add Row 6
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row7.ToList()) // Add Row 7
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row8.ToList()) // Add Row 8
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row9.ToList()) // Add Row 9
+        {
+            masterRowList.Add(_transform);
+        }
 
+        foreach (Transform _transform in row10.ToList()) // Add Row 10
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row11.ToList()) // Add Row 11
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row12.ToList()) // Add Row 12
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row13.ToList()) // Add Row 13
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row14.ToList()) // Add Row 14
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row15.ToList()) // Add Row 15
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row16.ToList()) // Add Row 16
+        {
+            masterRowList.Add(_transform);
+        }
+        foreach (Transform _transform in row17.ToList()) // Add Row 17
+        {
+            masterRowList.Add(_transform);
+        }
+        Debug.Log(masterRowList);
     }
    
     void SpawnStarRow1List()
