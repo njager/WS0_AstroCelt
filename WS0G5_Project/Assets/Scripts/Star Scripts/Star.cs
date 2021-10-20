@@ -36,8 +36,6 @@ public class Star : MonoBehaviour
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
     }
-
-    
     public void OnMouseDown()
     {
         if (this == global.drawingScript.startingStar)
@@ -115,5 +113,10 @@ public class Star : MonoBehaviour
         starFullyUsed = true;
         return; 
     }
+
+
+    ///
+    /// Organize the enemies by challenge ratings, scouts not the last enemies. 
+    ///
 
 }

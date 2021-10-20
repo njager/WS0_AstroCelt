@@ -423,6 +423,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     [Header("Star Spawning")]
     public List<Transform> masterRowList = new List<Transform>(); // Lists for all points
+    public List<Transform> masterRowOriginList = new List<Transform>(); // Lists for all points
     public List<Transform> usedTransformList = new List<Transform>(); // Lists to grab the used transforms to exclude them
     public List<Transform> newSpawnPointList = new List<Transform>(); // Lists to use for new star generation
     public int newPointsUsed = 1; // Trigger variable
@@ -455,6 +456,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     void Start()
     {
+        masterRowOriginList = masterRowList; 
         global = GlobalController.instance;
         starSpawnCount = 0;
         SpawnStar(baseStar);
@@ -882,12 +884,68 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewStarMap()
     {
-        NewSpawnStars(baseStar); // Wave 2 Base Stars
-        NewSpawnStars(actionHealthStar); // Wave 2 Health Stars
-        NewSpawnStars(actionDamageStar); // Wave 2 Damage Stars
+        starSpawnCount = 0;
+        NewSpawnStars(); 
+        NewSpawn(baseStar); // Wave 2 Base Stars
+        NewSpawn(actionHealthStar); // Wave 2 Health Stars
+        NewSpawn(actionDamageStar); // Wave 2 Damage Stars
     }
 
-    
+    public void NewSpawn(StarClass star) // Spawning the randomized Stars function 
+    {
+        if (star.starType == "baseStar") // Checks to see if star class is Base
+        {
+            foreach(Transform _transform in masterRowList.ToList()) // Base Stars
+            {
+                if (starSpawnCount > 38)
+                {
+                    return;
+                }
+                else
+                {
+                    GameObject starToBeSpawned = Instantiate(star.starPrefab, _transform.position, _transform.rotation);
+                    Debug.Log("New Random Base Star Spawned!");
+                    starSpawnCount++;
+                    usedTransform.Add(starToBeSpawned);
+                }
+            }
+        }
+
+        if (star.starType == "HealthStar") // Checks to see if star class given is Health
+        {
+            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            {
+                if (starSpawnCount > 40)
+                {
+                    return;
+                }
+                else
+                {
+                    GameObject starToBeSpawned = Instantiate(star.starPrefab, _transform.position, _transform.rotation);
+                    Debug.Log("New Random Health Star Spawned!");
+                    starSpawnCount++;
+                    usedTransform.Add(starToBeSpawned);
+                }
+            }
+        }
+        if (star.starType == "DamageStar") // Checks to see if the star class given is Damage
+        {
+            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            {
+                if (starSpawnCount > 44)
+                {
+                    return;
+                }
+                else
+                {
+                    GameObject starToBeSpawned = Instantiate(star.starPrefab, _transform.position, _transform.rotation);
+                    Debug.Log("New Random Health Star Spawned!");
+                    starSpawnCount++;
+                    usedTransform.Add(starToBeSpawned);
+                }
+            }
+        }
+    }
 
     public void ClearPoints()
     {
@@ -906,25 +964,17 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             usedTransformList.Add(GOtoGrabTransform.transform); 
         }
-        masterRowList.Except(usedTransformList); // Very handy call from Systems.Linq, removes all elements in one list from another. 
+        masterRowList.Except(usedTransformList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
     }
 
-    public void NewSpawnStars(StarClass starPrefab) // Iterate through master list and remove used points from this round
+    public void NewSpawnStars() // Iterate through master list and remove used points from the previous round
     {
+        GrabNewPoints();
         if (newPointsUsed == 1) // How to grab only a set amount of points? 
         {
             for (int i = 0; i < pointCount; i++)
             {
                 newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]); 
-            }
-        }
-        else
-        {
-            newPointsUsed = 0;
-            // Not sure if needed yet
-            for (int i = 0; i < pointCount; i++)
-            {
-                newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]);
             }
         }
     }
