@@ -42,18 +42,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         startingStarGO = startingStar_Star.gameObject; 
         startingStarPosition = startingStarGO.transform.position;
         checkCount = 0; // To reset the count each method call
-        ConstellationCheck();
-
-
-
-        /*
-         * 
-         * Old Code that code maybe be needed in the future
-        if(enumeratorTriggered == true)
-        {
-            TimerTrigger();
-            DoubleDeleting(); 
-        } */
+        ConstellationCheck(); // Should check the values of the current list
     }
 
     IEnumerator TimerTrigger() // Thought I needed to delete twice
