@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq; 
 using UnityEngine;
 
 public class Depreciated : MonoBehaviour
 {
+    // Need vars
+    private GlobalController global;
+
+    public void Start()
+    {
+        global = GlobalController.instance;
+    }
+
     private string starTag;
 
     void OldRaycastCode()
@@ -43,6 +52,8 @@ public class Depreciated : MonoBehaviour
         constellationLine.GetComponent<RectTransform>().sizeDelta = new Vector3(distance, 40f);
     }
 
+    // From Constellation Building 
+
     /*
         * 
         * Old Code that code maybe be needed in the future
@@ -51,6 +62,8 @@ public class Depreciated : MonoBehaviour
            TimerTrigger();
            DoubleDeleting(); 
        } */
+
+    private float _timer = 0f;
 
     IEnumerator TimerTrigger() // Thought I needed to delete twice
     {

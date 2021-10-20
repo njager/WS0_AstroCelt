@@ -44,7 +44,7 @@ public class GlobalController : MonoBehaviour
     public int enumeratorCheckBad;
     public int enumeratorCheckGood;
 
-    [Header("Audio")]
+    [Header("Audio")] // For when we implement audio, grab for holders 
     public GameObject testAudioBackgroundMusic;
     public GameObject testAudiosoundEffect1;
 

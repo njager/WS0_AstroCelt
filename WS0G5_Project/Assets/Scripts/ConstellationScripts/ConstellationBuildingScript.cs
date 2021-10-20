@@ -15,7 +15,6 @@ public class ConstellationBuildingScript : MonoBehaviour
     public Star emptyStar;
     private int _tempStarCount = 0; // Use for duplicate of starting star for value calculation
     // private bool enumeratorTriggered;
-    private float _timer = 0f;
     public GameObject startingStarGO; // Drawing script star's game object and thus position 
     private Star startingStar_Star; // Drawing script star reference
     public Vector3 startingStarPosition; // The position of the starting star needed for 
@@ -44,24 +43,6 @@ public class ConstellationBuildingScript : MonoBehaviour
         checkCount = 0; // To reset the count each method call
         ConstellationCheck(); // Should check the values of the current list
     }
-
-    IEnumerator TimerTrigger() // Thought I needed to delete twice
-    {
-        _timer = _timer + 0.01f;
-        yield return new WaitUntil(() => _timer > 3.0);
-    }
-
-    public void DoubleDeleting()
-    {
-        Debug.Log("Double Deleting");
-        foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
-        {
-            Destroy(lineRenderer.gameObject);
-        }
-        // enumeratorTriggered = false;
-        _timer = 0f; 
-    }
-
 
     public void ConstellationCheck()
     {
