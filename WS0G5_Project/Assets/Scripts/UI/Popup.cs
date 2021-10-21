@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using CodeMonkey.Utils;
+using DG.Tweening;
 
 public class Popup : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Popup : MonoBehaviour
     {
         pfPopupStatic = pfPopup;
         global = GlobalController.instance;
+        DOTween.Init();
     }
 
     //create the popup at position with certain #
@@ -102,6 +104,7 @@ public class Popup : MonoBehaviour
             float disappearSpeed = 3f;
             textColor.a -= disappearSpeed * Time.deltaTime;
             //textMesh.color = textColor;
+            textMesh.DOFade(0f, 2f);
             
             if (textColor.a < 0)
             {

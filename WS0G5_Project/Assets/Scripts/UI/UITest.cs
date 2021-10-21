@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
+using DG.Tweening;
 
 public class UITest : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class UITest : MonoBehaviour
         //Set up the text
         SetText();
         //Popup.Create(Vector3.zero, 5);
+        DOTween.Init();
     }
 
     // Update is called once per frame
