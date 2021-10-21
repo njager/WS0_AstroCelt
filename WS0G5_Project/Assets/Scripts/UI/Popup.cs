@@ -106,6 +106,7 @@ public class Popup : MonoBehaviour
             //textMesh.color = textColor;
             textMesh.DOFade(0f, 2f);
             
+            
             if (textColor.a < 0)
             {
                 Destroy(gameObject);
