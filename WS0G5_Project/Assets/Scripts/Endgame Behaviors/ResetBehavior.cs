@@ -26,8 +26,6 @@ public class ResetBehavior : MonoBehaviour
         {
             line.ResetList();
         }
-        // global.playerStats.Start(); Not needed for enemy switching 
-        // global.playerScript.PlayerReset(); Not needed for enemy switching
         global.drawingScript.ResetList(); // Reset All Lines
         iEnumeratorVariable = 0;
         yield return new WaitUntil(() => iEnumeratorVariable == 0);

@@ -884,11 +884,29 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewStarMap()
     {
+        ClearStars(); 
         starSpawnCount = 0;
         NewSpawnStars(); 
         NewSpawn(baseStar); // Wave 2 Base Stars
         NewSpawn(actionHealthStar); // Wave 2 Health Stars
         NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+    }
+
+    public void ClearStars()
+    {
+        foreach (GameObject _star in usedTransform.ToList())
+        {
+            Destroy(_star);
+        }
+        if (usedTransform.Count() == 0)
+        {
+            Debug.Log("Cleared Stars");
+        }
+        else
+        {
+            Debug.Log("Error in clearing stars");
+        }
+        return; 
     }
 
     public void NewSpawn(StarClass star) // Spawning the randomized Stars function 
