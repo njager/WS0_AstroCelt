@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
+using DG.Tweening;
 
 public class UITest : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class UITest : MonoBehaviour
         //Set up the text
         SetText();
         //Popup.Create(Vector3.zero, 5);
+        DOTween.Init();
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class UITest : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, isDamage);
+            Popup.Create(new Vector3(-100, 0, 1), 1, 0);
             spawnTimer = 1f;
         }
 
@@ -87,7 +89,11 @@ public class UITest : MonoBehaviour
         }*/
         if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1);
         }
     }
 
