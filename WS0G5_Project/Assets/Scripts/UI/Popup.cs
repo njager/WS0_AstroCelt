@@ -36,12 +36,12 @@ public class Popup : MonoBehaviour
     }
 
     //create the popup at position with certain #
-    public static Popup Create(Vector3 position, int outputAmount, bool isDamage)
+    public static Popup Create(Vector3 position, int outputAmount, int colorIndex)
     {
         Transform instantiatePopupTransform = GrabPopupTransform();
         Transform popupTransform = Instantiate(instantiatePopupTransform, position, Quaternion.identity);
         Popup popup = popupTransform.GetComponent<Popup>();
-        popup.Setup(outputAmount, isDamage);
+        popup.Setup(outputAmount, colorIndex);
 
         return popup;
     }
@@ -53,15 +53,15 @@ public class Popup : MonoBehaviour
     }
 
     //make the output amount into the text for the popup
-    public void Setup(int outputAmount, bool isDamage)
+    public void Setup(int outputAmount, int colorIndex)
     {
         textMesh.SetText(outputAmount.ToString());
-        if (!isDamage)
+        if (colorIndex == 0)
         {
             //textMesh.fontSize = 36;
             textColor = UtilsClass.GetColorFromString("5ECC71");
         }
-        else
+        else if (colorIndex == 1)
         {
             textColor = UtilsClass.GetColorFromString("DD6666");
             //textMesh.fontSize = 36;
