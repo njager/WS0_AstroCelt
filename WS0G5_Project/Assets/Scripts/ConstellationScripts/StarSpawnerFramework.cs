@@ -430,9 +430,130 @@ public class StarSpawnerFramework : MonoBehaviour
     public int newPointsUsed = 1; // Trigger variable
     public int pointCount = 46; // Count To variable
 
-    [Header("Obstacle Points")] // Set up to be more dynamic later, but for now just need to be there
+    [Header("Obstacles Varaiables")]
     private int obstacleCount = 0;
+    public List<Transform> obstacleStartPointList = new List<Transform>();
+    public List<Transform> obstacleEndPointList = new List<Transform>();
 
+    [Header("Obstacle Start Row 1")] // Set up to be more dynamic later, but for now just need to be there
+    public Transform obstactleSpawnPoint1_1;
+    public Transform obstactleSpawnPoint2_1;
+    public Transform obstactleSpawnPoint3_1;
+    public Transform obstactleSpawnPoint4_1;
+    public Transform obstactleSpawnPoint5_1;
+    public Transform obstactleSpawnPoint6_1;
+    public Transform obstactleSpawnPoint7_1;
+    public Transform obstactleSpawnPoint8_1;
+    public Transform obstactleSpawnPoint9_1;
+    public Transform obstactleSpawnPoint10_1;
+
+    [Header("Obstacle Start Row 2")] 
+    public Transform obstactleSpawnPoint1_2;
+    public Transform obstactleSpawnPoint2_2;
+    public Transform obstactleSpawnPoint3_2;
+    public Transform obstactleSpawnPoint4_2;
+    public Transform obstactleSpawnPoint5_2;
+    public Transform obstactleSpawnPoint6_2;
+    public Transform obstactleSpawnPoint7_2;
+    public Transform obstactleSpawnPoint8_2;
+    public Transform obstactleSpawnPoint9_2;
+    public Transform obstactleSpawnPoint10_2;
+
+    [Header("Obstacle Start Row 3")]
+    public Transform obstactleSpawnPoint1_3;
+    public Transform obstactleSpawnPoint2_3;
+    public Transform obstactleSpawnPoint3_3;
+    public Transform obstactleSpawnPoint4_3;
+    public Transform obstactleSpawnPoint5_3;
+    public Transform obstactleSpawnPoint6_3;
+    public Transform obstactleSpawnPoint7_3;
+    public Transform obstactleSpawnPoint8_3;
+    public Transform obstactleSpawnPoint9_3;
+    public Transform obstactleSpawnPoint10_3;
+
+    [Header("Obstacle Start Row 4")]
+    public Transform obstactleSpawnPoint1_4;
+    public Transform obstactleSpawnPoint2_4;
+    public Transform obstactleSpawnPoint3_4;
+    public Transform obstactleSpawnPoint4_4;
+    public Transform obstactleSpawnPoint5_4;
+    public Transform obstactleSpawnPoint6_4;
+    public Transform obstactleSpawnPoint7_4;
+    public Transform obstactleSpawnPoint8_4;
+    public Transform obstactleSpawnPoint9_4;
+    public Transform obstactleSpawnPoint10_4;
+
+    [Header("Obstacle Start Row 5")]
+    public Transform obstactleSpawnPoint1_5;
+    public Transform obstactleSpawnPoint2_5;
+    public Transform obstactleSpawnPoint3_5;
+    public Transform obstactleSpawnPoint4_5;
+    public Transform obstactleSpawnPoint5_5;
+    public Transform obstactleSpawnPoint6_5;
+    public Transform obstactleSpawnPoint7_5;
+    public Transform obstactleSpawnPoint8_5;
+    public Transform obstactleSpawnPoint9_5;
+    public Transform obstactleSpawnPoint10_5;
+
+    [Header("Obstacle End Row 1")] 
+    public Transform obstactleEndSpawnPoint1_1;
+    public Transform obstactleEndSpawnPoint2_1;
+    public Transform obstactleEndSpawnPoint3_1;
+    public Transform obstactleEndSpawnPoint4_1;
+    public Transform obstactleEndSpawnPoint5_1;
+    public Transform obstactleEndSpawnPoint6_1;
+    public Transform obstactleEndSpawnPoint7_1;
+    public Transform obstactleEndSpawnPoint8_1;
+    public Transform obstactleEndSpawnPoint9_1;
+    public Transform obstactleEndSpawnPoint10_1;
+
+    [Header("Obstacle End Row 2")] 
+    public Transform obstactleEndSpawnPoint1_2;
+    public Transform obstactleEndSpawnPoint2_2;
+    public Transform obstactleEndSpawnPoint3_2;
+    public Transform obstactleEndSpawnPoint4_2;
+    public Transform obstactleEndSpawnPoint5_2;
+    public Transform obstactleEndSpawnPoint6_2;
+    public Transform obstactleEndSpawnPoint7_2;
+    public Transform obstactleEndSpawnPoint8_2;
+    public Transform obstactleEndSpawnPoint9_2;
+    public Transform obstactleEndSpawnPoint10_2;
+
+    [Header("Obstacle End Row 3")] 
+    public Transform obstactleEndSpawnPoint1_3;
+    public Transform obstactleEndSpawnPoint2_3;
+    public Transform obstactleEndSpawnPoint3_3;
+    public Transform obstactleEndSpawnPoint4_3;
+    public Transform obstactleEndSpawnPoint5_3;
+    public Transform obstactleEndSpawnPoint6_3;
+    public Transform obstactleEndSpawnPoint7_3;
+    public Transform obstactleEndSpawnPoint8_3;
+    public Transform obstactleEndSpawnPoint9_3;
+    public Transform obstactleEndSpawnPoint10_3;
+
+    [Header("Obstacle End Row 4")] 
+    public Transform obstactleEndSpawnPoint1_4;
+    public Transform obstactleEndSpawnPoint2_4;
+    public Transform obstactleEndSpawnPoint3_4;
+    public Transform obstactleEndSpawnPoint4_4;
+    public Transform obstactleEndSpawnPoint5_4;
+    public Transform obstactleEndSpawnPoint6_4;
+    public Transform obstactleEndSpawnPoint7_4;
+    public Transform obstactleEndSpawnPoint8_4;
+    public Transform obstactleEndSpawnPoint9_4;
+    public Transform obstactleEndSpawnPoint10_4;
+
+    [Header("Obstacle End Row 5")] 
+    public Transform obstactleEndSpawnPoint1_5;
+    public Transform obstactleEndSpawnPoint2_5;
+    public Transform obstactleEndSpawnPoint3_5;
+    public Transform obstactleEndSpawnPoint4_5;
+    public Transform obstactleEndSpawnPoint5_5;
+    public Transform obstactleEndSpawnPoint6_5;
+    public Transform obstactleEndSpawnPoint7_5;
+    public Transform obstactleEndSpawnPoint8_5;
+    public Transform obstactleEndSpawnPoint9_5;
+    public Transform obstactleEndSpawnPoint10_5;
 
     // Functions
     private GlobalController global;
@@ -456,6 +577,8 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStarRow15List();
         SpawnStarRow16List();
         SpawnStarRow17List();
+        ObstacleEndPointList();
+        ObstacleStartPointList();
         CollateLists();
     }
 
@@ -1500,5 +1623,15 @@ public class StarSpawnerFramework : MonoBehaviour
         row17.Add(starSpawnPoint19_17);
         row17.Add(starSpawnPoint20_17);
         Debug.Log("Row 17 Added");
+    }
+
+    void ObstacleStartPointList()
+    {
+
+    }
+
+    void ObstacleEndPointList()
+    {
+
     }
 }
