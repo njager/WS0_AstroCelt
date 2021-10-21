@@ -15,6 +15,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public StarClass actionDamageStar;
 
     [Header("Other")]
+    public GameObject obstaclePrefab;
     public GameObject verticalGrid;
     public GameObject horizontalGrid;
     public int starSpawnCount; // Check star spawn count
@@ -428,6 +429,10 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> newSpawnPointList = new List<Transform>(); // Lists to use for new star generation
     public int newPointsUsed = 1; // Trigger variable
     public int pointCount = 46; // Count To variable
+
+    [Header("Obstacle Points")] // Set up to be more dynamic later, but for now just need to be there
+    private int obstacleCount = 0;
+
 
     // Functions
     private GlobalController global;
@@ -877,9 +882,17 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
+    public void ClearObstacles() // Get rid of the obstacles
+    {
+        foreach(GameObject _obstacle in global.obstacleList.ToList())
+        {
+            Destroy(_obstacle); 
+        }
+    }
+
     void SpawnObstacle() // Instance obstacles as well
     {
-        // Eventually that is
+        GameObject obstacle = Instantiate(obstaclePrefab, starSpawnPoint9_17.position, starSpawnPoint9_17.rotation); // Need to set up randomized generation 
     }
 
     public void NewStarMap()

@@ -53,7 +53,7 @@ public class DrawingScript : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Debug.Log(startingStar);
+        //Debug.Log(startingStar);
     }
 
     public void ResetList()

@@ -54,6 +54,7 @@ public class GlobalController : MonoBehaviour
     public List<Star> constellationFinalStars = new List<Star>(); // Final used stars
     public List<LineRendererScript> lineRendererList = new List<LineRendererScript>(); // Line Renderer list for deletion purposes
     public List<LineRendererScript> lineRendererResetList = new List<LineRendererScript>(); // Specifically a List for Reset
+    public List<GameObject> obstacleList = new List<GameObject>();
 
     [Header("Checkers")]
     public GameObject ResetChecker;
@@ -80,7 +81,6 @@ public class GlobalController : MonoBehaviour
     public int abc = 90;
 
     [Header("Spawning Framework")]
-
     public GameObject spawningFramework;
     public GameObject oldStarSpawner;
 
