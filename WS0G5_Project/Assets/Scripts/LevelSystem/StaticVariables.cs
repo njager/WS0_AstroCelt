@@ -12,25 +12,27 @@ public class StaticVariables : MonoBehaviour
     /// </summary>\
     ///
 
+    // Private Varaibles
     private GlobalController global;
 
-    public int levelExpectedEnemyCount; // Can adjust in the editor 
-
-    public static int masterEnemyCount;
-
+    [Header("Lines")]
     public static int lineCount;
+    public static int constellationDamageStarCount; // Use to limit to 1 action star in a constellation 
+    public static int constellationHealthStarCount; // Use to limit to 1 action star in a constellation.
 
+    [Header("Enemy Varaibles")]
+    public int levelExpectedEnemyCount; // Can adjust in the editor 
+    public static int masterEnemyCount;
     public static int enemyCurrentHealth;
-
-    public static int enemyStartingHealth; 
-
-    public int startingCount = 0; 
-
+    public static int enemyStartingHealth;
+    public int startingCount = 0;
     public static int expectedEnemyCount; // By making it static, we could have an event where enemies spawn in to the pre-built level
 
-    public static int constellationDamageStarCount; // Use to limit to 1 action star in a constellation 
+    [Header("Level Stats")]
+    public static int newStarSpawnGenerationCount; // Use this for score calculation if need be. 
 
-    public static int constellationHealthStarCount; // Use to limit to 1 action star in a constellation. 
+    [Header("Functions")]
+    public string placeholder;
 
     public int returnExpectedEnemyCount() // Use this to set the UI for Max
     {
@@ -66,6 +68,7 @@ public class StaticVariables : MonoBehaviour
     {
         lineCount = startingCount;
         expectedEnemyCount = levelExpectedEnemyCount;
+        newStarSpawnGenerationCount = 0; // Does not count the initial generation
     }
 
     public void Start()

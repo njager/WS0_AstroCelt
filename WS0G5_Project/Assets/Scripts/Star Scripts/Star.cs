@@ -68,7 +68,7 @@ public class Star : MonoBehaviour
             }
             if (global.drawingScript.activeStarCounter == 1)
             {
-                if (global.drawingScript.starCount == 0)
+                if (global.drawingScript.starCount >= 0)
                 {
                     if (global.drawingScript.star1 == this)
                     {
@@ -82,11 +82,19 @@ public class Star : MonoBehaviour
                         global.drawingScript.activeStarCounter = 1;
                         return;
                     }
-                    global.drawingScript.star2 = this;
-                    global.drawingScript.drawLine();
-                    //Debug.Log("Set activeStarCounter to 2");
-                    return;
+                    else
+                    {
+                        global.drawingScript.star2 = this;
+                        global.drawingScript.drawLine();
+                        //Debug.Log("Set activeStarCounter to 2");
+                        return;
+                    } 
                 }
+            }
+            if (global.drawingScript.activeStarCounter <= 1)
+            {
+                Debug.Log("Reseting activeStarCounter to 0");
+                global.drawingScript.activeStarCounter = 0; 
             }
         }
         else

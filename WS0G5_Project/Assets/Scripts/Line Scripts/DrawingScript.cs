@@ -51,6 +51,11 @@ public class DrawingScript : MonoBehaviour
         global = GlobalController.instance;
     }
 
+    public void FixedUpdate()
+    {
+        //Debug.Log(startingStar);
+    }
+
     public void ResetList()
     {
         activeStarCounter = 0;
