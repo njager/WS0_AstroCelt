@@ -8,11 +8,15 @@ using DG.Tweening;
 
 public class UIOverworldTest : MonoBehaviour
 {
+    //public variables
+    public int turnCount;
+
     //private variables
     [Header("Variables")]
     [SerializeField] int levelsCount;
     [SerializeField] int levelsMaxCount;
     [SerializeField] int ceCount;
+    [SerializeField] int talismanCount;
     [SerializeField] int vitUpgCost;
     [SerializeField] int constUpgCost;
     [SerializeField] int ritOneUpgCost;
@@ -31,29 +35,35 @@ public class UIOverworldTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //updates the text
+        SetText();
+
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            turnCount++;
+        }
     }
 
     //sets the text objects
     void SetText()
     {
-        /*enemyCountText.text = enemyCount.ToString() + "/" + enemyMaxCount.ToString();
+        levelCountText.text = levelsCount.ToString() + "/" + levelsMaxCount.ToString();
         ceCountText.text = ceCount.ToString();
-        playerHealthText.text = playerHealth.ToString() + "/" + playerMaxHealth.ToString();
-        enemyHealthText.text = enemyHealth.ToString() + "/" + enemyMaxHealth.ToString();
+        talismanCountText.text = talismanCount.ToString();
+        vitUpgCostText.text = vitUpgCost.ToString();
+        constUpgCostText.text = constUpgCost.ToString();
+        ritOneUpgCostText.text = ritOneUpgCost.ToString();
+        ritTwoUpgCostText.text = ritTwoUpgCost.ToString();
 
         //update health bars
-        playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
-        enemyHealthBar.fillAmount = (float)enemyHealth / (float)enemyMaxHealth;
-
-        //update charge bar
-        enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;*/
+        //playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
     }
 
     //vitality upgrade button

@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7717793181594739733}
   m_Layer: 5
-  m_Name: StatUpgrade1
+  m_Name: VitUpgrade1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7717793182636154341}
   m_Layer: 5
-  m_Name: StatUpgrade2
+  m_Name: VitUpgrade2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
