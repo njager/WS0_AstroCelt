@@ -22,6 +22,11 @@ public class UIOverworldTest : MonoBehaviour
     [Header("UI Element Slots")]
     [SerializeField] TextMeshProUGUI ceCountText;
     [SerializeField] TextMeshProUGUI levelCountText;
+    [SerializeField] TextMeshProUGUI talismanCountText;
+    [SerializeField] TextMeshProUGUI vitUpgCostText;
+    [SerializeField] TextMeshProUGUI constUpgCostText;
+    [SerializeField] TextMeshProUGUI ritOneUpgCostText;
+    [SerializeField] TextMeshProUGUI ritTwoUpgCostText;
 
     // Start is called before the first frame update
     void Start()
@@ -49,5 +54,35 @@ public class UIOverworldTest : MonoBehaviour
 
         //update charge bar
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;*/
+    }
+
+    //vitality upgrade button
+    public void VitalityUpgradeButton()
+    {
+        Debug.Log("You upgraded your vitality, nice!");
+    }
+
+    //constellation upgrade button
+    public void ConstellationUpgradeButton()
+    {
+        Debug.Log("You upgraded your max constellation size, nice!");
+    }
+
+    //ritual one upgrade button
+    public void RitualUpgradeButtonOne()
+    {
+        Debug.Log("You upgraded an ability, nice!");
+    }
+
+    //ritual two upgrade button
+    public void RitualUpgradeButtonTwo()
+    {
+        Debug.Log("You upgraded another ability, nice!");
+    }
+
+    //level select one
+    public void LevelSelectButtonOne()
+    {
+        Debug.Log("You selected a level, good luck!");
     }
 }
