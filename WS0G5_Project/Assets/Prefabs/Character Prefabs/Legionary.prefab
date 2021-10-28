@@ -49,9 +49,11 @@ MonoBehaviour:
     vitality: 2
     damage: 1
     weaknessActivated: 0
+    identifier: 'Legionary '
   enemyGameObject: {fileID: 1475303926191799721}
   enemySelf: {fileID: 1475303926191799727}
   timeBetweenAttacks: 2
+  myIdentifier: 
   enemyStartHealth: 0
   enemyDamage: 0
   enemyHealth: 0

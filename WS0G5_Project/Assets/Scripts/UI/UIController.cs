@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using CodeMonkey.Utils;
+using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class UIController : MonoBehaviour
     [SerializeField] Image enemyHealthBar;
     [SerializeField] Image enemyChargeBar;
 
+    // Red is DD6666
+    // Health is SECC71
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +61,8 @@ public class UIController : MonoBehaviour
 
         //Set up the text
         SetText();
+
+        DOTween.Init();
     }
 
     // Update is called once per frame
@@ -138,9 +144,4 @@ public class UIController : MonoBehaviour
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
     }
 
-    //function for making new stars
-    public void NewStarsButton()
-    {
-        Debug.Log("You made some new stars, nice!");
-    }
 }
