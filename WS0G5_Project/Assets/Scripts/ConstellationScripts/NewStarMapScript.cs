@@ -32,7 +32,7 @@ public class NewStarMapScript : MonoBehaviour
     {
         if (loadBarBool == true)
         {
-
+            StartCoroutine(LoadingScreen(false));
         }
         else
         {
@@ -49,11 +49,17 @@ public class NewStarMapScript : MonoBehaviour
         ChangingStarMap(); 
     }
 
-    public void LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
+    public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
     {
         // First Reset Variable
         loadBarBool = state;
         loadBar.SetActive(true); // Then put into scene
+
+        // Loading Screen timer and behavior 
+
+
+        loadBarBool = false; 
+        yield return new WaitUntil(() => loadBarBool == false); 
     }
 
     public void ChangingStarMap() // Here's where we trigger the functions in other scripts as needed. 

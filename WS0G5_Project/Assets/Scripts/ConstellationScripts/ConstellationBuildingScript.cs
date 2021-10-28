@@ -529,6 +529,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
                         Debug.Log(global.currentEnemy.enemyHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                        Popup.Create(_new_position, global.constellationFinalHealth, 1);
                         //bool isDamage = true;
                         //Popup.Create(_new_position, global.constellationFinalHealth, isDamage);
                         StartCoroutine(constellationClearGood()); // Keep Persitent Proper Constellations
@@ -558,7 +559,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         global.playerScript.PlayerHealed(global.constellationFinalHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //bool isDamage = false;
-                        //Popup.Create(_new_position, global.constellationFinalHealth, isDamage);
+                        Popup.Create(_new_position, global.constellationFinalHealth, 0);
                         StartCoroutine(constellationClearGood()); // Keep Persistent Proper Constellations 
                     }
                     else

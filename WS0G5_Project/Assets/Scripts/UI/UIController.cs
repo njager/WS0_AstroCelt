@@ -24,8 +24,9 @@ public class UIController : MonoBehaviour
     [SerializeField] int _enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
-    //private float spawnTimer = 1f;
+    private float spawnTimer = 1f;
     private GlobalController global;
+
 
     //UI variables
     [Header("UI Element Slots")]
@@ -113,6 +114,13 @@ public class UIController : MonoBehaviour
         {
             // Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
 
+        }
+
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer < 0)
+        {
+            Popup.Create(new Vector3(-100, 0, 1), 1, 0);
+            spawnTimer = 1f;
         }
     }
 
