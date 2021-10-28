@@ -75,7 +75,7 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Enemy type is null!");
+            //Debug.LogError("Enemy type is null!");
         }
     }
 

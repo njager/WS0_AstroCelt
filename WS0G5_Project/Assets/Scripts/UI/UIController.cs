@@ -122,6 +122,11 @@ public class UIController : MonoBehaviour
             Popup.Create(new Vector3(-100, 0, 1), 1, 0);
             spawnTimer = 1f;
         }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
+        }
     }
 
     void UpdateUIVariables() // Trying to keep Update Clutter down
