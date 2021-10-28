@@ -57,7 +57,22 @@ public class EnemyScript : MonoBehaviour
 
     public void UniqueBehavior(string identity)
     {
+        if(identity == "Swarm")
+        {
 
+        }
+        if (identity == "Swarm")
+        {
+
+        }
+        if (identity == "Swarm")
+        {
+
+        }
+        else
+        {
+            Debug.LogError("Enemy is broken!");
+        }
     }
 
     public void enemyDie() // Death
