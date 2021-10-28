@@ -1791,4 +1791,11 @@ public class StarSpawnerFramework : MonoBehaviour
         obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint10_5);
         Debug.Log("Obstacle End Row 1 Added");
     }
+
+    // Enemy functionality
+
+    public void LegionaryEffect()
+    {
+
+    } 
 }

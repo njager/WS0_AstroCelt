@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
-{
-    // Commented out my own timer code but left it in just in case 
+{ 
     [Header("Enemy Attributes")]
     public EnemyStats myStats;
     public GameObject enemyGameObject;
@@ -22,7 +21,7 @@ public class EnemyScript : MonoBehaviour
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
 
-    void Awake() // Do this to set Enemy Count
+    void Awake() // Do this to set Enemy Count, and EnemyType
     {
         StaticVariables.masterEnemyCount += 1;
         myIdentifier = myStats.identifier;
@@ -39,14 +38,19 @@ public class EnemyScript : MonoBehaviour
         enemyDamage = myStats.damage;
     }
 
+    public void Update()
+    {
+        UniqueBehavior(myIdentifier); 
+    }
+
     public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 
     {
         Destroy(this);
     }
 
-    public void OnDestroy() // Just for our purposes 
+    public void OnDestroy() 
     {
-        Debug.Log("Deleted Enemy Successfully");
+        Debug.Log("Enemy Defeated"); // Logs Enemy Defeat
     }
 
     public void enemyAttacksPlayer(int damage) // Enemy Attack
@@ -61,17 +65,17 @@ public class EnemyScript : MonoBehaviour
         {
 
         }
-        if (identity == "Swarm")
+        if (identity == "Legionary")
         {
-
+            global.starSpawnerFrameworkScript.LegionaryEffect();
         }
-        if (identity == "Swarm")
+        if (identity == "Lumberjack")
         {
-
+            
         }
         else
         {
-            Debug.LogError("Enemy is broken!");
+            Debug.LogError("Enemy type is null!");
         }
     }
 
