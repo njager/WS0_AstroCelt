@@ -9,5 +9,6 @@ public class EnemyStats
     public int vitality;
     public int damage;
     public bool weaknessActivated;
+    public string identifier; 
     public IEnumerable<int> squares = Enumerable.Range(35, 50);
 }

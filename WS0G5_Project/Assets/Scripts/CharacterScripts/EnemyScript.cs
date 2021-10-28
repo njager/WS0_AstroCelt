@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject enemyGameObject;
     public EnemyScript enemySelf;
     public float timeBetweenAttacks = 2f;
+    public string myIdentifier; 
     //private float countdown = 2f;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
 
@@ -24,6 +25,7 @@ public class EnemyScript : MonoBehaviour
     void Awake() // Do this to set Enemy Count
     {
         StaticVariables.masterEnemyCount += 1;
+        myIdentifier = myStats.identifier; 
     }
 
 
