@@ -378,6 +378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &991796954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1187083586745470696, guid: 68227f2175eefa147a4e7482fedc11d3, type: 3}
+  m_PrefabInstance: {fileID: 1187083587132100658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &991796955 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1187083586745470697, guid: 68227f2175eefa147a4e7482fedc11d3, type: 3}
@@ -574,6 +579,8 @@ MonoBehaviour:
   constUpgCostText: {fileID: 1231038540}
   ritOneUpgCostText: {fileID: 1754372449}
   ritTwoUpgCostText: {fileID: 2107306009}
+  levelSelectButton1: {fileID: 991796954}
+  levelSelectPositions: {fileID: 357864533}
 --- !u!114 &1706390537 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5697720438621848051, guid: 4ac401f8bc71d1742a8ae7879aa89e4b, type: 3}

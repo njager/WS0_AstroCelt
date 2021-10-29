@@ -21,6 +21,10 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] int constUpgCost;
     [SerializeField] int ritOneUpgCost;
     [SerializeField] int ritTwoUpgCost;
+    [SerializeField] bool levelOneDefeated;
+    private GameObject Level1SkullFull;
+    private GameObject Level1SkullBroken;
+    private GameObject Level1BlockedX;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -31,11 +35,18 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] TextMeshProUGUI constUpgCostText;
     [SerializeField] TextMeshProUGUI ritOneUpgCostText;
     [SerializeField] TextMeshProUGUI ritTwoUpgCostText;
+    [SerializeField] GameObject levelSelectButton1;
+    [SerializeField] Transform levelSelectPositions;
 
     // Start is called before the first frame update
     void Start()
     {
         SetText();
+
+        //grab child components of the level 1 button
+        Level1SkullFull = levelSelectButton1.transform.Find("LevelSkullFull").gameObject;
+        Level1SkullBroken = levelSelectButton1.transform.Find("LevelSkullBroken").gameObject;
+        Level1BlockedX = levelSelectButton1.transform.Find("LevelBlockedX").gameObject;
     }
 
     // Update is called once per frame
@@ -44,10 +55,52 @@ public class UIOverworldTest : MonoBehaviour
         //updates the text
         SetText();
 
+        //sets the transforms and positions for level 1 tile spots
+        Transform levelOneSpawnPosOne = levelSelectPositions.Find("Level1Position1");
+        Vector3 levelOneSpawnPosOnePoint = levelOneSpawnPosOne.position;
+        Transform levelOneSpawnPosTwo = levelSelectPositions.Find("Level1Position2");
+        Vector3 levelOneSpawnPosTwoPoint = levelOneSpawnPosTwo.position;
+        Transform levelOneSpawnPosThree = levelSelectPositions.Find("Level1Position3");
+        Vector3 levelOneSpawnPosThreePoint = levelOneSpawnPosThree.position;
+        Transform levelOneSpawnPosFour = levelSelectPositions.Find("Level1Position4");
+        Vector3 levelOneSpawnPosFourPoint = levelOneSpawnPosFour.position;
 
+        //debugging controls
         if (Input.GetKeyDown(KeyCode.G))
         {
             turnCount++;
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            levelOneDefeated = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            //depending on turn count, move position of the level button
+            if(turnCount == 0)
+            {
+                levelSelectButton1.transform.position = levelOneSpawnPosOnePoint;
+            }
+            else if(turnCount == 1)
+            {
+                levelSelectButton1.transform.position = levelOneSpawnPosTwoPoint;
+            }
+            else if (turnCount == 2)
+            {
+                levelSelectButton1.transform.position = levelOneSpawnPosThreePoint;
+            }
+            else if (turnCount == 3)
+            {
+                levelSelectButton1.transform.position = levelOneSpawnPosFourPoint;
+            }
+        }
+
+        //change appearance of level one button if defeated
+        if(levelOneDefeated == true)
+        {
+            Level1SkullFull.SetActive(false);
+            Level1SkullBroken.SetActive(true);
+            Level1BlockedX.SetActive(true);
         }
     }
 
