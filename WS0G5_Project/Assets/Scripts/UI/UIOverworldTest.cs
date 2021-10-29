@@ -22,6 +22,7 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] int ritOneUpgCost;
     [SerializeField] int ritTwoUpgCost;
     [SerializeField] int treeHealthCount = 3;
+    [SerializeField] int treeHealthCountMax = 3;
     [SerializeField] bool levelOneDefeated;
     private GameObject Level1SkullFull;
     private GameObject Level1SkullBroken;
@@ -37,6 +38,8 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] TextMeshProUGUI constUpgCostText;
     [SerializeField] TextMeshProUGUI ritOneUpgCostText;
     [SerializeField] TextMeshProUGUI ritTwoUpgCostText;
+    [SerializeField] TextMeshProUGUI treeHealthCountText;
+    [SerializeField] Image treeHealthBar;
     [SerializeField] GameObject levelSelectButton1;
     [SerializeField] Transform levelSelectPositions;
 
@@ -49,6 +52,7 @@ public class UIOverworldTest : MonoBehaviour
         Level1SkullFull = levelSelectButton1.transform.Find("LevelSkullFull").gameObject;
         Level1SkullBroken = levelSelectButton1.transform.Find("LevelSkullBroken").gameObject;
         Level1BlockedX = levelSelectButton1.transform.Find("LevelBlockedX").gameObject;
+
     }
 
     // Update is called once per frame
@@ -118,6 +122,12 @@ public class UIOverworldTest : MonoBehaviour
             Level1SkullBroken.SetActive(false);
             Level1BlockedX.SetActive(false);
         }
+
+        //check tree health
+        if(treeHealthCount == 0)
+        {
+            Debug.Log("You lose, the tree has died!");
+        }
     }
 
     //sets the text objects
@@ -130,9 +140,10 @@ public class UIOverworldTest : MonoBehaviour
         constUpgCostText.text = constUpgCost.ToString();
         ritOneUpgCostText.text = ritOneUpgCost.ToString();
         ritTwoUpgCostText.text = ritTwoUpgCost.ToString();
+        treeHealthCountText.text = treeHealthCount.ToString() + "/" + treeHealthCountMax.ToString();
 
         //update health bars
-        //playerHealthBar.fillAmount = (float)playerHealth / (float)playerMaxHealth;
+        treeHealthBar.fillAmount = (float)treeHealthCount / (float)treeHealthCountMax;
     }
 
     //vitality upgrade button
