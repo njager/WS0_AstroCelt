@@ -96,11 +96,17 @@ public class UIOverworldTest : MonoBehaviour
         }
 
         //change appearance of level one button if defeated
-        if(levelOneDefeated == true)
+        if(levelOneDefeated)
         {
             Level1SkullFull.SetActive(false);
             Level1SkullBroken.SetActive(true);
             Level1BlockedX.SetActive(true);
+        }
+        else if (!levelOneDefeated)
+        {
+            Level1SkullFull.SetActive(true);
+            Level1SkullBroken.SetActive(false);
+            Level1BlockedX.SetActive(false);
         }
     }
 
