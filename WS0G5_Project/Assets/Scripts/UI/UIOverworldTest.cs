@@ -21,10 +21,12 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] int constUpgCost;
     [SerializeField] int ritOneUpgCost;
     [SerializeField] int ritTwoUpgCost;
+    [SerializeField] int treeHealthCount = 3;
     [SerializeField] bool levelOneDefeated;
     private GameObject Level1SkullFull;
     private GameObject Level1SkullBroken;
     private GameObject Level1BlockedX;
+    private bool isLevel1AtTree;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -69,6 +71,10 @@ public class UIOverworldTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             turnCount++;
+            if (isLevel1AtTree)
+            {
+                treeHealthCount--;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
@@ -80,18 +86,22 @@ public class UIOverworldTest : MonoBehaviour
             if(turnCount == 0)
             {
                 levelSelectButton1.transform.position = levelOneSpawnPosOnePoint;
+                isLevel1AtTree = false;
             }
             else if(turnCount == 1)
             {
                 levelSelectButton1.transform.position = levelOneSpawnPosTwoPoint;
+                isLevel1AtTree = false;
             }
             else if (turnCount == 2)
             {
                 levelSelectButton1.transform.position = levelOneSpawnPosThreePoint;
+                isLevel1AtTree = false;
             }
             else if (turnCount == 3)
             {
                 levelSelectButton1.transform.position = levelOneSpawnPosFourPoint;
+                isLevel1AtTree = true;
             }
         }
 
