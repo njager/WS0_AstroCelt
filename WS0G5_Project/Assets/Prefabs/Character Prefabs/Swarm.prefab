@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStats:
-    vitality: 2
-    damage: 1
+    vitality: 8
+    damage: 3
     speed: 0
     weaknessActivated: 0
     identifier: Swarm

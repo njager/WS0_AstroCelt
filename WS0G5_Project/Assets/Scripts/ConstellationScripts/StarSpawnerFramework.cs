@@ -602,7 +602,7 @@ public class StarSpawnerFramework : MonoBehaviour
         ObstacleStartPointRow4List();
         ObstacleStartPointRow5List();
         CollateStarLists(); // Note: Add obstacles to collate lists in pairs
-        CollateObstacleListPairs()
+        CollateObstacleListPairs();
     }
 
     void Start()
@@ -628,19 +628,9 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Remove(starThatWasSpawned); // Know what stars were spawned
             Destroy(starThatWasSpawned); // Clear off spawned Stars 
         }
-        ObstaclesResetting(); 
+        ClearObstacles(); 
         iEnumeratorFramework = 0;
         yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
-    }
-
-    public void ObstaclesResetting()
-    {
-        foreach(GameObject obstacleThatWasSpawned in global.obstacleList.ToList())
-        {
-            global.obstacleList.Remove(obstacleThatWasSpawned);
-            Destroy(obstacleThatWasSpawned); // Clearing obstacles 
-        }
-        return; 
     }
 
     void CollateObstacleListPairs() // Creating master pair lists separately 
@@ -648,56 +638,56 @@ public class StarSpawnerFramework : MonoBehaviour
         // Pair 1
         foreach(Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 1
         {
-
+            obstacleRowPair1.Add(obstaclePointsFromStart); 
         }
 
         foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 1
         {
-
+            obstacleRowPair1.Add(obstaclePointsFromEnd);
         }
 
         // Pair 2
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 2
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow2.ToList()) // Start Row 2
         {
-
+            obstacleRowPair2.Add(obstaclePointsFromStart);
         }
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 2
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow2.ToList()) // End Row 2
         {
-
+            obstacleRowPair2.Add(obstaclePointsFromEnd);
         }
 
         // Pair 3
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 3
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow3.ToList()) // Start Row 3
         {
-
+            obstacleRowPair3.Add(obstaclePointsFromStart);
         }
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 3
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow3.ToList()) // End Row 3
         {
-
+            obstacleRowPair3.Add(obstaclePointsFromEnd);
         }
 
         // Pair 4
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 4
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow4.ToList()) // Start Row 4
         {
-
+            obstacleRowPair4.Add(obstaclePointsFromStart);
         }
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 4
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow4.ToList()) // End Row 4
         {
-
+            obstacleRowPair4.Add(obstaclePointsFromEnd);
         }
 
         // Pair 5
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 5
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow5.ToList()) // Start Row 5
         {
-
+            obstacleRowPair5.Add(obstaclePointsFromStart);
         }
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 5
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow5.ToList()) // End Row 5
         {
-
+            obstacleRowPair5.Add(obstaclePointsFromEnd);
         }
     }
 
