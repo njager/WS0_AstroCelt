@@ -36,7 +36,7 @@ public class NewStarMapScript : MonoBehaviour
         }
         else
         {
-            return; 
+            loadBar.SetActive(false);
         }
 
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
@@ -44,7 +44,7 @@ public class NewStarMapScript : MonoBehaviour
 
     public void NewStars() // Specific function to give tto button, where all helperm fucntions are gathered
     {
-        LoadingScreen(true); 
+        StartCoroutine(LoadingScreen(true)); 
         Debug.Log("Loading in New Stars");
         ChangingStarMap(); 
     }

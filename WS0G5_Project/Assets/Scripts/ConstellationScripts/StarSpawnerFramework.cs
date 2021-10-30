@@ -43,6 +43,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row16 = new List<Transform>();
     public List<Transform> row17 = new List<Transform>();
     public List<GameObject> usedTransform = new List<GameObject>();
+    public List<GameObject> usedObstacleTransform = new List<GameObject>();
 
 
     // Structure for refering to a spawn point goes starSpawnPoint(point number in row)_(what row that point is in)
@@ -431,7 +432,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int pointCount = 46; // Count To variable
 
     [Header("Obstacles Varaiables")]
-    private int obstacleCount = 0;
+    //private int obstacleCount = 0;
     public List<Transform> obstacleStartPointRow1 = new List<Transform>();
     public List<Transform> obstacleStartPointRow2 = new List<Transform>();
     public List<Transform> obstacleStartPointRow3 = new List<Transform>();
@@ -442,6 +443,11 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> obstacleEndPointEndRow3 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow4 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow5 = new List<Transform>();
+    public List<Transform> obstacleRowPair1 = new List<Transform>();
+    public List<Transform> obstacleRowPair2 = new List<Transform>();
+    public List<Transform> obstacleRowPair3 = new List<Transform>();
+    public List<Transform> obstacleRowPair4 = new List<Transform>();
+    public List<Transform> obstacleRowPair5 = new List<Transform>();
 
     [Header("Obstacle Start Row 1")] // Set up to be more dynamic later, but for now just need to be there
     public Transform obstactleSpawnPoint1_1;
@@ -595,7 +601,8 @@ public class StarSpawnerFramework : MonoBehaviour
         ObstacleStartPointRow3List();
         ObstacleStartPointRow4List();
         ObstacleStartPointRow5List();
-        CollateLists(); // Note: Add obstacles to collate lists in pairs
+        CollateStarLists(); // Note: Add obstacles to collate lists in pairs
+        CollateObstacleListPairs()
     }
 
     void Start()
@@ -621,8 +628,77 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Remove(starThatWasSpawned); // Know what stars were spawned
             Destroy(starThatWasSpawned); // Clear off spawned Stars 
         }
+        ObstaclesResetting(); 
         iEnumeratorFramework = 0;
         yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
+    }
+
+    public void ObstaclesResetting()
+    {
+        foreach(GameObject obstacleThatWasSpawned in global.obstacleList.ToList())
+        {
+            global.obstacleList.Remove(obstacleThatWasSpawned);
+            Destroy(obstacleThatWasSpawned); // Clearing obstacles 
+        }
+        return; 
+    }
+
+    void CollateObstacleListPairs() // Creating master pair lists separately 
+    {
+        // Pair 1
+        foreach(Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 1
+        {
+
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 1
+        {
+
+        }
+
+        // Pair 2
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 2
+        {
+
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 2
+        {
+
+        }
+
+        // Pair 3
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 3
+        {
+
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 3
+        {
+
+        }
+
+        // Pair 4
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 4
+        {
+
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 4
+        {
+
+        }
+
+        // Pair 5
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 5
+        {
+
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 5
+        {
+
+        }
     }
 
     public void StarReset()
@@ -1154,7 +1230,7 @@ public class StarSpawnerFramework : MonoBehaviour
     /// Have a loading bar screen that only untriggers when each necessary Awake call triggers to tell it to stop, this way low end machines aren't subject to bad behavior
     /// </summary>
 
-    public void CollateLists() // Put all points in one list to iterate through
+    public void CollateStarLists() // Put all points in one list to iterate through
     {
         foreach (Transform _transform in row1.ToList())// Add Row 1
         {

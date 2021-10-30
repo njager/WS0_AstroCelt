@@ -8303,6 +8303,7 @@ MonoBehaviour:
   row16: []
   row17: []
   usedTransform: []
+  usedObstacle: []
   starSpawnPoint1_1: {fileID: 766565638}
   starSpawnPoint2_1: {fileID: 1339744694}
   starSpawnPoint3_1: {fileID: 1460880624}
@@ -27948,10 +27949,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f034748567de7439caa58c778b49a025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadBar: {fileID: 0}
+  loadBar: {fileID: 1318371160031325429}
   chargeTime: 0
   maxCharge: 0
-  enemyChargeBar: {fileID: 0}
+  enemyChargeBar: {fileID: 4539687646704679748}
 --- !u!1 &1924595415
 GameObject:
   m_ObjectHideFlags: 0

@@ -123,10 +123,10 @@ public class UIController : MonoBehaviour
             spawnTimer = 1f;
         }
 
-        if(Input.GetMouseButtonDown(0))
+        /*if(Input.GetMouseButtonDown(0))
         {
             Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
-        }
+        }*/
     }
 
     void UpdateUIVariables() // Trying to keep Update Clutter down

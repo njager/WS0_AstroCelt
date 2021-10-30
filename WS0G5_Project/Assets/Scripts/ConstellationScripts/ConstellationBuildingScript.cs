@@ -34,7 +34,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
         // Get the needed position data for PopUp
         startingStar_Star = global.drawingScript.startingStar;

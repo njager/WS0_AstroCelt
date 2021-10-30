@@ -48,8 +48,9 @@ MonoBehaviour:
   myStats:
     vitality: 2
     damage: 1
+    speed: 0
     weaknessActivated: 0
-    identifier: 
+    identifier: Swarm
   enemyGameObject: {fileID: 1475303926191799721}
   enemySelf: {fileID: 1475303926191799727}
   timeBetweenAttacks: 2
