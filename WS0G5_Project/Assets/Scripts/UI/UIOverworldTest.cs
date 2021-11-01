@@ -42,6 +42,7 @@ public class UIOverworldTest : MonoBehaviour
     [SerializeField] Image treeHealthBar;
     [SerializeField] GameObject levelSelectButton1;
     [SerializeField] Transform levelSelectPositions;
+    [SerializeField] GameObject actionStarLoadoutPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -174,5 +175,18 @@ public class UIOverworldTest : MonoBehaviour
     public void LevelSelectButtonOne()
     {
         Debug.Log("You selected a level, good luck!");
+    }
+
+    //confirm the action star loadout
+    //disable the panel, lock in variables
+    public void ConfirmActionStarLoadout()
+    {
+        actionStarLoadoutPanel.SetActive(false);
+    }
+
+    //open the action star loadout panel
+    public void OpenActionStarLoadout()
+    {
+        actionStarLoadoutPanel.SetActive(true);
     }
 }
