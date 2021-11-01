@@ -210,6 +210,9 @@ GameObject:
   - component: {fileID: 18720126}
   - component: {fileID: 18720125}
   - component: {fileID: 18720124}
+  - component: {fileID: 18720128}
+  - component: {fileID: 18720127}
+  - component: {fileID: 18720129}
   m_Layer: 5
   m_Name: DamageCard
   m_TagString: Untagged
@@ -233,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 605, y: 216}
+  m_AnchoredPosition: {x: -255, y: 244}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18720124
@@ -287,6 +290,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18720122}
   m_CullTransparentMesh: 1
+--- !u!61 &18720127
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18720122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.813324, y: -0.27113152}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 82.33832, y: 81.796036}
+  m_EdgeRadius: 0
+--- !u!114 &18720128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18720122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5d0cbd8d074a34dacf6f90053f3633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &18720129
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18720122}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &52051061 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5697720439140190987, guid: 4ac401f8bc71d1742a8ae7879aa89e4b, type: 3}
@@ -864,6 +926,7 @@ GameObject:
   - component: {fileID: 941386398}
   - component: {fileID: 941386400}
   - component: {fileID: 941386399}
+  - component: {fileID: 941386401}
   m_Layer: 5
   m_Name: CardSlot1
   m_TagString: Untagged
@@ -928,6 +991,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941386397}
   m_CullTransparentMesh: 1
+--- !u!61 &941386401
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941386397}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.168869, y: -4.489212}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 54.870377, y: 49.06079}
+  m_EdgeRadius: 0
 --- !u!1 &991796954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1187083586745470696, guid: 68227f2175eefa147a4e7482fedc11d3, type: 3}
