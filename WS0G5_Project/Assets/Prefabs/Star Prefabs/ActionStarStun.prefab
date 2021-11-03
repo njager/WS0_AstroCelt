@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3570891433123180707}
-  - component: {fileID: 8273561597624668584}
+  - component: {fileID: 5475555879780547429}
   m_Layer: 0
   m_Name: StarGraphic
   m_TagString: Star
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 6657636607174309373}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8273561597624668584
+--- !u!212 &5475555879780547429
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5645c6718b6554a43b28ca978c741968, type: 3}
-  m_Color: {r: 0, g: 0.53132296, b: 1, a: 1}
+  m_Color: {r: 0.6981132, g: 0.20087217, b: 0.6825898, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,10 +92,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6657636607174309373}
   - component: {fileID: 7305165706703344663}
-  - component: {fileID: 8883569404332522358}
+  - component: {fileID: 227660557962575357}
   m_Layer: 0
-  m_Name: ActionStarShield
-  m_TagString: ShieldStar
+  m_Name: ActionStarStun
+  m_TagString: StunStar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,17 +129,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myStarClass:
     starPrefab: {fileID: 4444467650669534561}
-    constellationValue: 0
-    starType: ShieldStar
+    constellationValue: 1
+    starType: StunStar
   starUsed: 0
   starFullyUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 3570891433123180706}
-  hoverColor: {r: 0, g: 0, b: 0, a: 0}
-  usedColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverColor: {r: 0.6037736, g: 0.253471, b: 0.5119702, a: 1}
+  usedColor: {r: 0.46226418, g: 0.09812213, b: 0.33182535, a: 1}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 0}
---- !u!135 &8883569404332522358
+--- !u!135 &227660557962575357
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

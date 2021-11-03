@@ -32,11 +32,11 @@ public class NewStarMapScript : MonoBehaviour
     {
         if (loadBarBool == true)
         {
-
+            StartCoroutine(LoadingScreen(false));
         }
         else
         {
-            return; 
+            loadBar.SetActive(false);
         }
 
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
@@ -44,16 +44,26 @@ public class NewStarMapScript : MonoBehaviour
 
     public void NewStars() // Specific function to give tto button, where all helperm fucntions are gathered
     {
-        LoadingScreen(true); 
+        StartCoroutine(LoadingScreen(true)); 
         Debug.Log("Loading in New Stars");
-        ChangingStarMap(); 
+        ChangingStarMap();
+        if (global.currentEnemy.myIdentifier == "Legionary") // Allows the legionary to spawn a new barrier with the new stars button 
+        {
+            global.currentEnemy.legionaryEffectCounter = 0;
+        }
     }
 
-    public void LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
+    public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
     {
         // First Reset Variable
         loadBarBool = state;
         loadBar.SetActive(true); // Then put into scene
+
+        // Loading Screen timer and behavior 
+
+
+        loadBarBool = false; 
+        yield return new WaitUntil(() => loadBarBool == false); 
     }
 
     public void ChangingStarMap() // Here's where we trigger the functions in other scripts as needed. 

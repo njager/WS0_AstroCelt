@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using CodeMonkey.Utils;
+using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
@@ -23,8 +24,9 @@ public class UIController : MonoBehaviour
     [SerializeField] int _enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
-    //private float spawnTimer = 1f;
+    private float spawnTimer = 1f;
     private GlobalController global;
+
 
     //UI variables
     [Header("UI Element Slots")]
@@ -37,15 +39,17 @@ public class UIController : MonoBehaviour
     [SerializeField] Image enemyHealthBar;
     [SerializeField] Image enemyChargeBar;
 
+    public bool isEnemyDead;  
+
+    // Red is DD6666
+    // Health is SECC71
+
 
     // Start is called before the first frame update
     void Start()
     {
         global = GlobalController.instance;
         
-        //Popup.Create(Vector3.zero, 5; // Jager Test Line
-
-
         // Grabbing Static Variables First
         _enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
@@ -54,9 +58,14 @@ public class UIController : MonoBehaviour
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
+        maxCharge = global.currentEnemy.timeBetweenAttacks;
 
         //Set up the text
         SetText();
+
+        isEnemyDead = false; 
+
+        DOTween.Init();
     }
 
     // Update is called once per frame
@@ -73,40 +82,28 @@ public class UIController : MonoBehaviour
         timerText.text = string.Format("{0}:{1}", minutes.ToString("00"), seconds.ToString("00"));
 
         //set the charge timer and reset
-        chargeTime += Time.deltaTime;
-        if (chargeTime >= maxCharge)
+        if(isEnemyDead == false)
         {
-            chargeTime = 0;
-            global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage); 
+            chargeTime += Time.deltaTime;
+            if (chargeTime >= maxCharge)
+            {
+                chargeTime = 0;
+                global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+            }
         }
+        
 
         //check type of output
         bool isDamage = Random.Range(0, 100) < 60;
 
-        //cycle popup spawning
-        //spawnTimer -= Time.deltaTime;
-        //if (spawnTimer < 0)
-        //{
-            // Popup.Create(new Vector3(-100, 0, 1), 1, isDamage); 
-            //spawnTimer = 1f;
-        //}
-
-        //update the text
+       
         SetText();
 
-        //test popup
-        /*if (Input.GetKeyDown(KeyCode.F))
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-500, 0, 0), 3);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Popup.Create(new Vector3(0, 5, 0), 7);
-        }*/
-        // if (Input.GetMouseButtonDown(0))
-        {
-            // Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, isDamage);
-
+            Popup.Create(new Vector3(-100, 0, 1), 1, 0);
+            spawnTimer = 1f;
         }
     }
 
@@ -138,9 +135,4 @@ public class UIController : MonoBehaviour
         enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
     }
 
-    //function for making new stars
-    public void NewStarsButton()
-    {
-        Debug.Log("You made some new stars, nice!");
-    }
 }

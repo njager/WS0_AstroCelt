@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 using UnityEngine.UI;
 using TMPro;
 
@@ -35,8 +36,8 @@ public class GlobalController : MonoBehaviour
     [Header("Characters")]
     public GameObject player;
     public GameObject enemyForRound1;
-
-    public EnemyScript currentEnemy; 
+    public EnemyScript currentEnemy;
+    public Transform enemySpawnPosition; 
     
     [Header("Ints")]
     public int ListCount = 0;
@@ -72,7 +73,12 @@ public class GlobalController : MonoBehaviour
     public StaticVariables staticVariablesReference; // For a method call in UIController
     public NewStarMapScript newStarMapScript; // For use in UIController
     public ConstellationBuildingScript constellationBuilding; // To build constellation
-    public Popup popUpReference; 
+    public Popup popUpReference;
+    public ParticleSystemScript particleSystemScript; // For referencing particle systems
+
+    [Header("PopUp References")]
+    public Transform enemyPopUpTransform;
+    public Transform playerPopUpTransform;
 
     [Header("Tags")]
     public string starTag = "Star";
@@ -86,6 +92,7 @@ public class GlobalController : MonoBehaviour
 
     [Header("UI Variables")]
     public static Transform pfPopup;
+    public WorldController world;
 
     void Awake()
     {
@@ -95,6 +102,8 @@ public class GlobalController : MonoBehaviour
         }
 
         instance = this;
+
+        world = WorldController.instance;
     }
 
     public void Start()
@@ -107,14 +116,18 @@ public class GlobalController : MonoBehaviour
 
     public void Win()
     {
-        winCanvas.SetActive(true);
+        //winCanvas.SetActive(true);
         Time.timeScale = 0f;
+        SceneManager.LoadSceneAsync("WorldScene");
+        world.overWorldCEAmount += 100;
     }
 
     public void Lose()
     {
-        loseCanvas.SetActive(true);
+        //loseCanvas.SetActive(true);
         Time.timeScale = 0f;
+        SceneManager.LoadSceneAsync("WorldScene");
+        world.overWorldTreeHealth -= 1;
     }
     
 }

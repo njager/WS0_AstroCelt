@@ -13,9 +13,9 @@ public class WinBehavior : MonoBehaviour
 
     void Update()
     {
-        if(StaticVariables.enemyCurrentHealth <= 0)
+        /*if(StaticVariables.enemyCurrentHealth <= 0)
         {
             global.Win(); // For now
-        }
+        }*/
     }
 }

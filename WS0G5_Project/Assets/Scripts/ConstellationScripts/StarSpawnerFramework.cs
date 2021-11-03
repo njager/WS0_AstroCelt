@@ -43,6 +43,8 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row16 = new List<Transform>();
     public List<Transform> row17 = new List<Transform>();
     public List<GameObject> usedTransform = new List<GameObject>();
+    public List<GameObject> usedObstacleTransform = new List<GameObject>();
+    public List<Transform> tempSpawnList = new List<Transform>();
 
 
     // Structure for refering to a spawn point goes starSpawnPoint(point number in row)_(what row that point is in)
@@ -431,7 +433,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int pointCount = 46; // Count To variable
 
     [Header("Obstacles Varaiables")]
-    private int obstacleCount = 0;
+    //private int obstacleCount = 0;
     public List<Transform> obstacleStartPointRow1 = new List<Transform>();
     public List<Transform> obstacleStartPointRow2 = new List<Transform>();
     public List<Transform> obstacleStartPointRow3 = new List<Transform>();
@@ -442,6 +444,11 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> obstacleEndPointEndRow3 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow4 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow5 = new List<Transform>();
+    public List<Transform> obstacleRowPair1 = new List<Transform>();
+    public List<Transform> obstacleRowPair2 = new List<Transform>();
+    public List<Transform> obstacleRowPair3 = new List<Transform>();
+    public List<Transform> obstacleRowPair4 = new List<Transform>();
+    public List<Transform> obstacleRowPair5 = new List<Transform>();
 
     [Header("Obstacle Start Row 1")] // Set up to be more dynamic later, but for now just need to be there
     public Transform obstactleSpawnPoint1_1;
@@ -595,7 +602,8 @@ public class StarSpawnerFramework : MonoBehaviour
         ObstacleStartPointRow3List();
         ObstacleStartPointRow4List();
         ObstacleStartPointRow5List();
-        CollateLists(); // Note: Add obstacles to collate lists in pairs
+        CollateStarLists(); 
+        CollateObstacleListPairs();
     }
 
     void Start()
@@ -621,8 +629,67 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Remove(starThatWasSpawned); // Know what stars were spawned
             Destroy(starThatWasSpawned); // Clear off spawned Stars 
         }
+        ClearObstacles(); 
         iEnumeratorFramework = 0;
         yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
+    }
+
+    void CollateObstacleListPairs() // Creating master pair lists separately 
+    {
+        // Pair 1
+        foreach(Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 1
+        {
+            obstacleRowPair1.Add(obstaclePointsFromStart); 
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 1
+        {
+            obstacleRowPair1.Add(obstaclePointsFromEnd);
+        }
+
+        // Pair 2
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow2.ToList()) // Start Row 2
+        {
+            obstacleRowPair2.Add(obstaclePointsFromStart);
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow2.ToList()) // End Row 2
+        {
+            obstacleRowPair2.Add(obstaclePointsFromEnd);
+        }
+
+        // Pair 3
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow3.ToList()) // Start Row 3
+        {
+            obstacleRowPair3.Add(obstaclePointsFromStart);
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow3.ToList()) // End Row 3
+        {
+            obstacleRowPair3.Add(obstaclePointsFromEnd);
+        }
+
+        // Pair 4
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow4.ToList()) // Start Row 4
+        {
+            obstacleRowPair4.Add(obstaclePointsFromStart);
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow4.ToList()) // End Row 4
+        {
+            obstacleRowPair4.Add(obstaclePointsFromEnd);
+        }
+
+        // Pair 5
+        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow5.ToList()) // Start Row 5
+        {
+            obstacleRowPair5.Add(obstaclePointsFromStart);
+        }
+
+        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow5.ToList()) // End Row 5
+        {
+            obstacleRowPair5.Add(obstaclePointsFromEnd);
+        }
     }
 
     public void StarReset()
@@ -1036,13 +1103,16 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewStarMap()
     {
-        ClearStars(); 
+        tempSpawnList = masterRowList; 
+        ClearStars();
+        ClearObstacles();
         starSpawnCount = 0;
         NewSpawnStars(); 
         NewSpawn(baseStar); // Wave 2 Base Stars
         NewSpawn(actionHealthStar); // Wave 2 Health Stars
         NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-    }
+        tempSpawnList = new List<Transform>();
+}
 
     public void ClearStars()
     {
@@ -1065,7 +1135,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         if (star.starType == "baseStar") // Checks to see if star class is Base
         {
-            foreach(Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach(Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 38)
                 {
@@ -1083,7 +1153,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
         if (star.starType == "HealthStar") // Checks to see if star class given is Health
         {
-            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 40)
                 {
@@ -1100,7 +1170,7 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (star.starType == "DamageStar") // Checks to see if the star class given is Damage
         {
-            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 44)
                 {
@@ -1134,7 +1204,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             usedTransformList.Add(GOtoGrabTransform.transform); 
         }
-        masterRowList.Except(usedTransformList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
+        newSpawnPointList.Except(masterRowList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
     }
 
     public void NewSpawnStars() // Iterate through master list and remove used points from the previous round
@@ -1154,7 +1224,7 @@ public class StarSpawnerFramework : MonoBehaviour
     /// Have a loading bar screen that only untriggers when each necessary Awake call triggers to tell it to stop, this way low end machines aren't subject to bad behavior
     /// </summary>
 
-    public void CollateLists() // Put all points in one list to iterate through
+    public void CollateStarLists() // Put all points in one list to iterate through
     {
         foreach (Transform _transform in row1.ToList())// Add Row 1
         {
@@ -1791,4 +1861,11 @@ public class StarSpawnerFramework : MonoBehaviour
         obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint10_5);
         Debug.Log("Obstacle End Row 1 Added");
     }
+
+    // Enemy functionality
+
+    public void LegionaryEffect()
+    {
+
+    } 
 }
