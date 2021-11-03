@@ -18,6 +18,9 @@ TagManager:
   - Lumberjack
   - Legionary
   - Swarm
+  - ShieldStar
+  - StunStar
+  - NodeStar
   layers:
   - Default
   - TransparentFX

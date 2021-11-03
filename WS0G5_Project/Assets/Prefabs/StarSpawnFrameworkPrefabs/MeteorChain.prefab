@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 8349802243853365261}
   - component: {fileID: 2632158306708051081}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: MeteorChain
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

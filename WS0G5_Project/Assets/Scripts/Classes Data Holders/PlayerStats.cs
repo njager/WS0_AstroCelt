@@ -10,6 +10,11 @@ public class PlayerStats : MonoBehaviour
     public static int startingPlayerVitality;
     [SerializeField] int _startingVitality = 400;
 
+    [Header("Shield")]
+    public static int shieldHealth;
+    public static int startingShieldHealth;
+    [SerializeField] int _startingShield = 0;
+
     [Header("Damage")]
     public static int playerDamage;
     public int startingPlayerDamage = 10; 
@@ -33,6 +38,12 @@ public class PlayerStats : MonoBehaviour
         return _returnCE;
     }
 
+    public static int returnStartingShieldHealth() // For Shields
+    {
+        int _returnShieldHealth = 0;
+        return _returnShieldHealth;
+    }
+
     public void Start()
     {
         startingPlayerVitality = _startingVitality;
@@ -40,6 +51,7 @@ public class PlayerStats : MonoBehaviour
         playerVitality = startingPlayerVitality;
         playerDamage = startingPlayerDamage;
         playerCosmicEnergy = startingPlayerCosmicEnergy;
+        shieldHealth = _startingShield; 
 
     }
 }
