@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSystem : MonoBehaviour
+public class Particle : MonoBehaviour
 {
     public ParticleClass myInfo;
+    public GameObject myPrefab;
 
     void Start()
     {
-        
-    }
-
-
-    void Update()
-    {
-        
+        myPrefab = myInfo.myPrefab;
     }
 }

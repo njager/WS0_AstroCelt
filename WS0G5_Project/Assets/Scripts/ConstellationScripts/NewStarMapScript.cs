@@ -46,7 +46,11 @@ public class NewStarMapScript : MonoBehaviour
     {
         StartCoroutine(LoadingScreen(true)); 
         Debug.Log("Loading in New Stars");
-        ChangingStarMap(); 
+        ChangingStarMap();
+        if (global.currentEnemy.myIdentifier == "Legionary") // Allows the legionary to spawn a new barrier with the new stars button 
+        {
+            global.currentEnemy.legionaryEffectCounter = 0;
+        }
     }
 
     public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 

@@ -44,6 +44,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> row17 = new List<Transform>();
     public List<GameObject> usedTransform = new List<GameObject>();
     public List<GameObject> usedObstacleTransform = new List<GameObject>();
+    public List<Transform> tempSpawnList = new List<Transform>();
 
 
     // Structure for refering to a spawn point goes starSpawnPoint(point number in row)_(what row that point is in)
@@ -601,7 +602,7 @@ public class StarSpawnerFramework : MonoBehaviour
         ObstacleStartPointRow3List();
         ObstacleStartPointRow4List();
         ObstacleStartPointRow5List();
-        CollateStarLists(); // Note: Add obstacles to collate lists in pairs
+        CollateStarLists(); 
         CollateObstacleListPairs();
     }
 
@@ -1102,13 +1103,16 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewStarMap()
     {
-        ClearStars(); 
+        tempSpawnList = masterRowList; 
+        ClearStars();
+        ClearObstacles();
         starSpawnCount = 0;
         NewSpawnStars(); 
         NewSpawn(baseStar); // Wave 2 Base Stars
         NewSpawn(actionHealthStar); // Wave 2 Health Stars
         NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-    }
+        tempSpawnList = new List<Transform>();
+}
 
     public void ClearStars()
     {
@@ -1131,7 +1135,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         if (star.starType == "baseStar") // Checks to see if star class is Base
         {
-            foreach(Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach(Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 38)
                 {
@@ -1149,7 +1153,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
         if (star.starType == "HealthStar") // Checks to see if star class given is Health
         {
-            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 40)
                 {
@@ -1166,7 +1170,7 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (star.starType == "DamageStar") // Checks to see if the star class given is Damage
         {
-            foreach (Transform _transform in masterRowList.ToList()) // Base Stars
+            foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
                 if (starSpawnCount > 44)
                 {
@@ -1200,7 +1204,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             usedTransformList.Add(GOtoGrabTransform.transform); 
         }
-        masterRowList.Except(usedTransformList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
+        newSpawnPointList.Except(masterRowList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
     }
 
     public void NewSpawnStars() // Iterate through master list and remove used points from the previous round

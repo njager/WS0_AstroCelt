@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1475303926191799720}
   - component: {fileID: 1475303926191799727}
   m_Layer: 0
-  m_Name: Swarm
+  m_Name: Lumberjack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,16 +46,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStats:
-    vitality: 8
-    damage: 3
-    speed: 0
+    vitality: 12
+    damage: 2
+    speed: 4
     weaknessActivated: 0
-    identifier: Swarm
+    identifier: Lumberjack
   enemyGameObject: {fileID: 1475303926191799721}
   enemySelf: {fileID: 1475303926191799727}
   timeBetweenAttacks: 2
-  myIdentifier: Swarm
+  myIdentifier: 
   enemyStartHealth: 0
+  _swarmAttackedAmount: 0
+  legionaryEffectCounter: 0
+  _swarmDamageOrSpeed: 0
+  randomFloat: 0
+  _damageIndicator: 0
+  _frenzyTriggered: 0
   enemyDamage: 0
   enemyHealth: 0
 --- !u!1 &1475303926906567920
@@ -70,7 +76,7 @@ GameObject:
   - component: {fileID: 1475303926906567927}
   m_Layer: 0
   m_Name: EnemyBG
-  m_TagString: Swarm
+  m_TagString: Lumberjack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +136,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb340149c077ada409dc7a4bab3fc7c7, type: 3}
-  m_Color: {r: 0.6541717, g: 0.7735849, b: 0.38435972, a: 0.72156864}
+  m_Color: {r: 0.3490566, g: 0.16126542, b: 0.08781295, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

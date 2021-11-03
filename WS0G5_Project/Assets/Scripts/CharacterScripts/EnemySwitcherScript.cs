@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemySwitcherScript : MonoBehaviour
 {
+    public GameObject swarmPrefab;
+    public GameObject legionaryPrefab;
+    public GameObject lumberjackPrefab;
+
     // Use this script to switch out enemies upon their death; 
     private GlobalController global;
 
@@ -16,9 +20,9 @@ public class EnemySwitcherScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StaticVariables.masterEnemyCount == 4) // For later when ther's multiple enemies 
+        if (StaticVariables.masterEnemyCount == 5) // For later when ther's multiple enemies 
         {
-            global.Win(); 
+            global.Win();
         }   
     }
 
@@ -29,6 +33,14 @@ public class EnemySwitcherScript : MonoBehaviour
 
     public void EnemySwitch() // Use this to reset the level for when an enemy dies, and we need to switch over without re-instancing the scene. 
     {
-        global.resetBehavior.GameReset(); 
+        //global.resetBehavior.GameReset();
+        if (StaticVariables.masterEnemyCount == 2) 
+        {
+           Instantiate(swarmPrefab, global.enemySpawnPosition); 
+        }
+        if (StaticVariables.masterEnemyCount == 4)
+        {
+            Instantiate(legionaryPrefab, global.enemySpawnPosition);
+        }
     }
 }

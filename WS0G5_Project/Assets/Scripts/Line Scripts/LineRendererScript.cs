@@ -131,7 +131,7 @@ public class LineRendererScript : MonoBehaviour
             {
                 if (_star != finalStar)
                 {
-                    Debug.Log("Hit Star Without Clicking");
+                    Debug.LogError("Hit Star Without Clicking");
                     Destroy(lineGameObject);
                     return;
                 }
