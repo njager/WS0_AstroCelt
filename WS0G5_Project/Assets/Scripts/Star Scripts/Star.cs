@@ -103,14 +103,14 @@ public class Star : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected() // Doesn't work in play :(
+    /*private void OnDrawGizmosSelected() // Doesn't work in play :(
     {
         if (this == global.drawingScript.starNext)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, 2.5f);
         }
-    }
+    }*/
 
     public void OnMouseEnter()
     {
