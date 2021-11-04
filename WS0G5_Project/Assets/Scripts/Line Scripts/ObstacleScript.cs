@@ -9,12 +9,12 @@ public class ObstacleScript : MonoBehaviour
     private void Awake()
     {
         global = GlobalController.instance;
-        global.obstacleList.Add(this.gameObject); 
+        global.obstacleList.Add(this); 
     }
 
     private void OnDestroy()
     {
         Debug.Log("Cleared this obstacle");
-        global.obstacleList.Remove(this.gameObject);
+        global.obstacleList.Remove(this);
     }
 }

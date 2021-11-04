@@ -55,7 +55,7 @@ public class GlobalController : MonoBehaviour
     public List<Star> constellationFinalStars = new List<Star>(); // Final used stars
     public List<LineRendererScript> lineRendererList = new List<LineRendererScript>(); // Line Renderer list for deletion purposes
     public List<LineRendererScript> lineRendererResetList = new List<LineRendererScript>(); // Specifically a List for Reset
-    public List<GameObject> obstacleList = new List<GameObject>();
+    public List<ObstacleScript> obstacleList = new List<ObstacleScript>();
 
     [Header("Checkers")]
     public GameObject ResetChecker;

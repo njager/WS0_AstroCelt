@@ -5777,7 +5777,7 @@ MonoBehaviour:
   drawingScript: {fileID: 163012955}
   starSpawnerFrameworkScript: {fileID: 560938487}
   playerScript: {fileID: 1392798452}
-  enemyScript: {fileID: 0}
+  enemyScript: {fileID: 894703256}
   playerStats: {fileID: 1392798453}
   UIController: {fileID: 369342703}
   resetBehavior: {fileID: 1360422952}
@@ -5786,7 +5786,7 @@ MonoBehaviour:
   newStarMapScript: {fileID: 1919828120}
   constellationBuilding: {fileID: 1365886407}
   popUpReference: {fileID: 461686959}
-  particleSystemScript: {fileID: 0}
+  particleSystemScript: {fileID: 1453816332}
   enemyPopUpTransform: {fileID: 917150815}
   playerPopUpTransform: {fileID: 682696832}
   starTag: Star
@@ -13351,6 +13351,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
   m_PrefabInstance: {fileID: 894703253}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &894703256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+  m_PrefabInstance: {fileID: 894703253}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894703255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4e5d7a941b0204490d920123971855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &895593559
 GameObject:
   m_ObjectHideFlags: 0
