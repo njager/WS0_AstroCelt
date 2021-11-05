@@ -10,6 +10,8 @@ public class UIOverworldTest : MonoBehaviour
 {
     //public variables
     public int turnCount;
+    public int damageStarLoadCount;
+    public int healStarLoadCount;
 
     //private variables
     [Header("Variables")]
@@ -181,12 +183,20 @@ public class UIOverworldTest : MonoBehaviour
     //disable the panel, lock in variables
     public void ConfirmActionStarLoadout()
     {
-        actionStarLoadoutPanel.SetActive(false);
+        StartCoroutine("ConfirmLoadout");
     }
 
     //open the action star loadout panel
     public void OpenActionStarLoadout()
     {
         actionStarLoadoutPanel.SetActive(true);
+    }
+
+    //wait for one second to disable the loadout panel so it has time to lock in variables
+    IEnumerator ConfirmLoadout()
+    {
+        yield return new WaitForSeconds(1);
+
+        actionStarLoadoutPanel.SetActive(false);
     }
 }
