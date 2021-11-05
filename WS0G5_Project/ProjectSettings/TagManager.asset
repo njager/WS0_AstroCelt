@@ -26,6 +26,7 @@ TagManager:
   - ShieldCard
   - StarSlot1
   - StarSlot2
+  - StarSlot3
   layers:
   - Default
   - TransparentFX

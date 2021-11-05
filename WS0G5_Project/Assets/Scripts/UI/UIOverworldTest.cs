@@ -10,6 +10,8 @@ public class UIOverworldTest : MonoBehaviour
 {
     //public variables
     public int turnCount;
+    public int damageStarLoadCount;
+    public int healStarLoadCount;
 
     //private variables
     [Header("Variables")]

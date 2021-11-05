@@ -10,6 +10,7 @@ public class UICardScript : MonoBehaviour
     //public EventTrigger dragger;
     //bool dragging = EventSystem.dragging
     GameObject currentCard;
+    [SerializeField] UIOverworldTest overworldController;
 
     [Header("Bools")]
     [SerializeField] bool isDragging;
@@ -18,10 +19,11 @@ public class UICardScript : MonoBehaviour
     [SerializeField] bool isShield;
     [SerializeField] bool inStarSlot1;
     [SerializeField] bool inStarSlot2;
+    [SerializeField] bool inStarSlot3;
 
     //public variables
-    public int damageStarLoadCount;
-    public int healStarLoadCount;
+    //int damageStarLoadCount;
+    //int healStarLoadCount;
 
     // Start is called before the first frame update
     void Start()
@@ -46,30 +48,33 @@ public class UICardScript : MonoBehaviour
 
         //if mouse button has been clicked and is held down then dragging
         //this is techincal debt because this does it any time mouse is clicked down, not just on card
+        //check if card is no longer dragging to see if it's in a star slot
         if (Input.GetMouseButtonDown(0))
         {
             isDragging = true;
+            overworldController.damageStarLoadCount = 0;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-        }
-
-        //check if card is no longer dragging to see if it's in a star slot
-        if (!isDragging)
-        {
             if (inStarSlot1)
             {
                 if (isDamage)
                 {
-                    damageStarLoadCount++;
+                    overworldController.damageStarLoadCount++;
                 }
             }
         }
+
+        
+        /*if (!isDragging)
+        {
+            
+        }
         if (isDragging)
         {
-            damageStarLoadCount = 0;
-        }
+            
+        }*/
 
     }
         //detect when the card enters a slot trigger
@@ -80,6 +85,14 @@ public class UICardScript : MonoBehaviour
         {
             inStarSlot1 = true;
         }
+        else if (collision.CompareTag("StarSlot2"))
+        {
+            inStarSlot2 = true;
+        }
+        else if (collision.CompareTag("StarSlot3"))
+        {
+            inStarSlot3 = true;
+        }
     }
 
     //detect when the card exits a slot trigger
@@ -89,6 +102,14 @@ public class UICardScript : MonoBehaviour
         if (inStarSlot1)
         {
             inStarSlot1 = false;
+        }
+        else if (inStarSlot2)
+        {
+            inStarSlot2 = false;
+        }
+        else if (inStarSlot3)
+        {
+            inStarSlot3 = false;
         }
     }
 
