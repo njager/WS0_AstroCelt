@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 18720129}
   m_Layer: 5
   m_Name: DamageCard
-  m_TagString: Untagged
+  m_TagString: DamageCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+  dragging: 0
 --- !u!114 &18720125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5d0cbd8d074a34dacf6f90053f3633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragger: {fileID: 18720124}
+  isDragging: 0
+  isDamage: 0
+  isHeal: 0
+  isShield: 0
 --- !u!50 &18720129
 Rigidbody2D:
   serializedVersion: 4

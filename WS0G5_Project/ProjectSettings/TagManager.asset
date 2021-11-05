@@ -21,6 +21,11 @@ TagManager:
   - ShieldStar
   - StunStar
   - NodeStar
+  - DamageCard
+  - HealCard
+  - ShieldCard
+  - StarSlot1
+  - StarSlot2
   layers:
   - Default
   - TransparentFX

@@ -15,13 +15,15 @@ public class UICardScript : MonoBehaviour
     public bool isDamage;
     public bool isHeal;
     public bool isShield;
+    public bool inStarSlot1;
+    public bool inStarSlot2;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentCard = GetComponent<GameObject>();
+        //currentCard = GetComponent<GameObject>();
         //dragger = GetComponent<EventTrigger>();
-        if(currentCard.tag == "DamageCard")
+        if(this.tag == "DamageCard")
         {
             isDamage = true;
         }
@@ -48,15 +50,19 @@ public class UICardScript : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entering the slot!");
+        if (collision.CompareTag("StarSlot1"))
+        {
+            inStarSlot1 = true;
+        }
     }
 
     //detect when the card exits a slot trigger
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Exiting the slot!");
-        if (!isDragging)
+        if (inStarSlot1)
         {
-
+            inStarSlot1 = false;
         }
     }
 
