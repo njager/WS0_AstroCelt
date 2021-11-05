@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 224181622}
   - component: {fileID: 224181621}
   m_Layer: 5
-  m_Name: CardSlot1 (1)
+  m_Name: CardSlot2
   m_TagString: StarSlot2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1704,7 +1704,7 @@ GameObject:
   - component: {fileID: 1832184302}
   - component: {fileID: 1832184301}
   m_Layer: 5
-  m_Name: CardSlot1 (2)
+  m_Name: CardSlot3
   m_TagString: StarSlot3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

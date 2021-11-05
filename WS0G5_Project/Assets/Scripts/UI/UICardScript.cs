@@ -36,6 +36,10 @@ public class UICardScript : MonoBehaviour
         {
             isDamage = true;
         }
+        else if (this.tag == "HealCard")
+        {
+            isHeal = true;
+        }
     }
 
     // Update is called once per frame
