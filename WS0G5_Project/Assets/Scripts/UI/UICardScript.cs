@@ -53,6 +53,7 @@ public class UICardScript : MonoBehaviour
         {
             isDragging = true;
             overworldController.damageStarLoadCount = 0;
+            overworldController.healStarLoadCount = 0;
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -62,6 +63,32 @@ public class UICardScript : MonoBehaviour
                 if (isDamage)
                 {
                     overworldController.damageStarLoadCount++;
+                }
+                else if (isHeal)
+                {
+                    overworldController.healStarLoadCount++;
+                }
+            }
+            if (inStarSlot2)
+            {
+                if (isDamage)
+                {
+                    overworldController.damageStarLoadCount++;
+                }
+                else if (isHeal)
+                {
+                    overworldController.healStarLoadCount++;
+                }
+            }
+            if (inStarSlot3)
+            {
+                if (isDamage)
+                {
+                    overworldController.damageStarLoadCount++;
+                }
+                else if (isHeal)
+                {
+                    overworldController.healStarLoadCount++;
                 }
             }
         }
