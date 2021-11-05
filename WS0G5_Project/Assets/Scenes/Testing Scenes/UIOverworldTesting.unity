@@ -333,6 +333,10 @@ MonoBehaviour:
   isDamage: 0
   isHeal: 0
   isShield: 0
+  inStarSlot1: 0
+  inStarSlot2: 0
+  damageStarLoadCount: 0
+  healStarLoadCount: 0
 --- !u!50 &18720129
 Rigidbody2D:
   serializedVersion: 4
@@ -934,7 +938,7 @@ GameObject:
   - component: {fileID: 941386401}
   m_Layer: 5
   m_Name: CardSlot1
-  m_TagString: Untagged
+  m_TagString: StarSlot1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
