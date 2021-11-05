@@ -18,6 +18,8 @@ public class Star : MonoBehaviour
     public Vector3 positionOffset;
     public GameObject starGraphic;
 
+    [Header("Stun Star")]
+
     //Global Setting
     private GlobalController global;
 

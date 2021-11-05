@@ -11,6 +11,7 @@ public class LineRendererScript : MonoBehaviour
     [SerializeField] float LineWidth = 0.5f; // Referencing line Renderer width for capsule collider
     private CapsuleCollider capsule;
     [SerializeField] int myCount; // Use a count varaible to only toggle once
+    public float myTallyLength; // Length to be grabbed to be used for line multipler calculations.
     
     // Store the specific stars used to make line; 
     private Star initialStar;
@@ -68,6 +69,7 @@ public class LineRendererScript : MonoBehaviour
         capsule.transform.position = start + (end - start) / 2;
         capsule.transform.LookAt(start);
         capsule.height = ((end - start)*offset).magnitude;
+        myTallyLength = capsule.height;
     }
 
     void OnTriggerEnter(Collider col) // Here it detects the other gameObject

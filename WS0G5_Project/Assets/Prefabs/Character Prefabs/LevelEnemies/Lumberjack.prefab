@@ -53,7 +53,7 @@ MonoBehaviour:
     identifier: Lumberjack
   enemyGameObject: {fileID: 1475303926191799721}
   enemySelf: {fileID: 1475303926191799727}
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3
   myIdentifier: 
   enemyStartHealth: 0
   _swarmAttackedAmount: 0

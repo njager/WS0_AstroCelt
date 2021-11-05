@@ -648,8 +648,35 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.enumeratorCheckGood = 0; // Needs to be last, it's my exit condition
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
     }
+
+    public float LineMultiplierGrabbing(List<LineRendererScript> _lineList)
+    {
+        float _lineLengthTally = 0f;
+
+
+        foreach (LineRendererScript _lineRendererReferenced in _lineList.ToList())
+        {
+            _lineLengthTally += _lineRendererReferenced.myTallyLength; 
+        }
+
+        
+        return _lineLengthTally; 
+    }
+
+    public int endPoint1 = 0; // 0
+    public int endPoint2 = 50; // 50
+
+    public int LineMultiplierCalculator()
+    {
+        float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
+
+     
+
+        return 0; 
+    }
 }
 
+//lineLengthTally = (int)Mathf.Round(_lineLengthGrabbed);
 
 // Things for next week:
 // Event table for enemy damage, starting on overworld scene with jager, implementing sound, implementing new pop up, cycling through enemies, new enemy and new star type, randomized star spawning

@@ -5756,6 +5756,30 @@ MonoBehaviour:
   constellationPotentialHealth: 0
   constellationFinalHealth: 0
   constellationStarCount: 0
+  animationCurveForMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.00033824053
+      value: 1.0023499
+      inSlope: 0.6654618
+      outSlope: 0.6654618
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3.006073
+      value: 3.0025513
+      inSlope: 0.6654618
+      outSlope: 0.6654618
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   player: {fileID: 1392798450}
   enemyForRound1: {fileID: 894703255}
   currentEnemy: {fileID: 0}
@@ -20326,6 +20350,8 @@ MonoBehaviour:
   startingStarPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
   lineFinal: []
+  endPoint1: 0
+  endPoint2: 0
 --- !u!1 &1365955548
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class GlobalController : MonoBehaviour
     public int constellationPotentialHealth = 0;
     public int constellationFinalHealth = 0;
     public int constellationStarCount = 0;
+    public AnimationCurve animationCurveForMultiplier;
 
     [Header("Characters")]
     public GameObject player;

@@ -6,13 +6,13 @@ public class ObstacleScript : MonoBehaviour
 {
     private GlobalController global;
 
-    private void Awake()
+    void Awake()
     {
         global = GlobalController.instance;
         global.obstacleList.Add(this); 
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         Debug.Log("Cleared this obstacle");
         global.obstacleList.Remove(this);

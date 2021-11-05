@@ -13,6 +13,9 @@ public class StarSpawnerFramework : MonoBehaviour
     public StarClass baseStar;
     public StarClass actionHealthStar;
     public StarClass actionDamageStar;
+    public GameObject shieldStar;
+    public GameObject stunStar;
+    public GameObject nodeStar;
 
     [Header("Other")]
     public GameObject obstaclePrefab;
@@ -1133,7 +1136,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewSpawn(StarClass star) // Spawning the randomized Stars function 
     {
-        if (star.starType == "baseStar") // Checks to see if star class is Base
+        if (star.starType == "Star") // Checks to see if star class is Base
         {
             foreach(Transform _transform in newSpawnPointList.ToList()) // Base Stars
             {
