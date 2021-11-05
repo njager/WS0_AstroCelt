@@ -8,14 +8,23 @@ public class UICardScript : MonoBehaviour
     //private variables
     //public EventTrigger dragger;
     //bool dragging = EventSystem.dragging
-
+    GameObject currentCard;
+    
     //public variables
-
+    public bool isDragging;
+    public bool isDamage;
+    public bool isHeal;
+    public bool isShield;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentCard = GetComponent<GameObject>();
         //dragger = GetComponent<EventTrigger>();
+        if(currentCard.tag == "DamageCard")
+        {
+            isDamage = true;
+        }
     }
 
     // Update is called once per frame
@@ -25,10 +34,18 @@ public class UICardScript : MonoBehaviour
         {
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }*/
-    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
 
-    //detect when the card enters a slot trigger
-    private void OnTriggerEnter2D(Collider2D collision)
+    }
+        //detect when the card enters a slot trigger
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entering the slot!");
     }
@@ -37,6 +54,10 @@ public class UICardScript : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Exiting the slot!");
+        if (!isDragging)
+        {
+
+        }
     }
 
 }
