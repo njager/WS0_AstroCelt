@@ -81,7 +81,7 @@ public class EnemyScript : MonoBehaviour
 
     public void EnemyTurnAction() // Put this in enemy 
     {
-        if (isYourTurn == false)
+        if (isYourTurn == true)
         {
             if (myIdentifier == "Legionary")
             {
@@ -123,8 +123,11 @@ public class EnemyScript : MonoBehaviour
                 }
             }
         }
-
-        isYourTurn = false;
+        else
+        {
+            isYourTurn = false;
+        }
+        return; 
     }
 
     public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 

@@ -58,7 +58,7 @@ public class UIController : MonoBehaviour
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
-        maxCharge = global.currentEnemy.timeBetweenAttacks;
+        maxCharge = global.currentEnemy.turnsBetweenAttacks;
 
         //Set up the text
         SetText();

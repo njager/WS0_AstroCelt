@@ -94,7 +94,7 @@ public class GlobalController : MonoBehaviour
 
     [Header("UI Variables")]
     public static Transform pfPopup;
-    public WorldController world;
+    //public WorldController world;
 
     void Awake()
     {
@@ -105,7 +105,7 @@ public class GlobalController : MonoBehaviour
 
         instance = this;
 
-        world = WorldController.instance;
+        //world = WorldController.instance;
     }
 
     public void Start()
@@ -118,18 +118,18 @@ public class GlobalController : MonoBehaviour
 
     public void Win()
     {
-        //winCanvas.SetActive(true);
+        winCanvas.SetActive(true);
         Time.timeScale = 0f;
-        SceneManager.LoadSceneAsync("WorldScene");
-        world.overWorldCEAmount += 100;
+        //SceneManager.LoadSceneAsync("WorldScene");
+        //world.overWorldCEAmount += 100;
     }
 
     public void Lose()
     {
-        //loseCanvas.SetActive(true);
+        loseCanvas.SetActive(true);
         Time.timeScale = 0f;
-        SceneManager.LoadSceneAsync("WorldScene");
-        world.overWorldTreeHealth -= 1;
+        //SceneManager.LoadSceneAsync("WorldScene");
+        //world.overWorldTreeHealth -= 1;
     }
     
 }

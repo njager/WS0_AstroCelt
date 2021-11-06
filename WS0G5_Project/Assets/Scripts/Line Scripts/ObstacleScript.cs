@@ -15,6 +15,6 @@ public class ObstacleScript : MonoBehaviour
     void OnDestroy()
     {
         Debug.Log("Cleared this obstacle");
-        global.obstacleList.Remove(this);
+        //global.obstacleList.Remove(this);
     }
 }
