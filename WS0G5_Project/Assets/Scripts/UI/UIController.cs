@@ -79,7 +79,7 @@ public class UIController : MonoBehaviour
         int seconds = (int)(t % 60); // return the remainder of the seconds divide by 60 as an int
         t /= 60; // divide current time y 60 to get minutes
         int minutes = (int)(t % 60); //return the remainder of the minutes divide by 60 as an int
-        timerText.text = string.Format("{0}:{1}", minutes.ToString("00"), seconds.ToString("00"));
+        timerText.text = string.Format("Turn: {0}", global.turnManagerScript.playerTurnCount.ToString());
 
         //set the charge timer and reset
         if(isEnemyDead == false)

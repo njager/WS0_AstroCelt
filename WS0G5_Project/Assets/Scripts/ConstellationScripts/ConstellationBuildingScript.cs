@@ -666,13 +666,38 @@ public class ConstellationBuildingScript : MonoBehaviour
     public int endPoint1 = 0; // 0
     public int endPoint2 = 50; // 50
 
-    public int LineMultiplierCalculator()
+    public float LineMultiplierCalculator()
     {
+        // Initial Values
         float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
+        float lineMultiplier = 1.0f;
+        float lowerBoundLine = 10f;
+        float upperBoundLine = 60f;
 
-     
+        // Global Animation Curve values 
+        Keyframe[] comparatorCurveKeys = global.animationCurveForMultiplier.keys;
+        float lowerBoundCurve = comparatorCurveKeys[0].value; 
+        float upperBoundCurve = comparatorCurveKeys[1].value;
 
-        return 0; 
+        float _lineValue = lineAmount - lowerBoundLine / upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
+
+        // Compare the normalized value to the curve values 
+        if (_lineValue >= lowerBoundCurve)
+        {
+            if (_lineValue <= upperBoundCurve)
+            {
+                lineMultiplier = _lineValue;
+                return lineMultiplier; 
+            } 
+            else
+            {
+                return lineMultiplier;
+            }
+        }
+        else // If it fails the conditions, it returns a 1.0 mutliplier 
+        {
+            return lineMultiplier;
+        }
     }
 }
 
