@@ -53,6 +53,11 @@ public class NewStarMapScript : MonoBehaviour
         }
     }
 
+    public void NewStars2()
+    {
+        global.starSpawnerFrameworkScript.HandBuiltMap2();
+    }
+
     public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
     {
         // First Reset Variable
