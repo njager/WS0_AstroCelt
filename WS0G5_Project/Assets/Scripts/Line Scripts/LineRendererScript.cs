@@ -25,10 +25,13 @@ public class LineRendererScript : MonoBehaviour
 
     private GlobalController global;
 
+    public bool isTempColor;  
+
     public void Awake()
     {
         global = GlobalController.instance;
         myCount = IncreaseCount();
+        isTempColor = true; 
     }
 
     public int IncreaseCount()

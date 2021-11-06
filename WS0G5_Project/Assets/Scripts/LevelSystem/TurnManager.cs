@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq; 
 
 public class TurnManager : MonoBehaviour
 {
@@ -17,8 +18,9 @@ public class TurnManager : MonoBehaviour
 
     public void ConfirmButton()
     {
+        FinishLinesColor(); 
+        ConstellationsToBeTriggered(global.FinalConstellationsFromTurn);
         ChangeTurn();
-        ConstellationsToBeTriggered(global.FinalConstellationsFromTurn); 
     }
 
     public void ConstellationsToBeTriggered(List<int> _valueList)
@@ -36,6 +38,18 @@ public class TurnManager : MonoBehaviour
             playerTurnCount += 1; 
         }
         global.currentEnemy.isYourTurn = false;
+    }
+
+    // Should take all the lines and change their color to white
+    public void FinishLinesColor()
+    {
+        foreach(LineRendererScript _lines in global.lineRendererList.ToList())
+        {
+            LineRenderer colorChanger; 
+            colorChanger = _lines.gameObject.GetComponent<LineRenderer>();
+            colorChanger.startColor = Color.white;
+            colorChanger.endColor = Color.white;
+        }
     }
 
     public void TurnReset() // Trigger this in reset behavior 
