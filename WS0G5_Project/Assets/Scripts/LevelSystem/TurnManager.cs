@@ -5,19 +5,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     private GlobalController global;
-    private int _turnCount;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _turnCount = Stars.turnCount; 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int turnCount; 
 
     public bool enemyDefeated = false; // Put this in enemy
 
@@ -25,7 +13,7 @@ public class TurnManager : MonoBehaviour
     {
         if (enemyDefeated == true)
         {
-            _turnCount = 0; // Reset Turns
+            turnCount = 0; // Reset Turns
             global.enemySwitcherFrameworkScript.EnemySwitch();
             global.enemySwitcherFrameworkScript.ResetEnemies();
         }

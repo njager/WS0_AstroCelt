@@ -76,6 +76,7 @@ public class GlobalController : MonoBehaviour
     public ConstellationBuildingScript constellationBuilding; // To build constellation
     public Popup popUpReference;
     public ParticleSystemScript particleSystemScript; // For referencing particle systems
+    public TurnManager turnManagerScript; 
 
     [Header("PopUp References")]
     public Transform enemyPopUpTransform;

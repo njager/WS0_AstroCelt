@@ -133,6 +133,22 @@ public class Star : MonoBehaviour
         return; 
     }
 
+    public void StunStarAbility()
+    {
+        if (myStarClass.starType == "StunStar")
+        {
+            
+        }
+    }
+
+    public void ShieldStarAbility()
+    {
+        if (myStarClass.starType == "ShieldStar")
+        {
+
+        }
+    }
+
 
     ///
     /// Organize the enemies by challenge ratings, scouts not the last enemies. 

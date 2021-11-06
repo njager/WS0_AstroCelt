@@ -56,78 +56,10 @@ public class Stars : MonoBehaviour
         return;
     }
 
-    public void StunStarAbility()
-    {
-        if (myStarClass.starType == "StunStar")
-        {
-            //PlayerStats.
-        }
-    }
-
-    public void ShieldStarAbility()
-    {
-        if (myStarClass.starType == "ShieldStar")
-        {
-
-        }
-    }
-
-    public static int turnCount; // Use this to determine action
-    public static int internalCount;
-    public bool isYourTurn; // If false, your turn is not happening
-
     //Estimated turn count needed to defeat an enemy
     //
     //
     // In Awake(), _currentTurn, reference _currentTurn for multi-turn actions 
-
-    public void EnemyTurnAction() // Put this in enemy 
-    {
-        if (isYourTurn == false)
-        {
-            if (myStarClass.starType == "Legionary")
-            {
-                if (turnCount == 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier); 
-                }
-                if (turnCount > 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                }
-            }
-            if (myStarClass.starType == "Swarm")
-            {
-                if (turnCount == 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                }
-                if (turnCount > 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                }
-            }
-            if (myStarClass.starType == "Lumberjack")
-            {
-                if (turnCount == 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                }
-                if (turnCount > 1)
-                {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                }
-            }
-        }
-        
-        isYourTurn = true; 
-    }
 
     // Use Fixed Update over update
 

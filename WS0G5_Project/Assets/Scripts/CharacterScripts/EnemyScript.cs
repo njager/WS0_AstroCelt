@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     public EnemyStats myStats;
     public GameObject enemyGameObject;
     public EnemyScript enemySelf;
-    public float timeBetweenAttacks = 3f;
+    public int turnsBetweenAttacks = 3;
     public string myIdentifier;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
     
@@ -25,6 +25,7 @@ public class EnemyScript : MonoBehaviour
     public int enemyDamage; // Grab the damage from My Stats
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
+    public bool isYourTurn; 
 
     void Awake() // Do this to set Enemy Count, and EnemyType
     {
@@ -68,14 +69,62 @@ public class EnemyScript : MonoBehaviour
 
     public void Update()
     {
-        if (myIdentifier != "Lumberjack") // Lumerjack has no unique behavior 
+        if (isYourTurn == true)
         {
-            UniqueBehavior(myIdentifier);
+
         }
         if (StaticVariables.enemyCurrentHealth <= 0)
         {
             enemyDie();
         }
+    }
+
+    public void EnemyTurnAction() // Put this in enemy 
+    {
+        if (isYourTurn == false)
+        {
+            if (myIdentifier == "Legionary")
+            {
+                if (global.turnManagerScript.turnCount == 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+                if (global.turnManagerScript.turnCount > 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+            }
+            if (myIdentifier == "Swarm")
+            {
+                if (global.turnManagerScript.turnCount == 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+                if (global.turnManagerScript.turnCount > 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+            }
+            if (myIdentifier == "Lumberjack")
+            {
+                if (global.turnManagerScript.turnCount == 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+                if (global.turnManagerScript.turnCount > 1)
+                {
+                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                }
+            }
+        }
+
+        isYourTurn = false;
     }
 
     public void ResetBehavior() // Method of what to do in terms of reset/enemy switching 
@@ -105,7 +154,7 @@ public class EnemyScript : MonoBehaviour
                     _frenzyTriggered = true;
                     if (_swarmDamageOrSpeed == true)
                     {
-                        timeBetweenAttacks = (timeBetweenAttacks / 2f); // Double the speed at which the enemy attacks 
+                        turnsBetweenAttacks = (turnsBetweenAttacks / 2); // Double the speed at which the enemy attacks 
                     }
                     if (_swarmDamageOrSpeed == false)
                     {
