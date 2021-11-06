@@ -37,7 +37,7 @@ public class TurnManager : MonoBehaviour
         {
             playerTurnCount += 1; 
         }
-        global.currentEnemy.isYourTurn = false;
+        global.currentEnemy.isYourTurn = true;
     }
 
     // Should take all the lines and change their color to white
@@ -49,20 +49,6 @@ public class TurnManager : MonoBehaviour
             colorChanger = _lines.gameObject.GetComponent<LineRenderer>();
             colorChanger.startColor = Color.white;
             colorChanger.endColor = Color.white;
-        }
-    }
-
-    public void TurnReset() // Trigger this in reset behavior 
-    {
-        if (enemyDefeated == true)
-        {
-            totalTurnCount = 0; // Reset Turns
-            global.enemySwitcherFrameworkScript.EnemySwitch();
-            global.enemySwitcherFrameworkScript.ResetEnemies();
-        }
-        else
-        {
-            Debug.LogError("Enemy isn't dead!");
         }
     }
 }

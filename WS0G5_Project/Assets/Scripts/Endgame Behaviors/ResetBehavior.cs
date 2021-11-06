@@ -18,6 +18,19 @@ public class ResetBehavior : MonoBehaviour
         iEnumeratorVariable = 1; 
         StartCoroutine(GameResetCoroutine()); // Stop the frame counts before we use our own update loop
     }
+    public void TurnReset() // Trigger this in reset behavior 
+    {
+        if (global.turnManagerScript.enemyDefeated == true)
+        {
+            global.turnManagerScript.totalTurnCount = 0; // Reset Turns
+            global.enemySwitcherFrameworkScript.EnemySwitch();
+            global.enemySwitcherFrameworkScript.ResetEnemies();
+        }
+        else
+        {
+            Debug.LogError("Enemy isn't dead!");
+        }
+    }
 
     IEnumerator GameResetCoroutine()
     {
