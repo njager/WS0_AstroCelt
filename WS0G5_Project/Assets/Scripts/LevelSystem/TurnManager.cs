@@ -5,9 +5,30 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     private GlobalController global;
-    public int turnCount; 
+    public int turnCount;
+
+    void Start()
+    {
+        global = GlobalController.instance; 
+    }
+
+    public void ConfirmButton()
+    {
+        ChangeTurn();
+        ConstellationsToBeTriggered(global.FinalConstellationsFromTurn); 
+    }
+
+    public void ConstellationsToBeTriggered(List<int> _valueList)
+    {
+
+    }
 
     public bool enemyDefeated = false; // Put this in enemy
+
+    public void ChangeTurn()
+    {
+
+    }
 
     public void TurnReset() // Trigger this in reset behavior 
     {
