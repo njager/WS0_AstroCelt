@@ -529,8 +529,8 @@ public class ConstellationBuildingScript : MonoBehaviour
                         global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
                         Debug.Log(global.currentEnemy.enemyHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                        global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
-                        Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 1);
+                        //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
+                        //Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 1);
                         //bool isDamage = true;
                         StartCoroutine(constellationClearGood("damage")); // Keep Persitent Proper Constellations
                     }
@@ -626,13 +626,13 @@ public class ConstellationBuildingScript : MonoBehaviour
         }
         if(_identity == "damage") // These are backwards
         {
-            global.particleSystemScript.SpawnStarParticleEffect(global.playerPopUpTransform);
+            global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             Popup.Create(global.playerPopUpTransform.position, global.constellationFinalHealth, 1);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
-            global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
+            global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 0);
             Debug.Log("PopUp!");
         }

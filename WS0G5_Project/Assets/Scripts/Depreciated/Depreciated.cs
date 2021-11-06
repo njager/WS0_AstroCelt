@@ -82,6 +82,13 @@ public class Depreciated : MonoBehaviour
         _timer = 0f;
     }
 
+    // chargeTime += Time.deltaTime;
+            //if (chargeTime >= maxCharge)
+            //{
+                //chargeTime = 0;
+                //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+            //}
+
     //Estimated turn count needed to defeat an enemy
     //
     //

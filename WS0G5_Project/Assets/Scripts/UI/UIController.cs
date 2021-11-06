@@ -22,8 +22,8 @@ public class UIController : MonoBehaviour
     [SerializeField] int _playerMaxHealth;
     [SerializeField] int _enemyHealth;
     [SerializeField] int _enemyMaxHealth;
-    [SerializeField] float chargeTime;
-    [SerializeField] float maxCharge;
+    //[SerializeField] float chargeTime;
+    //[SerializeField] float maxCharge;
     private float spawnTimer = 1f;
     private GlobalController global;
 
@@ -37,7 +37,7 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
-    [SerializeField] Image enemyChargeBar;
+    //[SerializeField] Image enemyChargeBar;
 
     public bool isEnemyDead;  
 
@@ -58,7 +58,7 @@ public class UIController : MonoBehaviour
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
-        maxCharge = global.currentEnemy.turnsBetweenAttacks;
+        //maxCharge = global.currentEnemy.turnsBetweenAttacks;
 
         //Set up the text
         SetText();
@@ -84,12 +84,7 @@ public class UIController : MonoBehaviour
         //set the charge timer and reset
         if(isEnemyDead == false)
         {
-            chargeTime += Time.deltaTime;
-            if (chargeTime >= maxCharge)
-            {
-                chargeTime = 0;
-                global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-            }
+            // Enemy Attacking
         }
         
 
@@ -106,6 +101,8 @@ public class UIController : MonoBehaviour
             spawnTimer = 1f;
         }
     }
+
+
 
     void UpdateUIVariables() // Trying to keep Update Clutter down
     {
@@ -132,7 +129,9 @@ public class UIController : MonoBehaviour
         enemyHealthBar.fillAmount = (float)_enemyHealth / (float)_enemyMaxHealth;
 
         //update charge bar
-        enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
+        //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
     }
+
+    // If we continue to have a full model, if an enemy takes multiple turns to attck, make it so the enemy has a "about to attack" portrait to use against the player 
 
 }
