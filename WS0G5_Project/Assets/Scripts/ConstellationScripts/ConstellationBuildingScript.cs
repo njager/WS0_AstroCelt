@@ -37,7 +37,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     void Update()
     {
         // Get the needed position data for PopUp
-        startingStar_Star = global.drawingScript.startingStar;
+        startingStar_Star = global.drawingScript.NodeStar;
         startingStarGO = startingStar_Star.gameObject; 
         startingStarPosition = startingStarGO.transform.position;
         checkCount = 0; // To reset the count each method call
@@ -78,7 +78,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             }
             if (star.myStarClass.starType == "HealthStar")
             {
-                if (star == global.drawingScript.startingStar)
+                if (star == global.drawingScript.NodeStar)
                 {
                     if(_tempStarCount == 0)
                     {
@@ -97,7 +97,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             }
             if (star.myStarClass.starType == "DamageStar")
             {
-                if (star == global.drawingScript.startingStar)
+                if (star == global.drawingScript.NodeStar)
                 {
                     if (_tempStarCount == 0)
                     {
@@ -163,7 +163,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         if (_temp1 != emptyStar)
                         {
-                            if (_temp1 != global.drawingScript.startingStar)
+                            if (_temp1 != global.drawingScript.NodeStar)
                             {
                                 if (_temp1 == _temp2)
                                 {
@@ -188,7 +188,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 {
                     if (_temp3 != emptyStar)
                     {
-                        if (_temp1 != global.drawingScript.startingStar)
+                        if (_temp1 != global.drawingScript.NodeStar)
                         {
                             if (_temp1 == _temp3)
                             {
@@ -210,7 +210,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 {
                     if (_temp4 != emptyStar)
                     {
-                        if (_temp1 != global.drawingScript.startingStar)
+                        if (_temp1 != global.drawingScript.NodeStar)
                         {
                             if (_temp1 == _temp4)
                             {
@@ -233,7 +233,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 {
                     if (_temp5 != emptyStar)
                     {
-                        if (_temp1 != global.drawingScript.startingStar)
+                        if (_temp1 != global.drawingScript.NodeStar)
                         {
                             if (_temp1 == _temp5)
                             {
@@ -448,7 +448,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 if (_temp5 != emptyStar)
                 {
-                    if (_temp1 != global.drawingScript.startingStar)
+                    if (_temp1 != global.drawingScript.NodeStar)
                     {
                         if (_temp1 == _temp5)
                         {
@@ -601,6 +601,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        global.drawingScript.nodeClickCount = 0;
         checkCount = 0;
         global.starSpawnerFrameworkScript.StarResetForClear(); // Needed to reset drawing
         //enumeratorTriggered = true; // Thought I needed but will leave to trigger secondary behavior if need be
@@ -647,6 +648,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        global.drawingScript.nodeClickCount = 0; 
         conBool = false;
         _tempStarCount = 0;
         checkCount = 0;

@@ -722,7 +722,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         foreach(ObstacleScript _obstacle in global.obstacleList.ToList())
         {
-            Destroy(_obstacle.gameObject); 
+            Destroy(_obstacle.obstacleSelf); 
         }
     }
 
@@ -826,6 +826,8 @@ public class StarSpawnerFramework : MonoBehaviour
         Debug.Log("Cleared Points");
     }
 
+    
+
     public void GrabNewPoints() // Helper method to grab new points if need be
     {
         ClearPoints();
@@ -834,13 +836,14 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             usedTransformList.Add(GOtoGrabTransform.transform); 
         }
-        newSpawnPointList.Except(masterRowList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
+        newSpawnPointList.Except(tempSpawnList); // Very handy call from Systems.Linq, removes all elements not in both lists from the original keeps the uniques. 
     }
 
     public void NewSpawnStars() // Iterate through master list and remove used points from the previous round
     {
         GrabNewPoints();
-        if (newPointsUsed == 1) // How to grab only a set amount of points? 
+        newPointsUsed = 0;
+        if (newPointsUsed == 1) 
         {
             for (int i = 0; i < pointCount; i++)
             {

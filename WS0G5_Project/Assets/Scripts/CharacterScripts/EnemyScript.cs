@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     public EnemyStats myStats;
     public GameObject enemyGameObject;
     public EnemyScript enemySelf;
-    public int turnsBetweenAttacks = 3;
+    public int turnsBetweenAttacks = 1;
     public string myIdentifier;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
     
@@ -69,14 +69,15 @@ public class EnemyScript : MonoBehaviour
 
     public void Update()
     {
-        if (isYourTurn == true)
-        {
-
-        }
         if (StaticVariables.enemyCurrentHealth <= 0)
         {
             enemyDie();
         }
+        if (isYourTurn == true)
+        {
+            EnemyTurnAction(); 
+        }
+        
     }
 
     public void EnemyTurnAction() // Put this in enemy 
@@ -89,6 +90,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    global.starSpawnerFrameworkScript.LegionaryEffect(); 
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {

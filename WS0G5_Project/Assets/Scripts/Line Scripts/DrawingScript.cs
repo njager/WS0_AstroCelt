@@ -20,7 +20,7 @@ public class DrawingScript : MonoBehaviour
     public Star star1;
     public Star star2;
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
-    public Star startingStar;
+    public Star NodeStar;
     public Star emptyStar; // Need something to start the game
 
     [HeaderAttribute("Drawing Script Ints")]
@@ -36,10 +36,12 @@ public class DrawingScript : MonoBehaviour
 
     public Transform drawingScriptSelf;
     public Quaternion intitalQuaternion;
+    public int nodeClickCount = 0; 
 
     public void Awake()
     {
-        startingStar = emptyStar;
+        NodeStar = emptyStar;
+        star1 = NodeStar; 
     }
 
     public void Start() 

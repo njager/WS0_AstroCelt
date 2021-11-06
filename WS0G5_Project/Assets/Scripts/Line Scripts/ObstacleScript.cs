@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     private GlobalController global;
+    public GameObject obstacleSelf; 
 
     void Awake()
     {
@@ -15,6 +16,6 @@ public class ObstacleScript : MonoBehaviour
     void OnDestroy()
     {
         Debug.Log("Cleared this obstacle");
-        //global.obstacleList.Remove(this);
+        global.obstacleList.Remove(this);
     }
 }

@@ -53,9 +53,13 @@ public class NewStarMapScript : MonoBehaviour
         }
     }
 
-    public void NewStars2()
+    public void NewStars2() // For the purposes of the prototype
     {
-        global.starSpawnerFrameworkScript.HandBuiltMap2();
+        global.starSpawnerFrameworkScript.starSpawnCount = 0;
+        global.starSpawnerFrameworkScript.ClearStars(); 
+        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.baseStar);
+        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionHealthStar);
+        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionDamageStar);
     }
 
     public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 

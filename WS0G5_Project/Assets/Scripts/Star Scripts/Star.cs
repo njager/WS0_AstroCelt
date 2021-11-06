@@ -40,12 +40,19 @@ public class Star : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (this == global.drawingScript.startingStar)
+        if (this == global.drawingScript.NodeStar)
         {
-            global.drawingScript.star2 = this;
-            global.drawingScript.activeStarCounter = 1;
-            global.drawingScript.starCount = -1; 
-            global.drawingScript.drawLine(); 
+            if (global.drawingScript.nodeClickCount >= 1)
+            {
+                global.drawingScript.star2 = this;
+                global.drawingScript.activeStarCounter = 1;
+                global.drawingScript.starCount = -1;
+                global.drawingScript.drawLine();
+            }
+            else
+            {
+                global.drawingScript.nodeClickCount += 1; 
+            }
         }
         if (starFullyUsed == false)
         {
@@ -54,8 +61,7 @@ public class Star : MonoBehaviour
             {
                 if (global.drawingScript.starCount == 0)
                 {
-                    global.drawingScript.startingStar = this;
-                    global.drawingScript.star1 = this;
+                    global.drawingScript.star2 = this;
                     global.drawingScript.activeStarCounter = 1;
                     //Debug.Log("Set activeStarCounter to 1");
                     return;
@@ -72,7 +78,7 @@ public class Star : MonoBehaviour
             {
                 if (global.drawingScript.starCount >= 0)
                 {
-                    if (global.drawingScript.star1 == this)
+                    if (global.drawingScript.star2 == this)
                     {
                         Debug.Log("Please click a different Star");
                         global.drawingScript.activeStarCounter = 1;
