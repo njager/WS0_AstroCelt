@@ -28,9 +28,9 @@ public class GlobalController : MonoBehaviour
     [Header("Constellation Variables")]
     public int constellationPotential = 0; 
     public int constellationPotentialDamage = 0;
-    public int constellationFinalDamage = 0;
+    public float constellationFinalDamage = 0f;
     public int constellationPotentialHealth = 0;
-    public int constellationFinalHealth = 0;
+    public float constellationFinalHealth = 0;
     public int constellationStarCount = 0;
     public AnimationCurve animationCurveForMultiplier;
 

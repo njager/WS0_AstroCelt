@@ -525,8 +525,10 @@ public class ConstellationBuildingScript : MonoBehaviour
                     if (global.constellationPotentialDamage == 1) // Checking action star count
                     {
                         Debug.Log("Constellation Built for Damage!");
-                        global.constellationFinalDamage = ((global.constellationPotential + global.constellationPotentialDamage) - 1); // Have to subtract by one since the starting star gets added twice
-                        global.currentEnemy.EnemyDamaged(global.constellationFinalDamage);
+                        float _lineMultiplier = LineMultiplierCalculator();  
+                        global.constellationFinalDamage = (global.constellationPotential + global.constellationPotentialDamage) * _lineMultiplier;
+                        int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
+                        global.currentEnemy.EnemyDamaged(_constellationFinal);
                         Debug.Log(global.currentEnemy.enemyHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
@@ -555,8 +557,10 @@ public class ConstellationBuildingScript : MonoBehaviour
                     if (global.constellationPotentialHealth == 1) // Checking action star count
                     {
                         Debug.Log("Constellation Built for Health!");
-                        global.constellationFinalHealth += ((global.constellationPotential + global.constellationPotentialHealth) - 1); // Have to subtract by one since the starting star gets added twice
-                        global.playerScript.PlayerHealed(global.constellationFinalHealth);
+                        float _lineMultiplier = LineMultiplierCalculator();
+                        global.constellationFinalHealth += (global.constellationPotential + global.constellationPotentialHealth) * _lineMultiplier;
+                        int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
+                        global.playerScript.PlayerHealed(_constellationFinal);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //bool isDamage = false;
                         StartCoroutine(constellationClearGood("health")); // Keep Persistent Proper Constellations 
@@ -627,13 +631,15 @@ public class ConstellationBuildingScript : MonoBehaviour
         if(_identity == "damage") // These are backwards
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
-            Popup.Create(global.playerPopUpTransform.position, global.constellationFinalHealth, 1);
+            int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
+            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 1);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
-            Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 0);
+            int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
+            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 0);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;
@@ -649,37 +655,31 @@ public class ConstellationBuildingScript : MonoBehaviour
         yield return new WaitUntil(() => global.enumeratorCheckGood == 0);
     }
 
-    public float LineMultiplierGrabbing(List<LineRendererScript> _lineList)
+    public float LineMultiplierGrabbing(List<LineRendererScript> _lineList) // Helper function to give me a line tally to use in the calculator 
     {
         float _lineLengthTally = 0f;
-
-
         foreach (LineRendererScript _lineRendererReferenced in _lineList.ToList())
         {
             _lineLengthTally += _lineRendererReferenced.myTallyLength; 
         }
-
-        
         return _lineLengthTally; 
     }
-
-    public int endPoint1 = 0; // 0
-    public int endPoint2 = 50; // 50
 
     public float LineMultiplierCalculator()
     {
         // Initial Values
         float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
         float lineMultiplier = 1.0f;
-        float lowerBoundLine = 10f;
-        float upperBoundLine = 60f;
+        float lowerBoundLine = 1f;
+        float upperBoundLine = 4.5f;
 
         // Global Animation Curve values 
-        Keyframe[] comparatorCurveKeys = global.animationCurveForMultiplier.keys;
-        float lowerBoundCurve = comparatorCurveKeys[0].value; 
-        float upperBoundCurve = comparatorCurveKeys[1].value;
+        AnimationCurve comparatorCurve = global.animationCurveForMultiplier;
+        float lowerBoundCurve = comparatorCurve[0].value; 
+        float upperBoundCurve = comparatorCurve[1].value;
 
-        float _lineValue = lineAmount - lowerBoundLine / upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
+        float _lineValue = (lineAmount - lowerBoundLine) / upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
+        Debug.Log(_lineValue); 
 
         // Compare the normalized value to the curve values 
         if (_lineValue >= lowerBoundCurve)
@@ -687,21 +687,22 @@ public class ConstellationBuildingScript : MonoBehaviour
             if (_lineValue <= upperBoundCurve)
             {
                 lineMultiplier = _lineValue;
+                Debug.Log(lineMultiplier);
                 return lineMultiplier; 
             } 
             else
             {
+                lineMultiplier = 3.0f;
+                Debug.Log(lineMultiplier);
                 return lineMultiplier;
             }
         }
         else // If it fails the conditions, it returns a 1.0 mutliplier 
         {
+            Debug.Log(lineMultiplier);
             return lineMultiplier;
         }
     }
 }
 
 //lineLengthTally = (int)Mathf.Round(_lineLengthGrabbed);
-
-// Things for next week:
-// Event table for enemy damage, starting on overworld scene with jager, implementing sound, implementing new pop up, cycling through enemies, new enemy and new star type, randomized star spawning
