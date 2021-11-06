@@ -5,11 +5,14 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     private GlobalController global;
-    public int turnCount;
+    public int totalTurnCount;
+    public int playerTurnCount; 
 
     void Start()
     {
-        global = GlobalController.instance; 
+        global = GlobalController.instance;
+        totalTurnCount = 0;
+        playerTurnCount = 0; 
     }
 
     public void ConfirmButton()
@@ -27,14 +30,19 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-
+        totalTurnCount += 1;
+        if (totalTurnCount % 2 == 0)
+        {
+            playerTurnCount += 1; 
+        }
+        global.currentEnemy.isYourTurn = false;
     }
 
     public void TurnReset() // Trigger this in reset behavior 
     {
         if (enemyDefeated == true)
         {
-            turnCount = 0; // Reset Turns
+            totalTurnCount = 0; // Reset Turns
             global.enemySwitcherFrameworkScript.EnemySwitch();
             global.enemySwitcherFrameworkScript.ResetEnemies();
         }

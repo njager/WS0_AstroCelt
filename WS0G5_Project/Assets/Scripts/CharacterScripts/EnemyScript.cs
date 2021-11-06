@@ -85,12 +85,12 @@ public class EnemyScript : MonoBehaviour
         {
             if (myIdentifier == "Legionary")
             {
-                if (global.turnManagerScript.turnCount == 1)
+                if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                 }
-                if (global.turnManagerScript.turnCount > 1)
+                if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
@@ -98,12 +98,12 @@ public class EnemyScript : MonoBehaviour
             }
             if (myIdentifier == "Swarm")
             {
-                if (global.turnManagerScript.turnCount == 1)
+                if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                 }
-                if (global.turnManagerScript.turnCount > 1)
+                if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
@@ -111,12 +111,12 @@ public class EnemyScript : MonoBehaviour
             }
             if (myIdentifier == "Lumberjack")
             {
-                if (global.turnManagerScript.turnCount == 1)
+                if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                 }
-                if (global.turnManagerScript.turnCount > 1)
+                if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
