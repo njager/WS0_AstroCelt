@@ -40,6 +40,7 @@ public class UITest : MonoBehaviour
     [SerializeField] Image enemyHealthBar;
     [SerializeField] Image enemyChargeBar;
     [SerializeField] GameObject attackTile;
+    [SerializeField] Animator attackTileAnimator;
 
 
     // Start is called before the first frame update
@@ -110,6 +111,7 @@ public class UITest : MonoBehaviour
             attackTileNormal.SetActive(false);
             attackTileGlow.SetActive(true);
             isAttackTileGlow = true;
+            attackTileAnimator.SetBool("isAttackTileGlow", true);
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {
