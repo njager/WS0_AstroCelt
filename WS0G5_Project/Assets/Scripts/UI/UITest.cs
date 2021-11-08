@@ -25,6 +25,9 @@ public class UITest : MonoBehaviour
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
     private float spawnTimer = 1f;
+    private GameObject attackTileNormal;
+    private GameObject attackTileGlow;
+    private bool isAttackTileGlow;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -36,6 +39,7 @@ public class UITest : MonoBehaviour
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
     [SerializeField] Image enemyChargeBar;
+    [SerializeField] GameObject attackTile;
 
 
     // Start is called before the first frame update
@@ -45,6 +49,10 @@ public class UITest : MonoBehaviour
         SetText();
         //Popup.Create(Vector3.zero, 5);
         DOTween.Init();
+
+        //grab child components of the level 1 button
+        attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
+        attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
     }
 
     // Update is called once per frame
@@ -65,7 +73,7 @@ public class UITest : MonoBehaviour
         }
 
         //check type of output
-        bool isDamage = Random.Range(0, 100) < 60;
+        //bool isDamage = Random.Range(0, 100) < 60;
 
         //cycle popup spawning
         spawnTimer -= Time.deltaTime;
@@ -94,6 +102,20 @@ public class UITest : MonoBehaviour
         else if (Input.GetMouseButtonDown(1))
         {
             Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1);
+        }
+
+        //debug controls for the tile feedback
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            attackTileNormal.SetActive(false);
+            attackTileGlow.SetActive(true);
+            isAttackTileGlow = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            attackTileNormal.SetActive(true);
+            attackTileGlow.SetActive(false);
+            isAttackTileGlow = false;
         }
     }
 
