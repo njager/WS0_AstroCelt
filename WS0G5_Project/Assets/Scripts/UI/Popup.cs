@@ -23,7 +23,6 @@ public class Popup : MonoBehaviour
     static Transform GrabPopupTransform()
     {
         Transform pfPopupTransform = pfPopupStatic.GetComponent<Transform>();
-
         return pfPopupTransform;
     }
 

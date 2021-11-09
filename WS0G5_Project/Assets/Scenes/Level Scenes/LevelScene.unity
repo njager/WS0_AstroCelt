@@ -5917,8 +5917,8 @@ MonoBehaviour:
   popUpReference: {fileID: 461686959}
   particleSystemScript: {fileID: 1453816332}
   turnManagerScript: {fileID: 433266640}
-  enemyPopUpTransform: {fileID: 917150815}
-  playerPopUpTransform: {fileID: 682696832}
+  enemyPopUpTransform: {fileID: 682696832}
+  playerPopUpTransform: {fileID: 917150815}
   starTag: Star
   abc: 90
   spawningFramework: {fileID: 560938485}
@@ -11110,7 +11110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682696831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14, y: 3.5, z: 0}
+  m_LocalPosition: {x: 14, y: 4, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 360612450}
@@ -14393,7 +14393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917150814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14, y: 3.5, z: 0}
+  m_LocalPosition: {x: -14, y: 4, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 360612450}
@@ -22635,13 +22635,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b377e68395484636a5e6456ded90371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStarParticlePrefab: {fileID: 0}
-  damageParticlePrefab: {fileID: 0}
-  healthParticlePrefab: {fileID: 0}
-  nodeClickedParticlePrefab: {fileID: 0}
-  shieldParticlePrefab: {fileID: 0}
-  stunParticlePrefab: {fileID: 0}
-  confirmParticlePrefab: {fileID: 0}
+  baseStarParticlePrefab: {fileID: 5398315151779637249, guid: 4eab1920677676740b420c25d3f5639a, type: 3}
+  damageParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  healthParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  nodeClickedParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  shieldParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  stunParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  confirmParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
 --- !u!1 &1455077782
 GameObject:
   m_ObjectHideFlags: 0
