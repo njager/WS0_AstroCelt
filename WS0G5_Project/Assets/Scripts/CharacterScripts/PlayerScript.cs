@@ -10,11 +10,22 @@ public class PlayerScript : MonoBehaviour
     private int _startingPlayerVitality = PlayerStats.startingPlayerVitality;
     public int showHealth; // I want to see health in inspector 
     private GlobalController global; // Global Controller reference
+    public bool isPlayerTurn; 
 
     void Start()
     {
         global = GlobalController.instance; 
         playerHealthLimit = _startingPlayerVitality;
+        isPlayerTurn = true; 
+    }
+
+    public void Update()
+    {
+        if (isPlayerTurn == true)
+        {
+            global.playerTurnBar.SetActive(true);
+            global.enemyTurnBar.SetActive(false);
+        }
     }
 
     public void PlayerReset()

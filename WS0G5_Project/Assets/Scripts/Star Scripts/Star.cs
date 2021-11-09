@@ -40,75 +40,83 @@ public class Star : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (this == global.drawingScript.NodeStar)
+        if (global.playerScript.isPlayerTurn == true)
         {
-            if (global.drawingScript.nodeClickCount >= 1)
+            if (this == global.drawingScript.NodeStar)
             {
-                global.drawingScript.star2 = this;
-                global.drawingScript.activeStarCounter = 1;
-                global.drawingScript.starCount = -1;
-                global.drawingScript.drawLine();
+                if (global.drawingScript.nodeClickCount >= 1)
+                {
+                    global.drawingScript.star2 = this;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.starCount = -1;
+                    global.drawingScript.drawLine();
+                }
+                else
+                {
+                    global.drawingScript.nodeClickCount += 1;
+                }
+            }
+            if (starFullyUsed == false)
+            {
+                Debug.Log("Clicked on Star");
+                if (global.drawingScript.activeStarCounter == 0)
+                {
+                    if (global.drawingScript.starCount == 0)
+                    {
+                        global.drawingScript.star2 = this;
+                        global.drawingScript.activeStarCounter = 1;
+                        //Debug.Log("Set activeStarCounter to 1");
+                        return;
+                    }
+                    if (global.drawingScript.starCount >= 0)
+                    {
+                        global.drawingScript.star2 = this;
+                        global.drawingScript.activeStarCounter = 1;
+                        global.drawingScript.drawLine();
+                        //Debug.Log("Else Triggered");
+                    }
+                }
+                if (global.drawingScript.activeStarCounter == 1)
+                {
+                    if (global.drawingScript.starCount >= 0)
+                    {
+                        if (global.drawingScript.star2 == this)
+                        {
+                            Debug.Log("Please click a different Star");
+                            global.drawingScript.activeStarCounter = 1;
+                            return;
+                        }
+                        if (global.drawingScript.starNext == this)
+                        {
+                            Debug.Log("Please click a different Star");
+                            global.drawingScript.activeStarCounter = 1;
+                            return;
+                        }
+                        else
+                        {
+                            global.drawingScript.star2 = this;
+                            global.drawingScript.drawLine();
+                            //Debug.Log("Set activeStarCounter to 2");
+                            return;
+                        }
+                    }
+                }
+                if (global.drawingScript.activeStarCounter <= 1)
+                {
+                    Debug.Log("Reseting activeStarCounter to 0");
+                    global.drawingScript.activeStarCounter = 0;
+                }
             }
             else
             {
-                global.drawingScript.nodeClickCount += 1; 
-            }
-        }
-        if (starFullyUsed == false)
-        {
-            Debug.Log("Clicked on Star");
-            if (global.drawingScript.activeStarCounter == 0)
-            {
-                if (global.drawingScript.starCount == 0)
-                {
-                    global.drawingScript.star2 = this;
-                    global.drawingScript.activeStarCounter = 1;
-                    //Debug.Log("Set activeStarCounter to 1");
-                    return;
-                }
-                if (global.drawingScript.starCount >= 0)
-                {
-                    global.drawingScript.star2 = this;
-                    global.drawingScript.activeStarCounter = 1;
-                    global.drawingScript.drawLine();
-                    //Debug.Log("Else Triggered");
-                }
-            }
-            if (global.drawingScript.activeStarCounter == 1)
-            {
-                if (global.drawingScript.starCount >= 0)
-                {
-                    if (global.drawingScript.star2 == this)
-                    {
-                        Debug.Log("Please click a different Star");
-                        global.drawingScript.activeStarCounter = 1;
-                        return;
-                    }
-                    if (global.drawingScript.starNext == this)
-                    {
-                        Debug.Log("Please click a different Star");
-                        global.drawingScript.activeStarCounter = 1;
-                        return;
-                    }
-                    else
-                    {
-                        global.drawingScript.star2 = this;
-                        global.drawingScript.drawLine();
-                        //Debug.Log("Set activeStarCounter to 2");
-                        return;
-                    } 
-                }
-            }
-            if (global.drawingScript.activeStarCounter <= 1)
-            {
-                Debug.Log("Reseting activeStarCounter to 0");
-                global.drawingScript.activeStarCounter = 0; 
+                Debug.Log("Star Used Up");
             }
         }
         else
         {
-            Debug.Log("Star Used Up");
+            Debug.Log("It's not your turn!"); 
         }
+        
     }
 
     /*private void OnDrawGizmosSelected() // Doesn't work in play :(

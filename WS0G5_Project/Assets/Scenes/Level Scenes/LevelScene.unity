@@ -5799,6 +5799,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enemyTurnBar: {fileID: 712245673}
+  playerTurnBar: {fileID: 9092341758663048598}
   player: {fileID: 1392798450}
   enemyForRound1: {fileID: 894703255}
   currentEnemy: {fileID: 0}
@@ -20992,6 +20994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSelf: {fileID: 1089685218}
   showHealth: 0
+  isPlayerTurn: 0
 --- !u!114 &1392798453
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -92,12 +92,14 @@ public class EnemyScript : MonoBehaviour
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     global.starSpawnerFrameworkScript.LegionaryEffect();
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
             }
             if (myIdentifier == "Swarm")
@@ -107,12 +109,14 @@ public class EnemyScript : MonoBehaviour
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
             }
             if (myIdentifier == "Lumberjack")
@@ -122,18 +126,21 @@ public class EnemyScript : MonoBehaviour
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     isYourTurn = false;
+                    global.playerScript.isPlayerTurn = true;
                 }
             }
         }
         else // If it's already false, keep it false
         {
             isYourTurn = false;
+            global.playerScript.isPlayerTurn = true;
         }
         return; 
     }
