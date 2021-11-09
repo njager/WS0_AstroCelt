@@ -38,6 +38,7 @@ public class TurnManager : MonoBehaviour
             playerTurnCount += 1; 
         }
         global.currentEnemy.isYourTurn = true;
+        global.currentEnemy.turnActionCount = 0;
     }
 
     // Should take all the lines and change their color to white

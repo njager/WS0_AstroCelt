@@ -25,7 +25,10 @@ public class EnemyScript : MonoBehaviour
     public int enemyDamage; // Grab the damage from My Stats
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
-    public bool isYourTurn; 
+    public bool isYourTurn;
+    private float spawnTimer = 2.5f; // Have the enemy wait for a timer
+    private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
+    public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
 
     void Awake() // Do this to set Enemy Count, and EnemyType
     {
@@ -65,6 +68,7 @@ public class EnemyScript : MonoBehaviour
         enemyHealth = myStats.vitality;
         enemyStartHealth = myStats.vitality;
         enemyDamage = myStats.damage;
+        turnActionCount = 1;
     }
 
     public void Update()
@@ -75,9 +79,24 @@ public class EnemyScript : MonoBehaviour
         }
         if (isYourTurn == true)
         {
-            EnemyTurnAction(); 
+            if(turnActionCount == 0)
+            {
+                turnActionCount += 1; 
+                EnemyTurnAction();
+            }
         }
         
+    }
+
+    public IEnumerator EnemyTurnTimer()
+    {
+        global.enemyTurnBar.SetActive(true);
+        global.playerTurnBar.SetActive(false);
+        Debug.LogError("Happening!");
+        isYourTurn = false;
+        global.playerScript.isPlayerTurn = true;
+        turnActionCount = 0; 
+        yield return new WaitForSeconds(5f);
     }
 
     public void EnemyTurnAction() // Put this in enemy 
@@ -91,15 +110,13 @@ public class EnemyScript : MonoBehaviour
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     global.starSpawnerFrameworkScript.LegionaryEffect();
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    StartCoroutine(EnemyTurnTimer());
                 }
             }
             if (myIdentifier == "Swarm")
@@ -108,15 +125,16 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    iEnumeratorTriggered = true;
+                    StartCoroutine(EnemyTurnTimer());
+                    spawnTimer = 2.5f;
+                    return;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    StartCoroutine(EnemyTurnTimer());
                 }
             }
             if (myIdentifier == "Lumberjack")
@@ -125,15 +143,13 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    isYourTurn = false;
-                    global.playerScript.isPlayerTurn = true;
+                    StartCoroutine(EnemyTurnTimer());
                 }
             }
         }
