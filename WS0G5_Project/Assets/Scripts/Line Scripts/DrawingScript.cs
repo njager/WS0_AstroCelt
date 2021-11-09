@@ -86,8 +86,8 @@ public class DrawingScript : MonoBehaviour
             lineEndingPoint = star2.transform.position;
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
-            importedLineRenderer.startColor = Color.white;
-            importedLineRenderer.endColor = Color.white;
+            importedLineRenderer.startColor = Color.red;
+            importedLineRenderer.endColor = Color.red;
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());
@@ -105,8 +105,8 @@ public class DrawingScript : MonoBehaviour
             lineEndingPoint = star2.transform.position;
             importedLineRenderer.startWidth = 0.1f;
             importedLineRenderer.endWidth = 0.1f;
-            importedLineRenderer.startColor = Color.gray;
-            importedLineRenderer.endColor = Color.gray;
+            importedLineRenderer.startColor = Color.red;
+            importedLineRenderer.endColor = Color.red;
             transformHolder.Add(lineStartingPoint);
             transformHolder.Add(lineEndingPoint);
             importedLineRenderer.SetPositions(transformHolder.ToArray());

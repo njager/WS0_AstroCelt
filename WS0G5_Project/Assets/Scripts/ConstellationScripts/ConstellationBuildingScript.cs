@@ -673,7 +673,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
         float lineMultiplier = 1.0f;
         float lowerBoundLine = 1f;
-        float upperBoundLine = 4.5f;
+        float upperBoundLine = 4.75f;
 
         // Global Animation Curve values 
         AnimationCurve comparatorCurve = global.animationCurveForMultiplier;

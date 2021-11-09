@@ -821,7 +821,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         foreach (Transform _transform in usedTransformList.ToList())
         {
-            usedTransformList.Remove(_transform);
+            global.startingStarSpawnPointList.Remove(_transform);
         }
         Debug.Log("Cleared Points");
     }

@@ -90,12 +90,14 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    global.starSpawnerFrameworkScript.LegionaryEffect(); 
+                    global.starSpawnerFrameworkScript.LegionaryEffect();
+                    isYourTurn = false;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    isYourTurn = false;
                 }
             }
             if (myIdentifier == "Swarm")
@@ -104,11 +106,13 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    isYourTurn = false;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    isYourTurn = false;
                 }
             }
             if (myIdentifier == "Lumberjack")
@@ -117,15 +121,17 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    isYourTurn = false;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    isYourTurn = false;
                 }
             }
         }
-        else
+        else // If it's already false, keep it false
         {
             isYourTurn = false;
         }
