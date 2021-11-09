@@ -19,6 +19,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     private Star startingStar_Star; // Drawing script star reference
     public Vector3 startingStarPosition; // The position of the starting star needed for 
     public Vector3 offset; // Changing position for aesthetics
+    public bool hasThePlayerDrawnForTurn; 
     
     [Header("In-Script Lists")]
     public List<GameObject> lineFinal = new List<GameObject>();
@@ -26,6 +27,7 @@ public class ConstellationBuildingScript : MonoBehaviour
     void Start()
     {
         checkCount = 0;
+        hasThePlayerDrawnForTurn = false;
         startingStarGO = emptyStar.gameObject; // Need something to hold data during runtime
         offset = new Vector3(0.5f, 0.5f, 0f); 
         global = GlobalController.instance;
@@ -534,7 +536,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
                         //Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 1);
                         //bool isDamage = true;
-                        StartCoroutine(constellationClearGood("damage")); // Keep Persitent Proper Constellations
+                        StartCoroutine(constellationClearGood("health")); // Keep Persitent Proper Constellations
                     }
                     else
                     {
@@ -563,7 +565,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         global.playerScript.PlayerHealed(_constellationFinal);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //bool isDamage = false;
-                        StartCoroutine(constellationClearGood("health")); // Keep Persistent Proper Constellations 
+                        StartCoroutine(constellationClearGood("damage")); // Keep Persistent Proper Constellations 
                     }
                     else
                     {
@@ -633,14 +635,14 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 1);
+            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 0);
+            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;
@@ -667,7 +669,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         return _lineLengthTally; 
     }
 
-    public float LineMultiplierCalculator()
+    public float LineMultiplierCalculator() // Where the line multiplier is calculated
     {
         // Initial Values
         float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
