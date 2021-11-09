@@ -700,14 +700,14 @@ public class StarSpawnerFramework : MonoBehaviour
     public void StarReset()
     {
         Debug.Log("Resetting Star Clicks");
-        global.drawingScript.activeStarCounter = 0;
+        global.drawingScript.activeStarCounter = 1;
         global.drawingScript.transformHolder = new List<Vector3>();
     }
 
     public void StarResetForClear()
     {
         Debug.Log("Resetting Star Clicks");
-        global.drawingScript.activeStarCounter = 0;
+        global.drawingScript.activeStarCounter = 1;
         global.drawingScript.starCount = 0;
         global.drawingScript.shouldNextStar = 0;
         global.drawingScript.transformHolder = new List<Vector3>();

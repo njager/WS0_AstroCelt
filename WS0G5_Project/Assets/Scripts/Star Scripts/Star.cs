@@ -132,6 +132,8 @@ public class Star : MonoBehaviour
         if(myStarClass.starType == "NodeStar")
         {
             global.drawingScript.nodeClickCount = 1;
+            global.drawingScript.activeStarCounter = 1;
+            global.constellationBeingBuilt.Add(this); 
             return;
         }
         else

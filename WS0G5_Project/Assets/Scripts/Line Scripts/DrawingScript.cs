@@ -40,8 +40,10 @@ public class DrawingScript : MonoBehaviour
 
     public void Awake()
     {
-        NodeStar = emptyStar;
-        star1 = NodeStar; 
+        NodeStar = emptyStar; 
+        star1 = NodeStar;
+        nodeClickCount = 1;
+        activeStarCounter = 1;
     }
 
     public void Start() 
