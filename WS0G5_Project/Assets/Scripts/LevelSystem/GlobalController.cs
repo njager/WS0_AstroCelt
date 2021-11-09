@@ -139,5 +139,11 @@ public class GlobalController : MonoBehaviour
         //SceneManager.LoadSceneAsync("WorldScene");
         //world.overWorldTreeHealth -= 1;
     }
+
+    public void TempAbility() // Using a place holder for the ability, since it's only temp UI anyhow
+    {
+        particleSystemScript.SpawnDamageParticleEffect(enemyPopUpTransform);
+        Popup.Create(enemyPopUpTransform.position, 5, 0);
+    }
     
 }

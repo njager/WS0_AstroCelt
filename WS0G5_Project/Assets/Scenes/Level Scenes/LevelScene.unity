@@ -30690,9 +30690,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 433266640}
-        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
-        m_MethodName: ConfirmButton
+      - m_Target: {fileID: 353662682}
+        m_TargetAssemblyTypeName: GlobalController, Assembly-CSharp
+        m_MethodName: TempAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
