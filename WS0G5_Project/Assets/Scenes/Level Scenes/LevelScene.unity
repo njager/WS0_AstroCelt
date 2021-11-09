@@ -20963,7 +20963,7 @@ PrefabInstance:
       objectReference: {fileID: 324166648}
     - target: {fileID: 7677063011047074563, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_Name
-      value: Obstacle (1)
+      value: MeteorChain1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
@@ -29853,7 +29853,7 @@ PrefabInstance:
       objectReference: {fileID: 288870408}
     - target: {fileID: 7677063011047074563, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_Name
-      value: Obstacle (2)
+      value: MeteorChain2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
@@ -34318,7 +34318,7 @@ PrefabInstance:
       objectReference: {fileID: 1818513624}
     - target: {fileID: 7677063011047074563, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_Name
-      value: Obstacle
+      value: MeteorChain3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5314091618771926760, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
