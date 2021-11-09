@@ -34,12 +34,14 @@ public class EnemySwitcherScript : MonoBehaviour
     public void EnemySwitch() // Use this to reset the level for when an enemy dies, and we need to switch over without re-instancing the scene. 
     {
         //global.resetBehavior.GameReset();
-        if (StaticVariables.masterEnemyCount == 2) 
+        if (StaticVariables.masterEnemyCount == 1) 
         {
-           Instantiate(swarmPrefab, global.enemySpawnPosition); 
+            Debug.Log("Enemy Spawned!");
+            Instantiate(swarmPrefab, global.enemySpawnPosition); 
         }
         if (StaticVariables.masterEnemyCount == 4)
         {
+            Debug.Log("Enemy Spawned!");
             Instantiate(legionaryPrefab, global.enemySpawnPosition);
         }
     }
