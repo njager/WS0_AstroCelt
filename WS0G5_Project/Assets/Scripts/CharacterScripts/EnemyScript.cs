@@ -227,9 +227,9 @@ public class EnemyScript : MonoBehaviour
 
     public void enemyDie() // Death
     {
+        //StaticVariables.masterEnemyCount += 1;
         global.enemySwitcherFrameworkScript.EnemySwitch();
         global.UIController.isEnemyDead = true;
-        StaticVariables.masterEnemyCount = 1;
         Destroy(enemyGameObject);
     }
 

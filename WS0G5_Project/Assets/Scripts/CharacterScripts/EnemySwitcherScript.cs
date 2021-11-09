@@ -37,9 +37,10 @@ public class EnemySwitcherScript : MonoBehaviour
         if (StaticVariables.masterEnemyCount == 1) 
         {
             Debug.Log("Enemy Spawned!");
-            Instantiate(swarmPrefab, global.enemySpawnPosition); 
+            Instantiate(swarmPrefab, global.enemySpawnPosition);
+            return;
         }
-        if (StaticVariables.masterEnemyCount == 4)
+        if (StaticVariables.masterEnemyCount == 2)
         {
             Debug.Log("Enemy Spawned!");
             Instantiate(legionaryPrefab, global.enemySpawnPosition);

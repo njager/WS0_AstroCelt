@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475303926191799721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13.16, y: 5.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475303926906567926}
@@ -66,6 +66,7 @@ MonoBehaviour:
   enemyDamage: 0
   enemyHealth: 0
   isYourTurn: 0
+  turnActionCount: 0
 --- !u!1 &1475303926906567920
 GameObject:
   m_ObjectHideFlags: 0
