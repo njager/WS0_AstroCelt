@@ -56,7 +56,10 @@ public class NewStarMapScript : MonoBehaviour
     public void NewStars2() // For the purposes of the prototype
     {
         global.starSpawnerFrameworkScript.starSpawnCount = 0;
-        global.starSpawnerFrameworkScript.ClearStars(); 
+        global.starSpawnerFrameworkScript.ClearStars();
+        global.drawingScript.nodeStar2.gameObject.SetActive(true);
+        global.drawingScript.star1 = global.drawingScript.nodeStar2;
+        global.drawingScript.NodeStar.gameObject.SetActive(false); 
         global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.baseStar);
         global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionHealthStar);
         global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionDamageStar);

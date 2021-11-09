@@ -21,6 +21,7 @@ public class DrawingScript : MonoBehaviour
     public Star star2;
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star NodeStar;
+    public Star nodeStar2; 
     public Star emptyStar; // Need something to start the game
 
     [HeaderAttribute("Drawing Script Ints")]
@@ -40,6 +41,7 @@ public class DrawingScript : MonoBehaviour
 
     public void Awake()
     {
+        nodeStar2.gameObject.SetActive(false); 
         NodeStar = emptyStar; 
         star1 = NodeStar;
         nodeClickCount = 1;

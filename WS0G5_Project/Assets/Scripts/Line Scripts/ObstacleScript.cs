@@ -14,9 +14,14 @@ public class ObstacleScript : MonoBehaviour
         global.obstacleList.Add(this); 
     }
 
+    public void Clearing()
+    {
+        global.obstacleList.Remove(this);
+        Destroy(this.gameObject);
+    }
+
     void OnDestroy()
     {
         Debug.Log("Cleared this obstacle");
-        global.obstacleList.Remove(this);
     }
 }

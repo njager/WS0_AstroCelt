@@ -722,7 +722,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         foreach(ObstacleScript _obstacle in global.obstacleList.ToList())
         {
-            Destroy(_obstacle.obstacleSelf); 
+            _obstacle.Clearing();
         }
     }
 

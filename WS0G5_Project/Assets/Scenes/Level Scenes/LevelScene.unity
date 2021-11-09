@@ -2719,6 +2719,7 @@ MonoBehaviour:
   star2: {fileID: 0}
   starNext: {fileID: 0}
   NodeStar: {fileID: 0}
+  nodeStar2: {fileID: 882792337}
   emptyStar: {fileID: 223706533}
   shouldNextStar: 0
   starCount: 0
@@ -13832,6 +13833,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8530260791118416434, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
   m_PrefabInstance: {fileID: 876115623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &882792337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7305165706703344663, guid: 6d92f7bc95c76411b8853cac5dfd4e9d, type: 3}
+  m_PrefabInstance: {fileID: 672506916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca143f7160e91074c87d32d6b0b9fb59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &892761847
 GameObject:
   m_ObjectHideFlags: 0

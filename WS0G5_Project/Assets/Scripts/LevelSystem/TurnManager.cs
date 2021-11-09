@@ -23,7 +23,7 @@ public class TurnManager : MonoBehaviour
         ChangeTurn();
     }
 
-    public void ConstellationsToBeTriggered(List<int> _valueList)
+    public void ConstellationsToBeTriggered(List<Star> _StarList)
     {
 
     }
