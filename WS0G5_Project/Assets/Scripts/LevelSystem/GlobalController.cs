@@ -34,6 +34,10 @@ public class GlobalController : MonoBehaviour
     public int constellationStarCount = 0;
     public AnimationCurve animationCurveForMultiplier;
 
+    [Header("Turn Management")]
+    public GameObject enemyTurnBar; // Let the player know if it's their turn or the enemies turn
+    public GameObject playerTurnBar; 
+
     [Header("Characters")]
     public GameObject player;
     public GameObject enemyForRound1;
@@ -112,7 +116,9 @@ public class GlobalController : MonoBehaviour
 
     public void Start()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        playerTurnBar.SetActive(true);
+        enemyTurnBar.SetActive(false); 
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false); 
