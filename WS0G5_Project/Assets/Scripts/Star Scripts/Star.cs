@@ -10,7 +10,6 @@ public class Star : MonoBehaviour
     [Header("Star Attributes")]
     public StarClass myStarClass; 
     public bool starUsed = false;
-    public bool starFullyUsed = false; 
     public GameObject starSelf;
     public GameObject starGraphicSelf; 
     public Color hoverColor;
@@ -31,7 +30,6 @@ public class Star : MonoBehaviour
     {
         global = GlobalController.instance;
 
-        starUsed = false;
         global.ListCount++;
         Debug.Log("Star Added");
 
@@ -56,7 +54,7 @@ public class Star : MonoBehaviour
                     global.drawingScript.nodeClickCount += 1;
                 }
             }
-            if (starFullyUsed == false) // See if the star has been used in the 
+            if (starUsed == false) // See if the star has been used in the constellations thus far
             {
                 Debug.Log("Clicked on Star");
                 if (global.drawingScript.activeStarCounter == 0) // Regular star drawing
@@ -131,11 +129,19 @@ public class Star : MonoBehaviour
 
     public void StarUsed()
     {
-        rend.material.color = usedColor;
-        startColor = usedColor;
-        hoverColor = usedColor; 
-        starFullyUsed = true;
-        return; 
+        if(myStarClass.starType == "NodeStar")
+        {
+            global.drawingScript.nodeClickCount = 1;
+            return;
+        }
+        else
+        {
+            rend.material.color = usedColor;
+            startColor = usedColor;
+            hoverColor = usedColor;
+            starUsed = true;
+            return;
+        }
     }
 
     public void StunStarAbility()
