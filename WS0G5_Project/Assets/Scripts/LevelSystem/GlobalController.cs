@@ -98,6 +98,11 @@ public class GlobalController : MonoBehaviour
     public GameObject spawningFramework;
     public GameObject oldStarSpawner;
 
+    [Header("Greybox Prototype 2 Variables")]
+    public GameObject playerTextBox1;
+    public GameObject playerTextBox2;
+    public GameObject bearText; 
+
     [Header("UI Variables")]
     public static Transform pfPopup;
     //public WorldController world;
@@ -114,11 +119,24 @@ public class GlobalController : MonoBehaviour
         //world = WorldController.instance;
     }
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space)) // Use this to trigger the bear text
+        {
+            playerTextBox1.SetActive(false);
+            playerTextBox2.SetActive(true);
+            bearText.SetActive(true); 
+        }
+    }
+
     public void Start()
     {
         Time.timeScale = 1f;
         playerTurnBar.SetActive(true);
-        enemyTurnBar.SetActive(false); 
+        enemyTurnBar.SetActive(false);
+        playerTextBox1.SetActive(true);
+        playerTextBox2.SetActive(false);
+        bearText.SetActive(false);  
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false); 
