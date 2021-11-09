@@ -102,8 +102,6 @@ public class UIController : MonoBehaviour
         }
     }
 
-
-
     void UpdateUIVariables() // Trying to keep Update Clutter down
     {
         _enemyCount = global.staticVariablesReference.returnCurrentEnemyCount();
