@@ -63,6 +63,17 @@ public class Depreciated : MonoBehaviour
            DoubleDeleting(); 
        } */
 
+
+    /*private void OnDrawGizmosSelected() // Doesn't work in play :(
+    {
+        if (this == global.drawingScript.starNext)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 2.5f);
+        }
+    }*/
+
+
     private float _timer = 0f;
 
     IEnumerator TimerTrigger() // Thought I needed to delete twice
