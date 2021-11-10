@@ -28,6 +28,7 @@ public class UITest : MonoBehaviour
     private GameObject attackTileNormal;
     private GameObject attackTileGlow;
     private bool isAttackTileGlow;
+    private bool isConfirmReady;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -54,6 +55,9 @@ public class UITest : MonoBehaviour
         //grab child components of the level 1 button
         attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
         attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
+
+        //set up bools
+        isConfirmReady = false;
     }
 
     // Update is called once per frame
@@ -108,17 +112,15 @@ public class UITest : MonoBehaviour
         //debug controls for the tile feedback
         if (Input.GetKeyDown(KeyCode.T))
         {
-            attackTileNormal.SetActive(false);
-            attackTileGlow.SetActive(true);
-            isAttackTileGlow = true;
-            attackTileAnimator.SetBool("isAttackTileGlow", true);
+            //debug control to use the confirm button
+            ConfirmTileGo();
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {
-            attackTileNormal.SetActive(true);
-            attackTileGlow.SetActive(false);
-            isAttackTileGlow = false;
+            //debug control to set the confirm button ready
+            isConfirmReady = true;
         }
+
     }
 
     //sets the text objects
@@ -141,5 +143,44 @@ public class UITest : MonoBehaviour
     public void NewStarsButton()
     {
         Debug.Log("You made some new stars, nice!");
+    }
+
+    //confirm button function
+    public void ConfirmTileGo()
+    {
+        //if it's ready, run the anims
+        if (isConfirmReady)
+        {
+            StartCoroutine("ConfirmAnim");
+        }
+        //if it's not ready, don't run the anims
+        else if (!isConfirmReady)
+        {
+            ConfirmTileReset();
+        }
+        
+    }
+
+    //run the animations for the confirm button
+    IEnumerator ConfirmAnim()
+    {
+        attackTileNormal.SetActive(false);
+        attackTileGlow.SetActive(true);
+        isAttackTileGlow = true;
+        attackTileAnimator.SetBool("isAttackTileGlow", true);
+
+        //add a 2 second delay then don't allow it to be run again
+        yield return new WaitForSeconds(2);
+
+        isConfirmReady = false;
+    }
+
+    //reset the anims for the confirm button to normal
+    void ConfirmTileReset()
+    {
+        attackTileNormal.SetActive(true);
+        attackTileGlow.SetActive(false);
+        isAttackTileGlow = false;
+        isConfirmReady = true;
     }
 }
