@@ -51,7 +51,6 @@ MonoBehaviour:
     constellationValue: 1
     starType: DamageStar
   starUsed: 0
-  starFullyUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 1415552392743437630}
   hoverColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.8039216}
@@ -164,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2a4435b9480f45549a953175830e3f2c, type: 3}
     - target: {fileID: 4210205306315750031, guid: ee8872b2d8680d84ca8d5545f4f4f51b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.67
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4210205306315750031, guid: ee8872b2d8680d84ca8d5545f4f4f51b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.67
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4210205306315750031, guid: ee8872b2d8680d84ca8d5545f4f4f51b, type: 3}
       propertyPath: m_LocalScale.z

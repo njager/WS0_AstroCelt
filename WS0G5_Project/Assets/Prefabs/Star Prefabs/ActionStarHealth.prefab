@@ -51,7 +51,6 @@ MonoBehaviour:
     constellationValue: 1
     starType: HealthStar
   starUsed: 0
-  starFullyUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 2643344415938704787}
   hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0.60784316}
@@ -96,11 +95,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6712551217825247065, guid: 753bef599b0bb9f4ea9ad32847fb4496, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.67
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6712551217825247065, guid: 753bef599b0bb9f4ea9ad32847fb4496, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.67
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6712551217825247065, guid: 753bef599b0bb9f4ea9ad32847fb4496, type: 3}
       propertyPath: m_LocalScale.z
