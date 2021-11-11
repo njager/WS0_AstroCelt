@@ -6744,7 +6744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14193,7 +14193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.84
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14234,6 +14234,18 @@ PrefabInstance:
     - target: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_Name
       value: Lumberjack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: enemyHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: enemyStartHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myStats.vitality
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStats:
-    vitality: 12
+    vitality: 26
     damage: 2
     speed: 4
     weaknessActivated: 0
