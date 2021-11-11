@@ -62,7 +62,7 @@ public class UITest : MonoBehaviour
 
         //set up images for the confirm button
         confirmTileIndex = 0;
-        confirmButton.image = confirmTileImages[confirmTileIndex];
+        //confirmButton.image = confirmTileImages[confirmTileIndex];
 
         //grab child components of the level 1 button
         attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
@@ -157,6 +157,7 @@ public class UITest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             currentConfirmButtonImage = confirmTileImages[confirmTileIndex];
+            confirmButton.image = currentConfirmButtonImage;
         }
 
     }
