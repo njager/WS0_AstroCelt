@@ -31,6 +31,8 @@ public class UITest : MonoBehaviour
     private float spawnTimer = 1f;
     private GameObject attackTileNormal;
     private GameObject attackTileGlow;
+    private GameObject healTileNormal;
+    private GameObject healTileGlow;
     private bool isAttackTileGlow;
     private bool isConfirmReady;
     int confirmTileIndex;
@@ -47,6 +49,8 @@ public class UITest : MonoBehaviour
     [SerializeField] Image enemyChargeBar;
     [SerializeField] GameObject attackTile;
     [SerializeField] Animator attackTileAnimator;
+    [SerializeField] GameObject healTile;
+    [SerializeField] Animator healTileAnimator;
     [SerializeField] List<Image> confirmTileImages;
     [SerializeField] Image currentConfirmButtonImage;
     [SerializeField] Button confirmButton;
@@ -67,6 +71,9 @@ public class UITest : MonoBehaviour
         //grab child components of the level 1 button
         attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
         attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
+
+        healTileNormal = healTile.transform.Find("HealTileNormal").gameObject;
+        healTileGlow = healTile.transform.Find("HealTileGlow").gameObject;
 
         //set up bools
         isConfirmReady = false;
@@ -111,7 +118,7 @@ public class UITest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             Popup.Create(new Vector3(0, 5, 0), 7);
-        }*/
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
@@ -119,7 +126,7 @@ public class UITest : MonoBehaviour
         else if (Input.GetMouseButtonDown(1))
         {
             Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1);
-        }
+        }*/
 
         //debug controls for the tile feedback
         if (Input.GetKeyDown(KeyCode.T))
@@ -204,10 +211,14 @@ public class UITest : MonoBehaviour
     //run the animations for the confirm button
     IEnumerator ConfirmAnim()
     {
-        attackTileNormal.SetActive(false);
-        attackTileGlow.SetActive(true);
-        isAttackTileGlow = true;
-        attackTileAnimator.SetBool("isAttackTileGlow", true);
+        if (isAttack)
+        {
+            attackTileNormal.SetActive(false);
+            attackTileGlow.SetActive(true);
+            isAttackTileGlow = true;
+            attackTileAnimator.SetBool("isAttackTileGlow", true);
+        }
+        
 
         //add a 2 second delay then don't allow it to be run again
         yield return new WaitForSeconds(2);
@@ -218,7 +229,7 @@ public class UITest : MonoBehaviour
     //reset the anims for the confirm button to normal
     void ConfirmTileReset()
     {
-        attackTileNormal.SetActive(true);
+        attackTileNormal.SetActive(false);
         attackTileGlow.SetActive(false);
         isAttackTileGlow = false;
     }
