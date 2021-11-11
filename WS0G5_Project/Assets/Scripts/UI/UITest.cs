@@ -29,6 +29,7 @@ public class UITest : MonoBehaviour
     private GameObject attackTileGlow;
     private bool isAttackTileGlow;
     private bool isConfirmReady;
+    int confirmTileIndex;
 
     //UI variables
     [Header("UI Element Slots")]
@@ -42,6 +43,9 @@ public class UITest : MonoBehaviour
     [SerializeField] Image enemyChargeBar;
     [SerializeField] GameObject attackTile;
     [SerializeField] Animator attackTileAnimator;
+    [SerializeField] List<Image> confirmTileImages;
+    [SerializeField] Image currentConfirmButtonImage;
+    [SerializeField] Button confirmButton;
 
 
     // Start is called before the first frame update
@@ -51,6 +55,9 @@ public class UITest : MonoBehaviour
         SetText();
         //Popup.Create(Vector3.zero, 5);
         DOTween.Init();
+
+        confirmTileIndex = 0;
+        confirmButton.image = confirmTileImages[confirmTileIndex];
 
         //grab child components of the level 1 button
         attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
