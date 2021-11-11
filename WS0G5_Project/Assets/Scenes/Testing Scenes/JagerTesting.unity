@@ -1184,10 +1184,13 @@ MonoBehaviour:
   attackTile: {fileID: 1659942050}
   attackTileAnimator: {fileID: 1403964418}
   confirmTileImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 563785495}
+  - {fileID: 2053273754}
+  - {fileID: 1403964419}
+  - {fileID: 550327417}
+  - {fileID: 140078623}
+  - {fileID: 1676243496}
+  - {fileID: 210698406}
   currentConfirmButtonImage: {fileID: 0}
   confirmButton: {fileID: 0}
 --- !u!4 &840480608
