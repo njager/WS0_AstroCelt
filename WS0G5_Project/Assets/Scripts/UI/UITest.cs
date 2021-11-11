@@ -36,6 +36,8 @@ public class UITest : MonoBehaviour
     private GameObject shieldTileNormal;
     private GameObject shieldTileGlow;
     private bool isAttackTileGlow;
+    private bool isHealTileGlow;
+    private bool isShieldTileGlow;
     private bool isConfirmReady;
     int confirmTileIndex;
 
@@ -225,7 +227,14 @@ public class UITest : MonoBehaviour
             isAttackTileGlow = true;
             attackTileAnimator.SetBool("isAttackTileGlow", true);
         }
-        
+        else if (isHeal)
+        {
+            healTileNormal.SetActive(false);
+            healTileGlow.SetActive(true);
+            isHealTileGlow = true;
+            healTileAnimator.SetBool("isHealTileGlow", true);
+        }
+
 
         //add a 2 second delay then don't allow it to be run again
         yield return new WaitForSeconds(2);
@@ -239,5 +248,9 @@ public class UITest : MonoBehaviour
         attackTileNormal.SetActive(false);
         attackTileGlow.SetActive(false);
         isAttackTileGlow = false;
+
+        healTileNormal.SetActive(false);
+        healTileGlow.SetActive(false);
+        isHealTileGlow = false;
     }
 }
