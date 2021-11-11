@@ -234,6 +234,13 @@ public class UITest : MonoBehaviour
             isHealTileGlow = true;
             healTileAnimator.SetBool("isHealTileGlow", true);
         }
+        else if (isShield)
+        {
+            shieldTileNormal.SetActive(false);
+            shieldTileGlow.SetActive(true);
+            isShieldTileGlow = true;
+            shieldTileAnimator.SetBool("isShieldTileGlow", true);
+        }
 
 
         //add a 2 second delay then don't allow it to be run again
@@ -252,5 +259,9 @@ public class UITest : MonoBehaviour
         healTileNormal.SetActive(false);
         healTileGlow.SetActive(false);
         isHealTileGlow = false;
+
+        shieldTileNormal.SetActive(false);
+        shieldTileGlow.SetActive(false);
+        isShieldTileGlow = false;
     }
 }
