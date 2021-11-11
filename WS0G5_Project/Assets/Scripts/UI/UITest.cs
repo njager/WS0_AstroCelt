@@ -152,6 +152,7 @@ public class UITest : MonoBehaviour
         if (isConfirmReady)
         {
             StartCoroutine("ConfirmAnim");
+            //INPUT HERE the actual effect of the button
         }
         //if it's not ready, don't run the anims
         else if (!isConfirmReady)
@@ -181,6 +182,5 @@ public class UITest : MonoBehaviour
         attackTileNormal.SetActive(true);
         attackTileGlow.SetActive(false);
         isAttackTileGlow = false;
-        isConfirmReady = true;
     }
 }
