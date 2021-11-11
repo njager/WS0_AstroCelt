@@ -33,6 +33,8 @@ public class UITest : MonoBehaviour
     private GameObject attackTileGlow;
     private GameObject healTileNormal;
     private GameObject healTileGlow;
+    private GameObject shieldTileNormal;
+    private GameObject shieldTileGlow;
     private bool isAttackTileGlow;
     private bool isConfirmReady;
     int confirmTileIndex;
@@ -51,6 +53,8 @@ public class UITest : MonoBehaviour
     [SerializeField] Animator attackTileAnimator;
     [SerializeField] GameObject healTile;
     [SerializeField] Animator healTileAnimator;
+    [SerializeField] GameObject shieldTile;
+    [SerializeField] Animator shieldTileAnimator;
     [SerializeField] List<Image> confirmTileImages;
     [SerializeField] Image currentConfirmButtonImage;
     [SerializeField] Button confirmButton;
@@ -74,6 +78,9 @@ public class UITest : MonoBehaviour
 
         healTileNormal = healTile.transform.Find("HealTileNormal").gameObject;
         healTileGlow = healTile.transform.Find("HealTileGlow").gameObject;
+
+        shieldTileNormal = shieldTile.transform.Find("ShieldTileNormal").gameObject;
+        shieldTileGlow = shieldTile.transform.Find("ShieldTileGlow").gameObject;
 
         //set up bools
         isConfirmReady = false;
