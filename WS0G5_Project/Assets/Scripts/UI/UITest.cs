@@ -24,6 +24,10 @@ public class UITest : MonoBehaviour
     [SerializeField] int enemyMaxHealth;
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
+    [SerializeField] bool isNone;
+    [SerializeField] bool isAttack;
+    [SerializeField] bool isHeal;
+    [SerializeField] bool isShield;
     private float spawnTimer = 1f;
     private GameObject attackTileNormal;
     private GameObject attackTileGlow;
@@ -56,6 +60,7 @@ public class UITest : MonoBehaviour
         //Popup.Create(Vector3.zero, 5);
         DOTween.Init();
 
+        //set up images for the confirm button
         confirmTileIndex = 0;
         confirmButton.image = confirmTileImages[confirmTileIndex];
 
@@ -126,6 +131,32 @@ public class UITest : MonoBehaviour
         {
             //debug control to set the confirm button ready
             isConfirmReady = true;
+        }
+
+        //debug controls for selecting confirm button image index
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (isNone)
+            {
+                confirmTileIndex = 0;
+            }
+            else if (isAttack)
+            {
+                confirmTileIndex = 1;
+            }
+            else if (isHeal)
+            {
+                confirmTileIndex = 3;
+            }
+            else if (isShield)
+            {
+                confirmTileIndex = 5;
+            }
+        }
+        //debug control for setting confirm button image
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            currentConfirmButtonImage = confirmTileImages[confirmTileIndex];
         }
 
     }
