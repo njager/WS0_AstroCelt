@@ -1191,8 +1191,8 @@ MonoBehaviour:
   - {fileID: 140078623}
   - {fileID: 1676243496}
   - {fileID: 210698406}
-  currentConfirmButtonImage: {fileID: 0}
-  confirmButton: {fileID: 0}
+  currentConfirmButtonImage: {fileID: 563785495}
+  confirmButton: {fileID: 20861297}
 --- !u!4 &840480608
 Transform:
   m_ObjectHideFlags: 0
