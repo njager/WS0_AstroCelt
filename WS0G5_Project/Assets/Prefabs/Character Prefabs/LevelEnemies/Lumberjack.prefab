@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myStats:
     vitality: 26
-    damage: 2
+    damage: 6
     speed: 4
     weaknessActivated: 0
     identifier: Lumberjack
