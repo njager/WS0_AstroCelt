@@ -5,6 +5,7 @@ using UnityEngine;
 public class DemoVideoScript : MonoBehaviour
 {
     [SerializeField] GameObject attackPulse;
+    [SerializeField] GameObject selectIcon;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +17,11 @@ public class DemoVideoScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.T))
         {
             attackPulse.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            selectIcon.SetActive(true);
         }
     }
 }
