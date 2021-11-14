@@ -65,6 +65,11 @@ public class NewStarMapScript : MonoBehaviour
         global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionDamageStar);
     }
 
+    public void NewStarsPlayTest()
+    {
+        global.starSpawnerFrameworkScript.HardcodedNewStarsSpawn(); 
+    }
+
     public IEnumerator LoadingScreen(bool state) // Use a bool toggler for the loading bar functionality 
     {
         // First Reset Variable

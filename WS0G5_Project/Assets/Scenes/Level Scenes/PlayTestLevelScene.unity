@@ -9663,6 +9663,7 @@ MonoBehaviour:
   obstactleEndSpawnPoint8_5: {fileID: 1672613078}
   obstactleEndSpawnPoint9_5: {fileID: 574524581}
   obstactleEndSpawnPoint10_5: {fileID: 1187743757}
+  baseStarCount: 0
   hardcodeCount: 0
   numBaseStars: 0
   numDamageStars: 0
@@ -14488,7 +14489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewStars2
+      value: NewStarsPlayTest
       objectReference: {fileID: 0}
     - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
