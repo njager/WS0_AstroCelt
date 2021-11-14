@@ -40,8 +40,12 @@ public class GlobalController : MonoBehaviour
 
     [Header("Characters")]
     public GameObject player;
-    public GameObject enemyForRound1;
+    public GameObject enemy1ForRound1;
+    public GameObject enemy2ForRound1;
+    public GameObject enemy3ForRound1; 
     public EnemyScript currentEnemy;
+    public EnemyScript enemy2;
+    public EnemyScript enemy3; 
     public Transform enemySpawnPosition; 
     
     [Header("Ints")]
