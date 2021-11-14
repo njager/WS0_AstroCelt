@@ -877,6 +877,7 @@ public class StarSpawnerFramework : MonoBehaviour
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
+            SpawnObstacle(); 
             NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars); 
         }
         if (hardcodeCount == 2)
