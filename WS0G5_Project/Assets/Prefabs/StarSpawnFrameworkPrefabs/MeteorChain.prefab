@@ -159,3 +159,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSelf: {fileID: 7677063011047074563}
+  myObstacleScript: {fileID: 2632158306708051081}

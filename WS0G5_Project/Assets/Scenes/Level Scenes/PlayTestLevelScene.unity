@@ -4826,7 +4826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &276002697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6103,17 +6103,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.00033824053
       value: 1.0023499
-      inSlope: 0.6654618
-      outSlope: 0.6654618
+      inSlope: 1.967093
+      outSlope: 1.967093
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 3.006073
-      value: 3.0025513
-      inSlope: 0.6654618
-      outSlope: 0.6654618
+      time: 1.0147705
+      value: 2.9978325
+      inSlope: 1.967093
+      outSlope: 1.967093
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -13332,7 +13332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &778828292
 Transform:
   m_ObjectHideFlags: 0
@@ -13345,7 +13345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1935541439}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &779302968
 GameObject:
@@ -14694,7 +14694,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28759,7 +28759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1715949654
 Transform:
   m_ObjectHideFlags: 0
@@ -31622,8 +31622,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1392798451}
-  - {fileID: 894703254}
   - {fileID: 778828292}
+  - {fileID: 894703254}
   - {fileID: 606257194}
   - {fileID: 374334531}
   m_Father: {fileID: 0}

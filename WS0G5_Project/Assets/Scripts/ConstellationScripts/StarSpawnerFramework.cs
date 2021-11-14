@@ -1026,7 +1026,7 @@ public class StarSpawnerFramework : MonoBehaviour
             {
                 GameObject nodeStarToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
                 global.drawingScript.NodeStar = nodeStarToBeSpawned.GetComponent<Star>();  
-                Debug.Log("New Random Base Star Spawned!");
+                Debug.Log("New Random NodeStar Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(nodeStarToBeSpawned);
             }
@@ -1040,7 +1040,7 @@ public class StarSpawnerFramework : MonoBehaviour
             else
             {
                 GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
-                Debug.Log("New Random Base Star Spawned!");
+                Debug.Log("New Random Health Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
             }
@@ -1054,7 +1054,22 @@ public class StarSpawnerFramework : MonoBehaviour
             else
             {
                 GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
-                Debug.Log("New Random Base Star Spawned!");
+                Debug.Log("New Random Damage Star Spawned!");
+                starSpawnCount++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
+        foreach (Transform _transform in newSpawnPointList.ToList()) // For shieldstars to be implemented
+        {
+            if (starSpawnCount > (_baseStars + _healthNum + _damageNum + _shieldNum + 1)) // Running tally
+            {
+                return;
+            }
+            else
+            {
+                Debug.LogError("Not Supposed to Occur Yet"); 
+                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Damage Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
             }

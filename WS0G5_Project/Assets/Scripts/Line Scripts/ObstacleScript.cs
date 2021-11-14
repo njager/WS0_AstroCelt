@@ -6,18 +6,23 @@ using System.Linq;
 public class ObstacleScript : MonoBehaviour
 {
     private GlobalController global;
-    public GameObject obstacleSelf; 
+    public GameObject obstacleSelf;
+    public ObstacleScript myObstacleScript; 
 
     void Awake()
     {
         global = GlobalController.instance;
-        global.obstacleList.Add(this); 
+    }
+
+    private void Start()
+    {
+        global.obstacleList.Add(myObstacleScript);
     }
 
     public void Clearing()
     {
         global.obstacleList.Remove(this);
-        Destroy(this.gameObject);
+        Destroy(obstacleSelf);
     }
 
     void OnDestroy()
