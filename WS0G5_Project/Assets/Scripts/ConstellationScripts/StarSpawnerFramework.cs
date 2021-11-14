@@ -619,6 +619,7 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStar(baseStar);
         SpawnStar(actionHealthStar);
         SpawnStar(actionDamageStar);
+        hardcodeCount += 1;
     }
 
     public void FrameworkReset() // Public Call to be used in Reset Behavior
@@ -733,7 +734,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewStarMap()
     {
-        tempSpawnList = masterRowList; 
+        tempSpawnList = masterRowOriginList; 
         ClearStars();
         ClearObstacles();
         starSpawnCount = 0;
@@ -852,10 +853,19 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    public int hardcodeCount = 0; 
+    // Move these vars after testing
+    public int hardcodeCount = 0;
+    public int baseStarCount = Random.Range(35, 50);
+    public int numBaseStars;
+    public int numDamageStars; 
+    public int numHealthStars;
+    public int numShieldStars; 
+
 
     public void HardcodedNewStarsSpawn()
     {
+        Debug.Log(baseStarCount);
+        numBaseStars = (int)baseStarCount;
         hardcodeCount += 1; 
         if (hardcodeCount == 1)
         {
@@ -864,10 +874,7 @@ public class StarSpawnerFramework : MonoBehaviour
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList; 
+            NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars); 
         }
         if (hardcodeCount == 2)
         {
@@ -983,9 +990,36 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    public void NewHCSpawn() // HC Stands for Hardcoded
+    public void NewHCSpawn(int _baseStars, int _healthNum, int _damageNum, int _shieldNum) // HC Stands for Hardcoded
     {
-
+        foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
+        {
+            if (starSpawnCount > 38)
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Base Star Spawned!");
+                starSpawnCount++;
+                 usedTransform.Add(starToBeSpawned);
+            }
+        }
+        foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
+        {
+            if (starSpawnCount > 39)
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Base Star Spawned!");
+                starSpawnCount++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
     }
 
     /// <summary>
