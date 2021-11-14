@@ -24,6 +24,10 @@ public class StarSpawnerFramework : MonoBehaviour
     public GameObject verticalGrid;
     public GameObject horizontalGrid;
     public int starSpawnCount; // Check star spawn count
+    public int starSpawnCount2;
+    public int starSpawnCount3;
+    public int starSpawnCount4;
+    public int starSpawnCount5;
     public int counter = 20;
     private int iEnumeratorFramework = 0;
 
@@ -585,6 +589,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int numShieldStars;
     public int healthStarDeletedInGeneration;
     public int damageStarDeletedInGeneration;
+    public int obstacleDeletedInGeneration;
 
     [Header("Tuple Obstacle Row Pairs")]
     // Row 1
@@ -656,7 +661,7 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStar(baseStar);
         SpawnStar(actionHealthStar);
         SpawnStar(actionDamageStar);
-        //hardcodeCount += 1;
+        global.startingStarSpawnPointList.Add(global.drawingScript.NodeStar.transform); 
     }
 
     public void FrameworkReset() // Public Call to be used in Reset Behavior
@@ -1020,7 +1025,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             for (int i = 0; i < pointCount; i++)
             {
-                newSpawnPointList.Add(masterRowList[Random.Range(0, 341)]); 
+                newSpawnPointList.Add(masterRowList[Random.Range(0, 340)]); 
             }
         }
     }
@@ -1028,17 +1033,21 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HardcodedNewStarsSpawn()
     {
         Debug.Log(baseStarCount);
-        numBaseStars = (int)baseStarCount;
         hardcodeCount += 1; 
         if (hardcodeCount == 1) // 2 Attack 2 Heal
         {
             Debug.Log("Instance 1");
             tempSpawnList = masterRowList;
-            damageStarDeletedInGeneration = 0;
+            damageStarDeletedInGeneration = 0; // New Generation so,
             healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
             SpawnObstacle();
             SpawnObstacle();
@@ -1046,126 +1055,350 @@ public class StarSpawnerFramework : MonoBehaviour
             numBaseStars = baseStarCount;
             numHealthStars = 2;
             numDamageStars = 2;
-            numShieldStars = 0; 
-            NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars);
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars); 
             //tempSpawnList = new List<Transform>();
         }
         if (hardcodeCount == 2) // 3 Attack 1 Heal
         {
             Debug.Log("Instance 2");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 1;
+            numDamageStars = 3;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 3) // 3 Attack 1 Heal
         {
+            Debug.Log("Instance 3");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 4) // 3 Attack 1 Heal
         {
+            Debug.Log("Instance 4");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 5) // 2 Attack 2 Heal
         {
+            Debug.Log("Instance 5");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 2;
+            numDamageStars = 2;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 6) // 3 Attack 1 Heal
         {
+            Debug.Log("Instance 6");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 7) // 3 Attack 1 Heal
         {
+            Debug.Log("Instance 7");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 8) // 2 Attack 2 Heal
         {
 
+            Debug.Log("Instance 8");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 2;
+            numDamageStars = 2;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 9) // 3 Attack 1 Heal
         {
-
+            Debug.Log("Instance 9");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 10) // 3 Attack 1 Heal
         {
-
+            Debug.Log("Instance 10");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0; // New Generation so,
+            healthStarDeletedInGeneration = 0;
+            obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
+            starSpawnCount2 = 0; // Node
+            starSpawnCount3 = 0; // Damage
+            starSpawnCount4 = 0; // Health
+            //starSpawnCount5 = 1; No shield stars for now
             NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 3;
+            numDamageStars = 1;
+            // numShieldStars = 0; 
+            NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCHealthStarSpawn(actionHealthStar, numHealthStars);
             hardcodeCount = 0; // Reset count and cycle through again 
         }
     }
 
-    public void NewHCSpawn(int _baseStars, int _healthNum, int _damageNum, int _shieldNum) // HC Stands for Hardcoded
+    public void HCNodeStarSpawn(StarClass _star, int _starNum = 1)
+    {
+        List<Transform> _NodeStarList = new List<Transform>();
+        for (int i = 0; i < _starNum; i++)
+        {
+            int _randintx = Random.Range(0, 340);
+            _NodeStarList.Add(masterRowList[_randintx]);
+        }
+        foreach (Transform _transform in _NodeStarList.ToList()) // NodeStar, needs to be spawned
+        {
+            if (starSpawnCount2 > 0)
+            {
+                return;
+            }
+            else
+            {
+                GameObject nodeStarToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
+                global.drawingScript.NodeStar = nodeStarToBeSpawned.GetComponent<Star>();
+                Debug.Log("New Random NodeStar Spawned!");
+                starSpawnCount2++;
+                usedTransform.Add(nodeStarToBeSpawned);
+            }
+        }
+    }
+
+    public void HCHealthStarSpawn(StarClass _star, int _healthNum)
+    {
+        List<Transform> _healthList = new List<Transform>();
+        for (int i = 0; i < _healthNum; i++)
+        {
+            int _randintx = Random.Range(0, 340);
+            _healthList.Add(masterRowList[_randintx]);
+        }
+        foreach (Transform _transform in _healthList.ToList()) // Health Stars x2
+        {
+            if (starSpawnCount3 > _healthNum)
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(actionHealthStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Health Star Spawned!");
+                starSpawnCount3++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
+    }
+
+    public void HCDamageStarSpawn(StarClass _star, int _damageNum)
+    {
+        List<Transform> _damageList = new List<Transform>();
+        for (int i = 0; i < _damageNum; i++)
+        {
+            int _randintx = Random.Range(0, 340);
+            _damageList.Add(masterRowList[_randintx]);
+        }
+        foreach (Transform _transform in _damageList.ToList()) // Damage Stars x2
+        {
+            if (starSpawnCount4 > _damageNum)
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(actionDamageStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Damage Star Spawned!");
+                starSpawnCount4++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
+    }
+
+    public void HCDamageShieldSpawn(StarClass _star, int _shieldNum)
+    {
+        List<Transform> _shieldList = new List<Transform>();
+        for (int i = 0; i < _shieldNum; i++)
+        {
+            int _randintx = Random.Range(0, 340);
+            _shieldList.Add(masterRowList[_randintx]);
+        }
+        foreach (Transform _transform in _shieldList.ToList()) // For shieldstars to be implemented
+        {
+            if (starSpawnCount5 > _shieldNum) 
+            {
+                return;
+            }
+            else
+            {
+                Debug.LogError("Not Supposed to Occur Yet");
+                GameObject starToBeSpawned = Instantiate(shieldStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Damage Star Spawned!");
+                starSpawnCount5++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
+    }
+
+
+    public void NewHCBaseStarSpawn(StarClass _star, int _baseStars) // HC Stands for Hardcoded
     {
         foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
         {
@@ -1177,64 +1410,6 @@ public class StarSpawnerFramework : MonoBehaviour
             {
                 GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Base Star Spawned!");
-                starSpawnCount++;
-                usedTransform.Add(starToBeSpawned);
-            }
-        }
-        foreach (Transform _transform in newSpawnPointList.ToList()) // NodeStar
-        {
-            if (starSpawnCount > (_baseStars + 1))
-            {
-                return;
-            }
-            else
-            {
-                GameObject nodeStarToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
-                global.drawingScript.NodeStar = nodeStarToBeSpawned.GetComponent<Star>();  
-                Debug.Log("New Random NodeStar Spawned!");
-                starSpawnCount++;
-                usedTransform.Add(nodeStarToBeSpawned);
-            }
-        }
-        foreach (Transform _transform in newSpawnPointList.ToList()) // Health Stars x2
-        {
-            if (starSpawnCount > (_baseStars + _healthNum + 1)) // Running tally
-            {
-                return;
-            }
-            else
-            {
-                GameObject starToBeSpawned = Instantiate(actionHealthStar.starPrefab, _transform.position, _transform.rotation);
-                Debug.Log("New Random Health Star Spawned!");
-                starSpawnCount++;
-                usedTransform.Add(starToBeSpawned);
-            }
-        }
-        foreach (Transform _transform in newSpawnPointList.ToList()) // Damage Stars x2
-        {
-            if (starSpawnCount > (_baseStars + _healthNum + _damageNum + 1)) // Running tally
-            {
-                return;
-            }
-            else
-            {
-                GameObject starToBeSpawned = Instantiate(actionDamageStar.starPrefab, _transform.position, _transform.rotation);
-                Debug.Log("New Random Damage Star Spawned!");
-                starSpawnCount++;
-                usedTransform.Add(starToBeSpawned);
-            }
-        }
-        foreach (Transform _transform in newSpawnPointList.ToList()) // For shieldstars to be implemented
-        {
-            if (starSpawnCount > (_baseStars + _healthNum + _damageNum + _shieldNum + 1)) // Running tally
-            {
-                return;
-            }
-            else
-            {
-                Debug.LogError("Not Supposed to Occur Yet"); 
-                GameObject starToBeSpawned = Instantiate(shieldStar.starPrefab, _transform.position, _transform.rotation);
-                Debug.Log("New Random Damage Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
             }
