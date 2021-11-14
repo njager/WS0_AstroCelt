@@ -859,7 +859,6 @@ public class StarSpawnerFramework : MonoBehaviour
         hardcodeCount += 1; 
         if (hardcodeCount == 1)
         {
-        
             tempSpawnList = masterRowList;
             ClearStars();
             ClearObstacles();
@@ -868,8 +867,124 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(baseStar); // Wave 2 Base Stars
             NewSpawn(actionHealthStar); // Wave 2 Health Stars
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = new List<Transform>();
+            tempSpawnList = masterRowList; 
         }
+        if (hardcodeCount == 2)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 3)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 4)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 5)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 6)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 7)
+        {
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 8)
+        {
+
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 9)
+        {
+
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 10)
+        {
+
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+            hardcodeCount = 0; // Reset count and cycle through again 
+        }
+    }
+
+    public void NewHCSpawn() // HC Stands for Hardcoded
+    {
 
     }
 
