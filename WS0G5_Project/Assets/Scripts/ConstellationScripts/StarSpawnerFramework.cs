@@ -1020,7 +1020,9 @@ public class StarSpawnerFramework : MonoBehaviour
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
-            SpawnObstacle(); // Working
+            SpawnObstacle();
+            SpawnObstacle();
+            SpawnObstacle();
             numBaseStars = baseStarCount;
             numHealthStars = 2;
             numDamageStars = 2;
