@@ -77,14 +77,17 @@ public class EnemyScript : MonoBehaviour
     {
         if (StaticVariables.enemyCurrentHealth <= 0)
         {
+            enemyDie();
             global.enemySwitcherFrameworkScript.deadCounter += 1;
             if(global.enemySwitcherFrameworkScript.deadCounter == 1)
             {
                 StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
+                global.UIController.isEnemyDead = false;
             }
             if (global.enemySwitcherFrameworkScript.deadCounter == 2)
             {
                 StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
+                global.UIController.isEnemyDead = false; // Need to check if there's any functionality with this
             }
             else
             {
@@ -244,8 +247,9 @@ public class EnemyScript : MonoBehaviour
         //StaticVariables.masterEnemyCount += 1;
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         global.UIController.isEnemyDead = true;
-        //Destroy(enemyGameObject);
+        //Destroy(enemyGameObject)
         isDead = true;
+        global.currentEnemy.gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.HCEnemySwitch();
     }
 
