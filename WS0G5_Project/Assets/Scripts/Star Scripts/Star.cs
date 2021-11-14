@@ -16,8 +16,7 @@ public class Star : MonoBehaviour
     public Color usedColor;
     public Vector3 positionOffset;
     public GameObject starGraphic;
-
-    [Header("Stun Star")]
+    [SerializeField] int myCount;
 
     //Global Setting
     private GlobalController global;
@@ -35,6 +34,7 @@ public class Star : MonoBehaviour
 
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
+        myCount = IncreaseStarCount();
     }
 
     public void OnMouseDown()
@@ -154,10 +154,45 @@ public class Star : MonoBehaviour
         }
     }
 
-    void OnColliderEnter(Collider col) // Here it detects the other gameObject
+    public int IncreaseStarCount()
+    {
+        StaticVariables.starCount += 1;
+        int _TempCount = global.staticVariablesReference.returnStarCount();
+        return _TempCount;
+    }
+
+    void OnTriggerEnter(Collider col) // Here it detects the other gameObject
     {
         GameObject other = col.gameObject; // Col GameObject 
-        if (col.gameObject.CompareTag("Obstacle"))
+        if (myStarClass.starType != "NodeStar")
+        {
+            if (other != gameObject)
+            {
+                if (myCount < other.GetComponent<Star>().myCount)
+                {
+                    other.SetActive(false);
+                    Debug.Log("Destroying Other Star");
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Destroying Self");
+                    gameObject.SetActive(false);
+                    return;
+                }
+            }
+        }
+        else
+        {
+            if (other != gameObject)
+            {
+                other.SetActive(false);
+                Debug.Log("Destroying Other Star");
+                return;
+            }
+        }
+        
+        if (other.CompareTag("Obstacle"))
         {
             if(myStarClass.starType == "NodeStar")
             {
@@ -176,7 +211,7 @@ public class Star : MonoBehaviour
                     global.starSpawnerFrameworkScript.damageStarDeletedInGeneration += 1;
                 }
                 Debug.Log("Hit obstacle in generation");
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
         else

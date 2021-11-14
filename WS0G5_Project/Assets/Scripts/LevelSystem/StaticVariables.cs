@@ -17,6 +17,7 @@ public class StaticVariables : MonoBehaviour
 
     [Header("Lines")]
     public static int lineCount;
+    public static int starCount;
     public static int constellationDamageStarCount; // Use to limit to 1 action star in a constellation 
     public static int constellationHealthStarCount; // Use to limit to 1 action star in a constellation.
 
@@ -62,6 +63,12 @@ public class StaticVariables : MonoBehaviour
     {
         int _temp = lineCount;
         return _temp; 
+    }
+
+    public int returnStarCount() // Using this to compare
+    {
+        int _temp = starCount;
+        return _temp;
     }
 
     public void Awake()

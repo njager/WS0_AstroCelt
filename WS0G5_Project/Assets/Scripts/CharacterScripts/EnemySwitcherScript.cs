@@ -7,6 +7,7 @@ public class EnemySwitcherScript : MonoBehaviour
     public GameObject swarmPrefab;
     public GameObject legionaryPrefab;
     public GameObject lumberjackPrefab;
+    public int deadCounter; 
 
     // Use this script to switch out enemies upon their death; 
     private GlobalController global;
@@ -24,6 +25,17 @@ public class EnemySwitcherScript : MonoBehaviour
         {
             global.Win();
         }   
+        if (global.currentEnemy.isDead == true)
+        {
+            if (deadCounter == 2)
+            {
+                global.currentEnemy = global.enemy2;
+            }
+            if (deadCounter == 2)
+            {
+                global.currentEnemy = global.enemy2;
+            }
+        }
     }
 
     public void ResetEnemies()

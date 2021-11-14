@@ -30,7 +30,9 @@ public class TurnManager : MonoBehaviour
         playerTurnCount = totalTurnCount / 2;
         global.currentEnemy.isYourTurn = true;
         global.currentEnemy.turnActionCount = 0;
+        global.newStarMapScript.NewStarsPlayTest();
     }
+
 
     // Should take all the lines and change their color to white
     public void FinishLinesColor()

@@ -922,6 +922,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void ClearStars()
     {
+        Destroy(global.drawingScript.NodeStar.gameObject);
         foreach (GameObject _star in usedTransform.ToList())
         {
             usedTransform.Remove(_star); 

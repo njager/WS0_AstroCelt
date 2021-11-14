@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public int turnsBetweenAttacks = 1;
     public string myIdentifier;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
+    public bool isDead;
     
     [Header("Unique Behavior Variables")]
     public int _swarmAttackedAmount;
@@ -36,6 +37,7 @@ public class EnemyScript : MonoBehaviour
         StaticVariables.enemyCurrentHealth = myStats.vitality;
         StaticVariables.enemyStartingHealth = myStats.vitality;
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
+        isDead = false;
 
         // Setting Variables
         if (myIdentifier == "Swarm")
@@ -75,6 +77,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (StaticVariables.enemyCurrentHealth <= 0)
         {
+            global.enemySwitcherFrameworkScript.deadCounter += 1;
             enemyDie();
         }
         if (isYourTurn == true)
@@ -228,9 +231,11 @@ public class EnemyScript : MonoBehaviour
     public void enemyDie() // Death
     {
         //StaticVariables.masterEnemyCount += 1;
-        global.enemySwitcherFrameworkScript.EnemySwitch();
+        //global.enemySwitcherFrameworkScript.EnemySwitch();
         global.UIController.isEnemyDead = true;
-        Destroy(enemyGameObject);
+        //Destroy(enemyGameObject);
+        isDead = true;
+        //global.enemySwitcherFrameworkScript.HCEnemySwitch();
     }
 
     public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers

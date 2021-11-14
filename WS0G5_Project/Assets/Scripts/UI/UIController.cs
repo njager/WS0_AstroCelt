@@ -27,7 +27,6 @@ public class UIController : MonoBehaviour
     private float spawnTimer = 1f;
     private GlobalController global;
 
-
     //UI variables
     [Header("UI Element Slots")]
     [SerializeField] TextMeshProUGUI ceCountText;
@@ -38,6 +37,18 @@ public class UIController : MonoBehaviour
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
     //[SerializeField] Image enemyChargeBar;
+
+    [Header("Enemy 2")]
+    [SerializeField] TextMeshProUGUI enemyHealthText2;
+    [SerializeField] Image enemyHealthBar2;
+    [SerializeField] int _enemyHealth2;
+    [SerializeField] int _enemyMaxHealth2;
+
+    [Header("Enemy 3")]
+    [SerializeField] TextMeshProUGUI enemyHealthText3;
+    [SerializeField] Image enemyHealthBar3;
+    [SerializeField] int _enemyHealth3;
+    [SerializeField] int _enemyMaxHealth3;
 
     public bool isEnemyDead;  
 
@@ -121,10 +132,14 @@ public class UIController : MonoBehaviour
         ceCountText.text = _ceCount.ToString();
         playerHealthText.text = _playerHealth.ToString() + "/" + _playerMaxHealth.ToString();
         enemyHealthText.text = _enemyHealth.ToString() + "/" + _enemyMaxHealth.ToString();
+        enemyHealthText2.text = _enemyHealth2.ToString() + "/" + _enemyMaxHealth2.ToString();
+        enemyHealthText3.text = _enemyHealth3.ToString() + "/" + _enemyMaxHealth3.ToString();
 
         //update health bars
         playerHealthBar.fillAmount = (float)_playerHealth / (float)_playerMaxHealth;
         enemyHealthBar.fillAmount = (float)_enemyHealth / (float)_enemyMaxHealth;
+        enemyHealthBar2.fillAmount = (float)_enemyHealth2 / (float)_enemyMaxHealth2;
+        enemyHealthBar3.fillAmount = (float)_enemyHealth3 / (float)_enemyMaxHealth3;
 
         //update charge bar
         //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
