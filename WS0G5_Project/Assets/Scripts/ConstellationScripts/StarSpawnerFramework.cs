@@ -576,7 +576,13 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform obstactleEndSpawnPoint10_5;
 
     [Header("Hardoded Spawn Variables")]
-    public int baseStarCount; 
+    public int baseStarCount;
+    // Move these vars after testing
+    public int hardcodeCount = 0;
+    public int numBaseStars;
+    public int numDamageStars;
+    public int numHealthStars;
+    public int numShieldStars;
 
     // Functions
     private GlobalController global;
@@ -753,6 +759,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         foreach (GameObject _star in usedTransform.ToList())
         {
+            usedTransform.Remove(_star); 
             Destroy(_star);
         }
         if (usedTransform.Count() == 0)
@@ -762,6 +769,7 @@ public class StarSpawnerFramework : MonoBehaviour
         else
         {
             Debug.Log("Error in clearing stars");
+            Debug.Log(usedTransform.Count()); 
         }
         return; 
     }
@@ -857,14 +865,6 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    // Move these vars after testing
-    public int hardcodeCount = 0;
-    public int numBaseStars;
-    public int numDamageStars; 
-    public int numHealthStars;
-    public int numShieldStars; 
-
-
     public void HardcodedNewStarsSpawn()
     {
         Debug.Log(baseStarCount);
@@ -872,13 +872,19 @@ public class StarSpawnerFramework : MonoBehaviour
         hardcodeCount += 1; 
         if (hardcodeCount == 1) // 2 Attack 2 Heal
         {
+            Debug.Log("Instance 1");
             tempSpawnList = masterRowList;
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
-            SpawnObstacle(); 
-            NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars); 
+            //SpawnObstacle();
+            numBaseStars = baseStarCount;
+            numHealthStars = 2;
+            numDamageStars = 2;
+            numShieldStars = 0; 
+            NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars);
+            tempSpawnList = new List<Transform>();
         }
         if (hardcodeCount == 2) // 3 Attack 1 Heal
         {
@@ -998,7 +1004,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
         {
-            if (starSpawnCount > 38)
+            if (starSpawnCount > _baseStars)
             {
                 return;
             }
@@ -1007,18 +1013,47 @@ public class StarSpawnerFramework : MonoBehaviour
                 GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Base Star Spawned!");
                 starSpawnCount++;
-                 usedTransform.Add(starToBeSpawned);
+                usedTransform.Add(starToBeSpawned);
             }
         }
-        foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
+        foreach (Transform _transform in newSpawnPointList.ToList()) // NodeStar
         {
-            if (starSpawnCount > 39)
+            if (starSpawnCount > (_baseStars + 1))
             {
                 return;
             }
             else
             {
-                GameObject starToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
+                GameObject nodeStarToBeSpawned = Instantiate(nodeStar.starPrefab, _transform.position, _transform.rotation);
+                global.drawingScript.NodeStar = nodeStarToBeSpawned.GetComponent<Star>();  
+                Debug.Log("New Random Base Star Spawned!");
+                starSpawnCount++;
+                usedTransform.Add(nodeStarToBeSpawned);
+            }
+        }
+        foreach (Transform _transform in newSpawnPointList.ToList()) // Health Stars x2
+        {
+            if (starSpawnCount > (_baseStars + _healthNum + 1)) // Running tally
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                Debug.Log("New Random Base Star Spawned!");
+                starSpawnCount++;
+                usedTransform.Add(starToBeSpawned);
+            }
+        }
+        foreach (Transform _transform in newSpawnPointList.ToList()) // Damage Stars x2
+        {
+            if (starSpawnCount > (_baseStars + _healthNum + _damageNum + 1)) // Running tally
+            {
+                return;
+            }
+            else
+            {
+                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Base Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
