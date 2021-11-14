@@ -1058,6 +1058,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1); 
             HCHealthStarSpawn(actionHealthStar, numHealthStars); 
             //tempSpawnList = new List<Transform>();
         }
