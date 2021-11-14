@@ -65,9 +65,13 @@ public class UIController : MonoBehaviour
         _enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
         _enemyHealth = global.currentEnemy.enemyHealth;
+        _enemyHealth2 = global.enemy2.enemyHealth;
+        _enemyHealth3 = global.enemy3.enemyHealth;
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        _enemyMaxHealth2 = global.enemy2.enemyHealth;
+        _enemyMaxHealth3 = global.enemy3.enemyHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
         //maxCharge = global.currentEnemy.turnsBetweenAttacks;
 
@@ -118,6 +122,8 @@ public class UIController : MonoBehaviour
         _enemyCount = global.staticVariablesReference.returnCurrentEnemyCount();
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
         _enemyHealth = global.staticVariablesReference.returnCurrentEnemyHealth();
+        _enemyHealth2 = global.enemy2.enemyHealth;
+        _enemyHealth3 = global.enemy3.enemyHealth;
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth();

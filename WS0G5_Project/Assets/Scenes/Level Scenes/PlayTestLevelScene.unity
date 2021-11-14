@@ -4842,6 +4842,7 @@ MonoBehaviour:
   swarmPrefab: {fileID: 1475303926191799721, guid: 10db4df20e5571041b711647ac6d3e70, type: 3}
   legionaryPrefab: {fileID: 1475303926191799721, guid: dc2db4a24fd79dc4d9f9da068b0e5583, type: 3}
   lumberjackPrefab: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+  deadCounter: 0
 --- !u!4 &276002698
 Transform:
   m_ObjectHideFlags: 0
@@ -4873,7 +4874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &277330002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13015,7 +13016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &737027778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17730,7 +17731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1034471345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30674,7 +30675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1841515699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34587,7 +34588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2084364707
 RectTransform:
   m_ObjectHideFlags: 0

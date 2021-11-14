@@ -27,13 +27,14 @@ public class EnemySwitcherScript : MonoBehaviour
         }   
         if (global.currentEnemy.isDead == true)
         {
-            if (deadCounter == 2)
+            if (deadCounter == 1)
             {
+                Debug.LogWarning("Changing Enemies!");
                 global.currentEnemy = global.enemy2;
             }
             if (deadCounter == 2)
             {
-                global.currentEnemy = global.enemy2;
+                global.currentEnemy = global.enemy3;
             }
         }
     }

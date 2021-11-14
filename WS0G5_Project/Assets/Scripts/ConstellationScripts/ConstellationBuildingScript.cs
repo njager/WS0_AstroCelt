@@ -53,7 +53,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             //Debug.Log("Based");
             checkCount += 1;
         }
-        if(checkCount <= 6)
+        if(checkCount <= 7) // CHANGED FOR PLAYTEST, CHANGE BACK EVENTUALLY
         {
             return;
         }

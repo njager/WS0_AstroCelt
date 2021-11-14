@@ -27,8 +27,8 @@ public class EnemyScript : MonoBehaviour
     public int enemyHealth; // Grabing prefabed enemy health to modify for this specific enemy
     private GlobalController global; // Creating global variable
     public bool isYourTurn;
-    private float spawnTimer = 2.5f; // Have the enemy wait for a timer
-    private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
+    //private float spawnTimer = 2.5f; // Have the enemy wait for a timer
+   private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
     public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
 
     void Awake() // Do this to set Enemy Count, and EnemyType
@@ -78,7 +78,18 @@ public class EnemyScript : MonoBehaviour
         if (StaticVariables.enemyCurrentHealth <= 0)
         {
             global.enemySwitcherFrameworkScript.deadCounter += 1;
-            enemyDie();
+            if(global.enemySwitcherFrameworkScript.deadCounter == 1)
+            {
+                StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
+            }
+            if (global.enemySwitcherFrameworkScript.deadCounter == 2)
+            {
+                StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
+            }
+            else
+            {
+                enemyDie();
+            }
         }
         if (isYourTurn == true)
         {
@@ -130,7 +141,7 @@ public class EnemyScript : MonoBehaviour
                     global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
-                    spawnTimer = 2.5f;
+                    //spawnTimer = 2.5f;
                     return;
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
