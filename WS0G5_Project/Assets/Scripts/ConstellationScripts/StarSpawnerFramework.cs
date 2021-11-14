@@ -870,7 +870,7 @@ public class StarSpawnerFramework : MonoBehaviour
         Debug.Log(baseStarCount);
         numBaseStars = (int)baseStarCount;
         hardcodeCount += 1; 
-        if (hardcodeCount == 1)
+        if (hardcodeCount == 1) // 2 Attack 2 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -880,7 +880,7 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle(); 
             NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars); 
         }
-        if (hardcodeCount == 2)
+        if (hardcodeCount == 2) // 3 Attack 1 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -892,7 +892,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 3)
+        if (hardcodeCount == 3) // 3 Attack 1 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -904,7 +904,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 4)
+        if (hardcodeCount == 4) // 3 Attack 1 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -916,7 +916,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 5)
+        if (hardcodeCount == 5) // 2 Attack 2 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -928,7 +928,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 6)
+        if (hardcodeCount == 6) // 3 Attack 1 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -940,7 +940,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 7)
+        if (hardcodeCount == 7) // 3 Attack 1 Heal
         {
             tempSpawnList = masterRowList;
             ClearStars();
@@ -952,20 +952,7 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 8)
-        {
-
-            tempSpawnList = masterRowList;
-            ClearStars();
-            ClearObstacles();
-            starSpawnCount = 0;
-            NewSpawnStars();
-            NewSpawn(baseStar); // Wave 2 Base Stars
-            NewSpawn(actionHealthStar); // Wave 2 Health Stars
-            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
-            tempSpawnList = masterRowList;
-        }
-        if (hardcodeCount == 9)
+        if (hardcodeCount == 8) // 2 Attack 2 Heal
         {
 
             tempSpawnList = masterRowList;
@@ -978,7 +965,20 @@ public class StarSpawnerFramework : MonoBehaviour
             NewSpawn(actionDamageStar); // Wave 2 Damage Stars
             tempSpawnList = masterRowList;
         }
-        if (hardcodeCount == 10)
+        if (hardcodeCount == 9) // 3 Attack 1 Heal
+        {
+
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = masterRowList;
+        }
+        if (hardcodeCount == 10) // 3 Attack 1 Heal
         {
 
             tempSpawnList = masterRowList;

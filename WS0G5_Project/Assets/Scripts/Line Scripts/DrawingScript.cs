@@ -41,7 +41,7 @@ public class DrawingScript : MonoBehaviour
 
     public void Awake()
     {
-        nodeStar2.gameObject.SetActive(false); 
+        //nodeStar2.gameObject.SetActive(false); 
         NodeStar = emptyStar; 
         star1 = NodeStar;
         nodeClickCount = 1;
