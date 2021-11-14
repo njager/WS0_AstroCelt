@@ -575,6 +575,9 @@ public class StarSpawnerFramework : MonoBehaviour
     public Transform obstactleEndSpawnPoint9_5;
     public Transform obstactleEndSpawnPoint10_5;
 
+    [Header("Hardoded Spawn Variables")]
+    public int baseStarCount; 
+
     // Functions
     private GlobalController global;
 
@@ -613,7 +616,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     void Start()
     {
-        masterRowOriginList = masterRowList; 
+        masterRowOriginList = masterRowList;
         global = GlobalController.instance;
         starSpawnCount = 0;
         SpawnStar(baseStar);
@@ -717,6 +720,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         verticalGrid.SetActive(false);
         horizontalGrid.SetActive(false);
+        baseStarCount = Random.Range(35, 50);
     }
 
     public void ClearObstacles() // Get rid of the obstacles
@@ -855,7 +859,6 @@ public class StarSpawnerFramework : MonoBehaviour
 
     // Move these vars after testing
     public int hardcodeCount = 0;
-    public int baseStarCount = Random.Range(35, 50);
     public int numBaseStars;
     public int numDamageStars; 
     public int numHealthStars;
