@@ -449,11 +449,11 @@ public class StarSpawnerFramework : MonoBehaviour
     public List<Transform> obstacleEndPointEndRow3 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow4 = new List<Transform>();
     public List<Transform> obstacleEndPointEndRow5 = new List<Transform>();
-    public List<Transform> obstacleRowPair1 = new List<Transform>();
-    public List<Transform> obstacleRowPair2 = new List<Transform>();
-    public List<Transform> obstacleRowPair3 = new List<Transform>();
-    public List<Transform> obstacleRowPair4 = new List<Transform>();
-    public List<Transform> obstacleRowPair5 = new List<Transform>();
+    public List<(Transform, Transform)> obstacleRowPair1 = new List<(Transform, Transform)>();
+    public List<(Transform, Transform)> obstacleRowPair2 = new List<(Transform, Transform)>();
+    public List<(Transform, Transform)> obstacleRowPair3 = new List<(Transform, Transform)>();
+    public List<(Transform, Transform)> obstacleRowPair4 = new List<(Transform, Transform)>();
+    public List<(Transform, Transform)> obstacleRowPair5 = new List<(Transform, Transform)>();
 
     [Header("Obstacle Start Row 1")] // Set up to be more dynamic later, but for now just need to be there
     public Transform obstactleSpawnPoint1_1;
@@ -584,6 +584,42 @@ public class StarSpawnerFramework : MonoBehaviour
     public int numHealthStars;
     public int numShieldStars;
 
+    [Header("Tuple Obstacle Row Pairs")]
+    // Row 1
+    public (Transform, Transform) pair1_1; // There are 5 in a row
+    public (Transform, Transform) pair1_2;
+    public (Transform, Transform) pair1_3;
+    public (Transform, Transform) pair1_4;
+    public (Transform, Transform) pair1_5;
+
+    // Row 2
+    public (Transform, Transform) pair2_1;
+    public (Transform, Transform) pair2_2;
+    public (Transform, Transform) pair2_3;
+    public (Transform, Transform) pair2_4;
+    public (Transform, Transform) pair2_5;
+
+    // Row 3
+    public (Transform, Transform) pair3_1;
+    public (Transform, Transform) pair3_2;
+    public (Transform, Transform) pair3_3;
+    public (Transform, Transform) pair3_4;
+    public (Transform, Transform) pair3_5;
+
+    // Row 4
+    public (Transform, Transform) pair4_1;
+    public (Transform, Transform) pair4_2;
+    public (Transform, Transform) pair4_3;
+    public (Transform, Transform) pair4_4;
+    public (Transform, Transform) pair4_5;
+
+    // Row 5
+    public (Transform, Transform) pair5_1;
+    public (Transform, Transform) pair5_2;
+    public (Transform, Transform) pair5_3;
+    public (Transform, Transform) pair5_4;
+    public (Transform, Transform) pair5_5;
+
     // Functions
     private GlobalController global;
 
@@ -606,18 +642,8 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStarRow15List();
         SpawnStarRow16List();
         SpawnStarRow17List();
-        ObstacleEndPointRow1List();
-        ObstacleEndPointRow2List();
-        ObstacleEndPointRow3List();
-        ObstacleEndPointRow4List();
-        ObstacleEndPointRow5List();
-        ObstacleStartPointRow1List();
-        ObstacleStartPointRow2List();
-        ObstacleStartPointRow3List();
-        ObstacleStartPointRow4List();
-        ObstacleStartPointRow5List();
-        CollateStarLists(); 
-        CollateObstacleListPairs();
+        CollateStarLists();
+        HandBuiltObstaclePairs();
     }
 
     void Start()
@@ -628,7 +654,7 @@ public class StarSpawnerFramework : MonoBehaviour
         SpawnStar(baseStar);
         SpawnStar(actionHealthStar);
         SpawnStar(actionDamageStar);
-        hardcodeCount += 1;
+        //hardcodeCount += 1;
     }
 
     public void FrameworkReset() // Public Call to be used in Reset Behavior
@@ -649,62 +675,50 @@ public class StarSpawnerFramework : MonoBehaviour
         yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
     }
 
-    void CollateObstacleListPairs() // Creating master pair lists separately 
+    public void HandBuiltObstaclePairs()
     {
-        // Pair 1
-        foreach(Transform obstaclePointsFromStart in obstacleStartPointRow1.ToList()) // Start Row 1
-        {
-            obstacleRowPair1.Add(obstaclePointsFromStart); 
-        }
+        // Pairs for Row 1
+        pair1_1 = (obstactleSpawnPoint1_1, obstactleEndSpawnPoint1_1);
+        pair1_2 = (obstactleSpawnPoint1_2, obstactleEndSpawnPoint1_2);
+        pair1_3 = (obstactleSpawnPoint1_3, obstactleEndSpawnPoint1_3);
+        pair1_4 = (obstactleSpawnPoint1_4, obstactleEndSpawnPoint1_4);
+        pair1_5 = (obstactleSpawnPoint1_5, obstactleEndSpawnPoint1_5);
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow1.ToList()) // End Row 1
-        {
-            obstacleRowPair1.Add(obstaclePointsFromEnd);
-        }
+        // Pairs for Row 2
+        pair2_1 = (obstactleSpawnPoint2_1, obstactleEndSpawnPoint2_1);
+        pair2_2 = (obstactleSpawnPoint2_2, obstactleEndSpawnPoint2_2);
+        pair2_3 = (obstactleSpawnPoint2_3, obstactleEndSpawnPoint2_3);
+        pair2_4 = (obstactleSpawnPoint2_4, obstactleEndSpawnPoint2_4);
+        pair2_5 = (obstactleSpawnPoint2_5, obstactleEndSpawnPoint2_5);
 
-        // Pair 2
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow2.ToList()) // Start Row 2
-        {
-            obstacleRowPair2.Add(obstaclePointsFromStart);
-        }
+        // Pairs for Row 3
+        pair3_1 = (obstactleSpawnPoint3_1, obstactleEndSpawnPoint3_1);
+        pair3_2 = (obstactleSpawnPoint3_2, obstactleEndSpawnPoint3_2);
+        pair3_3 = (obstactleSpawnPoint3_3, obstactleEndSpawnPoint3_3);
+        pair3_4 = (obstactleSpawnPoint3_4, obstactleEndSpawnPoint3_4);
+        pair3_5 = (obstactleSpawnPoint3_5, obstactleEndSpawnPoint3_5);
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow2.ToList()) // End Row 2
-        {
-            obstacleRowPair2.Add(obstaclePointsFromEnd);
-        }
+        // Pairs for Row 4
+        pair4_1 = (obstactleSpawnPoint4_1, obstactleEndSpawnPoint4_1);
+        pair4_2 = (obstactleSpawnPoint4_2, obstactleEndSpawnPoint4_2);
+        pair4_3 = (obstactleSpawnPoint4_3, obstactleEndSpawnPoint4_3);
+        pair4_4 = (obstactleSpawnPoint4_4, obstactleEndSpawnPoint4_4);
+        pair4_5 = (obstactleSpawnPoint4_5, obstactleEndSpawnPoint4_5);
 
-        // Pair 3
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow3.ToList()) // Start Row 3
-        {
-            obstacleRowPair3.Add(obstaclePointsFromStart);
-        }
+        // Pairs for Row 5
+        pair5_1 = (obstactleSpawnPoint5_1, obstactleEndSpawnPoint5_1);
+        pair5_2 = (obstactleSpawnPoint5_2, obstactleEndSpawnPoint5_2);
+        pair5_3 = (obstactleSpawnPoint5_3, obstactleEndSpawnPoint5_3);
+        pair5_4 = (obstactleSpawnPoint5_4, obstactleEndSpawnPoint5_4);
+        pair5_5 = (obstactleSpawnPoint5_5, obstactleEndSpawnPoint5_5);
 
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow3.ToList()) // End Row 3
-        {
-            obstacleRowPair3.Add(obstaclePointsFromEnd);
-        }
+        // Row 1 List
+        obstacleRowPair1.Add(pair1_1);
+        obstacleRowPair1.Add(pair1_2);
+        obstacleRowPair1.Add(pair1_3);
+        obstacleRowPair1.Add(pair1_4);
+        obstacleRowPair1.Add(pair1_5);
 
-        // Pair 4
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow4.ToList()) // Start Row 4
-        {
-            obstacleRowPair4.Add(obstaclePointsFromStart);
-        }
-
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow4.ToList()) // End Row 4
-        {
-            obstacleRowPair4.Add(obstaclePointsFromEnd);
-        }
-
-        // Pair 5
-        foreach (Transform obstaclePointsFromStart in obstacleStartPointRow5.ToList()) // Start Row 5
-        {
-            obstacleRowPair5.Add(obstaclePointsFromStart);
-        }
-
-        foreach (Transform obstaclePointsFromEnd in obstacleEndPointEndRow5.ToList()) // End Row 5
-        {
-            obstacleRowPair5.Add(obstaclePointsFromEnd);
-        }
     }
 
     public void StarReset()
@@ -737,9 +751,33 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    void SpawnObstacle() // Instance obstacles as well
+    void SpawnObstacle(int _count) // Instance obstacles as well
     {
-        GameObject obstacle = Instantiate(obstaclePrefab, starSpawnPoint9_17.position, starSpawnPoint9_17.rotation); // Need to set up randomized generation 
+        global.obstacleNewSpawnList = new List<Transform>(); 
+        int obstaclePairCount = 20;
+        int _pair = Random.Range(0, 5);
+        int _pair2 = Random.Range(0, 5);
+        int _pair3 = Random.Range(0, 5);
+        if (_pair == _pair2)
+        {
+            _pair2 = Random.Range(0, 5);
+        }
+        if (_pair == _pair3)
+        {
+            _pair3 = Random.Range(0, 5);
+        }
+        if (_pair3 == _pair2)
+        {
+            _pair2 = Random.Range(0, 5);
+        }
+        if (_pair == 0)
+        {
+            for (int i = 0; i < obstaclePairCount; i++)
+            {
+                newSpawnPointList.Add(masterRowList[Random.Range(0, 10)]);
+            }
+        }
+        GameObject obstacle = Instantiate(obstaclePrefab, starSpawnPoint9_17.position, starSpawnPoint9_17.rotation); 
     }
 
     public void NewStarMap()
@@ -878,16 +916,17 @@ public class StarSpawnerFramework : MonoBehaviour
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
-            //SpawnObstacle();
+            SpawnObstacle(3); // Working
             numBaseStars = baseStarCount;
             numHealthStars = 2;
             numDamageStars = 2;
             numShieldStars = 0; 
             NewHCSpawn(numBaseStars, numHealthStars, numDamageStars, numShieldStars);
-            tempSpawnList = new List<Transform>();
+            //tempSpawnList = new List<Transform>();
         }
         if (hardcodeCount == 2) // 3 Attack 1 Heal
         {
+            Debug.Log("Instance 2");
             tempSpawnList = masterRowList;
             ClearStars();
             ClearObstacles();
@@ -1566,157 +1605,6 @@ public class StarSpawnerFramework : MonoBehaviour
         row17.Add(starSpawnPoint19_17);
         row17.Add(starSpawnPoint20_17);
         Debug.Log("Row 17 Added");
-    }
-
-    void ObstacleStartPointRow1List() // Obstacles need to be in pairs for now, grab all the points and add them to a list
-    {
-        obstacleStartPointRow1.Add(obstactleSpawnPoint1_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint2_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint3_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint4_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint5_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint6_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint7_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint8_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint9_1);
-        obstacleStartPointRow1.Add(obstactleSpawnPoint10_1);
-        Debug.Log("Obstacle Start Row 1 Added");
-    }
-
-    void ObstacleStartPointRow2List()
-    {
-        obstacleStartPointRow2.Add(obstactleSpawnPoint1_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint2_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint3_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint4_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint5_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint6_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint7_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint8_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint9_2);
-        obstacleStartPointRow2.Add(obstactleSpawnPoint10_2);
-        Debug.Log("Obstacle Start Row 2 Added");
-
-    }
-
-    void ObstacleStartPointRow3List()
-    {
-        obstacleStartPointRow3.Add(obstactleSpawnPoint1_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint2_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint3_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint4_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint5_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint6_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint7_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint8_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint9_3);
-        obstacleStartPointRow3.Add(obstactleSpawnPoint10_3);
-        Debug.Log("Obstacle Start Row 3 Added");
-    }
-
-    void ObstacleStartPointRow4List()
-    {
-        obstacleStartPointRow4.Add(obstactleSpawnPoint1_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint2_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint3_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint4_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint5_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint6_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint7_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint8_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint9_4);
-        obstacleStartPointRow4.Add(obstactleSpawnPoint10_4);
-        Debug.Log("Obstacle Start Row 4 Added");
-    }
-
-    void ObstacleStartPointRow5List() // Up to 5 rows of start points for now
-    {
-        obstacleStartPointRow5.Add(obstactleSpawnPoint1_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint2_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint3_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint4_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint5_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint6_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint7_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint8_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint9_5);
-        obstacleStartPointRow5.Add(obstactleSpawnPoint10_5);
-        Debug.Log("Obstacle Start Row 5 Added");
-    }
-
-    void ObstacleEndPointRow1List() // Now doing the same for the end rows
-    {
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint1_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint2_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint3_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint4_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint5_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint6_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint7_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint8_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint9_1);
-        obstacleEndPointEndRow1.Add(obstactleEndSpawnPoint10_1);
-        Debug.Log("Obstacle End Row 1 Added");
-    }
-
-    void ObstacleEndPointRow2List()
-    {
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint1_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint2_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint3_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint4_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint5_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint6_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint7_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint8_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint9_2);
-        obstacleEndPointEndRow2.Add(obstactleEndSpawnPoint10_2);
-        Debug.Log("Obstacle End Row 1 Added");
-    }
-
-    void ObstacleEndPointRow3List()
-    {
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint1_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint2_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint3_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint4_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint5_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint6_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint7_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint8_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint9_3);
-        obstacleEndPointEndRow3.Add(obstactleEndSpawnPoint10_3);
-        Debug.Log("Obstacle End Row 1 Added");
-    }
-
-    void ObstacleEndPointRow4List()
-    {
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint1_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint2_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint3_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint4_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint5_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint6_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint7_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint8_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint9_4);
-        obstacleEndPointEndRow4.Add(obstactleEndSpawnPoint10_4);
-        Debug.Log("Obstacle End Row 1 Added");
-    }
-
-    void ObstacleEndPointRow5List() // End row pairs finished, note make it in the code that row 1 corresponds to row 1 for both start and end points. 
-    {
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint1_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint2_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint3_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint4_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint5_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint6_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint7_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint8_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint9_5);
-        obstacleEndPointEndRow5.Add(obstactleEndSpawnPoint10_5);
-        Debug.Log("Obstacle End Row 1 Added");
     }
 
     // Enemy functionality
