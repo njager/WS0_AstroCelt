@@ -852,6 +852,27 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
+    public int hardcodeCount = 0; 
+
+    public void HardcodedNewStarsSpawn()
+    {
+        hardcodeCount += 1; 
+        if (hardcodeCount == 1)
+        {
+        
+            tempSpawnList = masterRowList;
+            ClearStars();
+            ClearObstacles();
+            starSpawnCount = 0;
+            NewSpawnStars();
+            NewSpawn(baseStar); // Wave 2 Base Stars
+            NewSpawn(actionHealthStar); // Wave 2 Health Stars
+            NewSpawn(actionDamageStar); // Wave 2 Damage Stars
+            tempSpawnList = new List<Transform>();
+        }
+
+    }
+
     /// <summary>
     /// Note for later rebuild that occured while doing this. Can trigger a lot of startup behavior in Awake calls and then have that be the "loading" of the level. 
     /// Have a loading bar screen that only untriggers when each necessary Awake call triggers to tell it to stop, this way low end machines aren't subject to bad behavior
