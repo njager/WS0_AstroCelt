@@ -65,7 +65,7 @@ public class GlobalController : MonoBehaviour
     public List<LineRendererScript> lineRendererList = new List<LineRendererScript>(); // Line Renderer list for deletion purposes
     public List<LineRendererScript> lineRendererResetList = new List<LineRendererScript>(); // Specifically a List for Reset
     public List<GameObject> obstacleList;
-    public List<Transform> obstacleNewSpawnList = new List<Transform>();
+    public List<(Transform, Transform)> obstacleNewSpawnList = new List<(Transform, Transform)>();
     public List<Star> tempConstellationsFromTurnList = new List<Star>();
     public List<Star> FinalConstellationsFromTurn = new List<Star>();
 

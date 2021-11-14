@@ -675,7 +675,7 @@ public class StarSpawnerFramework : MonoBehaviour
         yield return new WaitUntil(() => iEnumeratorFramework == 0); // Need a condition to get out of IEnumerator when I'm down
     }
 
-    public void HandBuiltObstaclePairs()
+    public void HandBuiltObstaclePairs() // Much simpler script that keeps the data points together in a tuple format
     {
         // Pairs for Row 1
         pair1_1 = (obstactleSpawnPoint1_1, obstactleEndSpawnPoint1_1);
@@ -719,6 +719,34 @@ public class StarSpawnerFramework : MonoBehaviour
         obstacleRowPair1.Add(pair1_4);
         obstacleRowPair1.Add(pair1_5);
 
+        // Row 2 List
+        obstacleRowPair2.Add(pair2_1);
+        obstacleRowPair2.Add(pair2_2);
+        obstacleRowPair2.Add(pair2_3);
+        obstacleRowPair2.Add(pair2_4);
+        obstacleRowPair2.Add(pair2_5);
+
+        // Row 3 List
+        obstacleRowPair3.Add(pair3_1);
+        obstacleRowPair3.Add(pair3_2);
+        obstacleRowPair3.Add(pair3_3);
+        obstacleRowPair3.Add(pair3_4);
+        obstacleRowPair3.Add(pair3_5);
+
+        // Row 4 List
+        obstacleRowPair4.Add(pair4_1);
+        obstacleRowPair4.Add(pair4_2);
+        obstacleRowPair4.Add(pair4_3);
+        obstacleRowPair4.Add(pair4_4);
+        obstacleRowPair4.Add(pair4_5);
+
+        // Row 5 List
+        obstacleRowPair5.Add(pair5_1);
+        obstacleRowPair5.Add(pair5_2);
+        obstacleRowPair5.Add(pair5_3);
+        obstacleRowPair5.Add(pair5_4);
+        obstacleRowPair5.Add(pair5_5);
+
     }
 
     public void StarReset()
@@ -751,33 +779,109 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    void SpawnObstacle(int _count) // Instance obstacles as well
+    void SpawnObstacle() // Instance obstacles as well
     {
-        global.obstacleNewSpawnList = new List<Transform>(); 
-        int obstaclePairCount = 20;
-        int _pair = Random.Range(0, 5);
-        int _pair2 = Random.Range(0, 5);
-        int _pair3 = Random.Range(0, 5);
-        if (_pair == _pair2)
-        {
-            _pair2 = Random.Range(0, 5);
-        }
-        if (_pair == _pair3)
-        {
-            _pair3 = Random.Range(0, 5);
-        }
-        if (_pair3 == _pair2)
-        {
-            _pair2 = Random.Range(0, 5);
-        }
-        if (_pair == 0)
+        global.obstacleNewSpawnList = new List<(Transform, Transform)>(); 
+        int obstaclePairCount = 1; // Grab a singular pair
+        int _pair = Random.Range(0, 4);
+        if (_pair == 0) // Row Pair 1
         {
             for (int i = 0; i < obstaclePairCount; i++)
             {
-                newSpawnPointList.Add(masterRowList[Random.Range(0, 10)]);
+                int _randintx = Random.Range(0, 4); // Was wonky so I made a variable with random name
+                global.obstacleNewSpawnList.Add(obstacleRowPair1[_randintx]);
+            }
+            foreach((Transform, Transform) _pointData in global.obstacleNewSpawnList.ToList())
+            {
+                Vector3 _point1 = _pointData.Item1.position;
+                Vector3 _point2 = _pointData.Item2.position;
+                Vector3 _spawn = Vector3.zero; 
+                _spawn.y = _point1.y + (_point2.y - _point1.y) / 2;
+                _spawn.x = _point1.x;
+                _spawn.z = _point1.z;
+                // Now spawn the obstacle
+                GameObject obstacle = Instantiate(obstaclePrefab, _spawn, _pointData.Item1.rotation);
             }
         }
-        GameObject obstacle = Instantiate(obstaclePrefab, starSpawnPoint9_17.position, starSpawnPoint9_17.rotation); 
+
+        if (_pair == 1) // Row Pair 2
+        {
+            for (int i = 0; i < obstaclePairCount; i++)
+            {
+                int _randintx = Random.Range(0, 4); 
+                global.obstacleNewSpawnList.Add(obstacleRowPair2[_randintx]);
+            }
+            foreach ((Transform, Transform) _pointData in global.obstacleNewSpawnList.ToList())
+            {
+                Vector3 _point1 = _pointData.Item1.position;
+                Vector3 _point2 = _pointData.Item2.position;
+                Vector3 _spawn = Vector3.zero;
+                _spawn.y = _point1.y + (_point2.y - _point1.y) / 2;
+                _spawn.x = _point1.x;
+                _spawn.z = _point1.z;
+                // Now spawn the obstacle
+                GameObject obstacle = Instantiate(obstaclePrefab, _spawn, _pointData.Item1.rotation);
+            }
+        }
+
+        if (_pair == 2) // Row Pair 3
+        {
+            for (int i = 0; i < obstaclePairCount; i++)
+            {
+                int _randintx = Random.Range(0, 4); 
+                global.obstacleNewSpawnList.Add(obstacleRowPair3[_randintx]);
+            }
+            foreach ((Transform, Transform) _pointData in global.obstacleNewSpawnList.ToList())
+            {
+                Vector3 _point1 = _pointData.Item1.position;
+                Vector3 _point2 = _pointData.Item2.position;
+                Vector3 _spawn = Vector3.zero;
+                _spawn.y = _point1.y + (_point2.y - _point1.y) / 2;
+                _spawn.x = _point1.x;
+                _spawn.z = _point1.z;
+                // Now spawn the obstacle
+                GameObject obstacle = Instantiate(obstaclePrefab, _spawn, _pointData.Item1.rotation);
+            }
+        }
+        if (_pair == 3) // Row Pair 4
+        {
+            for (int i = 0; i < obstaclePairCount; i++)
+            {
+                int _randintx = Random.Range(0, 4); 
+                global.obstacleNewSpawnList.Add(obstacleRowPair4[_randintx]);
+            }
+            foreach ((Transform, Transform) _pointData in global.obstacleNewSpawnList.ToList())
+            {
+                Vector3 _point1 = _pointData.Item1.position;
+                Vector3 _point2 = _pointData.Item2.position;
+                Vector3 _spawn = Vector3.zero;
+                _spawn.y = _point1.y + (_point2.y - _point1.y) / 2;
+                _spawn.x = _point1.x;
+                _spawn.z = _point1.z;
+                // Now spawn the obstacle
+                GameObject obstacle = Instantiate(obstaclePrefab, _spawn, _pointData.Item1.rotation);
+            }
+        }
+
+        if (_pair == 4) // Row Pair 5
+        {
+            for (int i = 0; i < obstaclePairCount; i++)
+            {
+                int _randintx = Random.Range(0, 4); // Was wonky so I made a variable with random name
+                global.obstacleNewSpawnList.Add(obstacleRowPair5[_randintx]);
+            }
+            foreach ((Transform, Transform) _pointData in global.obstacleNewSpawnList.ToList())
+            {
+                Vector3 _point1 = _pointData.Item1.position;
+                Vector3 _point2 = _pointData.Item2.position;
+                Vector3 _spawn = Vector3.zero;
+                _spawn.y = _point1.y + (_point2.y - _point1.y) / 2;
+                _spawn.x = _point1.x;
+                _spawn.z = _point1.z;
+                // Now spawn the obstacle
+                GameObject obstacle = Instantiate(obstaclePrefab, _spawn, _pointData.Item1.rotation);
+            }
+        }
     }
 
     public void NewStarMap()
@@ -916,7 +1020,7 @@ public class StarSpawnerFramework : MonoBehaviour
             ClearObstacles();
             starSpawnCount = 0;
             NewSpawnStars();
-            SpawnObstacle(3); // Working
+            SpawnObstacle(); // Working
             numBaseStars = baseStarCount;
             numHealthStars = 2;
             numDamageStars = 2;
