@@ -1106,8 +1106,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1132,8 +1132,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1184,8 +1184,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1210,8 +1210,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1237,8 +1237,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 2;
-            numDamageStars = 2;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1263,8 +1263,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1289,8 +1289,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnObstacle();
             SpawnObstacle();
             numBaseStars = baseStarCount;
-            numHealthStars = 3;
-            numDamageStars = 1;
+            numHealthStars = 1;
+            numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
@@ -1398,11 +1398,17 @@ public class StarSpawnerFramework : MonoBehaviour
     }
 
 
-    public void NewHCBaseStarSpawn(StarClass _star, int _baseStars) // HC Stands for Hardcoded
+    public void NewHCBaseStarSpawn(StarClass _star, int _baseNum) // HC Stands for Hardcoded
     {
-        foreach (Transform _transform in newSpawnPointList.ToList()) // Base Stars
+        List<Transform> _baseStarList = new List<Transform>();
+        for (int i = 0; i < _baseNum; i++)
         {
-            if (starSpawnCount > _baseStars)
+            int _randintx = Random.Range(0, 340);
+            _baseStarList.Add(masterRowList[_randintx]);
+        }
+        foreach (Transform _transform in _baseStarList.ToList()) // Base Stars
+        {
+            if (starSpawnCount > _baseNum)
             {
                 return;
             }

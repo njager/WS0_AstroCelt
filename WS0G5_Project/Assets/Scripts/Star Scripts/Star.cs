@@ -161,6 +161,7 @@ public class Star : MonoBehaviour
         {
             if(myStarClass.starType == "NodeStar")
             {
+                global.starSpawnerFrameworkScript.obstacleDeletedInGeneration +=1;
                 Destroy(other);
                 Debug.Log("Obstacle Hit Node Star");
             }
