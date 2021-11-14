@@ -1031,6 +1031,15 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
+    public void ClearLines()
+    {
+        foreach(GameObject _line in global.constellationBuilding.lineFinal.ToList())
+        {
+            global.constellationBuilding.lineFinal.Remove(_line);
+            Destroy(_line);
+        }
+    }
+
     public void HardcodedNewStarsSpawn()
     {
         Debug.Log(baseStarCount);
@@ -1044,6 +1053,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1072,6 +1082,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1099,6 +1110,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1126,6 +1138,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1153,6 +1166,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1180,6 +1194,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1207,6 +1222,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1235,6 +1251,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1262,6 +1279,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
@@ -1289,6 +1307,7 @@ public class StarSpawnerFramework : MonoBehaviour
             obstacleDeletedInGeneration = 0; // Need to check for deletion separately each time
             ClearStars();
             ClearObstacles();
+            ClearLines();
             starSpawnCount = 0;
             starSpawnCount2 = 0; // Node
             starSpawnCount3 = 0; // Damage
