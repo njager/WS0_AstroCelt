@@ -61,7 +61,7 @@ public class LineRendererScript : MonoBehaviour
     
     public void ResetList() // For Reset Behavior
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     private void Update() // Update Loop

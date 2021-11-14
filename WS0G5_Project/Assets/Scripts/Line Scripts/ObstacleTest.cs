@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq; 
 
-public class ObstacleScript : MonoBehaviour
+public class ObstacleTest : MonoBehaviour
 {
     public GameObject obstacleSelf;
-    public ObstacleScript selfObstacleScript;
+    public ObstacleTest selfObstacleScript;
     private GlobalController global;
+
+    public void Awake()
+    {
+        global = GlobalController.instance;
+    }
 
     public void Start()
     {
-        global = GlobalController.instance;
         global.obstacleList.Add(this.gameObject);
     }
 

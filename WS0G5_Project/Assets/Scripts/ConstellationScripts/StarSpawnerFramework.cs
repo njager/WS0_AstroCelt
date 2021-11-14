@@ -731,9 +731,9 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void ClearObstacles() // Get rid of the obstacles
     {
-        foreach(ObstacleScript _obstacle in global.obstacleList.ToList())
+        foreach(GameObject _obstacle in global.obstacleList.ToList())
         {
-            _obstacle.Clearing();
+            Destroy(_obstacle); 
         }
     }
 
