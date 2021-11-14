@@ -9660,11 +9660,6 @@ MonoBehaviour:
   obstacleEndPointEndRow3: []
   obstacleEndPointEndRow4: []
   obstacleEndPointEndRow5: []
-  obstacleRowPair1: []
-  obstacleRowPair2: []
-  obstacleRowPair3: []
-  obstacleRowPair4: []
-  obstacleRowPair5: []
   obstactleSpawnPoint1_1: {fileID: 969813984}
   obstactleSpawnPoint2_1: {fileID: 2106692462}
   obstactleSpawnPoint3_1: {fileID: 1932479025}
@@ -9771,6 +9766,8 @@ MonoBehaviour:
   numDamageStars: 0
   numHealthStars: 0
   numShieldStars: 0
+  healthStarDeletedInGeneration: 0
+  damageStarDeletedInGeneration: 0
 --- !u!1 &571263662
 GameObject:
   m_ObjectHideFlags: 0
@@ -22387,22 +22384,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1983426175}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
       objectReference: {fileID: 0}
@@ -22429,18 +22410,6 @@ PrefabInstance:
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.19936797
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 6584052731006946824, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_Mesh

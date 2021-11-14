@@ -583,6 +583,8 @@ public class StarSpawnerFramework : MonoBehaviour
     public int numDamageStars;
     public int numHealthStars;
     public int numShieldStars;
+    public int healthStarDeletedInGeneration;
+    public int damageStarDeletedInGeneration;
 
     [Header("Tuple Obstacle Row Pairs")]
     // Row 1
@@ -777,6 +779,22 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             Destroy(_obstacle); 
         }
+    }
+
+    // Added Functionality for what happens if things get deleted in generation
+    public void DeletedObstacleReplacement()
+    {
+
+    }
+
+    public void DeletedDamageStarReplacement()
+    {
+
+    }
+
+    public void DeletedHealthStarReplacement()
+    {
+
     }
 
     void SpawnObstacle() // Instance obstacles as well
@@ -996,8 +1014,8 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void NewSpawnStars() // Iterate through master list and remove used points from the previous round
     {
-        GrabNewPoints();
         newPointsUsed = 0;
+        GrabNewPoints();
         if (newPointsUsed == 1) 
         {
             for (int i = 0; i < pointCount; i++)
@@ -1016,6 +1034,8 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             Debug.Log("Instance 1");
             tempSpawnList = masterRowList;
+            damageStarDeletedInGeneration = 0;
+            healthStarDeletedInGeneration = 0;
             ClearStars();
             ClearObstacles();
             starSpawnCount = 0;
@@ -1184,7 +1204,7 @@ public class StarSpawnerFramework : MonoBehaviour
             }
             else
             {
-                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                GameObject starToBeSpawned = Instantiate(actionHealthStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Health Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
@@ -1198,7 +1218,7 @@ public class StarSpawnerFramework : MonoBehaviour
             }
             else
             {
-                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                GameObject starToBeSpawned = Instantiate(actionDamageStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Damage Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);
@@ -1213,7 +1233,7 @@ public class StarSpawnerFramework : MonoBehaviour
             else
             {
                 Debug.LogError("Not Supposed to Occur Yet"); 
-                GameObject starToBeSpawned = Instantiate(baseStar.starPrefab, _transform.position, _transform.rotation);
+                GameObject starToBeSpawned = Instantiate(shieldStar.starPrefab, _transform.position, _transform.rotation);
                 Debug.Log("New Random Damage Star Spawned!");
                 starSpawnCount++;
                 usedTransform.Add(starToBeSpawned);

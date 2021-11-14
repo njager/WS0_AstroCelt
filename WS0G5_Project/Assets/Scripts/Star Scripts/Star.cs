@@ -36,6 +36,7 @@ public class Star : MonoBehaviour
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
     }
+
     public void OnMouseDown()
     {
         if (global.constellationBuilding.hasThePlayerDrawnForTurn == false) // If the player has already drawn for turn, do nothing
@@ -150,6 +151,36 @@ public class Star : MonoBehaviour
             hoverColor = usedColor;
             starUsed = true;
             return;
+        }
+    }
+
+    void OnColliderEnter(Collider col) // Here it detects the other gameObject
+    {
+        GameObject other = col.gameObject; // Col GameObject 
+        if (col.gameObject.CompareTag("Obstacle"))
+        {
+            if(myStarClass.starType == "NodeStar")
+            {
+                Destroy(other);
+                Debug.Log("Obstacle Hit Node Star");
+            }
+            else
+            {
+                if (myStarClass.starType == "HealthStar")
+                {
+                    global.starSpawnerFrameworkScript.healthStarDeletedInGeneration += 1;
+                }
+                if (myStarClass.starType == "DamageStar")
+                {
+                    global.starSpawnerFrameworkScript.damageStarDeletedInGeneration += 1;
+                }
+                Debug.Log("Hit obstacle in generation");
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            return; 
         }
     }
 
