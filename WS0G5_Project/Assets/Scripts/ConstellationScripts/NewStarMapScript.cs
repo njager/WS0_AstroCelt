@@ -13,6 +13,7 @@ public class NewStarMapScript : MonoBehaviour
     [SerializeField] float chargeTime;
     [SerializeField] float maxCharge;
     [SerializeField] Image enemyChargeBar;
+    public bool newStarsClicked;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class NewStarMapScript : MonoBehaviour
         loadBar.SetActive(false);
         loadBarBool = false;
         ResetBar();
+        newStarsClicked = false; 
     }
 
     void ResetBar()
@@ -67,6 +69,7 @@ public class NewStarMapScript : MonoBehaviour
 
     public void NewStarsPlayTest()
     {
+        newStarsClicked = true; 
         global.starSpawnerFrameworkScript.HardcodedNewStarsSpawn(); 
     }
 

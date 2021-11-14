@@ -19,24 +19,15 @@ public class TurnManager : MonoBehaviour
     public void ConfirmButton()
     {
         FinishLinesColor(); 
-        ConstellationsToBeTriggered(global.FinalConstellationsFromTurn);
         ChangeTurn();
-    }
-
-    public void ConstellationsToBeTriggered(List<Star> _StarList)
-    {
-
     }
 
     public bool enemyDefeated = false; // Put this in enemy
 
     public void ChangeTurn()
     {
-        totalTurnCount += 1;
-        if (totalTurnCount % 2 == 0)
-        {
-            playerTurnCount += 1; 
-        }
+        totalTurnCount += 2; // Fix later, lol
+        playerTurnCount = totalTurnCount / 2;
         global.currentEnemy.isYourTurn = true;
         global.currentEnemy.turnActionCount = 0;
     }

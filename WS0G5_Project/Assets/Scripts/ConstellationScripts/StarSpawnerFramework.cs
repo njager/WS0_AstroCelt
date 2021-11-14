@@ -1086,6 +1086,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 3) // 3 Attack 1 Heal
@@ -1111,6 +1112,7 @@ public class StarSpawnerFramework : MonoBehaviour
             numDamageStars = 3;
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
@@ -1138,6 +1140,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 5) // 2 Attack 2 Heal
@@ -1164,6 +1167,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 6) // 3 Attack 1 Heal
@@ -1190,6 +1194,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 7) // 3 Attack 1 Heal
@@ -1216,6 +1221,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 8) // 2 Attack 2 Heal
@@ -1243,6 +1249,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 9) // 3 Attack 1 Heal
@@ -1269,6 +1276,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
         }
         if (hardcodeCount == 10) // 3 Attack 1 Heal
@@ -1295,6 +1303,7 @@ public class StarSpawnerFramework : MonoBehaviour
             // numShieldStars = 0; 
             NewHCBaseStarSpawn(baseStar, numBaseStars);
             HCDamageStarSpawn(actionDamageStar, numDamageStars);
+            HCNodeStarSpawn(nodeStar, 1);
             HCHealthStarSpawn(actionHealthStar, numHealthStars);
             hardcodeCount = 0; // Reset count and cycle through again 
         }
