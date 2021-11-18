@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
+using UnityEngine.EventSystems;
 
 
 public class EnemyScript : MonoBehaviour
@@ -101,6 +103,24 @@ public class EnemyScript : MonoBehaviour
                 turnActionCount += 1; 
                 EnemyTurnAction();
             }
+        }
+        
+    }
+
+    private void OnMouseDown()
+    {
+        if (global.UIController.selector.activeInHierarchy != true)
+        {
+            Debug.Log("Moved!");
+            global.UIController.selector.SetActive(true);
+            Vector3 _newPosition = gameObject.transform.position;
+            global.UIController.selector.transform.position = _newPosition; 
+        }
+        else
+        {
+            Debug.Log("Moved!");
+            Vector3 _newPosition = gameObject.transform.position;
+            global.UIController.selector.transform.position = _newPosition;
         }
         
     }

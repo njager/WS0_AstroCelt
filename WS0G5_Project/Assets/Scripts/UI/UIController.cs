@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
     [SerializeField] int _playerMaxHealth;
     [SerializeField] int _enemyHealth;
     [SerializeField] int _enemyMaxHealth;
+    public GameObject selector; 
     //[SerializeField] float chargeTime;
     //[SerializeField] float maxCharge;
     private float spawnTimer = 1f;
