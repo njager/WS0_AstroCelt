@@ -119,6 +119,8 @@ public class ConstellationBuildingScript : MonoBehaviour
         }
     }
 
+    //Make this one more constellation
+
     // Using this to check for duplicates in global.constellationBeingBuilt
     public void DuplicateChecker() // Moved to it's own method so it can return out of the structure when True
     {
@@ -129,6 +131,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         Star _temp4 = emptyStar;
         Star _temp5 = emptyStar;
         Star _temp6 = emptyStar;
+        Star _temp7 = emptyStar;
 
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
@@ -156,6 +159,10 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 _temp6 = star;
             }
+            if (_tempCount == 6) // Star 6 in list 
+            {
+                _temp7 = star;
+            } // Only have gotten here
             _tempCount++;
             if (_temp1 == _temp2) // Comparing 1 to 2
             {

@@ -4594,9 +4594,9 @@ RectTransform:
   - {fileID: 712245674}
   - {fileID: 1034471345}
   - {fileID: 1841515699}
-  - {fileID: 417431103}
   - {fileID: 918046287}
   - {fileID: 1308336786}
+  - {fileID: 417431103}
   m_Father: {fileID: 369342702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6331,12 +6331,12 @@ MonoBehaviour:
   timerText: {fileID: 541112479122357363}
   playerHealthBar: {fileID: 159195490}
   enemyHealthBar: {fileID: 5164648084231430960}
-  enemyHealthText2: {fileID: 0}
-  enemyHealthBar2: {fileID: 0}
+  enemyHealthText2: {fileID: 2104853307}
+  enemyHealthBar2: {fileID: 2043590905}
   _enemyHealth2: 0
   _enemyMaxHealth2: 0
-  enemyHealthText3: {fileID: 0}
-  enemyHealthBar3: {fileID: 0}
+  enemyHealthText3: {fileID: 356051190}
+  enemyHealthBar3: {fileID: 1650835480}
   _enemyHealth3: 0
   _enemyMaxHealth3: 0
   isEnemyDead: 0
@@ -6877,7 +6877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_Name
-      value: Lumberjack (2)
+      value: Lumberjack3
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
@@ -6956,7 +6956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448904510718226988, guid: 5ed31372d894f2c40a4d36ecf38f86af, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7448904510718226988, guid: 5ed31372d894f2c40a4d36ecf38f86af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14971,7 +14971,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 263663541}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18871,7 +18871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_Name
-      value: Lumberjack (1)
+      value: Lumberjack2
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
@@ -21370,7 +21370,7 @@ Transform:
   - {fileID: 2084364707}
   - {fileID: 737027778}
   m_Father: {fileID: 263663541}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312909857
 GameObject:
