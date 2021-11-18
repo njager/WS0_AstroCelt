@@ -4594,11 +4594,9 @@ RectTransform:
   - {fileID: 712245674}
   - {fileID: 1034471345}
   - {fileID: 1841515699}
-  - {fileID: 737027778}
-  - {fileID: 2084364707}
-  - {fileID: 277330002}
   - {fileID: 417431103}
   - {fileID: 918046287}
+  - {fileID: 1308336786}
   m_Father: {fileID: 369342702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4787,7 +4785,7 @@ GameObject:
   - component: {fileID: 277330004}
   - component: {fileID: 277330003}
   m_Layer: 5
-  m_Name: Indicator Icon (2)
+  m_Name: EnemyIndicatorIcon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4800,16 +4798,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277330001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6915568, y: 0.6915568, z: 0.6915568}
   m_Children: []
-  m_Father: {fileID: 263663541}
-  m_RootOrder: 10
+  m_Father: {fileID: 1308336786}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 850.6, y: 155}
+  m_AnchoredPosition: {x: 1810.6, y: 695}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277330003
@@ -10974,7 +10972,7 @@ Transform:
   - {fileID: 912090937}
   - {fileID: 2313423}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652930612
 GameObject:
@@ -12669,7 +12667,7 @@ GameObject:
   - component: {fileID: 737027780}
   - component: {fileID: 737027779}
   m_Layer: 5
-  m_Name: Indicator Icon
+  m_Name: EnemyIndicatorIcon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12682,16 +12680,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737027777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6915568, y: 0.6915568, z: 0.6915568}
   m_Children: []
-  m_Father: {fileID: 263663541}
-  m_RootOrder: 8
+  m_Father: {fileID: 1308336786}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 575, y: 88.74}
+  m_AnchoredPosition: {x: 1535, y: 628.74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737027779
@@ -14973,7 +14971,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 263663541}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15642,7 +15640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm
+  m_text: End Turn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48c7bf4deb05de4389e95742aff2128, type: 2}
   m_sharedMaterial: {fileID: -6565826102784084593, guid: f48c7bf4deb05de4389e95742aff2128, type: 2}
@@ -17502,7 +17500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034471345}
   m_Layer: 5
-  m_Name: EnemyUI (1)
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18289,7 +18287,7 @@ Transform:
   - {fileID: 208881255}
   - {fileID: 6584052730990553576}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114906496
 GameObject:
@@ -21340,6 +21338,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1521898449}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308336785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308336786}
+  m_Layer: 0
+  m_Name: Indicators
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308336786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308336785}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 277330002}
+  - {fileID: 2084364707}
+  - {fileID: 737027778}
+  m_Father: {fileID: 263663541}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312909857
 GameObject:
@@ -25936,7 +25967,7 @@ Transform:
   - {fileID: 2024123670}
   - {fileID: 1917686494}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600625613
 GameObject:
@@ -30527,7 +30558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1841515699}
   m_Layer: 5
-  m_Name: EnemyUI (2)
+  m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34768,7 +34799,7 @@ GameObject:
   - component: {fileID: 2084364709}
   - component: {fileID: 2084364708}
   m_Layer: 5
-  m_Name: Indicator Icon (1)
+  m_Name: EnemyIndicatorIcon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34781,16 +34812,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084364706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6915568, y: 0.6915568, z: 0.6915568}
   m_Children: []
-  m_Father: {fileID: 263663541}
-  m_RootOrder: 9
+  m_Father: {fileID: 1308336786}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 715.5, y: 215}
+  m_AnchoredPosition: {x: 1675.5, y: 755}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084364708
