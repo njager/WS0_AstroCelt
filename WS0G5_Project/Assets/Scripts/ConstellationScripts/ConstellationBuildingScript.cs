@@ -674,15 +674,13 @@ public class ConstellationBuildingScript : MonoBehaviour
         // Initial Values
         float lineAmount = LineMultiplierGrabbing(global.lineRendererList);
         float lineMultiplier = 1.0f;
-        float lowerBoundLine = 1f;
-        float upperBoundLine = 4.75f;
 
         // Global Animation Curve values 
         AnimationCurve comparatorCurve = global.animationCurveForMultiplier;
         float lowerBoundCurve = comparatorCurve[0].value; 
         float upperBoundCurve = comparatorCurve[1].value;
 
-        float _lineValue = (lineAmount - lowerBoundLine) / upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
+        float _lineValue = (lineAmount - global.lowerBoundLine) / global.upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
         Debug.Log(_lineValue); 
 
         // Compare the normalized value to the curve values 
@@ -690,13 +688,13 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             if (_lineValue <= upperBoundCurve)
             {
-                lineMultiplier = _lineValue;
+                lineMultiplier = comparatorCurve.Evaluate(_lineValue);
                 Debug.Log(lineMultiplier);
                 return lineMultiplier; 
             } 
             else
             {
-                lineMultiplier = 3.0f;
+                lineMultiplier = comparatorCurve.Evaluate(_lineValue);
                 Debug.Log(lineMultiplier);
                 return lineMultiplier;
             }
@@ -704,7 +702,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         else // If it fails the conditions, it returns a 1.0 mutliplier 
         {
             Debug.Log(lineMultiplier);
-            return lineMultiplier;
+            return lineMultiplier = comparatorCurve.Evaluate(_lineValue);
         }
     }
 }

@@ -20,6 +20,10 @@ public class GlobalController : MonoBehaviour
     /// functions in my other script from a completely other scripts 
     /// </summary>
 
+    [Header("Designer Values")]
+    public float lowerBoundLine = 10f;
+    public float upperBoundLine = 50f;
+
     // UI Canvases
     [Header("Canvases")]
     public GameObject winCanvas;
@@ -111,6 +115,8 @@ public class GlobalController : MonoBehaviour
     [Header("UI Variables")]
     public static Transform pfPopup;
     //public WorldController world;
+
+    
 
     void Awake()
     {
