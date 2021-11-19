@@ -681,10 +681,11 @@ public class StarSpawnerFramework : MonoBehaviour
         masterRowOriginList = masterRowList;
         global = GlobalController.instance;
         starSpawnCount = 0;
-        SpawnStar(baseStar);
-        SpawnStar(actionHealthStar);
-        SpawnStar(actionDamageStar);
-        global.startingStarSpawnPointList.Add(global.drawingScript.NodeStar.transform);
+        HCMapPicker(); 
+        //SpawnStar(baseStar);
+        //SpawnStar(actionHealthStar);
+        //SpawnStar(actionDamageStar);
+        //global.startingStarSpawnPointList.Add(global.drawingScript.NodeStar.transform);, think this is making it be deleted
 
         // Going to activate these as necessary, so want them disabled to start
         obstaclesForMap1.SetActive(false);

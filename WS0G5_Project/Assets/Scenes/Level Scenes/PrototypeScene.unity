@@ -18048,7 +18048,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 433266640}
         m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
-        m_MethodName: ConfirmButton
+        m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26701,6 +26701,10 @@ PrefabInstance:
     - target: {fileID: 8273561597624668584, guid: 6d92f7bc95c76411b8853cac5dfd4e9d, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883569404332522358, guid: 6d92f7bc95c76411b8853cac5dfd4e9d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d92f7bc95c76411b8853cac5dfd4e9d, type: 3}

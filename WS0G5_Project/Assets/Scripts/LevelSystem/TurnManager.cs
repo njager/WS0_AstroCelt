@@ -16,13 +16,12 @@ public class TurnManager : MonoBehaviour
         playerTurnCount = 0; 
     }
 
-    public void EndTurn()
+    public void EndTurn() // Being used
     {
         ChangeTurn();
-        global.starSpawnerFrameworkScript.HCMapPicker(); 
     }
 
-    public void ConfirmButton()
+    public void ConfirmButton() // Not being used
     {
         FinishLinesColor(); 
         ChangeTurn();
@@ -36,7 +35,8 @@ public class TurnManager : MonoBehaviour
         playerTurnCount = totalTurnCount;
         global.currentEnemy.isYourTurn = true;
         global.currentEnemy.turnActionCount = 0;
-        global.newStarMapScript.NewStarsPlayTest();
+        //global.newStarMapScript.NewStarsPlayTest();
+        global.starSpawnerFrameworkScript.HCMapPicker();
     }
 
 
