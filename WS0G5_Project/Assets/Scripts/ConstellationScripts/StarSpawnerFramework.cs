@@ -680,8 +680,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         masterRowOriginList = masterRowList;
         global = GlobalController.instance;
-        starSpawnCount = 0;
-        HCMapPicker(); 
+        //starSpawnCount = 0;
         //SpawnStar(baseStar);
         //SpawnStar(actionHealthStar);
         //SpawnStar(actionDamageStar);
@@ -708,6 +707,7 @@ public class StarSpawnerFramework : MonoBehaviour
         obstaclesForMap18.SetActive(false);
         obstaclesForMap19.SetActive(false);
         obstaclesForMap20.SetActive(false);
+        HCMapPicker();
     }
 
     public void FrameworkReset() // Public Call to be used in Reset Behavior
@@ -968,7 +968,7 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void ClearStars()
     {
-        Destroy(global.drawingScript.NodeStar.gameObject);
+        //Destroy(global.drawingScript.NodeStar.gameObject);, literally had a line to do it.
         foreach (GameObject _star in usedTransform.ToList())
         {
             usedTransform.Remove(_star); 
@@ -2510,23 +2510,28 @@ public class StarSpawnerFramework : MonoBehaviour
 
     public void HCMapPicker()
     {
-        int _map = Random.Range(0, 1);
-        if (_map == 0) // Map 1
+        mainNodeStar = global.drawingScript.NodeStar;
+        int _map = Random.Range(1, 3);
+        if (_map == 1) // Map 1
         {
             Debug.Log("Map 1 Picked"); 
             ClearStars();
+            ClearPoints();
             ClearLines();
             starSpawnCount = 0;
+            HCObstacleSwitcher(1);
             SpawnStar(baseStar);
             SpawnStar(actionHealthStar);
             SpawnStar(actionDamageStar);
         }
-        if (_map == 1) // Map 2, just damage
+        if (_map == 2) // Map 2, just damage
         {
             Debug.Log("Map 2 Picked");
             ClearStars();
+            ClearPoints();
             ClearLines();
             starSpawnCount = 0;
+            HCObstacleSwitcher(2);
             HCMap2(baseStar);
             HCMap2(actionDamageStar);
         }
@@ -2534,8 +2539,6 @@ public class StarSpawnerFramework : MonoBehaviour
     
     void SpawnStar(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
     {
-        HCObstacleSwitcher(1);
-        mainNodeStar = global.drawingScript.NodeStar;
         if (starSpawnCount == 0) // Starts at 0
         {
             GameObject starToBeSpawned1 = Instantiate(star.starPrefab, starSpawnPoint3_1.position, starSpawnPoint3_1.rotation); // By creating it here, it doesn't mess with the other stars
@@ -2895,7 +2898,6 @@ public class StarSpawnerFramework : MonoBehaviour
     void HCMap2(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
     {
         HCObstacleSwitcher(2); 
-        mainNodeStar = global.drawingScript.NodeStar;
         if (starSpawnCount == 0) // Starts at 0
         {
             GameObject starToBeSpawned1 = Instantiate(star.starPrefab, starSpawnPoint5_1.position, starSpawnPoint5_1.rotation); 
