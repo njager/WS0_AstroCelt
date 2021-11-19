@@ -590,6 +590,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int healthStarDeletedInGeneration;
     public int damageStarDeletedInGeneration;
     public int obstacleDeletedInGeneration;
+    private Star mainNodeStar;
 
     [Header("Hardcoded Maps")] // 20 of them 
     public GameObject obstaclesForMap1;
@@ -2505,9 +2506,31 @@ public class StarSpawnerFramework : MonoBehaviour
         }
     }
 
-    private Star mainNodeStar;
 
-    // To be made random soon 
+    public void HCMapPicker()
+    {
+        int _map = Random.Range(0, 1);
+        if (_map == 0) // Map 1
+        {
+            Debug.Log("Map 1 Picked"); 
+            ClearStars();
+            ClearLines();
+            starSpawnCount = 0;
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 1) // Map 2, just damage
+        {
+            Debug.Log("Map 2 Picked");
+            ClearStars();
+            ClearLines();
+            starSpawnCount = 0;
+            HCMap2(baseStar);
+            HCMap2(actionDamageStar);
+        }
+    }
+    
     void SpawnStar(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
     {
         HCObstacleSwitcher(1);
@@ -3175,6 +3198,7 @@ public class StarSpawnerFramework : MonoBehaviour
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint16_17);
             usedTransform.Add(starToBeSpawned);
+            return;
         }
         if (starSpawnCount == 38) // Damage Star Start
         {
@@ -3191,7 +3215,6 @@ public class StarSpawnerFramework : MonoBehaviour
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint9_7);
             usedTransform.Add(starToBeSpawned);
-            return;
         }
         if (starSpawnCount == 40) 
         {
