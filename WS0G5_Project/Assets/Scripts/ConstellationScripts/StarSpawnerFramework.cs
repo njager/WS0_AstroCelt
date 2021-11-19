@@ -2511,7 +2511,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HCMapPicker()
     {
         mainNodeStar = global.drawingScript.NodeStar;
-        int _map = Random.Range(1, 3);
+        int _map = Random.Range(1, 3); // Needs to be max range +1;
         if (_map == 1) // Map 1
         {
             Debug.Log("Map 1 Picked"); 
@@ -3235,7 +3235,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint3_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint2_10.position; 
+        Vector3 _nodeStarVector3 = starSpawnPoint10_2.position; 
         if (starSpawnCount == 42) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
