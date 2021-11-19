@@ -2510,6 +2510,7 @@ public class StarSpawnerFramework : MonoBehaviour
     // To be made random soon 
     void SpawnStar(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
     {
+        HCObstacleSwitcher(1);
         mainNodeStar = global.drawingScript.NodeStar;
         if (starSpawnCount == 0) // Starts at 0
         {
@@ -2869,7 +2870,7 @@ public class StarSpawnerFramework : MonoBehaviour
     // New Maps
     void HCMap2(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
     {
-        HCObstacleSpawner(2); 
+        HCObstacleSwitcher(2); 
         mainNodeStar = global.drawingScript.NodeStar;
         if (starSpawnCount == 0) // Starts at 0
         {
