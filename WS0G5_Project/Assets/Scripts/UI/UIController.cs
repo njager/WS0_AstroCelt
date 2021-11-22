@@ -65,12 +65,12 @@ public class UIController : MonoBehaviour
         // Grabbing Static Variables First
         _enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
-        _enemyHealth = global.currentEnemy.enemyHealth;
+        //_enemyHealth = global.currentEnemy.enemyHealth;
         _enemyHealth2 = global.enemy2.enemyHealth;
         _enemyHealth3 = global.enemy3.enemyHealth;
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        _enemyMaxHealth = global.currentEnemy.enemyStartHealth;
+        //_enemyMaxHealth = global.currentEnemy.enemyStartHealth;
         _enemyMaxHealth2 = global.enemy2.enemyHealth;
         _enemyMaxHealth3 = global.enemy3.enemyHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();

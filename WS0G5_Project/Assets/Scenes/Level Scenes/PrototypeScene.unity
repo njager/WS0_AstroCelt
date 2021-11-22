@@ -27071,7 +27071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33aa9b735caed48bf4a51496536a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingVitality: 20
+  _startingVitality: 50
   _startingShield: 0
   startingPlayerDamage: 1
   _startingCosmicEnergy: 200

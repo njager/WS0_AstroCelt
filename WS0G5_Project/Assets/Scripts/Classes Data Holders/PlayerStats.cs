@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
     // UI Start Methods, by doing this I explicitly request and send back data
 
-    public static int returnStartingVitality() // Needed because race conditions for Start Methods
+    public static int returnStartingVitality() // Not used
     {
         int _returnVitality = 400; 
         return _returnVitality;
