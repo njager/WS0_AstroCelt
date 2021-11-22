@@ -129,7 +129,7 @@ public class EnemyScript : MonoBehaviour
     {
         global.enemyTurnBar.SetActive(true);
         global.playerTurnBar.SetActive(false);
-        Debug.LogError("Happening!");
+        Debug.Log("Happening!");
         isYourTurn = false;
         global.playerScript.isPlayerTurn = true;
         turnActionCount = 0; 
