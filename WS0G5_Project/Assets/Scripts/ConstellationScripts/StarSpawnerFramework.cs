@@ -2405,6 +2405,162 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap2(baseStar);
             HCMap2(actionDamageStar);
         }
+        if (_map == 3) // Map 3
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 4) // Map 4
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 5) // Map 5
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 6) // Map 6
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 7) // Map 7
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 8) // Map 8
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 9) // Map 9
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 10) // Map 10
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 11) // Map 11
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 12) // Map 12
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 13) // Map 13
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 14) // Map 14
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
+        if (_map == 15) // Map 14
+        {
+            Debug.Log("Map 1 Picked");
+            ClearStars();
+            ClearPoints();
+            ClearLines();
+            starSpawnCount = 0;
+            HCObstacleSwitcher(1);
+            SpawnStar(baseStar);
+            SpawnStar(actionHealthStar);
+            SpawnStar(actionDamageStar);
+        }
     }
     
     void SpawnStar(StarClass star) // Hand Built Calls Per Level, meaning we have to manually change this to load as we require it to change
