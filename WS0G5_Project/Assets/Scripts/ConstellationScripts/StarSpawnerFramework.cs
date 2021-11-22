@@ -2927,7 +2927,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 0) // Starts at 0
         {
             GameObject starToBeSpawned1 = Instantiate(star.starPrefab, starSpawnPoint11_1.position, starSpawnPoint11_1.rotation); // Only one in one
-            Debug.Log("Star Spawned!");
             global.startingStarSpawnPointList.Add(starSpawnPoint11_1);
             starSpawnCount++;
             usedTransform.Add(starToBeSpawned1);
@@ -2935,7 +2934,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 1)
         {
             GameObject starToBeSpawned2 = Instantiate(star.starPrefab, starSpawnPoint2_2.position, starSpawnPoint2_2.rotation);
-            Debug.Log("Star Spawned!");
             global.startingStarSpawnPointList.Add(starSpawnPoint2_2);
             starSpawnCount++;
             usedTransform.Add(starToBeSpawned2);
@@ -2943,7 +2941,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 2)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint2_5.position, starSpawnPoint2_5.rotation);
-            Debug.Log("Star Spawned!");
             global.startingStarSpawnPointList.Add(starSpawnPoint2_5);
             starSpawnCount++;
             usedTransform.Add(starToBeSpawned);
@@ -2951,7 +2948,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 3)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint2_15.position, starSpawnPoint15_2.rotation);
-            Debug.Log("Star Spawned!");
             global.startingStarSpawnPointList.Add(starSpawnPoint2_15);
             starSpawnCount++;
             usedTransform.Add(starToBeSpawned);
@@ -2959,7 +2955,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 4)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_8.position, starSpawnPoint3_8.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint3_8);
             usedTransform.Add(starToBeSpawned);
@@ -2967,7 +2962,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 5) // Adding more past this
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_6.position, starSpawnPoint4_6.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint4_6);
             usedTransform.Add(starToBeSpawned);
@@ -2975,7 +2969,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 6)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_11.position, starSpawnPoint4_11.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint4_11);
             usedTransform.Add(starToBeSpawned);
@@ -2983,7 +2976,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 7)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_16.position, starSpawnPoint4_16.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint4_16);
             usedTransform.Add(starToBeSpawned);
@@ -2991,7 +2983,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 8)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_13.position, starSpawnPoint5_13.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint5_13);
             usedTransform.Add(starToBeSpawned);
@@ -2999,7 +2990,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 9)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_5.position, starSpawnPoint6_5.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint6_5);
             usedTransform.Add(starToBeSpawned);
@@ -3007,7 +2997,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 10)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_9.position, starSpawnPoint6_9.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint6_9);
             usedTransform.Add(starToBeSpawned);
@@ -3015,7 +3004,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 11)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_1.position, starSpawnPoint7_1.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint7_1);
             usedTransform.Add(starToBeSpawned);
@@ -3023,7 +3011,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 12)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_17.position, starSpawnPoint7_17.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint7_17);
             usedTransform.Add(starToBeSpawned);
@@ -3031,7 +3018,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 13)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_4.position, starSpawnPoint8_4.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint8_4);
             usedTransform.Add(starToBeSpawned);
@@ -3039,7 +3025,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 14)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_7.position, starSpawnPoint8_7.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint8_7);
             usedTransform.Add(starToBeSpawned);
@@ -3047,15 +3032,13 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 15)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_8.position, starSpawnPoint16_8.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint10_2);
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_8);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 16)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_11.position, starSpawnPoint10_11.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint10_11);
             usedTransform.Add(starToBeSpawned);
@@ -3063,7 +3046,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 17)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint11_13.position, starSpawnPoint11_13.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint11_13);
             usedTransform.Add(starToBeSpawned);
@@ -3071,7 +3053,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 18)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_7.position, starSpawnPoint12_7.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint12_7);
             usedTransform.Add(starToBeSpawned);
@@ -3079,7 +3060,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 19)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_17.position, starSpawnPoint12_17.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint12_17);
             usedTransform.Add(starToBeSpawned);
@@ -3087,7 +3067,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 20)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint13_14.position, starSpawnPoint13_14.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint13_14);
             usedTransform.Add(starToBeSpawned);
@@ -3095,7 +3074,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 21)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_3.position, starSpawnPoint14_3.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint14_3);
             usedTransform.Add(starToBeSpawned);
@@ -3103,7 +3081,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 22)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_6.position, starSpawnPoint14_6.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint14_6);
             usedTransform.Add(starToBeSpawned);
@@ -3111,23 +3088,20 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 23)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint15_12.position, starSpawnPoint15_12.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint15_12);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 24)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_8.position, starSpawnPoint16_8.rotation);
-            Debug.Log("Star Spawned!");
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_2.position, starSpawnPoint10_2.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint16_8);
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_2);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 25)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_14.position, starSpawnPoint16_14.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint16_14);
             usedTransform.Add(starToBeSpawned);
@@ -3135,7 +3109,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 26)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint17_10.position, starSpawnPoint18_6.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint17_10);
             usedTransform.Add(starToBeSpawned);
@@ -3143,7 +3116,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 27)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint18_6.position, starSpawnPoint18_6.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint18_6);
             usedTransform.Add(starToBeSpawned);
@@ -3151,7 +3123,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 28)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint18_16.position, starSpawnPoint18_16.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint18_16);
             usedTransform.Add(starToBeSpawned);
@@ -3159,7 +3130,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 29)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint19_2.position, starSpawnPoint19_2.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint19_2);
             usedTransform.Add(starToBeSpawned);
@@ -3167,7 +3137,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 30)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint19_16.position, starSpawnPoint19_16.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint19_16);
             usedTransform.Add(starToBeSpawned);
@@ -3176,7 +3145,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 31) // Value Stars Ended, Attack
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_15.position, starSpawnPoint8_15.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint8_15);
             usedTransform.Add(starToBeSpawned);
@@ -3185,7 +3153,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 32) // Health
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint15_1.position, starSpawnPoint15_1.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint15_1);
             usedTransform.Add(starToBeSpawned);
@@ -3194,7 +3161,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 33) // Shield
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_3.position, starSpawnPoint4_3.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint4_3);
             usedTransform.Add(starToBeSpawned);
@@ -3202,7 +3168,6 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 34)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint18_9.position, starSpawnPoint18_9.rotation);
-            Debug.Log("Star Spawned!");
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint18_9);
             usedTransform.Add(starToBeSpawned);
@@ -3211,6 +3176,7 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 35) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
+            Debug.Log("Map 3 Spawned!");
             return;
         }
 
@@ -3229,7 +3195,7 @@ public class StarSpawnerFramework : MonoBehaviour
         if (starSpawnCount == 1)
         {
             GameObject starToBeSpawned2 = Instantiate(star.starPrefab, starSpawnPoint1_13.position, starSpawnPoint1_13.rotation);
-            global.startingStarSpawnPointList.Add(starSpawnPoint2_2);
+            global.startingStarSpawnPointList.Add(starSpawnPoint1_13);
             starSpawnCount++;
             usedTransform.Add(starToBeSpawned2);
         }
@@ -3254,7 +3220,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint3_11);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 5) // Adding more past this
+        if (starSpawnCount == 5) 
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_12.position, starSpawnPoint4_12.rotation);
             starSpawnCount++;
@@ -3322,6 +3288,275 @@ public class StarSpawnerFramework : MonoBehaviour
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_11.position, starSpawnPoint8_11.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint8_11);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 15)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_2.position, starSpawnPoint10_2.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_2);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 16)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_5.position, starSpawnPoint10_5.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_5);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 17)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_15.position, starSpawnPoint10_15.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_15);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 18)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_6.position, starSpawnPoint12_6.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint12_6);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 19)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_10.position, starSpawnPoint12_10.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint12_10);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 20)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint13_14.position, starSpawnPoint13_14.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint13_14);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 21)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_3.position, starSpawnPoint14_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint14_3);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 22)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_16.position, starSpawnPoint14_16.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint14_16);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 23)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint15_9.position, starSpawnPoint15_9.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint15_9);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 24)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint15_14.position, starSpawnPoint15_14.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint15_14);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 25)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_6.position, starSpawnPoint16_6.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_6);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 26)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_17.position, starSpawnPoint16_17.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_17);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 27)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint17_2.position, starSpawnPoint17_2.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint17_2);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 28)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint18_5.position, starSpawnPoint18_5.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint18_5);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 29)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint18_13.position, starSpawnPoint18_13.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint18_13);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 30)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint19_3.position, starSpawnPoint19_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint19_3);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 31)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint19_11.position, starSpawnPoint19_11.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint19_11);
+            usedTransform.Add(starToBeSpawned);
+            return;
+        }
+        if (starSpawnCount == 32) // Value Stars Ended, Attack
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_3.position, starSpawnPoint5_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint5_3);
+            usedTransform.Add(starToBeSpawned);
+            
+        }
+        if (starSpawnCount == 33) 
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_3.position, starSpawnPoint12_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint12_3);
+            usedTransform.Add(starToBeSpawned);
+            return;
+        }
+        if (starSpawnCount == 34) 
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_4.position, starSpawnPoint3_4.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint3_4);
+            usedTransform.Add(starToBeSpawned);
+            return;
+        }
+        if (starSpawnCount == 35) 
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_11.position, starSpawnPoint16_11.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_11);
+            usedTransform.Add(starToBeSpawned);
+            return;
+        }
+        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position; 
+        if (starSpawnCount == 36) // Node Star
+        {
+            mainNodeStar.gameObject.transform.position = _nodeStarVector3;
+            Debug.Log("Map 3 Spawned!");
+            return;
+        }
+    }
+
+    void HCMap4(StarClass star) // Caden Map 4
+    {
+        HCObstacleSwitcher(3);
+        if (starSpawnCount == 0) // Starts at 0
+        {
+            GameObject starToBeSpawned1 = Instantiate(star.starPrefab, starSpawnPoint1_7.position, starSpawnPoint1_7.rotation);
+            global.startingStarSpawnPointList.Add(starSpawnPoint1_7);
+            starSpawnCount++;
+            usedTransform.Add(starToBeSpawned1);
+        }
+        if (starSpawnCount == 1)
+        {
+            GameObject starToBeSpawned2 = Instantiate(star.starPrefab, starSpawnPoint1_15.position, starSpawnPoint1_15.rotation);
+            global.startingStarSpawnPointList.Add(starSpawnPoint1_15);
+            starSpawnCount++;
+            usedTransform.Add(starToBeSpawned2);
+        }
+        if (starSpawnCount == 2)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint2_1.position, starSpawnPoint2_1.rotation);
+            global.startingStarSpawnPointList.Add(starSpawnPoint2_1);
+            starSpawnCount++;
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 3)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint2_10.position, starSpawnPoint2_10.rotation);
+            global.startingStarSpawnPointList.Add(starSpawnPoint2_10);
+            starSpawnCount++;
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 4)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_4.position, starSpawnPoint3_4.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint3_4);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 5) 
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_13.position, starSpawnPoint3_13.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint3_13);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 6)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_9.position, starSpawnPoint4_9.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint4_9);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 7)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_16.position, starSpawnPoint4_16.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint4_16);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 8)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_1.position, starSpawnPoint5_1.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint5_1);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 9)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_11.position, starSpawnPoint5_11.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint5_11);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 10)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_3.position, starSpawnPoint6_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint6_3);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 11)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_14.position, starSpawnPoint6_14.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint6_14);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 12)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_9.position, starSpawnPoint7_9.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint7_9);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 13)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_17.position, starSpawnPoint7_17.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint7_17);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 14)
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint8_5);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 15)
@@ -3446,35 +3681,34 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 32) // Value Stars Ended, Attack
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_13.position, starSpawnPoint5_13.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_2.position, starSpawnPoint6_2.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint5_13);
+            global.startingStarSpawnPointList.Add(starSpawnPoint6_2);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 33) 
+        if (starSpawnCount == 33)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_3.position, starSpawnPoint12_3.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_7.position, starSpawnPoint16_7.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint12_3);
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_7);
             usedTransform.Add(starToBeSpawned);
             return;
         }
-        if (starSpawnCount == 34) // Health
+        if (starSpawnCount == 34) // Shield
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint3_4.position, starSpawnPoint3_4.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_7.position, starSpawnPoint7_7.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint3_4);
-            usedTransform.Add(starToBeSpawned);
-            return;
-        }
-        if (starSpawnCount == 35) // Shield
-        {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_11.position, starSpawnPoint16_11.rotation);
-            starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint16_11);
+            global.startingStarSpawnPointList.Add(starSpawnPoint7_7);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position; 
+        if (starSpawnCount == 35) 
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_16.position, starSpawnPoint16_16.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint16_16);
+            usedTransform.Add(starToBeSpawned);
+        }
+        Vector3 _nodeStarVector3 = starSpawnPoint12_11.position;
         if (starSpawnCount == 36) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
