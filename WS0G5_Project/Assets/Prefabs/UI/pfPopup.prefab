@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6484364943109889806}
   - component: {fileID: 1479819323119155905}
   - component: {fileID: 9056678726925512437}
+  - component: {fileID: 8928308565279858057}
   m_Layer: 0
   m_Name: pfPopup
   m_TagString: Untagged
@@ -183,4 +184,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bf794894055cf43a813b2ea1d1672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealthPos: {x: 0, y: 0, z: 0}
   pfPopup: {fileID: 6911597177360407794}
+--- !u!54 &8928308565279858057
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911597177360407794}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

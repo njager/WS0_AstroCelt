@@ -14,6 +14,7 @@ public class Popup : MonoBehaviour
     private Color textColor;
     private const float DISAPPEAR_TIMER_MAX = 1f;
     private static int sortingOrder;
+    [SerializeField] Vector3 enemyHealthPos;
 
     //public variables
     public static GameObject pfPopupStatic;
@@ -32,6 +33,7 @@ public class Popup : MonoBehaviour
         pfPopupStatic = pfPopup;
         global = GlobalController.instance;
         DOTween.Init();
+        enemyHealthPos = new Vector3(21, 5, 0);
     }
 
     //create the popup at position with certain #
@@ -97,13 +99,16 @@ public class Popup : MonoBehaviour
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }*/
 
+        
+        //MoveToBar();
+
         disappearTimer -= Time.deltaTime;
         if(disappearTimer < 0)
         {
             float disappearSpeed = 3f;
             textColor.a -= disappearSpeed * Time.deltaTime;
             //textMesh.color = textColor;
-            textMesh.DOFade(0f, 2f);
+            textMesh.DOFade(0f, 3f);
             
             
             if (textColor.a < 0)
@@ -111,5 +116,16 @@ public class Popup : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void MoveToBar()
+    {
+        gameObject.transform.DOMove(enemyHealthPos, 2f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Popup entered the screen!");
+        MoveToBar();
     }
 }
