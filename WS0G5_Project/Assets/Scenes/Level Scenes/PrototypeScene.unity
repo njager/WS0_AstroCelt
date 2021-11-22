@@ -3880,7 +3880,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c8c52370c7f717f428250588327cc170, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.52
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7878,17 +7878,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.00033824053
       value: 1.0023499
-      inSlope: 0.6654618
-      outSlope: 0.6654618
+      inSlope: 1.9717379
+      outSlope: 1.9717379
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 3.006073
+      time: 1.014774
       value: 3.0025513
-      inSlope: 0.6654618
-      outSlope: 0.6654618
+      inSlope: 1.9717379
+      outSlope: 1.9717379
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -19223,6 +19223,10 @@ PrefabInstance:
     - target: {fileID: 8530260791118416435, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
       propertyPath: m_Name
       value: Resource Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530260791118416435, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8530260791738725666, guid: 8d59ee30b80a33f469c4e29589b6b482, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
