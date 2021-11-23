@@ -3905,24 +3905,24 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 32) // Value Stars Ended, Attack
         {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_13.position, starSpawnPoint4_13.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint4_13);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 33) 
+        {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint13_2.position, starSpawnPoint13_2.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint13_2);
             usedTransform.Add(starToBeSpawned);
             return;
         }
-        if (starSpawnCount == 33) // Health
+        if (starSpawnCount == 34) // Health
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint2_8.position, starSpawnPoint2_8.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint2_8);
-            usedTransform.Add(starToBeSpawned);
-        }
-        if (starSpawnCount == 34) 
-        {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint4_13.position, starSpawnPoint4_13.rotation);
-            starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint4_13);
             usedTransform.Add(starToBeSpawned);
             return;
         }
