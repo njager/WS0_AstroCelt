@@ -213,7 +213,7 @@ public class UITest : MonoBehaviour
     }
 
     //confirm button function
-    public void ConfirmTileGo()
+    /*public void ConfirmTileGo()
     {
         //if it's ready, run the anims
         if (isConfirmReady)
@@ -227,7 +227,7 @@ public class UITest : MonoBehaviour
             ConfirmTileReset();
         }
         
-    }
+    }*/
 
     //run the animations for the confirm button
     IEnumerator ConfirmAnim()
@@ -258,7 +258,7 @@ public class UITest : MonoBehaviour
         //add a 2 second delay then don't allow it to be run again
         yield return new WaitForSeconds(2);
 
-        isConfirmReady = false;
+        ConfirmTileReset();
     }
 
     //reset the anims for the confirm button to normal
