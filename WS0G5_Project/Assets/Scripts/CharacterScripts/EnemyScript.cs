@@ -53,6 +53,7 @@ public class EnemyScript : MonoBehaviour
         global.UIController.isEnemyDead = false;
         enemyDamage = myStats.damage;
         turnActionCount = 1;
+        global.UIController.selector.SetActive(false); 
     }
 
     public void Update()
@@ -75,13 +76,15 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Moved!");
             global.UIController.selector.SetActive(true);
             Vector3 _newPosition = gameObject.transform.position;
-            global.UIController.selector.transform.position = _newPosition; 
+            global.UIController.selector.transform.position = _newPosition;
+            global.enemySelected = this;
         }
         else
         {
             Debug.Log("Moved!");
             Vector3 _newPosition = gameObject.transform.position;
             global.UIController.selector.transform.position = _newPosition;
+            global.enemySelected = this; 
         }
         
     }
@@ -156,7 +159,7 @@ public class EnemyScript : MonoBehaviour
         //Debug.Log("Enemy Attacks"); 
     }
 
-    public void UniqueBehavior(string identity) // Triggers behavior in the update loop while keeping that behavior separated
+    public void UniqueBehavior(string identity) 
     {
         if(identity == "Swarm")
         {

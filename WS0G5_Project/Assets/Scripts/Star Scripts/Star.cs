@@ -39,7 +39,7 @@ public class Star : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (global.constellationBuilding.hasThePlayerDrawnForTurn == false) // If the player has already drawn for turn, do nothing
+        if (global.UIController.selector.activeInHierarchy == true) // If the player has already drawn for turn, do nothing
         {
             if (global.playerScript.isPlayerTurn == true) // Check if it's the player's turns
             {
@@ -120,7 +120,7 @@ public class Star : MonoBehaviour
         }
         else
         {
-            Debug.Log("You've already drawn for the turn!"); 
+            Debug.Log("PLEASE SELECT AN ENEMYT!"); 
         }
         
     }

@@ -713,10 +713,18 @@ public class ConstellationBuildingScript : MonoBehaviour
                         float _lineMultiplier = LineMultiplierCalculator();
                         global.constellationFinalHealth += (global.constellationPotential + global.constellationPotentialHealth) * _lineMultiplier;
                         int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-                        global.playerScript.PlayerHealed(_constellationFinal);
+                        if(PlayerStats.playerVitality < 50)
+                        {
+                            global.playerScript.PlayerHealed(_constellationFinal);
+                            StartCoroutine(constellationClearGood("damage")); 
+                        }
+                        else
+                        {
+                            Debug.Log("The player is at Max Health!");
+                        }
+                        
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                        //bool isDamage = false;
-                        StartCoroutine(constellationClearGood("damage")); // Keep Persistent Proper Constellations 
+                        
                     }
                     else
                     {
@@ -786,21 +794,21 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0, true);
+            Popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1, true);
+            Popup.Create(popUpCenterPoint.position, _constellationFinal, 1, true);
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
-            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 2, true);
+            Popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;

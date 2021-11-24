@@ -28,8 +28,6 @@ public class SelectorScript : MonoBehaviour
     //private bool enemy2ActionSelected;
     //private bool enemy3ActionSelected;
 
-    public bool SelectorOff;
-
     [Header("Sprite Icons")]
     public Sprite enemyAttack;
     public Sprite enemyShield;

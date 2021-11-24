@@ -13,11 +13,16 @@ public class TurnManager : MonoBehaviour
     {
         global = GlobalController.instance;
         totalTurnCount = 1;
-        playerTurnCount = 0; 
+        playerTurnCount = totalTurnCount; 
     }
 
     public void EndTurn() // Being used
     {
+        if (global.UIController.selector.activeInHierarchy != true)
+        {
+            Debug.Log("PLEASE SELECT AN ENEMY BEFORE ENDING YOUR TURN");
+            return;
+        }
         ChangeTurn();
     }
 
