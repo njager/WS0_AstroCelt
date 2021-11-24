@@ -116,6 +116,25 @@ public class ConstellationBuildingScript : MonoBehaviour
                     global.constellationPotentialDamage += star.myStarClass.constellationValue;
                 }
             }
+            if (star.myStarClass.starType == "ShieldStar")
+            {
+                if (star == global.drawingScript.NodeStar)
+                {
+                    if (_tempStarCount == 0)
+                    {
+                        global.constellationPotentialShield -= 1;
+                    }
+                    else
+                    {
+                        global.constellationPotentialShield += star.myStarClass.constellationValue;
+                    }
+
+                }
+                else
+                {
+                    global.constellationPotentialShield += star.myStarClass.constellationValue;
+                }
+            }
         }
     }
 
@@ -131,7 +150,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         Star _temp4 = emptyStar;
         Star _temp5 = emptyStar;
         Star _temp6 = emptyStar;
-        Star _temp7 = emptyStar;
+        Star _temp7 = emptyStar; // Still need to do this 
 
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
@@ -638,7 +657,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             star.StarUsed();
             global.constellationBeingBuilt.Remove(star);
         }
-        if(_identity == "damage") // These are backwards
+        if(_identity == "damage") 
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
@@ -650,6 +669,13 @@ public class ConstellationBuildingScript : MonoBehaviour
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
             Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1);
+            Debug.Log("PopUp!");
+        }
+        if (_identity == "shield") 
+        {
+            global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
+            int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
+            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;

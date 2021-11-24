@@ -7330,6 +7330,8 @@ MonoBehaviour:
   constellationFinalDamage: 0
   constellationPotentialHealth: 0
   constellationFinalHealth: 0
+  constellationPotentialShield: 0
+  constellationFinalShield: 0
   constellationStarCount: 0
   animationCurveForMultiplier:
     serializedVersion: 2
@@ -38426,7 +38428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.81
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38438,7 +38440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.9396927
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -38450,7 +38452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0.3420201
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -38462,7 +38464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4680279276150513928, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6584052731006946824, guid: f3ac0ed648a294385856e7d57e30b2f4, type: 3}
       propertyPath: m_Mesh
