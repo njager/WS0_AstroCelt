@@ -170,12 +170,16 @@ public class GlobalController : MonoBehaviour
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false);
+        currentText = null;
         AltarSelection(); 
     }
 
     public void AltarSelection()
     {
-        currentText.SetActive(false);
+        if(currentText != null)
+        {
+            currentText.SetActive(false);
+        }
         int altarTextSelector = Random.Range(1, 4);
         GameObject _previousText = currentText;
         altarText1.SetActive(false);

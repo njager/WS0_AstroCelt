@@ -37,6 +37,7 @@ public class TurnManager : MonoBehaviour
         //global.currentEnemy.turnActionCount = 0;
         //global.newStarMapScript.NewStarsPlayTest();
         global.starSpawnerFrameworkScript.HCMapPicker();
+        global.AltarSelection();
     }
 
 
