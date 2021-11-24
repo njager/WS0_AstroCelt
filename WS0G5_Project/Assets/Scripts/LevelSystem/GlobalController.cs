@@ -29,7 +29,12 @@ public class GlobalController : MonoBehaviour
     public GameObject winCanvas;
     public GameObject loseCanvas;
     public GameObject uiCanvas;
-    public GameObject inWorldCanvas; 
+    public GameObject inWorldCanvas;
+
+    [Header("Selector Variables")]
+    public GameObject enemy1ActionIcon;
+    public GameObject enemy2ActionIcon;
+    public GameObject enemy3ActionIcon;
 
     [Header("Constellation Variables")]
     public int constellationPotential = 0; 
