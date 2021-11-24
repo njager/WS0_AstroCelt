@@ -81,7 +81,7 @@ public class StaticVariables : MonoBehaviour
     public void Start()
     {
         global = GlobalController.instance;
-        enemyStartingHealth = global.currentEnemy.enemyHealth;
+        //enemyStartingHealth = global.currentEnemy.enemyHealth;
         enemyCurrentHealth = enemyStartingHealth; 
     }
 }

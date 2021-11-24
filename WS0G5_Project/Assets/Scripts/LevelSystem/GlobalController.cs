@@ -51,10 +51,11 @@ public class GlobalController : MonoBehaviour
     public GameObject enemy1ForRound1;
     public GameObject enemy2ForRound1;
     public GameObject enemy3ForRound1; 
-    public EnemyScript currentEnemy;
+    public EnemyScript enemy1;
     public EnemyScript enemy2;
     public EnemyScript enemy3; 
-    public Transform enemySpawnPosition; 
+    public Transform enemySpawnPosition;
+    public EnemyScript enemySelected;
     
     [Header("Ints")]
     public int ListCount = 0;
@@ -65,6 +66,15 @@ public class GlobalController : MonoBehaviour
     [Header("Audio")] // For when we implement audio, grab for holders 
     public GameObject testAudioBackgroundMusic;
     public GameObject testAudiosoundEffect1;
+
+    [Header("Altar Text")]
+    public GameObject altarText1;
+    public GameObject altarText2;
+    public GameObject altarText3;
+    public GameObject currentText;
+    private GameObject testMarker1;
+    private GameObject testMarker2;
+    private GameObject testMarker3;
 
     [Header("Lists")]
     public List<Transform> startingStarSpawnPointList = new List<Transform>(); // Transforms used to not use for random spawning stars
@@ -111,11 +121,6 @@ public class GlobalController : MonoBehaviour
     public GameObject spawningFramework;
     public GameObject oldStarSpawner;
 
-    [Header("Greybox Prototype 2 Variables")]
-    public GameObject playerTextBox1;
-    public GameObject playerTextBox2;
-    public GameObject bearText; 
-
     [Header("UI Variables")]
     public static Transform pfPopup;
     //public WorldController world;
@@ -137,11 +142,23 @@ public class GlobalController : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) // Use this to trigger the bear text
+        if(Input.GetKeyDown(KeyCode.Space)) // Use this to End Turn As Well
         {
-            playerTextBox1.SetActive(false);
-            playerTextBox2.SetActive(true);
-            bearText.SetActive(true); 
+            
+        }
+        if(enemy3.enemyHealth <= 0)
+        {
+            if (enemy2.enemyHealth <= 0)
+            {
+                if (enemy1.enemyHealth <= 0)
+                {
+                   Win();
+                }
+            }
+        }
+        if(PlayerStats.playerVitality <= 0)
+        {
+            Lose();
         }
     }
 
@@ -150,12 +167,127 @@ public class GlobalController : MonoBehaviour
         Time.timeScale = 1f;
         playerTurnBar.SetActive(true);
         enemyTurnBar.SetActive(false);
-        playerTextBox1.SetActive(true);
-        playerTextBox2.SetActive(false);
-        bearText.SetActive(false);  
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
-        loseCanvas.SetActive(false); 
+        loseCanvas.SetActive(false);
+        AltarSelection(); 
+    }
+
+    public void AltarSelection()
+    {
+        currentText.SetActive(false);
+        int altarTextSelector = Random.Range(1, 4);
+        GameObject _previousText = currentText;
+        altarText1.SetActive(false);
+        altarText2.SetActive(false);
+        altarText3.SetActive(false);
+        if (altarTextSelector == 1)
+        {
+            if (_previousText == null)
+            {
+                currentText = altarText1;
+                currentText.SetActive(true);
+                return; 
+            }
+            else
+            {
+                if(_previousText == altarText1)
+                {
+                    int alternateAltarTextSelector = Random.Range(1, 2);
+                    if(alternateAltarTextSelector == 1)
+                    {
+                        currentText = altarText2;
+                        currentText.SetActive(true);
+                        return;
+                    }
+                    if (alternateAltarTextSelector == 2)
+                    {
+                        currentText = altarText3;
+                        currentText.SetActive(true);
+                        return;
+                    }
+                }
+                else
+                {
+                    currentText = altarText1;
+                    currentText.SetActive(true);
+                    return; 
+                }
+            }
+        }
+        if (altarTextSelector == 2)
+        {
+            if (_previousText == null)
+            {
+                currentText = altarText2;
+                currentText.SetActive(true);
+                return;
+            }
+            else
+            {
+                if (_previousText == altarText2)
+                {
+                    int alternateAltarTextSelector = Random.Range(1, 2);
+                    if (alternateAltarTextSelector == 1)
+                    {
+                        currentText = altarText1;
+                        currentText.SetActive(true);
+                        return;
+                    }
+                    if (alternateAltarTextSelector == 2)
+                    {
+                        currentText = altarText3;
+                        currentText.SetActive(true);
+                        return;
+                    }
+                }
+                else
+                {
+                    currentText = altarText2;
+                    currentText.SetActive(true);
+                    return;
+                }
+            }
+        }
+        if (altarTextSelector == 3)
+        {
+            if (_previousText == null)
+            {
+                currentText = altarText3;
+                currentText.SetActive(true);
+                return;
+            }
+        }
+        else
+        {
+            if (_previousText == altarText3)
+            {
+                int alternateAltarTextSelector = Random.Range(1, 2);
+                if (alternateAltarTextSelector == 1)
+                {
+                    currentText = altarText1;
+                    currentText.SetActive(true);
+                    return;
+                }
+                if (alternateAltarTextSelector == 2)
+                {
+                    currentText = altarText2;
+                    currentText.SetActive(true);
+                    return;
+                }
+            }
+            else
+            {
+                currentText = altarText3;
+                currentText.SetActive(true);
+                return;
+            }
+        }
+    }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadSceneAsync("PrototypeScene");
     }
 
     public void EndConditions()
@@ -184,12 +316,6 @@ public class GlobalController : MonoBehaviour
         EndConditions();
         //SceneManager.LoadSceneAsync("WorldScene");
         //world.overWorldTreeHealth -= 1;
-    }
-
-    public void TempAbility() // Using a place holder for the ability, since it's only temp UI anyhow
-    {
-        //Popup.Create(enemyPopUpTransform.position, 5, 1);
-        particleSystemScript.SpawnDamageParticleEffect(enemyPopUpTransform);
     }
 
 }

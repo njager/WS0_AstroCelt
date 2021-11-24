@@ -681,8 +681,8 @@ public class ConstellationBuildingScript : MonoBehaviour
                         float _lineMultiplier = LineMultiplierCalculator();  
                         global.constellationFinalDamage = (global.constellationPotential + global.constellationPotentialDamage) * _lineMultiplier;
                         int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-                        global.currentEnemy.EnemyDamaged(_constellationFinal);
-                        Debug.Log(global.currentEnemy.enemyHealth);
+                        global.enemySelected.EnemyDamaged(_constellationFinal);
+                        //Debug.Log(global.currentEnemy.enemyHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
                         //Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 1);

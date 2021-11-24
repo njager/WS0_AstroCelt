@@ -19,6 +19,7 @@ public class EnemySwitcherScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         if (StaticVariables.masterEnemyCount == 5) // For later when ther's multiple enemies 
@@ -38,6 +39,7 @@ public class EnemySwitcherScript : MonoBehaviour
             }
         }
     }
+    */
 
     public void ResetEnemies()
     {

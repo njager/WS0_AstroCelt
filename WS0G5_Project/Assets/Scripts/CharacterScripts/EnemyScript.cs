@@ -42,6 +42,7 @@ public class EnemyScript : MonoBehaviour
         isDead = false;
 
         // Setting Variables
+        /*
         if (myIdentifier == "Swarm")
         {
             _frenzyTriggered = false; 
@@ -59,7 +60,7 @@ public class EnemyScript : MonoBehaviour
         if (myIdentifier == "Legionary")
         {
             legionaryEffectCounter = 0; 
-        }
+        }*/
     }
 
     void Start()
@@ -67,7 +68,7 @@ public class EnemyScript : MonoBehaviour
         //rate = 0.1f;
         Time.timeScale = 1f;
         global = GlobalController.instance;
-        global.currentEnemy = enemySelf;
+        //global.currentEnemy = enemySelf;
         global.UIController.isEnemyDead = false;
         enemyHealth = myStats.vitality;
         enemyStartHealth = myStats.vitality;
@@ -136,7 +137,7 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
-    public void EnemyTurnAction() // Put this in enemy 
+    public void EnemyTurnAction() 
     {
         if (isYourTurn == true)
         {
@@ -144,15 +145,15 @@ public class EnemyScript : MonoBehaviour
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     global.starSpawnerFrameworkScript.LegionaryEffect();
                     StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     StartCoroutine(EnemyTurnTimer());
                 }
             }
@@ -160,8 +161,8 @@ public class EnemyScript : MonoBehaviour
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                     //spawnTimer = 2.5f;
@@ -169,8 +170,8 @@ public class EnemyScript : MonoBehaviour
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     StartCoroutine(EnemyTurnTimer());
                 }
             }
@@ -178,13 +179,13 @@ public class EnemyScript : MonoBehaviour
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
                     //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     StartCoroutine(EnemyTurnTimer());
                 }
@@ -264,12 +265,13 @@ public class EnemyScript : MonoBehaviour
 
     public void enemyDie() // Death
     {
-        //StaticVariables.masterEnemyCount += 1;
+        StaticVariables.masterEnemyCount -= 1;
+        this.gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
-        global.UIController.isEnemyDead = true;
+        //global.UIController.isEnemyDead = true;
         //Destroy(enemyGameObject)
         isDead = true;
-        global.currentEnemy.gameObject.SetActive(false);
+        //global.currentEnemy.gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.HCEnemySwitch();
     }
 
@@ -280,12 +282,13 @@ public class EnemyScript : MonoBehaviour
         if (myIdentifier == "Swarm")
         {
             _swarmAttackedAmount = _health;
-            UniqueBehavior(myIdentifier);
+            //UniqueBehavior(myIdentifier);
             _damageIndicator = 0;
         }
         else
         {
-            Debug.Log("Not Yet in Frenzy");
+            //Debug.Log("Not Yet in Frenzy");
+            return;
         }
         _damageIndicator = 0;
     }

@@ -33,8 +33,8 @@ public class TurnManager : MonoBehaviour
     {
         totalTurnCount += 1; // Fix later, lol
         playerTurnCount = totalTurnCount;
-        global.currentEnemy.isYourTurn = true;
-        global.currentEnemy.turnActionCount = 0;
+        //global.currentEnemy.isYourTurn = true;
+        //global.currentEnemy.turnActionCount = 0;
         //global.newStarMapScript.NewStarsPlayTest();
         global.starSpawnerFrameworkScript.HCMapPicker();
     }
