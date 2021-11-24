@@ -11,6 +11,7 @@ public class UITest : MonoBehaviour
     //public variables
     //[Header("Public Variables")]
     //public static Transform pfPopup;
+    //public Vector3 enemyPos;
 
     //private variables
     [Header("Variables")]
@@ -27,7 +28,7 @@ public class UITest : MonoBehaviour
     [SerializeField] bool isNone;
     [SerializeField] bool isAttack;
     [SerializeField] bool isHeal;
-    [SerializeField] bool isShield;
+    [SerializeField] bool isShield; 
     private float spawnTimer = 1f;
     private GameObject attackTileNormal;
     private GameObject attackTileGlow;
@@ -40,6 +41,7 @@ public class UITest : MonoBehaviour
     private bool isShieldTileGlow;
     private bool isConfirmReady;
     int confirmTileIndex;
+    
 
     //UI variables
     [Header("UI Element Slots")]
@@ -50,6 +52,7 @@ public class UITest : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
+    [SerializeField] Transform enemyHealthBarPos;
     [SerializeField] Image enemyChargeBar;
     [SerializeField] GameObject attackTile;
     [SerializeField] Animator attackTileAnimator;
@@ -60,6 +63,7 @@ public class UITest : MonoBehaviour
     [SerializeField] List<Image> confirmTileImages;
     [SerializeField] Image currentConfirmButtonImage;
     [SerializeField] Button confirmButton;
+    [SerializeField] Transform popupPosTest;
 
 
     // Start is called before the first frame update
@@ -86,6 +90,9 @@ public class UITest : MonoBehaviour
 
         //set up bools
         isConfirmReady = false;
+
+        //find enemy health bar
+        //enemyPos = enemyHealthBarPos.position;
     }
 
     // Update is called once per frame
@@ -112,7 +119,7 @@ public class UITest : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, 0);
+            Popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
             spawnTimer = 1f;
         }
 
@@ -120,22 +127,22 @@ public class UITest : MonoBehaviour
         SetText();
 
         //test popup
-        /*if (Input.GetKeyDown(KeyCode.F))
-        {
-            Popup.Create(new Vector3(-500, 0, 0), 3);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Popup.Create(new Vector3(0, 5, 0), 7);
-        }
         if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0, true);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1);
-        }*/
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1, false);
+        }
+        else if (Input.GetMouseButtonDown(2))
+        {
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 2, true);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            Popup.Create(new Vector3(21, 7, 0), 5, 1, true);
+        }
 
         //debug controls for the tile feedback
         if (Input.GetKeyDown(KeyCode.T))
@@ -175,6 +182,11 @@ public class UITest : MonoBehaviour
             currentConfirmButtonImage = confirmTileImages[confirmTileIndex];
             confirmButton.image = currentConfirmButtonImage;
         }
+
+        /*if (Input.GetKeyDown(KeyCode.W))
+        {
+            popupPosTest.DOMove(enemyPos, 2f);
+        }*/
 
     }
 
