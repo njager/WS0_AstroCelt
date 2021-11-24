@@ -2412,7 +2412,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         mainNodeStar = global.drawingScript.NodeStar;
         int _map = Random.Range(1, 16); // Needs to be max range +1;
-        if (_map == 1) // Map 1
+        /*if (_map == 1) // Map 1
         {
             Debug.Log("Map 1 Picked");
             ClearStars();
@@ -2423,8 +2423,8 @@ public class StarSpawnerFramework : MonoBehaviour
             SpawnStar(baseStar);
             SpawnStar(actionHealthStar);
             SpawnStar(actionDamageStar);
-        }
-        if (_map == 2) // Map 2, just damage
+        }*/
+        if (_map == 1) // Map 2, just damage
         {
             Debug.Log("Map 2 Picked");
             ClearStars();
@@ -2437,7 +2437,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap2(actionHealthStar);
             HCMap2(shieldStar);
         }
-        if (_map == 3) // Map 3
+        if (_map == 2) // Map 3
         {
             Debug.Log("Map 3 Picked");
             ClearStars();
@@ -2450,7 +2450,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap3(actionHealthStar);
             HCMap3(shieldStar);
         }
-        if (_map == 4) // Map 4
+        /*if (_map == 4) // Map 4
         {
             Debug.Log("Map 4 Picked");
             ClearStars();
@@ -2461,8 +2461,8 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap4(baseStar);
             HCMap4(actionDamageStar);
             HCMap4(shieldStar);
-        }
-        if (_map == 5) // Map 5
+        }*/
+        if (_map == 3) // Map 5
         {
             Debug.Log("Map 5 Picked");
             ClearStars();
@@ -2475,7 +2475,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap5(actionHealthStar);
             HCMap5(shieldStar);
         }
-        if (_map == 6) // Map 6
+        if (_map == 4) // Map 6
         {
             Debug.Log("Map 6 Picked");
             ClearStars();
@@ -2486,7 +2486,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap6(baseStar);
             HCMap6(actionDamageStar);
         }
-        if (_map == 7) // Map 7
+        if (_map == 5) // Map 7
         {
             Debug.Log("Map 7 Picked");
             ClearStars();
@@ -2498,7 +2498,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap7(actionDamageStar);
             HCMap7(actionHealthStar);
         }
-        if (_map == 8) // Map 8
+        /*if (_map == 8) // Map 8
         {
             Debug.Log("Map 8 Picked");
             ClearStars();
@@ -2509,8 +2509,8 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap8(baseStar);
             HCMap8(actionDamageStar);
             HCMap8(actionHealthStar);
-        }
-        if (_map == 9) // Map 9
+        }*/
+        if (_map == 6) // Map 9
         {
             Debug.Log("Map 9 Picked");
             ClearStars();
@@ -2523,7 +2523,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap9(actionHealthStar);
             HCMap9(shieldStar);
         }
-        if (_map == 10) // Map 10
+        /*if (_map == 10) // Map 10
         {
             Debug.Log("Map 10 Picked");
             ClearStars();
@@ -2534,8 +2534,8 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap10(baseStar);
             HCMap10(actionDamageStar);
             HCMap10(shieldStar);
-        }
-        if (_map == 11) // Map 11
+        }*/
+        if (_map == 7) // Map 11
         {
             Debug.Log("Map 11 Picked");
             ClearStars();
@@ -2547,7 +2547,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap11(actionDamageStar);
             HCMap11(shieldStar);
         }
-        if (_map == 12) // Map 12
+        if (_map == 8) // Map 12
         {
             Debug.Log("Map 12 Picked");
             ClearStars();
@@ -2560,7 +2560,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap12(actionHealthStar);
             HCMap12(shieldStar);
         }
-        if (_map == 13) // Map 13
+        if (_map == 9) // Map 13
         {
             Debug.Log("Map 13 Picked");
             ClearStars();
@@ -2572,7 +2572,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap13(actionDamageStar);
             HCMap13(shieldStar);
         }
-        if (_map == 14) // Map 14
+        if (_map == 10) // Map 14
         {
             Debug.Log("Map 14 Picked");
             ClearStars();
@@ -2585,7 +2585,7 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap14(actionHealthStar);
             HCMap14(shieldStar);
         }
-        if (_map == 15) // Map 15
+        if (_map == 11) // Map 15
         {
             Debug.Log("Map 15 Picked");
             ClearStars();
