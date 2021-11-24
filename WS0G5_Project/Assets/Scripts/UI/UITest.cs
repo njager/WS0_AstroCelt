@@ -148,7 +148,7 @@ public class UITest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             //debug control to use the confirm button
-            ConfirmTileGo();
+            //ConfirmTileGo();
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {

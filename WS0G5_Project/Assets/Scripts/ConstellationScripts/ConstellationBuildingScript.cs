@@ -19,7 +19,13 @@ public class ConstellationBuildingScript : MonoBehaviour
     private Star startingStar_Star; // Drawing script star reference
     public Vector3 startingStarPosition; // The position of the starting star needed for 
     public Vector3 offset; // Changing position for aesthetics
-    public bool hasThePlayerDrawnForTurn; 
+    public bool hasThePlayerDrawnForTurn;
+    public bool isShieldCon;
+    public bool isHealthCon;
+    public bool isDamageCon;
+
+    [Header("Popup and Particles")]
+    public Transform popUpCenterPoint; 
     
     [Header("In-Script Lists")]
     public List<GameObject> lineFinal = new List<GameObject>();
@@ -44,7 +50,11 @@ public class ConstellationBuildingScript : MonoBehaviour
         startingStarPosition = startingStarGO.transform.position;
         checkCount = 0; // To reset the count each method call
         ConstellationCheck(); // Should check the values of the current list
-    }
+
+        isShieldCon = false;
+        isHealthCon = false;
+        isDamageCon = false; 
+}
 
     public void ConstellationCheck()
     {
@@ -89,6 +99,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     else
                     {
                         global.constellationPotentialHealth += star.myStarClass.constellationValue;
+                        isHealthCon = true;
                     }
                         
                 }
@@ -108,6 +119,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     else
                     {
                         global.constellationPotentialDamage += star.myStarClass.constellationValue;
+                        isDamageCon = true;
                     }
 
                 }
@@ -127,6 +139,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     else
                     {
                         global.constellationPotentialShield += star.myStarClass.constellationValue;
+                        isShieldCon = true; 
                     }
 
                 }
@@ -773,21 +786,21 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-            //Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
+            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0, true);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-            //Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1);
+            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1, true);
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
-            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
+            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 2, true);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;
