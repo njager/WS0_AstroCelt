@@ -30,7 +30,7 @@ public class Star : MonoBehaviour
         global = GlobalController.instance;
 
         global.ListCount++;
-        Debug.Log("Star Added");
+        //Debug.Log("Star Added");
 
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;

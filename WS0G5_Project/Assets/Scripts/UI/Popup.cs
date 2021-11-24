@@ -117,7 +117,7 @@ public class Popup : MonoBehaviour
         //float moveYSpeed = 20f;
         if (transform.parent != null && transform.parent.tag != "Reference")
         {
-            Debug.Log("Has a parent is not reference");
+            //Debug.Log("Has a parent is not reference");
         }
         if (transform.parent != null && transform.parent.tag == "Reference")
         {

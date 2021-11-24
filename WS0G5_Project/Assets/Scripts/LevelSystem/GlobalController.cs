@@ -71,10 +71,7 @@ public class GlobalController : MonoBehaviour
     public GameObject altarText1;
     public GameObject altarText2;
     public GameObject altarText3;
-    public GameObject currentText;
-    private GameObject testMarker1;
-    private GameObject testMarker2;
-    private GameObject testMarker3;
+    public GameObject previousText;
 
     [Header("Lists")]
     public List<Transform> startingStarSpawnPointList = new List<Transform>(); // Transforms used to not use for random spawning stars
@@ -170,132 +167,152 @@ public class GlobalController : MonoBehaviour
         oldStarSpawner.SetActive(false); 
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false);
-        currentText = null;
+        altarText1.SetActive(false);
+        altarText2.SetActive(false);
+        altarText3.SetActive(false);
+        previousText = null;
         AltarSelection(); 
     }
 
     public void AltarSelection()
     {
-        if(currentText != null)
-        {
-            currentText.SetActive(false);
-        }
         int altarTextSelector = Random.Range(1, 4);
-        GameObject _previousText = currentText;
-        altarText1.SetActive(false);
-        altarText2.SetActive(false);
-        altarText3.SetActive(false);
         if (altarTextSelector == 1)
         {
-            if (_previousText == null)
+            if (previousText == null)
             {
-                currentText = altarText1;
-                currentText.SetActive(true);
-                Debug.Log("Setting Altar 1");
+                previousText = altarText1;
+                altarText1.SetActive(true);
+                altarText2.SetActive(false);
+                altarText3.SetActive(false);
+                //Debug.Log("Setting Altar 1");
                 return; 
             }
             else
             {
-                if(_previousText == altarText1)
+                if(previousText == altarText1)
                 {
-                    int alternateAltarTextSelector = Random.Range(1, 2);
+                    int alternateAltarTextSelector = Random.Range(1, 3);
                     if(alternateAltarTextSelector == 1)
                     {
-                        currentText = altarText2;
-                        currentText.SetActive(true);
-                        Debug.Log("Setting Altar 2");
+                        previousText = altarText2;
+                        altarText1.SetActive(false);
+                        altarText2.SetActive(true);
+                        altarText3.SetActive(false);
+                        //Debug.Log("Setting Altar 2");
                         return;
                     }
                     if (alternateAltarTextSelector == 2)
                     {
-                        currentText = altarText3;
-                        currentText.SetActive(true);
-                        Debug.Log("Setting Altar 3");
+                        previousText = altarText3;
+                        altarText1.SetActive(false);
+                        altarText2.SetActive(false);
+                        altarText3.SetActive(true);
+                        //Debug.Log("Setting Altar 3");
                         return;
                     }
                 }
                 else
                 {
-                    currentText = altarText1;
-                    currentText.SetActive(true);
-                    Debug.Log("Setting Altar 1");
+                    previousText = altarText1;
+                    altarText1.SetActive(true);
+                    altarText2.SetActive(false);
+                    altarText3.SetActive(false);
+                    //Debug.Log("Setting Altar 1");
                     return; 
                 }
             }
         }
         if (altarTextSelector == 2)
         {
-            if (_previousText == null)
+            if (previousText == null)
             {
-                currentText = altarText2;
-                currentText.SetActive(true);
-                Debug.Log("Setting Altar 2");
+                previousText = altarText2;
+                altarText1.SetActive(false);
+                altarText2.SetActive(true);
+                altarText3.SetActive(false);
+                //Debug.Log("Setting Altar 2");
                 return;
             }
             else
             {
-                if (_previousText == altarText2)
+                if (previousText == altarText2)
                 {
-                    int alternateAltarTextSelector = Random.Range(1, 2);
+                    int alternateAltarTextSelector = Random.Range(1, 3);
                     if (alternateAltarTextSelector == 1)
                     {
-                        currentText = altarText1;
-                        currentText.SetActive(true);
-                        Debug.Log("Setting Altar 1");
+                        previousText = altarText1;
+                        altarText1.SetActive(true);
+                        altarText2.SetActive(false);
+                        altarText3.SetActive(false);
+                        //Debug.Log("Setting Altar 1");
                         return;
                     }
                     if (alternateAltarTextSelector == 2)
                     {
-                        currentText = altarText3;
-                        currentText.SetActive(true);
-                        Debug.Log("Setting Altar 3");
+                        previousText = altarText3;
+                        altarText1.SetActive(false);
+                        altarText2.SetActive(false);
+                        altarText3.SetActive(true);
+                        //Debug.Log("Setting Altar 3");
                         return;
                     }
                 }
                 else
                 {
-                    currentText = altarText2;
-                    currentText.SetActive(true);
-                    Debug.Log("Setting Altar 2");
+                    previousText = altarText2;
+                    altarText1.SetActive(false);
+                    altarText2.SetActive(true);
+                    altarText3.SetActive(false);
+                    //Debug.Log("Setting Altar 2");
                     return;
+
                 }
             }
         }
         if (altarTextSelector == 3)
         {
-            if (_previousText == null)
+            if (previousText == null)
             {
-                currentText = altarText3;
-                currentText.SetActive(true);
-                Debug.Log("Setting Altar 3");
+                previousText = altarText3;
+                altarText1.SetActive(false);
+                altarText2.SetActive(false);
+                altarText3.SetActive(true);
+                //Debug.Log("Setting Altar 3");
                 return;
             }
         }
         else
         {
-            if (_previousText == altarText3)
+            if (previousText == altarText3)
             {
-                int alternateAltarTextSelector = Random.Range(1, 2);
+                int alternateAltarTextSelector = Random.Range(1, 3);
                 if (alternateAltarTextSelector == 1)
                 {
-                    currentText = altarText1;
-                    currentText.SetActive(true);
-                    Debug.Log("Setting Altar 1");
+                    previousText = altarText1;
+                    altarText1.SetActive(true);
+                    altarText2.SetActive(false);
+                    altarText3.SetActive(false);
+                    //Debug.Log("Setting Altar 1");
                     return;
                 }
                 if (alternateAltarTextSelector == 2)
                 {
-                    currentText = altarText2;
-                    currentText.SetActive(true);
-                    Debug.Log("Setting Altar 2");
+                    previousText = altarText2;
+                    altarText1.SetActive(false);
+                    altarText2.SetActive(true);
+                    altarText3.SetActive(false);
+                    //Debug.Log("Setting Altar 2");
                     return;
                 }
             }
             else
             {
-                currentText = altarText3;
-                currentText.SetActive(true);
-                Debug.Log("Setting Altar 3");
+                previousText = altarText3;
+                altarText1.SetActive(false);
+                altarText2.SetActive(false);
+                altarText3.SetActive(true);
+                //Debug.Log("Setting Altar 3");
                 return;
             }
         }
