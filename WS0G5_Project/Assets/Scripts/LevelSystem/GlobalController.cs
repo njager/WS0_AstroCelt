@@ -191,6 +191,7 @@ public class GlobalController : MonoBehaviour
             {
                 currentText = altarText1;
                 currentText.SetActive(true);
+                Debug.Log("Setting Altar 1");
                 return; 
             }
             else
@@ -202,12 +203,14 @@ public class GlobalController : MonoBehaviour
                     {
                         currentText = altarText2;
                         currentText.SetActive(true);
+                        Debug.Log("Setting Altar 2");
                         return;
                     }
                     if (alternateAltarTextSelector == 2)
                     {
                         currentText = altarText3;
                         currentText.SetActive(true);
+                        Debug.Log("Setting Altar 3");
                         return;
                     }
                 }
@@ -215,6 +218,7 @@ public class GlobalController : MonoBehaviour
                 {
                     currentText = altarText1;
                     currentText.SetActive(true);
+                    Debug.Log("Setting Altar 1");
                     return; 
                 }
             }
@@ -225,6 +229,7 @@ public class GlobalController : MonoBehaviour
             {
                 currentText = altarText2;
                 currentText.SetActive(true);
+                Debug.Log("Setting Altar 2");
                 return;
             }
             else
@@ -236,12 +241,14 @@ public class GlobalController : MonoBehaviour
                     {
                         currentText = altarText1;
                         currentText.SetActive(true);
+                        Debug.Log("Setting Altar 1");
                         return;
                     }
                     if (alternateAltarTextSelector == 2)
                     {
                         currentText = altarText3;
                         currentText.SetActive(true);
+                        Debug.Log("Setting Altar 3");
                         return;
                     }
                 }
@@ -249,6 +256,7 @@ public class GlobalController : MonoBehaviour
                 {
                     currentText = altarText2;
                     currentText.SetActive(true);
+                    Debug.Log("Setting Altar 2");
                     return;
                 }
             }
@@ -259,6 +267,7 @@ public class GlobalController : MonoBehaviour
             {
                 currentText = altarText3;
                 currentText.SetActive(true);
+                Debug.Log("Setting Altar 3");
                 return;
             }
         }
@@ -271,12 +280,14 @@ public class GlobalController : MonoBehaviour
                 {
                     currentText = altarText1;
                     currentText.SetActive(true);
+                    Debug.Log("Setting Altar 1");
                     return;
                 }
                 if (alternateAltarTextSelector == 2)
                 {
                     currentText = altarText2;
                     currentText.SetActive(true);
+                    Debug.Log("Setting Altar 2");
                     return;
                 }
             }
@@ -284,6 +295,7 @@ public class GlobalController : MonoBehaviour
             {
                 currentText = altarText3;
                 currentText.SetActive(true);
+                Debug.Log("Setting Altar 3");
                 return;
             }
         }
