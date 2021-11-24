@@ -20,6 +20,10 @@ public class GlobalController : MonoBehaviour
     /// functions in my other script from a completely other scripts 
     /// </summary>
 
+    [Header("Designer Values")]
+    public float lowerBoundLine = 10f;
+    public float upperBoundLine = 50f;
+
     // UI Canvases
     [Header("Canvases")]
     public GameObject winCanvas;
@@ -31,6 +35,8 @@ public class GlobalController : MonoBehaviour
     public float constellationFinalDamage = 0f;
     public int constellationPotentialHealth = 0;
     public float constellationFinalHealth = 0;
+    public int constellationPotentialShield = 0;
+    public float constellationFinalShield = 0f;
     public int constellationStarCount = 0;
     public AnimationCurve animationCurveForMultiplier;
 
@@ -111,6 +117,8 @@ public class GlobalController : MonoBehaviour
     [Header("UI Variables")]
     public static Transform pfPopup;
     //public WorldController world;
+
+    
 
     void Awake()
     {

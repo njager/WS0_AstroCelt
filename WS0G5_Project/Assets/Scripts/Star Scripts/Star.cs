@@ -161,24 +161,27 @@ public class Star : MonoBehaviour
         return _TempCount;
     }
 
-    void OnTriggerEnter(Collider col) // Here it detects the other gameObject
+    /*void OnTriggerEnter(Collider col) // Here it detects the other gameObject
     {
         GameObject other = col.gameObject; // Col GameObject 
         if (myStarClass.starType != "NodeStar")
         {
-            if (other != gameObject)
+            if (other != this.gameObject)
             {
-                if (myCount < other.GetComponent<Star>().myCount)
-                {
-                    other.SetActive(false);
-                    Debug.Log("Destroying Other Star");
-                    return;
-                }
-                else
-                {
-                    Debug.Log("Destroying Self");
-                    gameObject.SetActive(false);
-                    return;
+                if (other.GetComponent<LineRenderer>() == null)
+                    {
+                    if (myCount < other.GetComponent<Star>().myCount)
+                    {
+                        other.SetActive(false);
+                        Debug.Log("Destroying Other Star");
+                        return;
+                    }
+                    else
+                    {
+                        Debug.Log("Destroying Self");
+                        gameObject.SetActive(false);
+                        return;
+                    }
                 }
             }
         }
@@ -218,7 +221,7 @@ public class Star : MonoBehaviour
         {
             return; 
         }
-    }
+    }*/
 
     public void StunStarAbility()
     {

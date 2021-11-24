@@ -12,11 +12,16 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         global = GlobalController.instance;
-        totalTurnCount = 0;
+        totalTurnCount = 1;
         playerTurnCount = 0; 
     }
 
-    public void ConfirmButton()
+    public void EndTurn() // Being used
+    {
+        ChangeTurn();
+    }
+
+    public void ConfirmButton() // Not being used
     {
         FinishLinesColor(); 
         ChangeTurn();
@@ -26,11 +31,12 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        totalTurnCount += 2; // Fix later, lol
-        playerTurnCount = totalTurnCount / 2;
+        totalTurnCount += 1; // Fix later, lol
+        playerTurnCount = totalTurnCount;
         global.currentEnemy.isYourTurn = true;
         global.currentEnemy.turnActionCount = 0;
-        global.newStarMapScript.NewStarsPlayTest();
+        //global.newStarMapScript.NewStarsPlayTest();
+        global.starSpawnerFrameworkScript.HCMapPicker();
     }
 
 

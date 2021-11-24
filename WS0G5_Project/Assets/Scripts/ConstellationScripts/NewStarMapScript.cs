@@ -62,9 +62,9 @@ public class NewStarMapScript : MonoBehaviour
         global.drawingScript.nodeStar2.gameObject.SetActive(true);
         global.drawingScript.star1 = global.drawingScript.nodeStar2;
         global.drawingScript.NodeStar.gameObject.SetActive(false); 
-        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.baseStar);
-        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionHealthStar);
-        global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionDamageStar);
+        //global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.baseStar);
+        //global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionHealthStar);
+        //global.starSpawnerFrameworkScript.HandBuiltMap2(global.starSpawnerFrameworkScript.actionDamageStar);
     }
 
     public void NewStarsPlayTest()
