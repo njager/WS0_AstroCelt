@@ -148,6 +148,8 @@ public class GlobalController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)) // Use this to End Turn As Well
         {
             //SceneManager.LoadSceneAsync("PrototypeScene");
+            //Win();
+            //Lose(); 
         }
         if(PlayerStats.playerVitality <= 0)
         {
@@ -328,6 +330,12 @@ public class GlobalController : MonoBehaviour
         starSpawnerFrameworkScript.ClearPoints();
         starSpawnerFrameworkScript.ClearLines();
         starSpawnerFrameworkScript.HCObstacleSwitcher(-1);
+        drawingScript.NodeStar.gameObject.SetActive(false);
+        player.SetActive(false);
+        enemy1ForRound1.SetActive(false);
+        enemy2ForRound1.SetActive(false);
+        enemy3ForRound1.SetActive(false);
+        StaticVariables.masterEnemyCount = 0;
         return; 
     }
 
