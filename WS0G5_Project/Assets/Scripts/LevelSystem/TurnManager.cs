@@ -31,13 +31,16 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        totalTurnCount += 1; // Fix later, lol
+        totalTurnCount += 1; 
         playerTurnCount = totalTurnCount;
-        //global.currentEnemy.isYourTurn = true;
-        //global.currentEnemy.turnActionCount = 0;
-        //global.newStarMapScript.NewStarsPlayTest();
         global.starSpawnerFrameworkScript.HCMapPicker();
         global.AltarSelection();
+        global.enemy1.turnActionCount = 0;
+        global.enemy2.turnActionCount = 0;
+        global.enemy3.turnActionCount = 0;
+        global.enemy1.isYourTurn = true;
+        global.enemy2.isYourTurn = true;
+        global.enemy3.isYourTurn = true;
     }
 
 

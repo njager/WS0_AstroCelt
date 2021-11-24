@@ -103,7 +103,7 @@ public class EnemyScript : MonoBehaviour
         {
             if (myIdentifier == "Enemy1")
             {
-                if (global.turnManagerScript.totalTurnCount > 1)
+                if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                     iEnumeratorTriggered = true;
@@ -113,7 +113,7 @@ public class EnemyScript : MonoBehaviour
             }
             if (myIdentifier == "Enemy2")
             {
-                if (global.turnManagerScript.totalTurnCount > 1)
+                if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                     iEnumeratorTriggered = true;
@@ -123,7 +123,7 @@ public class EnemyScript : MonoBehaviour
             }
             if (myIdentifier == "Enemy3")
             {
-                if (global.turnManagerScript.totalTurnCount > 1)
+                if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                     iEnumeratorTriggered = true;
