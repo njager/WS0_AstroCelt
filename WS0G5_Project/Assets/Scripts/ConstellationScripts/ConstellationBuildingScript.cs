@@ -150,7 +150,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         Star _temp4 = emptyStar;
         Star _temp5 = emptyStar;
         Star _temp6 = emptyStar;
-        Star _temp7 = emptyStar; // Still need to do this 
+        Star _temp7 = emptyStar;
 
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
@@ -178,84 +178,88 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 _temp6 = star;
             }
-            if (_tempCount == 6) // Star 6 in list 
+            if (_tempCount == 6) // Star 7 in list 
             {
                 _temp7 = star;
-            } // Only have gotten here
+            } 
             _tempCount++;
-            if (_temp1 == _temp2) // Comparing 1 to 2
-            {
-                if (_temp1 != emptyStar)
-                {
-                    if (_temp2 != emptyStar)
-                    {
-                        if (_temp1 != emptyStar)
-                        {
-                            if (_temp1 != global.drawingScript.NodeStar)
-                            {
-                                if (_temp1 == _temp2)
-                                {
-                                    Debug.Log("Duplicates in Constellation!");
-                                    conBool = true;
-                                    return;
-                                }
-                                else
-                                {
-                                    conBool = false;
-                                }
+        }
 
-                            }
+        if (_temp1 == _temp2) // Comparing 1 to 2
+        {
+            if (_temp1 != emptyStar)
+            {
+                if (_temp2 != emptyStar)
+                {
+                    if (_temp1 != global.drawingScript.NodeStar)
+                    {
+                        if (_temp1 == _temp2)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                            return;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (_temp1 == _temp3) // Comparing 1 to 3
+        {
+            if (_temp1 != emptyStar)
+            {
+                if (_temp3 != emptyStar)
+                {
+                    if (_temp1 != global.drawingScript.NodeStar)
+                    {
+                        if (_temp1 == _temp3)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                            return;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (_temp1 == _temp4) // Comparing 1 to 4
+        {
+            if (_temp1 != emptyStar)
+            {
+                if (_temp4 != emptyStar)
+                {
+                    if (_temp1 != global.drawingScript.NodeStar)
+                    {
+                        if (_temp1 == _temp4)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                            return;
+                        }
+                        else
+                        {
+                            conBool = false;
                         }
 
                     }
                 }
             }
-            if (_temp1 == _temp3) // Comparing 1 to 3
-            {
-                if (_temp1 != emptyStar)
-                {
-                    if (_temp3 != emptyStar)
-                    {
-                        if (_temp1 != global.drawingScript.NodeStar)
-                        {
-                            if (_temp1 == _temp3)
-                            {
-                                Debug.Log("Duplicates in Constellation!");
-                                conBool = true;
-                                return;
-                            }
-                            else
-                            {
-                                conBool = false;
-                            }
-                        }
-                    }
-                }
-            }
-            if (_temp1 == _temp4) // Comparing 1 to 4
-            {
-                if (_temp1 != emptyStar)
-                {
-                    if (_temp4 != emptyStar)
-                    {
-                        if (_temp1 != global.drawingScript.NodeStar)
-                        {
-                            if (_temp1 == _temp4)
-                            {
-                                Debug.Log("Duplicates in Constellation!");
-                                conBool = true;
-                                return;
-                            }
-                            else
-                            {
-                                conBool = false;
-                            }
+        }
 
-                        }
-                    }
-                }
-            }
-            if (_temp1 == _temp5) // Comparing 1 to 5
+
+
+
+
+        if (_temp1 == _temp5) // Comparing 1 to 5
             {
                 if (_temp1 != emptyStar)
                 {
@@ -264,6 +268,29 @@ public class ConstellationBuildingScript : MonoBehaviour
                         if (_temp1 != global.drawingScript.NodeStar)
                         {
                             if (_temp1 == _temp5)
+                            {
+                                Debug.Log("Duplicates in Constellation!");
+                                conBool = true;
+                                return;
+                            }
+                            else
+                            {
+                                conBool = false;
+                            }
+
+                        }
+                    }
+                }
+            }
+            if (_temp1 == _temp6) // Comparing 1 to 6
+            {
+                if (_temp1 != emptyStar)
+                {
+                    if (_temp6 != emptyStar)
+                    {
+                        if (_temp1 != global.drawingScript.NodeStar)
+                        {
+                            if (_temp1 == _temp6)
                             {
                                 Debug.Log("Duplicates in Constellation!");
                                 conBool = true;
@@ -354,6 +381,25 @@ public class ConstellationBuildingScript : MonoBehaviour
                     }
                 }
             }
+            if (_temp2 == _temp7) // Comparing 2 to 7
+            {
+                if (_temp2 != emptyStar)
+                {
+                    if (_temp7 != emptyStar)
+                    {
+                        if (_temp2 == _temp7)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                            return;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
             if (_temp3 == _temp4) // Comparing 3 to 4
             {
                 if (_temp3 != emptyStar)
@@ -398,7 +444,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 {
                     if (_temp6 != emptyStar)
                     {
-                        if (_temp3 == _temp5)
+                        if (_temp3 == _temp6)
                         {
                             Debug.Log("Duplicates in Constellation!");
                             conBool = true;
@@ -411,7 +457,26 @@ public class ConstellationBuildingScript : MonoBehaviour
                     }
                 }
             }
-            if (_temp4 == _temp5) // Comapring 4 to 5
+            if (_temp3 == _temp6) // Comparing 3 to 7
+            {
+                if (_temp3 != emptyStar)
+                {
+                    if (_temp7 != emptyStar)
+                    {
+                        if (_temp3 == _temp7)
+                        {
+                            Debug.Log("Duplicates in Constellation!");
+                            conBool = true;
+                            return;
+                        }
+                        else
+                        {
+                            conBool = false;
+                        }
+                    }
+                }
+            }
+            if (_temp4 == _temp5) // Comparing 4 to 5
             {
                 if (_temp4 != emptyStar)
                 {
@@ -432,13 +497,13 @@ public class ConstellationBuildingScript : MonoBehaviour
             }
 
         }
-        if (_temp3 == _temp5) // Comparing 4 to 6
+        if (_temp4 == _temp6) // Comparing 4 to 6
         {
-            if (_temp3 != emptyStar)
+            if (_temp4 != emptyStar)
             {
-                if (_temp5 != emptyStar)
+                if (_temp6 != emptyStar)
                 {
-                    if (_temp3 == _temp5)
+                    if (_temp4 == _temp6)
                     {
                         Debug.Log("Duplicates in Constellation!");
                         conBool = true;
@@ -451,13 +516,13 @@ public class ConstellationBuildingScript : MonoBehaviour
                 }
             }
         }
-        if (_temp3 == _temp5) // Comparing 5 to 6
+        if (_temp4 == _temp6) // Comparing 4 to 7
         {
-            if (_temp3 != emptyStar)
+            if (_temp4 != emptyStar)
             {
-                if (_temp5 != emptyStar)
+                if (_temp7 != emptyStar)
                 {
-                    if (_temp3 == _temp5)
+                    if (_temp4 == _temp7)
                     {
                         Debug.Log("Duplicates in Constellation!");
                         conBool = true;
@@ -470,15 +535,53 @@ public class ConstellationBuildingScript : MonoBehaviour
                 }
             }
         }
-        if (_temp1 == _temp6) // Comparing 1 to 6, should be the same, star 7 can't exist currently 
+        if (_temp5 == _temp6) // Comparing 5 to 6
+        {
+            if (_temp5 != emptyStar)
+            {
+                if (_temp6 != emptyStar)
+                {
+                    if (_temp5 == _temp6)
+                    {
+                        Debug.Log("Duplicates in Constellation!");
+                        conBool = true;
+                        return;
+                    }
+                    else
+                    {
+                        conBool = false;
+                    }
+                }
+            }
+        }
+        if (_temp5 == _temp7) // Comparing 5 to 7
+        {
+            if (_temp5 != emptyStar)
+            {
+                if (_temp7 != emptyStar)
+                {
+                    if (_temp5 == _temp7)
+                    {
+                        Debug.Log("Duplicates in Constellation!");
+                        conBool = true;
+                        return;
+                    }
+                    else
+                    {
+                        conBool = false;
+                    }
+                }
+            }
+        }
+        if (_temp1 == _temp7) // Comparing 1 to 7
         {
             if (_temp1 != emptyStar)
             {
-                if (_temp5 != emptyStar)
+                if (_temp7 != emptyStar)
                 {
                     if (_temp1 != global.drawingScript.NodeStar)
                     {
-                        if (_temp1 == _temp5)
+                        if (_temp1 == _temp7)
                         {
                             Debug.Log("Duplicates in Constellation!");
                             conBool = true;
