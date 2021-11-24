@@ -2381,7 +2381,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HCMapPicker()
     {
         mainNodeStar = global.drawingScript.NodeStar;
-        int _map = Random.Range(13, 14); // Needs to be max range +1;
+        int _map = Random.Range(15, 16); // Needs to be max range +1;
         if (_map == 1) // Map 1
         {
             Debug.Log("Map 1 Picked");
@@ -6819,26 +6819,19 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 32)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_16.position, starSpawnPoint4_16.rotation);
-            starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint4_16);
-            usedTransform.Add(starToBeSpawned);
-        }
-        if (starSpawnCount == 33)
-        {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_16.position, starSpawnPoint8_16.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint8_16);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 34)
+        if (starSpawnCount == 33)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_17.position, starSpawnPoint10_17.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint10_17);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 35)
+        if (starSpawnCount == 34)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_17.position, starSpawnPoint14_17.rotation);
             starSpawnCount++;
@@ -6846,21 +6839,21 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Add(starToBeSpawned);
             return;
         }
-        if (starSpawnCount == 36) // Value Stars Ended, Attack
+        if (starSpawnCount == 35) // Value Stars Ended, Attack
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint13_2.position, starSpawnPoint13_2.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint13_2);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 37)
+        if (starSpawnCount == 36)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint14_9.position, starSpawnPoint14_9.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint14_9);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 38)
+        if (starSpawnCount == 37)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint12_12.position, starSpawnPoint12_12.rotation);
             starSpawnCount++;
@@ -6868,7 +6861,7 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Add(starToBeSpawned);
             return;
         }
-        if (starSpawnCount == 39) // Shield
+        if (starSpawnCount == 38) // Shield
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint5_15.position, starSpawnPoint5_15.rotation);
             starSpawnCount++;
@@ -6876,7 +6869,7 @@ public class StarSpawnerFramework : MonoBehaviour
             usedTransform.Add(starToBeSpawned);
         }
         Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
-        if (starSpawnCount == 40) // Node Star
+        if (starSpawnCount == 39) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
             Debug.Log("Map 15 Spawned!");
