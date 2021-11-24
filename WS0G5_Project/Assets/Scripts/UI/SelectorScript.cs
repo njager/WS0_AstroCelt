@@ -24,9 +24,9 @@ public class SelectorScript : MonoBehaviour
     public bool enemy2Shielding;
     public bool enemy3Shielding;
 
-    private bool enemy1ActionSelected;
-    private bool enemy2ActionSelected;
-    private bool enemy3ActionSelected;
+    //private bool enemy1ActionSelected;
+    //private bool enemy2ActionSelected;
+    //private bool enemy3ActionSelected;
 
     [Header("Sprite Icons")]
     public Sprite enemyAttack;
@@ -100,10 +100,40 @@ public class SelectorScript : MonoBehaviour
         if (_chanceSelected > 3) // Set To Damage Next Turn
         {
             _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyAttack;
+            if (_givenEnemyIcon.CompareTag("Icon1") == true)
+            {
+                enemy1Attacking = true;
+                return;
+            }
+            if (_givenEnemyIcon.CompareTag("Icon2") == true)
+            {
+                enemy2Attacking = true;
+                return;
+            }
+            if (_givenEnemyIcon.CompareTag("Icon3") == true)
+            {
+                enemy1Attacking = true;
+                return;
+            }
         }
         else // Set To Shield
         {
             _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyShield;
+            if (_givenEnemyIcon.CompareTag("Icon1") == true)
+            {
+                enemy1Shielding = true;
+                return;
+            }
+            if (_givenEnemyIcon.CompareTag("Icon2") == true)
+            {
+                enemy2Shielding = true;
+                return;
+            }
+            if (_givenEnemyIcon.CompareTag("Icon3") == true)
+            {
+                enemy1Shielding = true;
+                return;
+            }
         }
     }
 
