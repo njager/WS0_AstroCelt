@@ -28,6 +28,8 @@ public class GlobalController : MonoBehaviour
     [Header("Canvases")]
     public GameObject winCanvas;
     public GameObject loseCanvas;
+    public GameObject uiCanvas;
+    public GameObject inWorldCanvas; 
 
     [Header("Constellation Variables")]
     public int constellationPotential = 0; 
@@ -156,10 +158,22 @@ public class GlobalController : MonoBehaviour
         loseCanvas.SetActive(false); 
     }
 
+    public void EndConditions()
+    {
+        Time.timeScale = 0f;
+        uiCanvas.SetActive(false);
+        inWorldCanvas.SetActive(false);
+        starSpawnerFrameworkScript.ClearStars();
+        starSpawnerFrameworkScript.ClearPoints();
+        starSpawnerFrameworkScript.ClearLines();
+        starSpawnerFrameworkScript.HCObstacleSwitcher(-1);
+        return; 
+    }
+
     public void Win()
     {
         winCanvas.SetActive(true);
-        Time.timeScale = 0f;
+        EndConditions(); 
         //SceneManager.LoadSceneAsync("WorldScene");
         //world.overWorldCEAmount += 100;
     }
@@ -167,7 +181,7 @@ public class GlobalController : MonoBehaviour
     public void Lose()
     {
         loseCanvas.SetActive(true);
-        Time.timeScale = 0f;
+        EndConditions();
         //SceneManager.LoadSceneAsync("WorldScene");
         //world.overWorldTreeHealth -= 1;
     }

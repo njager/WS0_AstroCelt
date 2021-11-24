@@ -2375,6 +2375,30 @@ public class StarSpawnerFramework : MonoBehaviour
             obstaclesForMap20.SetActive(false);
             return;
         }
+        if (_currentMapNum == -1) // Reset Conditon
+        {
+            obstaclesForMap1.SetActive(false);
+            obstaclesForMap2.SetActive(false);
+            obstaclesForMap3.SetActive(false);
+            obstaclesForMap4.SetActive(false);
+            obstaclesForMap5.SetActive(false);
+            obstaclesForMap6.SetActive(false);
+            obstaclesForMap7.SetActive(false);
+            obstaclesForMap8.SetActive(false);
+            obstaclesForMap9.SetActive(false);
+            obstaclesForMap10.SetActive(false);
+            obstaclesForMap11.SetActive(false);
+            obstaclesForMap12.SetActive(false);
+            obstaclesForMap13.SetActive(false);
+            obstaclesForMap14.SetActive(false);
+            obstaclesForMap15.SetActive(false);
+            obstaclesForMap16.SetActive(false);
+            obstaclesForMap17.SetActive(false);
+            obstaclesForMap18.SetActive(false);
+            obstaclesForMap19.SetActive(false);
+            obstaclesForMap20.SetActive(false);
+            return;
+        }
     }
 
 
