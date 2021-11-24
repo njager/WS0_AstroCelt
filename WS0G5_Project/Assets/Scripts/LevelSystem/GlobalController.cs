@@ -107,7 +107,8 @@ public class GlobalController : MonoBehaviour
     public ConstellationBuildingScript constellationBuilding; // To build constellation
     public Popup popUpReference;
     public ParticleSystemScript particleSystemScript; // For referencing particle systems
-    public TurnManager turnManagerScript; 
+    public TurnManager turnManagerScript;
+    public SelectorScript selector; 
 
     [Header("PopUp References")]
     public Transform enemyPopUpTransform;
@@ -147,16 +148,6 @@ public class GlobalController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)) // Use this to End Turn As Well
         {
             
-        }
-        if(enemy3.enemyHealth <= 0)
-        {
-            if (enemy2.enemyHealth <= 0)
-            {
-                if (enemy1.enemyHealth <= 0)
-                {
-                   Win();
-                }
-            }
         }
         if(PlayerStats.playerVitality <= 0)
         {

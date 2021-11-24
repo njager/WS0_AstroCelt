@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     public int turnsBetweenAttacks = 1;
     public string myIdentifier;
     public int enemyStartHealth; // Here to update info in UI Script, grabbed through global controller
+    public int enemyShieldNum; 
     public bool isDead;
     
     [Header("Unique Behavior Variables")]
@@ -102,49 +103,32 @@ public class EnemyScript : MonoBehaviour
         {
             if (myIdentifier == "Enemy1")
             {
-                if (global.turnManagerScript.totalTurnCount == 1)
-                {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
+                    return;
                 }
             }
             if (myIdentifier == "Enemy2")
             {
-                if (global.turnManagerScript.totalTurnCount == 1)
-                {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    //spawnTimer = 2.5f;
-                    return;
-                }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
+                    return;
                 }
             }
             if (myIdentifier == "Enemy3")
             {
-                if (global.turnManagerScript.totalTurnCount == 1)
-                {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
-                    //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
+                    global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
+                    return;
                 }
             }
         }

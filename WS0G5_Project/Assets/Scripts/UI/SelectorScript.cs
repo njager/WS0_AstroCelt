@@ -7,12 +7,19 @@ public class SelectorScript : MonoBehaviour
 
     /// <summary>
     /// Using this script to keep track of dead enemies and what enemy is selected
+    /// 
+    /// Enemies get 2 Shields to Start with - block whole attacks
     /// </summary>
    
     private GlobalController global;
     private bool enemy1Dead;
     private bool enemy2Dead;
     private bool enemy3Dead;
+
+    [Header("Enemy Bools")]
+    public bool enemy1Attacking;
+    public bool enemy2Attacking;
+    public bool enemy3Attacking;
 
     void Start()
     {
@@ -48,5 +55,21 @@ public class SelectorScript : MonoBehaviour
                 enemy3Dead = true;
             }
         }
+        if (global.enemy3.enemyHealth <= 0)
+        {
+            if (global.enemy2.enemyHealth <= 0)
+            {
+                if (global.enemy1.enemyHealth <= 0)
+                {
+                    global.Win();
+                }
+            }
+        }
+    }
+
+    public int ShieldChance() // This to see if indicators will change
+    {
+        int _chance = Random.Range(1, 11);
+        return _chance;
     }
 }
