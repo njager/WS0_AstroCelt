@@ -51,12 +51,12 @@ public class UIController : MonoBehaviour
     [SerializeField] int _enemyHealth3;
     [SerializeField] int _enemyMaxHealth3;
 
-    public bool isEnemyDead;  
+    public bool isEnemyDead;
 
     // Red is DD6666
     // Health is SECC71
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -65,16 +65,16 @@ public class UIController : MonoBehaviour
         // Grabbing Static Variables First
         _enemyCount = StaticVariables.masterEnemyCount;
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
-        //_enemyHealth = global.currentEnemy.enemyHealth;
-        _enemyHealth2 = global.enemy2.enemyHealth;
-        _enemyHealth3 = global.enemy3.enemyHealth;
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        //_enemyMaxHealth = global.currentEnemy.enemyStartHealth;
-        _enemyMaxHealth2 = global.enemy2.enemyHealth;
-        _enemyMaxHealth3 = global.enemy3.enemyHealth;
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
-        //maxCharge = global.currentEnemy.turnsBetweenAttacks;
+        // Set Enemy Health
+        _enemyHealth = global.enemy1.enemyHealth;
+        _enemyHealth2 = global.enemy2.enemyHealth;
+        _enemyHealth3 = global.enemy3.enemyHealth;
+        _enemyMaxHealth = global.enemy1.enemyStartHealth;
+        _enemyMaxHealth2 = global.enemy2.enemyStartHealth;
+        _enemyMaxHealth3 = global.enemy3.enemyStartHealth;
 
         //Set up the text
         SetText();
@@ -122,12 +122,14 @@ public class UIController : MonoBehaviour
     {
         _enemyCount = global.staticVariablesReference.returnCurrentEnemyCount();
         _ceCount = PlayerStats.startingPlayerCosmicEnergy;
-        _enemyHealth = global.staticVariablesReference.returnCurrentEnemyHealth();
-        _enemyHealth2 = global.enemy2.enemyHealth;
-        _enemyHealth3 = global.enemy3.enemyHealth;
+        _enemyHealth = global.staticVariablesReference.returnCurrentEnemyHealth1();
+        _enemyHealth2 = global.staticVariablesReference.returnCurrentEnemyHealth2();
+        _enemyHealth3 = global.staticVariablesReference.returnCurrentEnemyHealth3();
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
-        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth();
+        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth1();
+        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth2();
+        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth3();
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
         return; 
     }

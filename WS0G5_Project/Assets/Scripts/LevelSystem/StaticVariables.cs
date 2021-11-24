@@ -24,8 +24,12 @@ public class StaticVariables : MonoBehaviour
     [Header("Enemy Varaibles")]
     public int levelExpectedEnemyCount; // Can adjust in the editor 
     public static int masterEnemyCount;
-    public static int enemyCurrentHealth;
-    public static int enemyStartingHealth;
+    public static int enemyCurrentHealth1;
+    public static int enemyStartingHealth1;
+    public static int enemyCurrentHealth2;
+    public static int enemyStartingHealth2;
+    public static int enemyCurrentHealth3;
+    public static int enemyStartingHealth3;
     public int startingCount = 0;
     public static int expectedEnemyCount; // By making it static, we could have an event where enemies spawn in to the pre-built level
 
@@ -47,15 +51,39 @@ public class StaticVariables : MonoBehaviour
         return _currentCount;
     }
 
-    public int returnCurrentEnemyHealth()
+    public int returnCurrentEnemyHealth1()
     {
-        int _returnEnemyHealth = enemyCurrentHealth;
+        int _returnEnemyHealth = enemyCurrentHealth1;
         return _returnEnemyHealth;
     }
 
-    public int returnStartEnemyHealth()
+    public int returnStartEnemyHealth1()
     {
-        int _returnEnemyStartHealth = enemyStartingHealth;
+        int _returnEnemyStartHealth = enemyStartingHealth1;
+        return _returnEnemyStartHealth;
+    }
+
+    public int returnCurrentEnemyHealth2()
+    {
+        int _returnEnemyHealth = enemyCurrentHealth2;
+        return _returnEnemyHealth;
+    }
+
+    public int returnStartEnemyHealth2()
+    {
+        int _returnEnemyStartHealth = enemyStartingHealth2;
+        return _returnEnemyStartHealth;
+    }
+
+    public int returnCurrentEnemyHealth3()
+    {
+        int _returnEnemyHealth = enemyCurrentHealth3;
+        return _returnEnemyHealth;
+    }
+
+    public int returnStartEnemyHealth3()
+    {
+        int _returnEnemyStartHealth = enemyStartingHealth3;
         return _returnEnemyStartHealth;
     }
 
@@ -81,7 +109,11 @@ public class StaticVariables : MonoBehaviour
     public void Start()
     {
         global = GlobalController.instance;
-        //enemyStartingHealth = global.currentEnemy.enemyHealth;
-        enemyCurrentHealth = enemyStartingHealth; 
+        enemyStartingHealth1 = global.enemy1.enemyHealth;
+        enemyCurrentHealth1 = global.enemy1.enemyHealth;
+        enemyStartingHealth2 = global.enemy2.enemyHealth;
+        enemyCurrentHealth2 = global.enemy2.enemyHealth;
+        enemyStartingHealth3 = global.enemy3.enemyHealth;
+        enemyCurrentHealth3 = global.enemy3.enemyHealth;
     }
 }

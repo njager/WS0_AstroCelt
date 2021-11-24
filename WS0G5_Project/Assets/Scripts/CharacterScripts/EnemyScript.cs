@@ -36,31 +36,19 @@ public class EnemyScript : MonoBehaviour
     void Awake() // Do this to set Enemy Count, and EnemyType
     {
         StaticVariables.masterEnemyCount += 1;
-        StaticVariables.enemyCurrentHealth = myStats.vitality;
-        StaticVariables.enemyStartingHealth = myStats.vitality;
+        
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
         isDead = false;
 
-        // Setting Variables
-        /*
-        if (myIdentifier == "Swarm")
+        if (myIdentifier == "Enemy1")
         {
-            _frenzyTriggered = false; 
-            _swarmAttackedAmount = 0;
-            randomFloat = Random.Range(0f, 1f);
-            if (randomFloat < .5f)
-            {
-                _swarmDamageOrSpeed = true;
-            }
-            else
-            {
-                _swarmDamageOrSpeed = false;
-            }
+            StaticVariables.enemyCurrentHealth1 = myStats.vitality;
+            StaticVariables.enemyStartingHealth1 = myStats.vitality;
         }
-        if (myIdentifier == "Legionary")
-        {
-            legionaryEffectCounter = 0; 
-        }*/
+
+        int _randEnemyHealth = Random.Range(27, 36);
+        enemyHealth = _randEnemyHealth;
+        enemyStartHealth = _randEnemyHealth;
     }
 
     void Start()
@@ -70,33 +58,12 @@ public class EnemyScript : MonoBehaviour
         global = GlobalController.instance;
         //global.currentEnemy = enemySelf;
         global.UIController.isEnemyDead = false;
-        enemyHealth = myStats.vitality;
-        enemyStartHealth = myStats.vitality;
         enemyDamage = myStats.damage;
         turnActionCount = 1;
     }
 
     public void Update()
     {
-        if (StaticVariables.enemyCurrentHealth <= 0)
-        {
-            enemyDie();
-            global.enemySwitcherFrameworkScript.deadCounter += 1;
-            if(global.enemySwitcherFrameworkScript.deadCounter == 1)
-            {
-                StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
-                global.UIController.isEnemyDead = false;
-            }
-            if (global.enemySwitcherFrameworkScript.deadCounter == 2)
-            {
-                StaticVariables.enemyCurrentHealth = global.enemy2.enemyHealth;
-                global.UIController.isEnemyDead = false; // Need to check if there's any functionality with this
-            }
-            else
-            {
-                enemyDie();
-            }
-        }
         if (isYourTurn == true)
         {
             if(turnActionCount == 0)
@@ -141,28 +108,26 @@ public class EnemyScript : MonoBehaviour
     {
         if (isYourTurn == true)
         {
-            if (myIdentifier == "Legionary")
+            if (myIdentifier == "Enemy1")
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
-                    global.starSpawnerFrameworkScript.LegionaryEffect();
+                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                 }
             }
-            if (myIdentifier == "Swarm")
+            if (myIdentifier == "Enemy2")
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                     //spawnTimer = 2.5f;
@@ -171,22 +136,22 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                 }
             }
-            if (myIdentifier == "Lumberjack")
+            if (myIdentifier == "Enemy3")
             {
                 if (global.turnManagerScript.totalTurnCount == 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                 }
                 if (global.turnManagerScript.totalTurnCount > 1)
                 {
                     //global.currentEnemy.enemyAttacksPlayer(global.currentEnemy.enemyDamage);
-                    //global.currentEnemy.UniqueBehavior(global.currentEnemy.myIdentifier);
+                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                 }
             }
@@ -266,7 +231,7 @@ public class EnemyScript : MonoBehaviour
     public void enemyDie() // Death
     {
         StaticVariables.masterEnemyCount -= 1;
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         //global.UIController.isEnemyDead = true;
         //Destroy(enemyGameObject)
@@ -277,19 +242,18 @@ public class EnemyScript : MonoBehaviour
 
     public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers
     {
-        _damageIndicator = 1;
-        StaticVariables.enemyCurrentHealth -= _health;
-        if (myIdentifier == "Swarm")
+        if (myIdentifier == "Enemy1")
         {
-            _swarmAttackedAmount = _health;
-            //UniqueBehavior(myIdentifier);
-            _damageIndicator = 0;
+            StaticVariables.enemyCurrentHealth1 -= _health;
         }
-        else
+        if (myIdentifier == "Enemy2")
         {
-            //Debug.Log("Not Yet in Frenzy");
-            return;
+            StaticVariables.enemyCurrentHealth2 -= _health;
         }
-        _damageIndicator = 0;
+        if (myIdentifier == "Enemy3")
+        {
+            StaticVariables.enemyCurrentHealth3 -= _health;
+        }
+
     }
 }

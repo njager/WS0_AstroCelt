@@ -7761,7 +7761,7 @@ MonoBehaviour:
   enemy1ForRound1: {fileID: 1700789144}
   enemy2ForRound1: {fileID: 1181455534}
   enemy3ForRound1: {fileID: 774246074}
-  enemy1: {fileID: 0}
+  enemy1: {fileID: 894703256}
   enemy2: {fileID: 1181455535}
   enemy3: {fileID: 774246075}
   enemySpawnPosition: {fileID: 778828292}
@@ -7775,7 +7775,7 @@ MonoBehaviour:
   altarText1: {fileID: 571263662}
   altarText2: {fileID: 307821534}
   altarText3: {fileID: 1032526032}
-  currentText: {fileID: 0}
+  previousText: {fileID: 0}
   startingStarSpawnPointList: []
   constellationBeingBuilt: []
   constellationFinalStars: []
@@ -8910,6 +8910,14 @@ PrefabInstance:
     - target: {fileID: 1475303926191799721, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_Name
       value: Lumberjack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myIdentifier
+      value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myStats.identifier
+      value: Enemy2
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
@@ -16029,7 +16037,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1935541439}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &779302968
 GameObject:
@@ -17818,7 +17826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799720, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17869,12 +17877,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myIdentifier
+      value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: enemyStartHealth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: myStats.vitality
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myStats.identifier
+      value: Enemy3
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
@@ -18610,6 +18626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 918046287}
+  - component: {fileID: 918046290}
   - component: {fileID: 918046289}
   - component: {fileID: 918046288}
   m_Layer: 5
@@ -18676,6 +18693,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918046286}
   m_CullTransparentMesh: 1
+--- !u!114 &918046290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918046286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071b0e8fbf9495e44a7855c1d73e85f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &927922913
 GameObject:
   m_ObjectHideFlags: 0
@@ -23308,6 +23337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lumberjack3
       objectReference: {fileID: 0}
+    - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
+      propertyPath: myStats.identifier
+      value: Enemy3
+      objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -26438,7 +26471,7 @@ MonoBehaviour:
   isShieldCon: 0
   isHealthCon: 0
   isDamageCon: 0
-  popUpCenterPoint: {fileID: 0}
+  popUpCenterPoint: {fileID: 1365886406}
   lineFinal: []
 --- !u!1 &1365955548
 GameObject:
@@ -39412,8 +39445,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1392798451}
-  - {fileID: 894703254}
   - {fileID: 778828292}
+  - {fileID: 894703254}
   - {fileID: 374334531}
   - {fileID: 606257194}
   m_Father: {fileID: 0}
