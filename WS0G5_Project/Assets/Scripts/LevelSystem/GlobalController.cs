@@ -174,7 +174,7 @@ public class GlobalController : MonoBehaviour
 
     public void TempAbility() // Using a place holder for the ability, since it's only temp UI anyhow
     {
-        Popup.Create(enemyPopUpTransform.position, 5, 1);
+        //Popup.Create(enemyPopUpTransform.position, 5, 1);
         particleSystemScript.SpawnDamageParticleEffect(enemyPopUpTransform);
     }
 

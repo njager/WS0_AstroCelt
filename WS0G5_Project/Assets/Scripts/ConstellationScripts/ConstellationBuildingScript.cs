@@ -661,14 +661,14 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-            Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
+            //Popup.Create(global.playerPopUpTransform.position, _constellationFinal, 0);
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-            Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1);
+            //Popup.Create(global.enemyPopUpTransform.position, _constellationFinal, 1);
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 
