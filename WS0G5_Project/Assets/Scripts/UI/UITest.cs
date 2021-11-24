@@ -119,7 +119,7 @@ public class UITest : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, 0);
+            Popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
             spawnTimer = 1f;
         }
 
@@ -129,11 +129,19 @@ public class UITest : MonoBehaviour
         //test popup
         if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0);
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0, true);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1);
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1, false);
+        }
+        else if (Input.GetMouseButtonDown(2))
+        {
+            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 2, true);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            Popup.Create(new Vector3(21, 7, 0), 5, 1, true);
         }
 
         //debug controls for the tile feedback
