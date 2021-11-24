@@ -53,10 +53,12 @@ public class UIController : MonoBehaviour
 
     public bool isEnemyDead;
 
-    // Red is DD6666
+    // UI Colors for Action Stars
+    // Damage is DD6666
     // Health is SECC71
+    // Shield is 4B6FB7 at 60% opacity
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,12 +100,7 @@ public class UIController : MonoBehaviour
         timerText.text = string.Format("Turn: {0}", global.turnManagerScript.playerTurnCount.ToString());
 
         //set the charge timer and reset
-        if(isEnemyDead == false)
-        {
-            // Enemy Attacking
-        }
         
-
         //check type of output
         bool isDamage = Random.Range(0, 100) < 60;
 

@@ -36,16 +36,8 @@ public class EnemyScript : MonoBehaviour
     void Awake() // Do this to set Enemy Count, and EnemyType
     {
         StaticVariables.masterEnemyCount += 1;
-        
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
         isDead = false;
-
-        if (myIdentifier == "Enemy1")
-        {
-            StaticVariables.enemyCurrentHealth1 = myStats.vitality;
-            StaticVariables.enemyStartingHealth1 = myStats.vitality;
-        }
-
         int _randEnemyHealth = Random.Range(27, 36);
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
