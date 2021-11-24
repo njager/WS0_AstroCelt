@@ -722,9 +722,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         {
                             Debug.Log("The player is at Max Health!");
                         }
-                        
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                        
                     }
                     else
                     {
@@ -788,7 +786,6 @@ public class ConstellationBuildingScript : MonoBehaviour
         foreach (Star star in global.constellationFinalStars.ToList())
         {
             star.StarUsed();
-            global.constellationBeingBuilt.Remove(star);
         }
         if(_identity == "damage") 
         {

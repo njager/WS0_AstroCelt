@@ -7952,7 +7952,7 @@ MonoBehaviour:
   popUpReference: {fileID: 461686959}
   particleSystemScript: {fileID: 1453816332}
   turnManagerScript: {fileID: 433266640}
-  selector: {fileID: 0}
+  selector: {fileID: 519335944}
   enemyPopUpTransform: {fileID: 682696832}
   playerPopUpTransform: {fileID: 917150815}
   starTag: Star
@@ -11449,7 +11449,6 @@ MonoBehaviour:
   enemy1Shielding: 0
   enemy2Shielding: 0
   enemy3Shielding: 0
-  SelectorOff: 0
   enemyAttack: {fileID: 21300000, guid: ea30c135d4a1a6d4486b565ce81a0b0b, type: 3}
   enemyShield: {fileID: 21300000, guid: 039e61589c69fc8408f337ffcbda9a46, type: 3}
 --- !u!1 &519345844

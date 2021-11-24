@@ -55,11 +55,12 @@ public class DrawingScript : MonoBehaviour
         lineStartingPoint = Vector3.zero;
         lineStartingPoint = Vector3.zero;
         global = GlobalController.instance;
+        star1 = NodeStar;
     }
 
     public void Update()
     {
-        star1 = NodeStar; 
+        
     }
 
     public void ResetList()

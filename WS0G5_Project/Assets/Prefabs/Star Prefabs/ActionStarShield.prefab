@@ -269,8 +269,8 @@ MonoBehaviour:
   starUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 2153950832655478972}
-  hoverColor: {r: 0.13705944, g: 0.4409959, b: 0.8301887, a: 0}
-  usedColor: {r: 0.18222678, g: 0.2870012, b: 0.5943396, a: 0}
+  hoverColor: {r: 0.6892132, g: 0.7833739, b: 0.9056604, a: 1}
+  usedColor: {r: 0.40302002, g: 0.45655835, b: 0.6132076, a: 1}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 0}
   myCount: 0

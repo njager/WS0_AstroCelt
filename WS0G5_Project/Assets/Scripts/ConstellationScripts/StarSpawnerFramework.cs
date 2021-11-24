@@ -801,11 +801,17 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         Debug.Log("Resetting Star Clicks");
         global.drawingScript.activeStarCounter = 1;
+        global.drawingScript.nodeClickCount = 0;
+        global.drawingScript.NodeStar.StarUsable();
         global.drawingScript.transformHolder = new List<Vector3>();
     }
 
     public void StarResetForClear()
     {
+        foreach (Star star in global.constellationFinalStars.ToList())
+        {
+            global.constellationFinalStars.Remove(star); 
+        }
         Debug.Log("Resetting Star Clicks");
         global.drawingScript.activeStarCounter = 1;
         global.drawingScript.starCount = 0;

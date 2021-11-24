@@ -35,6 +35,7 @@ public class Star : MonoBehaviour
         rend = starGraphicSelf.GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
         myCount = IncreaseStarCount();
+        global.drawingScript.nodeClickCount = 0;
     }
 
     public void OnMouseDown()
@@ -45,17 +46,11 @@ public class Star : MonoBehaviour
             {
                 if (this == global.drawingScript.NodeStar) // Check to see if it's the node
                 {
-                    if (global.drawingScript.nodeClickCount >= 1) // If a node has been clicked a second time trigger the behavior
-                    {
-                        global.drawingScript.star2 = this;
-                        global.drawingScript.activeStarCounter = 1;
-                        global.drawingScript.starCount = -1;
-                        global.drawingScript.drawLine();
-                    }
-                    else // If a node hasn't been clicked
-                    {
-                        global.drawingScript.nodeClickCount += 1;
-                    }
+                    Debug.Log("NodeStar");
+                    global.drawingScript.star2 = global.drawingScript.NodeStar;
+                    global.drawingScript.activeStarCounter = 1;
+                    global.drawingScript.starCount = -1;
+                    global.drawingScript.drawLine();
                 }
                 if (starUsed == false) // See if the star has been used in the constellations thus far
                 {
@@ -137,21 +132,16 @@ public class Star : MonoBehaviour
 
     public void StarUsed()
     {
-        if(myStarClass.starType == "NodeStar")
-        {
-            global.drawingScript.nodeClickCount = 1;
-            global.drawingScript.activeStarCounter = 1;
-            global.constellationBeingBuilt.Add(this); 
-            return;
-        }
-        else
-        {
-            rend.material.color = usedColor;
-            startColor = usedColor;
-            hoverColor = usedColor;
-            starUsed = true;
-            return;
-        }
+        rend.material.color = usedColor;
+        hoverColor = usedColor;
+        starUsed = true;
+    }
+
+    public void StarUsable()
+    {
+        rend.material.color = startColor;
+        hoverColor = usedColor;
+        starUsed = false;
     }
 
     public int IncreaseStarCount()

@@ -12,6 +12,11 @@ public class UIController : MonoBehaviour
     //[Header("Public Variables")]
     //public static Transform pfPopup;
 
+    [Header("Public Variables")]
+    public bool isAttack;
+    public bool isHeal;
+    public bool isShield;
+
     //private variables
     [Header("Variables")]
     [SerializeField] int _enemyCount;
@@ -37,6 +42,19 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar;
+    [SerializeField] GameObject attackTile;
+    [SerializeField] Animator attackTileAnimator;
+    [SerializeField] GameObject healTile;
+    [SerializeField] Animator healTileAnimator;
+    [SerializeField] GameObject shieldTile;
+    [SerializeField] Animator shieldTileAnimator;
+    [SerializeField] List<Image> confirmTileImages;
+    [SerializeField] Image currentConfirmButtonImage;
+    [SerializeField] Button confirmButton;
+    private bool isAttackTileGlow;
+    private bool isHealTileGlow;
+    private bool isShieldTileGlow;
+    private bool isConfirmReady;
     //[SerializeField] Image enemyChargeBar;
 
     [Header("Enemy 2")]
@@ -50,6 +68,15 @@ public class UIController : MonoBehaviour
     [SerializeField] Image enemyHealthBar3;
     [SerializeField] int _enemyHealth3;
     [SerializeField] int _enemyMaxHealth3;
+
+    //AttackTiles
+    private GameObject attackTileNormal;
+    private GameObject attackTileGlow;
+    private GameObject healTileNormal;
+    private GameObject healTileGlow;
+    private GameObject shieldTileNormal;
+    private GameObject shieldTileGlow;
+    private int confirmTileIndex;
 
     [Header("EnemyUIReferences")]
 
@@ -106,7 +133,16 @@ public class UIController : MonoBehaviour
         //check type of output
         bool isDamage = Random.Range(0, 100) < 60;
 
-       
+        attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
+        attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
+
+        healTileNormal = healTile.transform.Find("HealTileNormal").gameObject;
+        healTileGlow = healTile.transform.Find("HealTileGlow").gameObject;
+
+        shieldTileNormal = shieldTile.transform.Find("ShieldTileNormal").gameObject;
+        shieldTileGlow = shieldTile.transform.Find("ShieldTileGlow").gameObject;
+
+
         SetText();
 
         spawnTimer -= Time.deltaTime;
@@ -151,6 +187,53 @@ public class UIController : MonoBehaviour
 
         //update charge bar
         //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
+    }
+
+    IEnumerator ConfirmAnim()
+    {
+        if (isAttack)
+        {
+            attackTileNormal.SetActive(false);
+            attackTileGlow.SetActive(true);
+            isAttackTileGlow = true;
+            attackTileAnimator.SetBool("isAttackTileGlow", true);
+        }
+        else if (isHeal)
+        {
+            healTileNormal.SetActive(false);
+            healTileGlow.SetActive(true);
+            isHealTileGlow = true;
+            healTileAnimator.SetBool("isHealTileGlow", true);
+        }
+        else if (isShield)
+        {
+            shieldTileNormal.SetActive(false);
+            shieldTileGlow.SetActive(true);
+            isShieldTileGlow = true;
+            shieldTileAnimator.SetBool("isShieldTileGlow", true);
+        }
+
+
+        //add a 2 second delay then don't allow it to be run again
+        yield return new WaitForSeconds(2);
+
+        ConfirmTileReset();
+    }
+
+    //reset the anims for the confirm button to normal
+    void ConfirmTileReset()
+    {
+        attackTileNormal.SetActive(false);
+        attackTileGlow.SetActive(false);
+        isAttackTileGlow = false;
+
+        healTileNormal.SetActive(false);
+        healTileGlow.SetActive(false);
+        isHealTileGlow = false;
+
+        shieldTileNormal.SetActive(false);
+        shieldTileGlow.SetActive(false);
+        isShieldTileGlow = false;
     }
 
     // If we continue to have a full model, if an enemy takes multiple turns to attck, make it so the enemy has a "about to attack" portrait to use against the player 
