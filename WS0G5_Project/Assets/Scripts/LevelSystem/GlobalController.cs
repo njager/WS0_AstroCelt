@@ -147,7 +147,7 @@ public class GlobalController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space)) // Use this to End Turn As Well
         {
-            
+            //SceneManager.LoadSceneAsync("PrototypeScene");
         }
         if(PlayerStats.playerVitality <= 0)
         {
