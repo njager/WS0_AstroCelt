@@ -6299,8 +6299,8 @@ RectTransform:
   - {fileID: 1030751327}
   - {fileID: 2128519009}
   - {fileID: 541112477943033904}
-  - {fileID: 876115624}
   - {fileID: 1308336786}
+  - {fileID: 876115624}
   - {fileID: 417431103}
   m_Father: {fileID: 369342702}
   m_RootOrder: 1
@@ -6491,7 +6491,7 @@ GameObject:
   - component: {fileID: 277330003}
   m_Layer: 5
   m_Name: EnemyIndicatorIcon1
-  m_TagString: Untagged
+  m_TagString: Icon1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9356,7 +9356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448904510718226988, guid: 5ed31372d894f2c40a4d36ecf38f86af, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7448904510718226988, guid: 5ed31372d894f2c40a4d36ecf38f86af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16409,7 +16409,7 @@ GameObject:
   - component: {fileID: 737027779}
   m_Layer: 5
   m_Name: EnemyIndicatorIcon3
-  m_TagString: Untagged
+  m_TagString: Icon3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19898,6 +19898,11 @@ MonoBehaviour:
   enemy1Attacking: 0
   enemy2Attacking: 0
   enemy3Attacking: 0
+  enemy1Shielding: 0
+  enemy2Shielding: 0
+  enemy3Shielding: 0
+  enemyAttack: {fileID: 0}
+  enemyShield: {fileID: 0}
 --- !u!1 &926463696
 GameObject:
   m_ObjectHideFlags: 0
@@ -27457,7 +27462,7 @@ Transform:
   - {fileID: 2084364707}
   - {fileID: 737027778}
   m_Father: {fileID: 263663541}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312909857
 GameObject:
@@ -46201,7 +46206,7 @@ GameObject:
   - component: {fileID: 2084364708}
   m_Layer: 5
   m_Name: EnemyIndicatorIcon2
-  m_TagString: Untagged
+  m_TagString: Icon2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

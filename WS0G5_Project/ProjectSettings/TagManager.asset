@@ -28,6 +28,9 @@ TagManager:
   - StarSlot2
   - StarSlot3
   - Particle
+  - Icon1
+  - Icon2
+  - Icon3
   layers:
   - Default
   - TransparentFX

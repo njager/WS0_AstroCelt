@@ -20,6 +20,17 @@ public class SelectorScript : MonoBehaviour
     public bool enemy1Attacking;
     public bool enemy2Attacking;
     public bool enemy3Attacking;
+    public bool enemy1Shielding;
+    public bool enemy2Shielding;
+    public bool enemy3Shielding;
+
+    private bool enemy1ActionSelected;
+    private bool enemy2ActionSelected;
+    private bool enemy3ActionSelected;
+
+    [Header("Sprite Icons")]
+    public Sprite enemyAttack;
+    public Sprite enemyShield;
 
     void Start()
     {
@@ -27,6 +38,16 @@ public class SelectorScript : MonoBehaviour
         enemy1Dead = false;
         enemy2Dead = false;
         enemy3Dead = false;
+        enemy1Attacking = false;
+        enemy2Attacking = false;
+        enemy3Attacking = false;
+        enemy1Shielding = false;
+        enemy2Shielding = false;
+        enemy3Shielding = false;
+
+        EnemyActionNextTurn(global.enemy1ActionIcon);
+        EnemyActionNextTurn(global.enemy2ActionIcon);
+        EnemyActionNextTurn(global.enemy3ActionIcon);
     }
 
     void Update() // Track Enemy Health
@@ -67,9 +88,30 @@ public class SelectorScript : MonoBehaviour
         }
     }
 
+    public void EnemyActionNextTurn(GameObject _givenEnemyIcon)
+    {
+        enemy1Attacking = false;
+        enemy2Attacking = false;
+        enemy3Attacking = false;
+        enemy1Shielding = false;
+        enemy2Shielding = false;
+        enemy3Shielding = false;
+        int _chanceSelected = ShieldChance();
+        if (_chanceSelected > 3) // Set To Damage Next Turn
+        {
+            _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyAttack;
+        }
+        else // Set To Shield
+        {
+            _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyShield;
+        }
+    }
+
     public int ShieldChance() // This to see if indicators will change
     {
         int _chance = Random.Range(1, 11);
         return _chance;
     }
+
+
 }

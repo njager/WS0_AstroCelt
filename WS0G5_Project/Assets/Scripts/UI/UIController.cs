@@ -51,6 +51,8 @@ public class UIController : MonoBehaviour
     [SerializeField] int _enemyHealth3;
     [SerializeField] int _enemyMaxHealth3;
 
+    [Header("EnemyUIReferences")]
+
     public bool isEnemyDead;
 
     // UI Colors for Action Stars
