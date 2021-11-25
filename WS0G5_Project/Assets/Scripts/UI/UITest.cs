@@ -60,9 +60,6 @@ public class UITest : MonoBehaviour
     [SerializeField] Animator healTileAnimator;
     [SerializeField] GameObject shieldTile;
     [SerializeField] Animator shieldTileAnimator;
-    [SerializeField] List<Image> confirmTileImages;
-    [SerializeField] Image currentConfirmButtonImage;
-    [SerializeField] Button confirmButton;
     [SerializeField] Transform popupPosTest;
 
 
@@ -179,8 +176,6 @@ public class UITest : MonoBehaviour
         //debug control for setting confirm button image
         if (Input.GetKeyDown(KeyCode.O))
         {
-            currentConfirmButtonImage = confirmTileImages[confirmTileIndex];
-            confirmButton.image = currentConfirmButtonImage;
         }
 
         /*if (Input.GetKeyDown(KeyCode.W))

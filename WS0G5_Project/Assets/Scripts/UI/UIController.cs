@@ -48,9 +48,9 @@ public class UIController : MonoBehaviour
     [SerializeField] Animator healTileAnimator;
     [SerializeField] GameObject shieldTile;
     [SerializeField] Animator shieldTileAnimator;
-    [SerializeField] List<Image> confirmTileImages;
-    [SerializeField] Image currentConfirmButtonImage;
-    [SerializeField] Button confirmButton;
+    // [SerializeField] List<Image> confirmTileImages;
+    // [SerializeField] Image currentConfirmButtonImage;
+    // [SerializeField] Button confirmButton;
     private bool isAttackTileGlow;
     private bool isHealTileGlow;
     private bool isShieldTileGlow;
@@ -76,7 +76,7 @@ public class UIController : MonoBehaviour
     private GameObject healTileGlow;
     private GameObject shieldTileNormal;
     private GameObject shieldTileGlow;
-    private int confirmTileIndex;
+   // private int confirmTileIndex;
 
     [Header("EnemyUIReferences")]
 
@@ -133,14 +133,14 @@ public class UIController : MonoBehaviour
         //check type of output
         bool isDamage = Random.Range(0, 100) < 60;
 
-        attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
-        attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
+        //attackTileNormal = attackTile.transform.Find("AttackTileNormal").gameObject;
+        //attackTileGlow = attackTile.transform.Find("AttackTileGlow").gameObject;
 
-        healTileNormal = healTile.transform.Find("HealTileNormal").gameObject;
-        healTileGlow = healTile.transform.Find("HealTileGlow").gameObject;
+        //healTileNormal = healTile.transform.Find("HealTileNormal").gameObject;
+        //healTileGlow = healTile.transform.Find("HealTileGlow").gameObject;
 
-        shieldTileNormal = shieldTile.transform.Find("ShieldTileNormal").gameObject;
-        shieldTileGlow = shieldTile.transform.Find("ShieldTileGlow").gameObject;
+        //shieldTileNormal = shieldTile.transform.Find("ShieldTileNormal").gameObject;
+        //shieldTileGlow = shieldTile.transform.Find("ShieldTileGlow").gameObject;
 
 
         SetText();
