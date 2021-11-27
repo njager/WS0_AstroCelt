@@ -36,6 +36,9 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        global.drawingScript.starNext = global.drawingScript.NodeStar;
+        //global.drawingScript.star2 = global.drawingScript.nodeStar2;
+        global.drawingScript.starCount = 0;
         totalTurnCount += 1; 
         playerTurnCount = totalTurnCount;
         global.starSpawnerFrameworkScript.HCMapPicker();
@@ -47,6 +50,15 @@ public class TurnManager : MonoBehaviour
         global.enemy2.isYourTurn = true;
         global.enemy3.isYourTurn = true;
         //global.drawingScript.activeStarCounter = 1;
+        foreach (Star star in global.constellationBeingBuilt.ToList())
+        {
+            global.constellationBeingBuilt.Remove(star);
+        }
+        foreach (LineRendererScript line in global.lineRendererList.ToList())
+        {
+            line.gameObject.SetActive(false);
+            global.lineRendererList.Remove(line);
+        }
     }
 
 

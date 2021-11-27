@@ -162,7 +162,7 @@ public class LineRendererScript : MonoBehaviour
     {
         if (global.drawingScript.shouldNextStar == 0)
         {
-            global.drawingScript.starNext = initialStar;
+            //global.drawingScript.starNext = initialStar;
             return; 
         }
         if (global.drawingScript.shouldNextStar == 1)

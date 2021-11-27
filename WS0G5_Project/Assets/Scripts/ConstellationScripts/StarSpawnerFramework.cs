@@ -814,7 +814,9 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         Debug.Log("Resetting Star Clicks");
         global.drawingScript.activeStarCounter = 0;
-        global.drawingScript.starCount = 0;
+        global.drawingScript.starCount = 1;
+        global.drawingScript.starNext = global.drawingScript.NodeStar;
+        global.drawingScript.starNext = global.drawingScript.NodeStar;
         global.drawingScript.shouldNextStar = 0;
         global.drawingScript.transformHolder = new List<Vector3>();
     }
