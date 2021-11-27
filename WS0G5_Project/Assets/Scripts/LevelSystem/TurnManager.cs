@@ -46,6 +46,7 @@ public class TurnManager : MonoBehaviour
         global.enemy1.isYourTurn = true;
         global.enemy2.isYourTurn = true;
         global.enemy3.isYourTurn = true;
+        //global.drawingScript.activeStarCounter = 1;
     }
 
 

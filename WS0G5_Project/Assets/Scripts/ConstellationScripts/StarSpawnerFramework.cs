@@ -813,7 +813,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.constellationFinalStars.Remove(star); 
         }
         Debug.Log("Resetting Star Clicks");
-        global.drawingScript.activeStarCounter = 1;
+        global.drawingScript.activeStarCounter = 0;
         global.drawingScript.starCount = 0;
         global.drawingScript.shouldNextStar = 0;
         global.drawingScript.transformHolder = new List<Vector3>();

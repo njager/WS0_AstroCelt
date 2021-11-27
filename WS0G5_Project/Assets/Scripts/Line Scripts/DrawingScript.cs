@@ -24,7 +24,7 @@ public class DrawingScript : MonoBehaviour
     public Star nodeStar2; 
     public Star emptyStar; // Need something to start the game
 
-    [HeaderAttribute("Drawing Script Ints")]
+    [Header("Drawing Script Ints")]
     public int shouldNextStar; // Used in line renderer count; 
     public int starCount; // Know if drawing for first time
 
@@ -65,7 +65,7 @@ public class DrawingScript : MonoBehaviour
 
     public void ResetList()
     {
-        activeStarCounter = 0;
+        activeStarCounter = 1;
         starCount = 0;
     }
 

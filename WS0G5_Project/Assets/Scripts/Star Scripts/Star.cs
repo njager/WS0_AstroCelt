@@ -67,9 +67,10 @@ public class Star : MonoBehaviour
                 }
                 if (starUsed == false) // See if the star has been used in the constellations thus far
                 {
-                    Debug.Log("Clicked on Star");
+                    //Debug.Log("Clicked on Star");
                     if (global.drawingScript.activeStarCounter == 0) // Regular star drawing
                     {
+                        Debug.Log("Normal Drawing");
                         if (global.drawingScript.starCount == 0)
                         {
                             global.drawingScript.star2 = this;
@@ -87,6 +88,7 @@ public class Star : MonoBehaviour
                     }
                     if (global.drawingScript.activeStarCounter == 1)
                     {
+                        Debug.Log("Non-Normal drawing");
                         if (global.drawingScript.starCount >= 0)
                         {
                             if (global.drawingScript.star2 == this)
@@ -110,11 +112,11 @@ public class Star : MonoBehaviour
                             }
                         }
                     }
-                    if (global.drawingScript.activeStarCounter <= 1)
+                    /*if (global.drawingScript.activeStarCounter <= 1)
                     {
                         Debug.Log("Reseting activeStarCounter to 0");
                         global.drawingScript.activeStarCounter = 0;
-                    }
+                    }*/
                 }
                 else
                 {
