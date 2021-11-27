@@ -660,9 +660,12 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 if (global.constellationPotentialHealth == 0) // No action star, no action done, and so no constellation, but stars become usable again 
                 {
-                    Debug.Log("Constellation Is Only Base Stars! \nTry Again!");
-                    global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
-                    StartCoroutine(constellationClearBad()); // Improper so fully clear
+                    if(global.constellationPotentialShield == 0)
+                    {
+                        Debug.Log("Constellation Is Only Base Stars! \nTry Again!");
+                        global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
+                        StartCoroutine(constellationClearBad()); // Improper so fully clear
+                    }
                 }
             }
             Debug.Log("Constellation Building!");

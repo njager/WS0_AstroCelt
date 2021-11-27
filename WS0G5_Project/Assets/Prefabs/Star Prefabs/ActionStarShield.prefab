@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myStarClass:
     starPrefab: {fileID: 4444467650669534561}
-    constellationValue: 0
+    constellationValue: 1
     starType: ShieldStar
   starUsed: 0
   starSelf: {fileID: 4444467650669534561}
