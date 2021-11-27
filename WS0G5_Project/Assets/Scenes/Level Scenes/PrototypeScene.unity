@@ -8212,7 +8212,11 @@ MonoBehaviour:
   enumeratorCheckBad: 0
   enumeratorCheckGood: 0
   testAudioBackgroundMusic: {fileID: 174412628}
-  testAudiosoundEffect1: {fileID: 987269602}
+  m_SoundEffectDamage: {fileID: 987269604}
+  m_SoundEffectPop: {fileID: 1129188573}
+  m_SoundEffectPopHigh: {fileID: 1723282219}
+  m_SoundEffectConFinish: {fileID: 1657911917}
+  m_SoundEffectWhoosh: {fileID: 1044855834}
   altarText1: {fileID: 571263662}
   altarText2: {fileID: 307821534}
   altarText3: {fileID: 1032526032}

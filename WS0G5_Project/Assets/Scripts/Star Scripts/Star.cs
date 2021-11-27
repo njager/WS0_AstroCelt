@@ -38,8 +38,21 @@ public class Star : MonoBehaviour
         global.drawingScript.nodeClickCount = 0;
     }
 
+    /// <summary>
+    /// Sound effect thought of getting a pop to play every time a star is cleared in a constellation
+    /// </summary>
+
     public void OnMouseDown()
     {
+        //Sound Effects different per Star:
+        if(myStarClass.starType == "NodeStar")
+        {
+            global.m_SoundEffectPopHigh.Play();
+        }
+        else
+        {
+            global.m_SoundEffectPop.Play();
+        }
         if (global.UIController.selector.activeInHierarchy == true) // If the player has already drawn for turn, do nothing
         {
             if (global.playerScript.isPlayerTurn == true) // Check if it's the player's turns
@@ -115,7 +128,7 @@ public class Star : MonoBehaviour
         }
         else
         {
-            Debug.Log("PLEASE SELECT AN ENEMYT!"); 
+            Debug.Log("PLEASE SELECT AN ENEMY!"); 
         }
         
     }

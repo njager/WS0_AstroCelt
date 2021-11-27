@@ -21,8 +21,8 @@ public class GlobalController : MonoBehaviour
     /// </summary>
 
     [Header("Designer Values")]
-    public float lowerBoundLine = 10f;
-    public float upperBoundLine = 50f;
+    public float lowerBoundLine;
+    public float upperBoundLine;
 
     // UI Canvases
     [Header("Canvases")]
@@ -70,8 +70,12 @@ public class GlobalController : MonoBehaviour
 
     [Header("Audio")] // For when we implement audio, grab for holders 
     public GameObject testAudioBackgroundMusic;
-    public GameObject testAudiosoundEffect1;
-
+    public AudioSource m_SoundEffectDamage;
+    public AudioSource m_SoundEffectPop;
+    public AudioSource m_SoundEffectPopHigh;
+    public AudioSource m_SoundEffectConFinish;
+    public AudioSource m_SoundEffectWhoosh;
+    
     [Header("Altar Text")]
     public GameObject altarText1;
     public GameObject altarText2;

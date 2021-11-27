@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     public void playerDamaged(int damage)
     {
         PlayerStats.playerVitality -= damage;
+        global.m_SoundEffectDamage.Play();
         //Debug.Log("Player Hit"); 
         showHealth = PlayerStats.playerVitality; 
     }

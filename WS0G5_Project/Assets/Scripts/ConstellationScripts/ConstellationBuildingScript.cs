@@ -772,6 +772,7 @@ public class ConstellationBuildingScript : MonoBehaviour
 
     IEnumerator constellationClearGood(string _identity)
     {
+        global.m_SoundEffectConFinish.Play(); // CONSTELLATION SOUND EFFECT
         foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
         {
             lineFinal.Add(lineRenderer.gameObject); // Will have to delete later as well in Reset Behavior
@@ -792,12 +793,14 @@ public class ConstellationBuildingScript : MonoBehaviour
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
+            global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }
         if (_identity == "health")
         {
             global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
+            global.m_SoundEffectWhoosh.Play();
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 1, true);
             Debug.Log("PopUp!");
         }
@@ -806,6 +809,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
+            global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;

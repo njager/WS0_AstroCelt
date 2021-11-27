@@ -109,6 +109,7 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
+                    global.m_SoundEffectDamage.Play();
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                     return;
@@ -119,6 +120,7 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
+                    global.m_SoundEffectDamage.Play();
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                     return;
@@ -129,6 +131,7 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
+                    global.m_SoundEffectDamage.Play();
                     iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
                     return;
