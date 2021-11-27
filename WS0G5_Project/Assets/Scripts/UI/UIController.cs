@@ -78,7 +78,15 @@ public class UIController : MonoBehaviour
     private GameObject shieldTileGlow;
    // private int confirmTileIndex;
 
-    [Header("EnemyUIReferences")]
+    [Header("Shield UI")]
+    [SerializeField] TextMeshProUGUI playerShieldText;
+    [SerializeField] TextMeshProUGUI enemyShieldText1;
+    [SerializeField] TextMeshProUGUI enemyShieldText2;
+    [SerializeField] TextMeshProUGUI enemyShieldText3;
+    [SerializeField] int playerShieldVal;
+    [SerializeField] int enemy1ShieldVal;
+    [SerializeField] int enemy2ShieldVal;
+    [SerializeField] int enemy3ShieldVal;
 
     public bool isEnemyDead;
 
@@ -106,6 +114,12 @@ public class UIController : MonoBehaviour
         _enemyMaxHealth = global.enemy1.enemyStartHealth;
         _enemyMaxHealth2 = global.enemy2.enemyStartHealth;
         _enemyMaxHealth3 = global.enemy3.enemyStartHealth;
+
+        // Set shields
+        playerShieldVal = 2;
+        enemy1ShieldVal = global.enemy1ShieldCount;
+        enemy2ShieldVal = global.enemy2ShieldCount; 
+        enemy3ShieldVal = global.enemy3ShieldCount;
 
         //Set up the text
         SetText();

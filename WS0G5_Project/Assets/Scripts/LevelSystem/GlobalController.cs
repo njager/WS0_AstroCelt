@@ -130,9 +130,20 @@ public class GlobalController : MonoBehaviour
 
     [Header("UI Variables")]
     public static Transform pfPopup;
+
+    [Header("Shielding")]
+    public Color shieldColor;
+    public Color enemy1NormalColor;
+    public Color enemy2NormalColor;
+    public Color enemy3NormalColor;
+
+    public int enemy1ShieldCount; // Set to 2
+    public int enemy2ShieldCount; // Set to 2
+    public int enemy3ShieldCount; // Set to 2
+
     //public WorldController world;
 
-    
+
 
     void Awake()
     {
@@ -145,6 +156,10 @@ public class GlobalController : MonoBehaviour
 
         obstacleList = new List<GameObject>();
         //world = WorldController.instance;
+
+        enemy1ShieldCount = 2;
+        enemy2ShieldCount = 2;
+        enemy3ShieldCount = 2;
     }
 
     public void Update()

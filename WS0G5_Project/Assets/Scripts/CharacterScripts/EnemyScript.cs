@@ -31,9 +31,15 @@ public class EnemyScript : MonoBehaviour
     private GlobalController global; // Creating global variable
     public bool isYourTurn;
     //private float spawnTimer = 2.5f; // Have the enemy wait for a timer
-   private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
+    private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
     public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
 
+    [Header("Shielding")]
+    public Color shieldColor; 
+    public Color enemy1NormalColor;
+    public Color enemy2NormalColor;
+    public Color enemy3NormalColor;
+    
     void Awake() // Do this to set Enemy Count, and EnemyType
     {
         StaticVariables.masterEnemyCount += 1;
@@ -42,6 +48,10 @@ public class EnemyScript : MonoBehaviour
         int _randEnemyHealth = Random.Range(27, 36);
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
+
+        enemy1ShieldCount = 2;
+        enemy2ShieldCount = 2;
+        enemy3ShieldCount = 2;
     }
 
     void Start()
