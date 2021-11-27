@@ -116,7 +116,7 @@ public class UIController : MonoBehaviour
         _enemyMaxHealth3 = global.enemy3.enemyStartHealth;
 
         // Set shields
-        playerShieldVal = 2;
+        playerShieldVal = global.playerShieldCount;
         enemy1ShieldVal = global.enemy1ShieldCount;
         enemy2ShieldVal = global.enemy2ShieldCount; 
         enemy3ShieldVal = global.enemy3ShieldCount;
@@ -177,15 +177,21 @@ public class UIController : MonoBehaviour
         _playerHealth = PlayerStats.playerVitality;
         _playerMaxHealth = PlayerStats.startingPlayerVitality;
         _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth1();
-        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth2();
-        _enemyMaxHealth = global.staticVariablesReference.returnStartEnemyHealth3();
+        _enemyMaxHealth2 = global.staticVariablesReference.returnStartEnemyHealth2();
+        _enemyMaxHealth3= global.staticVariablesReference.returnStartEnemyHealth3();
         _enemyMaxCount = global.staticVariablesReference.returnExpectedEnemyCount();
+
+        playerShieldVal = global.playerShieldCount;
+        enemy1ShieldVal = global.enemy1ShieldCount;
+        enemy2ShieldVal = global.enemy2ShieldCount;
+        enemy3ShieldVal = global.enemy3ShieldCount;
         return; 
     }
 
     //sets the text objects
     void SetText()
     {
+        // Update UI Text
         enemyCountText.text = _enemyCount.ToString() + "/" + _enemyMaxCount.ToString();
         ceCountText.text = _ceCount.ToString();
         playerHealthText.text = _playerHealth.ToString() + "/" + _playerMaxHealth.ToString();
@@ -201,6 +207,8 @@ public class UIController : MonoBehaviour
 
         //update charge bar
         //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
+
+        //update Shield Bars
     }
 
     IEnumerator ConfirmAnim()

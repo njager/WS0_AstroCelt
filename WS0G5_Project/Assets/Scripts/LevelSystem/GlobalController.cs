@@ -137,13 +137,12 @@ public class GlobalController : MonoBehaviour
     public Color enemy2NormalColor;
     public Color enemy3NormalColor;
 
+    public int playerShieldCount; // Set to 2
     public int enemy1ShieldCount; // Set to 2
     public int enemy2ShieldCount; // Set to 2
     public int enemy3ShieldCount; // Set to 2
 
     //public WorldController world;
-
-
 
     void Awake()
     {
