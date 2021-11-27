@@ -57,6 +57,15 @@ public class LineRendererScript : MonoBehaviour
         // Debug.Log(initialStar);
         finalStar = star2;
         // Debug.Log(finalStar);
+        if(initialStar == global.drawingScript.NodeStar)
+        {
+            if (finalStar == global.drawingScript.NodeStar)
+            {
+                Debug.Log("Don't click on the Node Star!");
+                global.enumeratorCheckBad = 1;
+                StartCoroutine(global.constellationBuilding.constellationClearBad());
+            }
+        }
     }
     
     public void ResetList() // For Reset Behavior

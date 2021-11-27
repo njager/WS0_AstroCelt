@@ -228,15 +228,36 @@ public class EnemyScript : MonoBehaviour
     {
         if (myIdentifier == "Enemy1")
         {
-            StaticVariables.enemyCurrentHealth1 -= _health;
+            if(global.enemy1ShieldCount > 0)
+            {
+                global.enemy1ShieldCount -= _health;
+            }
+            else
+            {
+                StaticVariables.enemyCurrentHealth1 -= _health;
+            }
         }
         if (myIdentifier == "Enemy2")
         {
-            StaticVariables.enemyCurrentHealth2 -= _health;
+            if(global.enemy2ShieldCount > 0)
+            {
+                global.enemy2ShieldCount -= _health;
+            }
+            else
+            {
+                StaticVariables.enemyCurrentHealth2 -= _health;
+            }
         }
         if (myIdentifier == "Enemy3")
         {
-            StaticVariables.enemyCurrentHealth3 -= _health;
+            if(global.enemy3ShieldCount > 0)
+            {
+                global.enemy3ShieldCount -= _health;
+            }
+            else
+            {
+                StaticVariables.enemyCurrentHealth3 -= _health;
+            }
         }
 
     }

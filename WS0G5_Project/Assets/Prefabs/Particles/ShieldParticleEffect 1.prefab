@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5398315151779637248}
   - component: {fileID: 4213321073924906420}
   m_Layer: 0
-  m_Name: DamageParticleEffect
+  m_Name: ShieldParticleEffect 1
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4764,7 +4764,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44b8f1dd47b3645fe8dc8b328b482e8b, type: 2}
+  - {fileID: 2100000, guid: 69e45487b3431427ab78624f600e3dee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

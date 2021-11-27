@@ -228,8 +228,8 @@ public class UIController : MonoBehaviour
         //update Shield Bars
         playerShieldBar.fillAmount = (float)playerShieldVal / (float)playerShieldMaxCount;
         enemy1ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
-        enemy2ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
-        enemy3ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
+        enemy2ShieldBar.fillAmount = (float)enemy2ShieldVal / (float)shieldMaxCount;
+        enemy3ShieldBar.fillAmount = (float)enemy3ShieldVal / (float)shieldMaxCount;
     }
 
     IEnumerator ConfirmAnim()

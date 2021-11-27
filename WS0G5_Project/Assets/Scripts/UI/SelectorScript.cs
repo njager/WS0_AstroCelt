@@ -86,6 +86,18 @@ public class SelectorScript : MonoBehaviour
                 }
             }
         }
+        if(global.enemy1ShieldCount < 0)
+        {
+            global.enemy1ShieldCount = 0;
+        }
+        if (global.enemy2ShieldCount < 0)
+        {
+            global.enemy2ShieldCount = 0;
+        }
+        if (global.enemy3ShieldCount < 0)
+        {
+            global.enemy3ShieldCount = 0;
+        }
     }
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)

@@ -5367,7 +5367,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.33
+  m_FillAmount: 0.7
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -8248,8 +8248,6 @@ MonoBehaviour:
   selector: {fileID: 519335944}
   enemyPopUpTransform: {fileID: 682696832}
   playerPopUpTransform: {fileID: 917150815}
-  starTag: Star
-  abc: 90
   spawningFramework: {fileID: 560938485}
   oldStarSpawner: {fileID: 1519118399}
   shieldColor: {r: 0.4481132, g: 0.66670376, b: 1, a: 1}
@@ -31586,9 +31584,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStarParticlePrefab: {fileID: 5398315151779637249, guid: 4eab1920677676740b420c25d3f5639a, type: 3}
   damageParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
-  healthParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  healthParticlePrefab: {fileID: 5398315151779637249, guid: 919df616ac5d7463fb92229cfcf932e1, type: 3}
   nodeClickedParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
-  shieldParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  shieldParticlePrefab: {fileID: 5398315151779637249, guid: c533bac420ac34b92b1d3547c1cc7fd2, type: 3}
   stunParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
   confirmParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
 --- !u!1 &1455077782

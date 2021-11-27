@@ -766,7 +766,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             StartCoroutine(constellationClearBad()); // Fully Clear
         }
     }
-    IEnumerator constellationClearBad() // Add a isReset bool to reset behavior and then delete LineFinal
+    public IEnumerator constellationClearBad() // Add a isReset bool to reset behavior and then delete LineFinal
     {
         Debug.Log("Clearing Constellation");
         foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
@@ -797,7 +797,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         yield return new WaitUntil(() => global.enumeratorCheckBad == 0);
     }
 
-    IEnumerator constellationClearGood(string _identity)
+    public IEnumerator constellationClearGood(string _identity)
     {
         global.m_SoundEffectConFinish.Play(); // CONSTELLATION SOUND EFFECT
         foreach (LineRendererScript lineRenderer in global.lineRendererList.ToList())
