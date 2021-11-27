@@ -38,7 +38,7 @@ public class TurnManager : MonoBehaviour
     {
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
-        global.drawingScript.starCount = 0;
+        global.drawingScript.starCount = 1;
         totalTurnCount += 1; 
         playerTurnCount = totalTurnCount;
         global.starSpawnerFrameworkScript.HCMapPicker();

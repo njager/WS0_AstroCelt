@@ -782,9 +782,11 @@ public class ConstellationBuildingScript : MonoBehaviour
         // All the values that need to go back to 0 
         global.constellationPotentialHealth = 0;
         global.constellationPotentialDamage = 0;
+        global.constellationPotentialShield = 0;
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        global.constellationFinalShield = 0;
         global.drawingScript.nodeClickCount = 0;
         checkCount = 0;
         global.starSpawnerFrameworkScript.StarResetForClear(); // Needed to reset drawing
@@ -839,9 +841,11 @@ public class ConstellationBuildingScript : MonoBehaviour
         }
         global.constellationPotentialHealth = 0;
         global.constellationPotentialDamage = 0;
+        global.constellationPotentialShield = 0;
         global.constellationPotential = 0;
         global.constellationFinalDamage = 0;
         global.constellationFinalHealth = 0;
+        global.constellationFinalShield= 0;
         global.drawingScript.nodeClickCount = 0; 
         conBool = false;
         _tempStarCount = 0;

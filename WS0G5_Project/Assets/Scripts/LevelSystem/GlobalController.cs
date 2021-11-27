@@ -118,12 +118,6 @@ public class GlobalController : MonoBehaviour
     public Transform enemyPopUpTransform;
     public Transform playerPopUpTransform;
 
-    [Header("Tags")]
-    public string starTag = "Star";
-
-    [Header("Particles")]
-    public int abc = 90;
-
     [Header("Spawning Framework")]
     public GameObject spawningFramework;
     public GameObject oldStarSpawner;

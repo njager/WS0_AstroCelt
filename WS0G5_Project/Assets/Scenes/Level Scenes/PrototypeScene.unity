@@ -8252,10 +8252,10 @@ MonoBehaviour:
   abc: 90
   spawningFramework: {fileID: 560938485}
   oldStarSpawner: {fileID: 1519118399}
-  shieldColor: {r: 0, g: 0, b: 0, a: 0}
-  enemy1NormalColor: {r: 0, g: 0, b: 0, a: 0}
-  enemy2NormalColor: {r: 0, g: 0, b: 0, a: 0}
-  enemy3NormalColor: {r: 0, g: 0, b: 0, a: 0}
+  shieldColor: {r: 0.4481132, g: 0.66670376, b: 1, a: 1}
+  enemy1NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  enemy2NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  enemy3NormalColor: {r: 1, g: 1, b: 1, a: 1}
   playerShieldCount: 0
   enemy1ShieldCount: 0
   enemy2ShieldCount: 0
