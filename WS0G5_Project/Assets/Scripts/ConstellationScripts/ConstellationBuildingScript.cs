@@ -92,20 +92,15 @@ public class ConstellationBuildingScript : MonoBehaviour
             {
                 if (star == global.drawingScript.NodeStar)
                 {
-                    if(_tempStarCount == 0)
+                    if (_tempStarCount == 0)
                     {
-                        global.constellationPotentialHealth -= 1; 
-                    }
-                    else
-                    {
-                        global.constellationPotentialHealth += star.myStarClass.constellationValue;
-                        isHealthCon = true;
-                    }
-                        
+                        global.constellationPotentialHealth -= 1;
+                    }   
                 }
                 else
                 {
                     global.constellationPotentialHealth += star.myStarClass.constellationValue;
+                    isHealthCon = true;
                 }
             }
             if (star.myStarClass.starType == "DamageStar")
@@ -116,16 +111,11 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         global.constellationPotentialDamage -= 1;
                     }
-                    else
-                    {
-                        global.constellationPotentialDamage += star.myStarClass.constellationValue;
-                        isDamageCon = true;
-                    }
-
                 }
                 else
                 {
                     global.constellationPotentialDamage += star.myStarClass.constellationValue;
+                    isDamageCon = true;
                 }
             }
             if (star.myStarClass.starType == "ShieldStar")
@@ -136,19 +126,30 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         global.constellationPotentialShield -= 1;
                     }
-                    else
-                    {
-                        global.constellationPotentialShield += star.myStarClass.constellationValue;
-                        isShieldCon = true; 
-                    }
-
                 }
                 else
                 {
                     global.constellationPotentialShield += star.myStarClass.constellationValue;
+                    isShieldCon = true;
                 }
             }
         }
+
+        if(isShieldCon == true) // Doing a comparative check to see if shield and other action stars are being triggered, damage and health already have functionlity elsewhere
+        {
+            if(isDamageCon == true)
+            {
+                Debug.Log("Can't have more than 1 Action Star in the consellation!");
+                global.enumeratorCheckBad = 1;
+                StartCoroutine(constellationClearBad());
+            }
+            if(isHealthCon == true)
+            {
+                Debug.Log("Can't have more than 1 Action Star in the consellation!");
+                global.enumeratorCheckBad = 1;
+                StartCoroutine(constellationClearBad());
+            }
+        } 
     }
 
     //Make this one more constellation
