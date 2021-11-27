@@ -80,13 +80,21 @@ public class UIController : MonoBehaviour
 
     [Header("Shield UI")]
     [SerializeField] TextMeshProUGUI playerShieldText;
-    [SerializeField] TextMeshProUGUI enemyShieldText1;
-    [SerializeField] TextMeshProUGUI enemyShieldText2;
-    [SerializeField] TextMeshProUGUI enemyShieldText3;
+    [SerializeField] TextMeshProUGUI enemy1ShieldText;
+    [SerializeField] TextMeshProUGUI enemy2ShieldText;
+    [SerializeField] TextMeshProUGUI enemy3ShieldText;
+
     [SerializeField] int playerShieldVal;
     [SerializeField] int enemy1ShieldVal;
     [SerializeField] int enemy2ShieldVal;
     [SerializeField] int enemy3ShieldVal;
+
+    [SerializeField] int shieldMaxCount;
+
+    [SerializeField] Image playerShieldBar;
+    [SerializeField] Image enemy1ShieldBar;
+    [SerializeField] Image enemy2ShieldBar;
+    [SerializeField] Image enemy3ShieldBar;
 
     public bool isEnemyDead;
 
@@ -120,6 +128,8 @@ public class UIController : MonoBehaviour
         enemy1ShieldVal = global.enemy1ShieldCount;
         enemy2ShieldVal = global.enemy2ShieldCount; 
         enemy3ShieldVal = global.enemy3ShieldCount;
+
+        shieldMaxCount = 2;
 
         //Set up the text
         SetText();
@@ -199,6 +209,11 @@ public class UIController : MonoBehaviour
         enemyHealthText2.text = _enemyHealth2.ToString() + "/" + _enemyMaxHealth2.ToString();
         enemyHealthText3.text = _enemyHealth3.ToString() + "/" + _enemyMaxHealth3.ToString();
 
+        playerShieldText.text = playerShieldVal.ToString();
+        enemy1ShieldText.text = enemy1ShieldVal.ToString();
+        enemy2ShieldText.text = enemy2ShieldVal.ToString();
+        enemy3ShieldText.text = enemy3ShieldVal.ToString();
+
         //update health bars
         playerHealthBar.fillAmount = (float)_playerHealth / (float)_playerMaxHealth;
         enemyHealthBar.fillAmount = (float)_enemyHealth / (float)_enemyMaxHealth;
@@ -209,6 +224,10 @@ public class UIController : MonoBehaviour
         //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
 
         //update Shield Bars
+        playerShieldBar.fillAmount = playerShieldVal / shieldMaxCount;
+        enemy1ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
+        enemy2ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
+        enemy3ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
     }
 
     IEnumerator ConfirmAnim()

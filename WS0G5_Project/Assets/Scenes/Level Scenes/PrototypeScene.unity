@@ -8252,6 +8252,14 @@ MonoBehaviour:
   abc: 90
   spawningFramework: {fileID: 560938485}
   oldStarSpawner: {fileID: 1519118399}
+  shieldColor: {r: 0, g: 0, b: 0, a: 0}
+  enemy1NormalColor: {r: 0, g: 0, b: 0, a: 0}
+  enemy2NormalColor: {r: 0, g: 0, b: 0, a: 0}
+  enemy3NormalColor: {r: 0, g: 0, b: 0, a: 0}
+  playerShieldCount: 0
+  enemy1ShieldCount: 0
+  enemy2ShieldCount: 0
+  enemy3ShieldCount: 0
 --- !u!4 &353662683
 Transform:
   m_ObjectHideFlags: 0
@@ -8543,6 +8551,19 @@ MonoBehaviour:
   enemyHealthBar3: {fileID: 1338610250}
   _enemyHealth3: 0
   _enemyMaxHealth3: 0
+  playerShieldText: {fileID: 982223146}
+  enemy1ShieldText: {fileID: 1941426816}
+  enemy2ShieldText: {fileID: 459500738}
+  enemy3ShieldText: {fileID: 497122435}
+  playerShieldVal: 0
+  enemy1ShieldVal: 0
+  enemy2ShieldVal: 0
+  enemy3ShieldVal: 0
+  shieldMaxCount: 0
+  playerShieldBar: {fileID: 2051716481}
+  enemy1ShieldBar: {fileID: 213457643}
+  enemy2ShieldBar: {fileID: 1238004724}
+  enemy3ShieldBar: {fileID: 651726385}
   isEnemyDead: 0
 --- !u!1 &371439207
 GameObject:

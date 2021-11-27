@@ -156,6 +156,7 @@ public class GlobalController : MonoBehaviour
         obstacleList = new List<GameObject>();
         //world = WorldController.instance;
 
+        playerShieldCount = 2;
         enemy1ShieldCount = 2;
         enemy2ShieldCount = 2;
         enemy3ShieldCount = 2;
