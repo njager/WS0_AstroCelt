@@ -26,6 +26,10 @@ public class PlayerScript : MonoBehaviour
             global.playerTurnBar.SetActive(true);
             global.enemyTurnBar.SetActive(false);
         }
+        if(global.playerShieldCount < 0)
+        {
+            global.playerShieldCount = 0;
+        }
     }
 
     public void PlayerReset()
@@ -35,10 +39,18 @@ public class PlayerScript : MonoBehaviour
 
     public void playerDamaged(int damage)
     {
-        PlayerStats.playerVitality -= damage;
-        global.m_SoundEffectDamage.Play();
-        //Debug.Log("Player Hit"); 
-        showHealth = PlayerStats.playerVitality; 
+        if(global.playerShieldCount > 0)
+        {
+            global.playerShieldCount -= damage;
+            global.m_SoundEffectDamage.Play();
+        }
+        else
+        {
+            PlayerStats.playerVitality -= damage;
+            global.m_SoundEffectDamage.Play();
+            //Debug.Log("Player Hit"); 
+            showHealth = PlayerStats.playerVitality;
+        }
     }
 
     public void PlayerHealed(int health)
@@ -50,6 +62,18 @@ public class PlayerScript : MonoBehaviour
         else
         {
             Debug.Log("Can't Heal, At Max Health!"); 
+        }
+    }
+
+    public void PlayerShields(int health)
+    {
+        if (global.playerShieldCount != 20)
+        {
+            global.playerShieldCount += health;
+        }
+        else
+        {
+            Debug.Log("Can't Shield, At Max Shielding!");
         }
     }
 }

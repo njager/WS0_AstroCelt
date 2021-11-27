@@ -169,7 +169,7 @@ public class GlobalController : MonoBehaviour
             //SceneManager.LoadSceneAsync("PrototypeScene");
             //Win();
             //Lose();
-            playerShieldCount -= 10; 
+            //playerShieldCount -= 10; 
         }
         if(PlayerStats.playerVitality <= 0)
         {

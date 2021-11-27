@@ -746,7 +746,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                 int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
                 if (global.playerShieldCount < 20)
                 {
-                    global.playerScript.PlayerHealed(_constellationFinal);
+                    global.playerScript.PlayerShields(_constellationFinal);
                     global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                     StartCoroutine(constellationClearGood("shield"));
                 }
