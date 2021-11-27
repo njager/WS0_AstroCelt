@@ -716,13 +716,15 @@ public class ConstellationBuildingScript : MonoBehaviour
                         if(PlayerStats.playerVitality < 50)
                         {
                             global.playerScript.PlayerHealed(_constellationFinal);
+                            global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                             StartCoroutine(constellationClearGood("damage")); 
                         }
                         else
                         {
                             Debug.Log("The player is at Max Health!");
+                            global.enumeratorCheckBad = 1; 
+                            StartCoroutine(constellationClearBad());
                         }
-                        global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                     }
                     else
                     {
