@@ -8155,8 +8155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c5adaac246da643a41d7d996724a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerBoundLine: 10
-  upperBoundLine: 50
+  lowerBoundLine: 3
+  upperBoundLine: 3
   winCanvas: {fileID: 1397895599}
   loseCanvas: {fileID: 701888727}
   uiCanvas: {fileID: 263663540}
@@ -8560,6 +8560,7 @@ MonoBehaviour:
   enemy2ShieldVal: 0
   enemy3ShieldVal: 0
   shieldMaxCount: 0
+  playerShieldMaxCount: 0
   playerShieldBar: {fileID: 2051716481}
   enemy1ShieldBar: {fileID: 213457643}
   enemy2ShieldBar: {fileID: 1238004724}

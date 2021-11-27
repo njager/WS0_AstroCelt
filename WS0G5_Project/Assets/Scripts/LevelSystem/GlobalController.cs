@@ -156,7 +156,7 @@ public class GlobalController : MonoBehaviour
         obstacleList = new List<GameObject>();
         //world = WorldController.instance;
 
-        playerShieldCount = 2;
+        playerShieldCount = 20;
         enemy1ShieldCount = 2;
         enemy2ShieldCount = 2;
         enemy3ShieldCount = 2;
@@ -168,7 +168,8 @@ public class GlobalController : MonoBehaviour
         {
             //SceneManager.LoadSceneAsync("PrototypeScene");
             //Win();
-            //Lose(); 
+            //Lose();
+            playerShieldCount -= 10; 
         }
         if(PlayerStats.playerVitality <= 0)
         {

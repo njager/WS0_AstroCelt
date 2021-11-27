@@ -90,6 +90,7 @@ public class UIController : MonoBehaviour
     [SerializeField] int enemy3ShieldVal;
 
     [SerializeField] int shieldMaxCount;
+    [SerializeField] int playerShieldMaxCount;
 
     [SerializeField] Image playerShieldBar;
     [SerializeField] Image enemy1ShieldBar;
@@ -130,6 +131,7 @@ public class UIController : MonoBehaviour
         enemy3ShieldVal = global.enemy3ShieldCount;
 
         shieldMaxCount = 2;
+        playerShieldMaxCount = 20;
 
         //Set up the text
         SetText();
@@ -224,10 +226,10 @@ public class UIController : MonoBehaviour
         //enemyChargeBar.fillAmount = (float)chargeTime / (float)maxCharge;
 
         //update Shield Bars
-        playerShieldBar.fillAmount = playerShieldVal / shieldMaxCount;
-        enemy1ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
-        enemy2ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
-        enemy3ShieldBar.fillAmount = enemy1ShieldVal / shieldMaxCount;
+        playerShieldBar.fillAmount = (float)playerShieldVal / (float)playerShieldMaxCount;
+        enemy1ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
+        enemy2ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
+        enemy3ShieldBar.fillAmount = (float)enemy1ShieldVal / (float)shieldMaxCount;
     }
 
     IEnumerator ConfirmAnim()

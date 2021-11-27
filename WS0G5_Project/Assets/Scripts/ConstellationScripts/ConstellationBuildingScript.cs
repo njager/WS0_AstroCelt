@@ -680,7 +680,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         Debug.Log("Constellation Built for Damage!");
                         float _lineMultiplier = LineMultiplierCalculator();  
-                        global.constellationFinalDamage = (global.constellationPotential + global.constellationPotentialDamage) * _lineMultiplier;
+                        global.constellationFinalDamage = global.constellationPotential + global.constellationPotentialDamage * _lineMultiplier;
                         int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
                         global.enemySelected.EnemyDamaged(_constellationFinal);
                         //Debug.Log(global.currentEnemy.enemyHealth);
@@ -688,7 +688,7 @@ public class ConstellationBuildingScript : MonoBehaviour
                         //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
                         //Popup.Create(global.enemyPopUpTransform.position, global.constellationFinalHealth, 1);
                         //bool isDamage = true;
-                        StartCoroutine(constellationClearGood("health")); // Keep Persitent Proper Constellations
+                        StartCoroutine(constellationClearGood("damage")); // Keep Persitent Proper Constellations
                     }
                     else
                     {
@@ -712,13 +712,13 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         Debug.Log("Constellation Built for Health!");
                         float _lineMultiplier = LineMultiplierCalculator();
-                        global.constellationFinalHealth += (global.constellationPotential + global.constellationPotentialHealth) * _lineMultiplier;
+                        global.constellationFinalHealth += global.constellationPotential + global.constellationPotentialHealth * _lineMultiplier * 0.5f;
                         int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
                         if(PlayerStats.playerVitality < 50)
                         {
                             global.playerScript.PlayerHealed(_constellationFinal);
                             global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
-                            StartCoroutine(constellationClearGood("damage")); 
+                            StartCoroutine(constellationClearGood("health")); 
                         }
                         else
                         {
@@ -733,6 +733,25 @@ public class ConstellationBuildingScript : MonoBehaviour
                         global.enumeratorCheckBad = 1; // Make it so the Coroutine doesn't autoreturn
                         StartCoroutine(constellationClearBad()); // Fully Clear
                     }
+                }
+            }
+            if (global.constellationPotentialShield > 0) // Shield Star Building, check done elsewhere
+            {
+                Debug.Log("Constellation Built for !");
+                float _lineMultiplier = LineMultiplierCalculator();
+                global.constellationFinalShield += global.constellationPotential + global.constellationPotentialShield * _lineMultiplier;
+                int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
+                if (global.playerShieldCount < 20)
+                {
+                    global.playerScript.PlayerHealed(_constellationFinal);
+                    global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
+                    StartCoroutine(constellationClearGood("shield"));
+                }
+                else
+                {
+                    Debug.Log("The player is at Max Shields!");
+                    global.enumeratorCheckBad = 1;
+                    StartCoroutine(constellationClearBad());
                 }
             }
 
@@ -791,17 +810,17 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             star.StarUsed();
         }
-        if(_identity == "damage") 
+        if(_identity == "health") 
         {
-            global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
+            global.particleSystemScript.SpawnHealthParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
             global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }
-        if (_identity == "health")
+        if (_identity == "damage")
         {
-            global.particleSystemScript.SpawnDamageParticleEffect(global.enemyPopUpTransform);
+            global.particleSystemScript.SpawnDamageParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
             global.m_SoundEffectWhoosh.Play();
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 1, true);
@@ -809,7 +828,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         }
         if (_identity == "shield") 
         {
-            global.particleSystemScript.SpawnHealthParticleEffect(global.playerPopUpTransform);
+            global.particleSystemScript.SpawnShieldParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
             Popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
             global.m_SoundEffectWhoosh.Play();

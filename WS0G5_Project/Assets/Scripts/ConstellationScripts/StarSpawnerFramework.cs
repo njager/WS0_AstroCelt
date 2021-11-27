@@ -3433,7 +3433,6 @@ public class StarSpawnerFramework : MonoBehaviour
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint16_11);
             usedTransform.Add(starToBeSpawned);
-            return;
         }
         Vector3 _nodeStarVector3 = starSpawnPoint10_8.position; 
         if (starSpawnCount == 36) // Node Star
