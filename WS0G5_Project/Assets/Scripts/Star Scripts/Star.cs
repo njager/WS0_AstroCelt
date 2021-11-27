@@ -97,7 +97,7 @@ public class Star : MonoBehaviour
                                 global.drawingScript.activeStarCounter = 1;
                                 return;
                             }
-                            if (global.drawingScript.starNext == this)
+                            else if (global.drawingScript.starNext == this)
                             {
                                 Debug.Log("Please click a different Star");
                                 global.drawingScript.activeStarCounter = 1;
