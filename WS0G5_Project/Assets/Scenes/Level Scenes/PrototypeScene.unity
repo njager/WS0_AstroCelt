@@ -8250,6 +8250,9 @@ MonoBehaviour:
   playerPopUpTransform: {fileID: 917150815}
   spawningFramework: {fileID: 560938485}
   oldStarSpawner: {fileID: 1519118399}
+  enemyHealthBar1: {fileID: 1375473011}
+  enemyHealthBar2: {fileID: 209871658}
+  enemyHealthBar3: {fileID: 1329898895}
   enemy1ShieldUI: {fileID: 561586484}
   enemy2ShieldUI: {fileID: 926463696}
   enemy3ShieldUI: {fileID: 1111497935}

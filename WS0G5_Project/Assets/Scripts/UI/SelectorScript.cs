@@ -44,12 +44,11 @@ public class SelectorScript : MonoBehaviour
         enemy1Shielding = false;
         enemy2Shielding = false;
         enemy3Shielding = false;
+        global.turnManagerScript.Attacking();
 
         EnemyActionNextTurn(global.enemy1ActionIcon);
         EnemyActionNextTurn(global.enemy2ActionIcon);
         EnemyActionNextTurn(global.enemy3ActionIcon);
-        global.turnManagerScript.Attacking();
-        global.turnManagerScript.Shielding();
     }
 
     void Update() // Track Enemy Health

@@ -113,45 +113,44 @@ public class EnemyScript : MonoBehaviour
             turnActionCount = 0;
             turnAction = false;
             firstActionCall++;
-            return;
         }
 
-        if(myIdentifier == "Enemy 1")
+        if(myIdentifier == "Enemy1")
         {
             if (global.enemy1Attacking == true)
             {
                 global.enemy1ShieldGraphic.SetActive(false);
                 global.enemy1ShieldUI.SetActive(false);
             }
-            else
+            if (global.enemy1Attacking == false)
             {
                 global.enemy1ShieldGraphic.SetActive(true);
                 global.enemy1ShieldUI.SetActive(true);
             }
         }
 
-        if (myIdentifier == "Enemy 2")
+        if (myIdentifier == "Enemy2")
         {
             if (global.enemy2Attacking == true)
             {
                 global.enemy2ShieldGraphic.SetActive(false);
                 global.enemy2ShieldUI.SetActive(false);
             }
-            else
+            if (global.enemy2Attacking == false)
             {
                 global.enemy2ShieldGraphic.SetActive(true);
                 global.enemy2ShieldUI.SetActive(true);
             }
         }
 
-        if (myIdentifier == "Enemy 3")
+        if (myIdentifier == "Enemy3")
         {
             if (global.enemy3Attacking == true)
             {
                 global.enemy3ShieldGraphic.SetActive(false);
                 global.enemy3ShieldUI.SetActive(false);
             }
-            else
+            if (global.enemy3Attacking == false)
             {
                 global.enemy3ShieldGraphic.SetActive(true);
                 global.enemy3ShieldUI.SetActive(true);
