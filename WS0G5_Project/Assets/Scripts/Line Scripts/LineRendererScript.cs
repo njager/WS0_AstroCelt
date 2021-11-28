@@ -94,13 +94,17 @@ public class LineRendererScript : MonoBehaviour
             {
                 if (myCount < other.GetComponent<LineRendererScript>().myCount)
                 {
-                    Destroy(col); 
+                    Destroy(col);
+                    global.drawingScript.starNext = other.GetComponent<LineRendererScript>().initialStar;
+                    global.drawingScript.star2 = other.GetComponent<LineRendererScript>().initialStar;
                     Debug.Log("Destroying Other Line");
                     return;
                 }
                 else
                 {
                     Debug.Log("Destroying Self");
+                    global.drawingScript.starNext = initialStar;
+                    global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
                     return;
                 }
@@ -108,7 +112,9 @@ public class LineRendererScript : MonoBehaviour
         }
         if (other.CompareTag("Obstacle")) // Hit an Obstacle, destroy self
         {
-            Debug.Log("Destroying Self");
+            Debug.Log("Hit obstacle");
+            global.drawingScript.starNext = initialStar;
+            global.drawingScript.star2 = initialStar;
             Destroy(lineGameObject);
             return;
         }
@@ -120,6 +126,8 @@ public class LineRendererScript : MonoBehaviour
                 if (_star != finalStar)
                 {
                     Debug.Log("Hit Star Without Clicking");
+                    global.drawingScript.starNext = initialStar;
+                    global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
                     return;
                 }
@@ -133,6 +141,8 @@ public class LineRendererScript : MonoBehaviour
                 if (_star != finalStar)
                 {
                     Debug.Log("Hit Star Without Clicking");
+                    global.drawingScript.starNext = initialStar;
+                    global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
                     return;
                 }
@@ -146,6 +156,23 @@ public class LineRendererScript : MonoBehaviour
                 if (_star != finalStar)
                 {
                     Debug.LogError("Hit Star Without Clicking");
+                    global.drawingScript.starNext = initialStar;
+                    global.drawingScript.star2 = initialStar;
+                    Destroy(lineGameObject);
+                    return;
+                }
+            }
+        }
+        if (other.CompareTag("ShieldStar"))
+        {
+            Star _star = other.GetComponent<Star>();
+            if (_star != initialStar)
+            {
+                if (_star != finalStar)
+                {
+                    Debug.LogError("Hit Star Without Clicking");
+                    global.drawingScript.starNext = initialStar;
+                    global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
                     return;
                 }
