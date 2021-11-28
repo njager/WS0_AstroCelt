@@ -20,9 +20,6 @@ public class SelectorScript : MonoBehaviour
     public bool enemy1Attacking;
     public bool enemy2Attacking;
     public bool enemy3Attacking;
-    public bool enemy1Shielding;
-    public bool enemy2Shielding;
-    public bool enemy3Shielding;
 
     //private bool enemy1ActionSelected;
     //private bool enemy2ActionSelected;
@@ -41,9 +38,6 @@ public class SelectorScript : MonoBehaviour
         enemy1Attacking = true;
         enemy2Attacking = true;
         enemy3Attacking = true;
-        enemy1Shielding = false;
-        enemy2Shielding = false;
-        enemy3Shielding = false;
         global.turnManagerScript.Attacking();
 
         EnemyActionNextTurn(global.enemy1ActionIcon);
@@ -143,17 +137,17 @@ public class SelectorScript : MonoBehaviour
             _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyShield;
             if (_givenEnemyIcon.CompareTag("Icon1") == true)
             {
-                enemy1Shielding = true;
+                enemy1Attacking = false;
                 return;
             }
             if (_givenEnemyIcon.CompareTag("Icon2") == true)
             {
-                enemy2Shielding = true;
+                enemy2Attacking = false;
                 return;
             }
             if (_givenEnemyIcon.CompareTag("Icon3") == true)
             {
-                enemy3Shielding = true;
+                enemy3Attacking = false;
                 return;
             }
         }
