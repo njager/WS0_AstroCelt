@@ -134,6 +134,10 @@ public class GlobalController : MonoBehaviour
     public GameObject enemy2ShieldUI;
     public GameObject enemy3ShieldUI;
 
+    public GameObject enemy1UI;
+    public GameObject enemy2UI;
+    public GameObject enemy3UI;
+
     public bool enemy1Shielded;
     public bool enemy2Shielded;
     public bool enemy3Shielded;

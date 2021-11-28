@@ -223,7 +223,7 @@ public class EnemyScript : MonoBehaviour
                     {
                         global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
-                        Popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
+                        Popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
                         global.m_SoundEffectDamage.Play();
                         firstActionCall = 0;
                     }
@@ -282,7 +282,19 @@ public class EnemyScript : MonoBehaviour
     {
         StaticVariables.masterEnemyCount -= 1;
         isDead = true;
-        isYourTurn = false; 
+        isYourTurn = false;
+        if(myIdentifier == "Enemy1")
+        {
+            global.enemy1UI.SetActive(false);
+        }
+        if (myIdentifier == "Enemy2")
+        {
+            global.enemy1UI.SetActive(false);
+        }
+        if (myIdentifier == "Enemy3")
+        {
+            global.enemy1UI.SetActive(false);
+        }
         gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         //global.UIController.isEnemyDead = true;
