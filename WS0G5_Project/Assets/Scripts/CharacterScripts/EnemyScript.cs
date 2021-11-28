@@ -33,7 +33,8 @@ public class EnemyScript : MonoBehaviour
     //private float spawnTimer = 2.5f; // Have the enemy wait for a timer
     private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
     public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
-
+    public bool turnAction = false;
+    public int firstActionCall;
     
     
     void Awake() // Do this to set Enemy Count, and EnemyType
@@ -41,9 +42,13 @@ public class EnemyScript : MonoBehaviour
         StaticVariables.masterEnemyCount += 1;
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
         isDead = false;
+        // Set Health
         int _randEnemyHealth = Random.Range(27, 36);
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
+        // Set Damage
+        int _randEnemyDamage = Random.Range(5, 9);
+        enemyDamage = _randEnemyDamage; 
     }
 
     void Start()
@@ -53,7 +58,7 @@ public class EnemyScript : MonoBehaviour
         global = GlobalController.instance;
         //global.currentEnemy = enemySelf;
         global.UIController.isEnemyDead = false;
-        enemyDamage = myStats.damage;
+        //enemyDamage = myStats.damage;
         turnActionCount = 1;
         global.UIController.selector.SetActive(false); 
     }
@@ -68,7 +73,23 @@ public class EnemyScript : MonoBehaviour
                 EnemyTurnAction();
             }
         }
-        
+        if (global.enemy1.isYourTurn == false)
+        {
+            if (global.enemy2.isYourTurn == false)
+            {
+                if (global.enemy3.isYourTurn == false)
+                {
+                    global.playerScript.isPlayerTurn = true;
+                }
+            }
+        }
+    }
+
+
+    void UpdateDamage()
+    {
+        int _randEnemyDamage = Random.Range(5, 9);
+        enemyDamage = _randEnemyDamage;
     }
 
     private void OnMouseDown()
@@ -93,13 +114,32 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator EnemyTurnTimer()
     {
-        global.enemyTurnBar.SetActive(true);
-        global.playerTurnBar.SetActive(false);
-        Debug.Log("Happening!");
-        isYourTurn = false;
-        global.playerScript.isPlayerTurn = true;
-        turnActionCount = 0; 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
+        turnAction = true; 
+    }
+
+    void EnemyAction()
+    {
+        if (firstActionCall == 0)
+        {
+            StartCoroutine(EnemyTurnTimer());
+        }
+        if (turnAction == false)
+        {
+            EnemyAction();
+        }
+        else
+        {
+            global.enemyTurnBar.SetActive(true);
+            global.playerTurnBar.SetActive(false);
+            Debug.Log("Happening!");
+            isYourTurn = false;
+            
+            turnActionCount = 0;
+            turnAction = false; 
+            return; 
+        }
+        firstActionCall++;
     }
 
     public void EnemyTurnAction() 
@@ -111,10 +151,11 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
+                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
+                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    return;
+                    firstActionCall = 0;
+                    EnemyAction();
                 }
             }
             if (myIdentifier == "Enemy2")
@@ -122,10 +163,11 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
+                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
+                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    return;
+                    firstActionCall = 0;
+                    EnemyAction();
                 }
             }
             if (myIdentifier == "Enemy3")
@@ -133,10 +175,12 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
+                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
+                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
                     StartCoroutine(EnemyTurnTimer());
-                    return;
+                    firstActionCall = 0;
+                    EnemyAction();
                 }
             }
         }
@@ -215,11 +259,12 @@ public class EnemyScript : MonoBehaviour
     public void enemyDie() // Death
     {
         StaticVariables.masterEnemyCount -= 1;
+        isDead = true;
+        isYourTurn = false; 
         gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         //global.UIController.isEnemyDead = true;
         //Destroy(enemyGameObject)
-        isDead = true;
         //global.currentEnemy.gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.HCEnemySwitch();
     }
