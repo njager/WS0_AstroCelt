@@ -291,39 +291,63 @@ public class EnemyScript : MonoBehaviour
         //global.enemySwitcherFrameworkScript.HCEnemySwitch();
     }
 
-    public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers
+    public void EnemyDamaged(int _damage) // Enemy is damaged, adjust numbers
     {
         if (myIdentifier == "Enemy1")
         {
-            if (global.enemy1Shielded)
+            if(global.enemy1Attacking == true)
             {
-                global.enemy1ShieldCount -= 1;
+                StaticVariables.enemyCurrentHealth1 -= _damage;
             }
             else
             {
-                StaticVariables.enemyCurrentHealth1 -= _health;
+                int _check = _damage - global.enemy1ShieldCount;
+                if(global.enemy1ShieldCount > 0)
+                {
+                    global.enemy1ShieldCount -= _damage;
+                }
+                if(_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth1 -= _damage;
+                }
             }
         }
         if (myIdentifier == "Enemy2")
         {
-            if(global.enemy2Shielded)
+            if(global.enemy2Attacking == true)
             {
-                global.enemy2ShieldCount -= 1;
+                StaticVariables.enemyCurrentHealth2 -= _damage;
             }
             else
             {
-                StaticVariables.enemyCurrentHealth2 -= _health;
+                int _check = _damage - global.enemy2ShieldCount;
+                if (global.enemy2ShieldCount > 0)
+                {
+                    global.enemy2ShieldCount -= _damage;
+                }
+                if (_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth2 -= _damage;
+                }
             }
         }
         if (myIdentifier == "Enemy3")
         {
-            if (global.enemy3Shielded)
+            if (global.enemy3Attacking == true)
             {
-                global.enemy3ShieldCount -= 1;
+                StaticVariables.enemyCurrentHealth3 -= _damage;
             }
             else
             {
-                StaticVariables.enemyCurrentHealth3 -= _health;
+                int _check = _damage - global.enemy3ShieldCount;
+                if (global.enemy3ShieldCount > 0)
+                {
+                    global.enemy3ShieldCount -= _damage;
+                }
+                if (_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth3 -= _damage;
+                }
             }
         }
     }

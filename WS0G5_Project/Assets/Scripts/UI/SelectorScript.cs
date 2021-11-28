@@ -93,6 +93,7 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3ShieldCount = 0;
         }
+        /*
         if(global.enemy1ShieldCount == 0)
         {
             global.enemy1Shielded = false;
@@ -107,7 +108,7 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3Shielded = false;
             enemy3Attacking = true;
-        }
+        }*/
     }
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)

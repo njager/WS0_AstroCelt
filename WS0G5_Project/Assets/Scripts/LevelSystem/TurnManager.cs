@@ -89,6 +89,7 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy1Attacking = false;
             global.enemy1Shielded = true;
+            global.enemy1ShieldCount = 5;
         }
         if (global.selector.enemy2Attacking == true)
         {
@@ -99,6 +100,7 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy2Attacking = false;
             global.enemy2Shielded = true;
+            global.enemy2ShieldCount = 5;
         }
         if (global.selector.enemy3Attacking == true)
         {
@@ -109,6 +111,7 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy3Attacking = false;
             global.enemy3Shielded = true;
+            global.enemy3ShieldCount = 5;
         }
     }
 
