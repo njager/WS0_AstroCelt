@@ -34,7 +34,7 @@ public class EnemyScript : MonoBehaviour
     private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
     public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
     public bool turnAction = false;
-    public int firstActionCall;
+    private int firstActionCall;
     
     
     void Awake() // Do this to set Enemy Count, and EnemyType
@@ -47,7 +47,7 @@ public class EnemyScript : MonoBehaviour
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
         // Set Damage
-        int _randEnemyDamage = Random.Range(5, 9);
+        int _randEnemyDamage = Random.Range(5, 8);
         enemyDamage = _randEnemyDamage; 
     }
 
@@ -60,7 +60,8 @@ public class EnemyScript : MonoBehaviour
         global.UIController.isEnemyDead = false;
         //enemyDamage = myStats.damage;
         turnActionCount = 1;
-        global.UIController.selector.SetActive(false); 
+        global.UIController.selector.SetActive(false);
+        firstActionCall = -1;
     }
 
     public void Update()
@@ -81,12 +82,42 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.playerScript.isPlayerTurn = true;
                 }
+                else
+                {
+                    global.playerTurnBar.SetActive(false);
+                    global.playerScript.isPlayerTurn = false;
+                }
             }
+            else
+            {
+                global.playerTurnBar.SetActive(false);
+                global.playerScript.isPlayerTurn = false;
+            }
+        }
+        else
+        {
+            global.playerTurnBar.SetActive(false);
+            global.playerScript.isPlayerTurn = false;
+        }
+        if (firstActionCall == 0)
+        {
+            StartCoroutine(EnemyTurnTimer());
+        }
+        if (turnAction == true)
+        {
+            global.enemyTurnBar.SetActive(true);
+            global.playerTurnBar.SetActive(false);
+            Debug.Log("Happening!");
+            isYourTurn = false;
+            turnActionCount = 0;
+            turnAction = false;
+            firstActionCall++;
+            return;
         }
     }
 
 
-    void UpdateDamage()
+    public void UpdateDamage()
     {
         int _randEnemyDamage = Random.Range(5, 9);
         enemyDamage = _randEnemyDamage;
@@ -115,32 +146,9 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator EnemyTurnTimer()
     {
         yield return new WaitForSeconds(2f);
-        turnAction = true; 
+        turnAction = true;
     }
 
-    void EnemyAction()
-    {
-        if (firstActionCall == 0)
-        {
-            StartCoroutine(EnemyTurnTimer());
-        }
-        if (turnAction == false)
-        {
-            EnemyAction();
-        }
-        else
-        {
-            global.enemyTurnBar.SetActive(true);
-            global.playerTurnBar.SetActive(false);
-            Debug.Log("Happening!");
-            isYourTurn = false;
-            
-            turnActionCount = 0;
-            turnAction = false; 
-            return; 
-        }
-        firstActionCall++;
-    }
 
     public void EnemyTurnAction() 
     {
@@ -152,10 +160,9 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                     global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     firstActionCall = 0;
-                    EnemyAction();
                 }
             }
             if (myIdentifier == "Enemy2")
@@ -164,10 +171,9 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                     global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     firstActionCall = 0;
-                    EnemyAction();
                 }
             }
             if (myIdentifier == "Enemy3")
@@ -176,11 +182,10 @@ public class EnemyScript : MonoBehaviour
                 {
                     global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                     global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     StartCoroutine(EnemyTurnTimer());
                     firstActionCall = 0;
-                    EnemyAction();
                 }
             }
         }
@@ -206,54 +211,6 @@ public class EnemyScript : MonoBehaviour
     {
         global.playerScript.playerDamaged(damage);
         //Debug.Log("Enemy Attacks"); 
-    }
-
-    public void UniqueBehavior(string identity) 
-    {
-        if(identity == "Swarm")
-        {
-            if (_frenzyTriggered == false)
-            {
-                if (_swarmAttackedAmount > 5)
-                {
-                    _frenzyTriggered = true;
-                    if (_swarmDamageOrSpeed == true)
-                    {
-                        turnsBetweenAttacks = (turnsBetweenAttacks / 2); // Double the speed at which the enemy attacks 
-                    }
-                    if (_swarmDamageOrSpeed == false)
-                    {
-                        enemyDamage = enemyDamage * 2; // Double the damage for the frenzy attacking 
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    Debug.Log("No Frenzy Yet");
-                }
-            }
-            else
-            {
-                Debug.Log("Frenzy already triggered");
-            }
-            _swarmAttackedAmount = 0; 
-        }
-        if (identity == "Legionary")
-        {
-            if (legionaryEffectCounter == 0) // Makes it so the legionary only spawns a barrier once spawned in only once 
-            {
-                global.starSpawnerFrameworkScript.LegionaryEffect();
-                legionaryEffectCounter += 1; 
-            }
-            else
-            {
-                return; 
-            }
-            
-        }
     }
 
     public void enemyDie() // Death
@@ -305,5 +262,53 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
+    }
+
+    public void UniqueBehavior(string identity)
+    {
+        if (identity == "Swarm")
+        {
+            if (_frenzyTriggered == false)
+            {
+                if (_swarmAttackedAmount > 5)
+                {
+                    _frenzyTriggered = true;
+                    if (_swarmDamageOrSpeed == true)
+                    {
+                        turnsBetweenAttacks = (turnsBetweenAttacks / 2); // Double the speed at which the enemy attacks 
+                    }
+                    if (_swarmDamageOrSpeed == false)
+                    {
+                        enemyDamage = enemyDamage * 2; // Double the damage for the frenzy attacking 
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Debug.Log("No Frenzy Yet");
+                }
+            }
+            else
+            {
+                Debug.Log("Frenzy already triggered");
+            }
+            _swarmAttackedAmount = 0;
+        }
+        if (identity == "Legionary")
+        {
+            if (legionaryEffectCounter == 0) // Makes it so the legionary only spawns a barrier once spawned in only once 
+            {
+                global.starSpawnerFrameworkScript.LegionaryEffect();
+                legionaryEffectCounter += 1;
+            }
+            else
+            {
+                return;
+            }
+
+        }
     }
 }

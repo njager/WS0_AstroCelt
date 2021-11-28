@@ -23,7 +23,19 @@ public class TurnManager : MonoBehaviour
             Debug.Log("PLEASE SELECT AN ENEMY BEFORE ENDING YOUR TURN");
             return;
         }
+        if(global.playerScript.isPlayerTurn != true)
+        {
+            Debug.Log("IT'S NOT YOUR TURN YET");
+            return;
+        }
         ChangeTurn();
+    }
+
+    void ChangeEnemyDamage()
+    {
+        global.enemy1.UpdateDamage();
+        global.enemy2.UpdateDamage();
+        global.enemy3.UpdateDamage();
     }
 
     public void ConfirmButton() // Not being used
@@ -36,6 +48,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        ChangeEnemyDamage();
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
         global.drawingScript.starCount = 1;

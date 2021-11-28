@@ -338,7 +338,7 @@ public class GlobalController : MonoBehaviour
 
     public void EndConditions()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         uiCanvas.SetActive(false);
         inWorldCanvas.SetActive(false);
         starSpawnerFrameworkScript.ClearStars();
