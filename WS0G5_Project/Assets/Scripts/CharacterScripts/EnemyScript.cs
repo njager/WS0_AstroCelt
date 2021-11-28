@@ -231,9 +231,9 @@ public class EnemyScript : MonoBehaviour
     {
         if (myIdentifier == "Enemy1")
         {
-            if(global.enemy1ShieldCount > 0)
+            if (global.enemy1Shielded)
             {
-                global.enemy1ShieldCount -= _health;
+                global.enemy1ShieldCount -= 1;
             }
             else
             {
@@ -242,9 +242,9 @@ public class EnemyScript : MonoBehaviour
         }
         if (myIdentifier == "Enemy2")
         {
-            if(global.enemy2ShieldCount > 0)
+            if(global.enemy2Shielded)
             {
-                global.enemy2ShieldCount -= _health;
+                global.enemy2ShieldCount -= 1;
             }
             else
             {
@@ -253,16 +253,15 @@ public class EnemyScript : MonoBehaviour
         }
         if (myIdentifier == "Enemy3")
         {
-            if(global.enemy3ShieldCount > 0)
+            if (global.enemy3Shielded)
             {
-                global.enemy3ShieldCount -= _health;
+                global.enemy3ShieldCount -= 1;
             }
             else
             {
                 StaticVariables.enemyCurrentHealth3 -= _health;
             }
         }
-
     }
 
     public void UniqueBehavior(string identity)

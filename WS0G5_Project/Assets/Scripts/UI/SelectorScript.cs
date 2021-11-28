@@ -52,6 +52,36 @@ public class SelectorScript : MonoBehaviour
 
     void Update() // Track Enemy Health
     {
+        if (enemy1Attacking == true)
+        {
+            global.enemy1Graphic.GetComponent<SpriteRenderer>().color = global.enemy1NormalColor;
+            global.enemy1Shielded = false;
+        }
+        if (enemy2Attacking == true)
+        {
+            global.enemy2Graphic.GetComponent<SpriteRenderer>().color = global.enemy2NormalColor;
+            global.enemy2Shielded = false;
+        }
+        if (enemy3Attacking == true)
+        {
+            global.enemy3Graphic.GetComponent<SpriteRenderer>().color = global.enemy3NormalColor;
+            global.enemy3Shielded = false;
+        }
+        if (enemy1Shielding == true)
+        {
+            global.enemy1Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy1Shielded = true;
+        }
+        if (enemy2Shielding == true)
+        {
+            global.enemy2Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy2Shielded = true;
+        }
+        if (enemy3Shielding == true)
+        {
+            global.enemy3Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy3Shielded = true;
+        }
         if (enemy1Dead == false)
         {
             if (StaticVariables.enemyCurrentHealth1 <= 0)
@@ -98,6 +128,21 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3ShieldCount = 0;
         }
+        if(global.enemy1ShieldCount == 0)
+        {
+            global.enemy1Shielded = false;
+            enemy1Attacking = true;
+        }
+        if (global.enemy2ShieldCount == 0)
+        {
+            global.enemy2Shielded = false;
+            enemy2Attacking = true;
+        }
+        if (global.enemy3ShieldCount == 0)
+        {
+            global.enemy3Shielded = false;
+            enemy3Attacking = true;
+        }
     }
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)
@@ -124,7 +169,7 @@ public class SelectorScript : MonoBehaviour
             }
             if (_givenEnemyIcon.CompareTag("Icon3") == true)
             {
-                enemy1Attacking = true;
+                enemy3Attacking = true;
                 return;
             }
         }
@@ -143,7 +188,7 @@ public class SelectorScript : MonoBehaviour
             }
             if (_givenEnemyIcon.CompareTag("Icon3") == true)
             {
-                enemy1Shielding = true;
+                enemy3Shielding = true;
                 return;
             }
         }

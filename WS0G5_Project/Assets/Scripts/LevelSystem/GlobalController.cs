@@ -131,6 +131,14 @@ public class GlobalController : MonoBehaviour
     public Color enemy2NormalColor;
     public Color enemy3NormalColor;
 
+    public bool enemy1Shielded;
+    public bool enemy2Shielded;
+    public bool enemy3Shielded;
+
+    public GameObject enemy1Graphic;
+    public GameObject enemy2Graphic;
+    public GameObject enemy3Graphic;
+
     public int playerShieldCount; // Set to 2
     public int enemy1ShieldCount; // Set to 2
     public int enemy2ShieldCount; // Set to 2
@@ -154,6 +162,10 @@ public class GlobalController : MonoBehaviour
         enemy1ShieldCount = 2;
         enemy2ShieldCount = 2;
         enemy3ShieldCount = 2;
+
+        enemy1Shielded = false;
+        enemy2Shielded = false;
+        enemy3Shielded = false;
     }
 
     public void Update()
