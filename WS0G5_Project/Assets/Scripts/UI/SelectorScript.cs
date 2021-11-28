@@ -54,32 +54,39 @@ public class SelectorScript : MonoBehaviour
     {
         if (enemy1Attacking == true)
         {
-            global.enemy1Graphic.GetComponent<SpriteRenderer>().color = global.enemy1NormalColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy1Shielded = false;
+
         }
         if (enemy2Attacking == true)
         {
-            global.enemy2Graphic.GetComponent<SpriteRenderer>().color = global.enemy2NormalColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy2Shielded = false;
         }
         if (enemy3Attacking == true)
         {
-            global.enemy3Graphic.GetComponent<SpriteRenderer>().color = global.enemy3NormalColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy3Shielded = false;
         }
         if (enemy1Shielding == true)
         {
-            global.enemy1Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy1Shielded = true;
         }
         if (enemy2Shielding == true)
         {
-            global.enemy2Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy2Shielded = true;
         }
         if (enemy3Shielding == true)
         {
-            global.enemy3Graphic.GetComponent<SpriteRenderer>().color = global.shieldColor;
+            global.enemy2Graphic.SetActive(true);
+            global.enemy2ShieldGraphic.SetActive(false);
             global.enemy3Shielded = true;
         }
         if (enemy1Dead == false)

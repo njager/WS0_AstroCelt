@@ -25,6 +25,7 @@ public class Popup : MonoBehaviour
     //public variables
     public static GameObject pfPopupStatic;
     public GameObject pfPopup;
+    private BoxCollider box;
 
     //grab the transform of the OG popup
     static Transform GrabPopupTransform()
@@ -62,8 +63,7 @@ public class Popup : MonoBehaviour
         Vector3 _newCenter = new Vector3(0f,0f,2f); 
 
         gameObject.AddComponent<BoxCollider>();
-        BoxCollider _box = gameObject.GetComponent<BoxCollider>();
-        _box.center = _newCenter; 
+        box = gameObject.GetComponent<BoxCollider>();
     }
 
     //make the output amount into the text for the popup
@@ -182,7 +182,6 @@ public class Popup : MonoBehaviour
         {
             gameObject.transform.DOMove(playerHealthPos, 2f);
         }
-        
     }
 
     //if the popup enters the screen, move it
@@ -190,5 +189,6 @@ public class Popup : MonoBehaviour
     {
         Debug.Log("Popup entered the screen!");
         StartCoroutine("MovePopup");
+        box.enabled = false; 
     }
 }

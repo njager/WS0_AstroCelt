@@ -8260,6 +8260,9 @@ MonoBehaviour:
   enemy1Graphic: {fileID: 8403119982508998240}
   enemy2Graphic: {fileID: 8403119981915078329}
   enemy3Graphic: {fileID: 8403119982798211654}
+  enemy1ShieldGraphic: {fileID: 1183410859}
+  enemy2ShieldGraphic: {fileID: 1391698310}
+  enemy3ShieldGraphic: {fileID: 1224951948}
   playerShieldCount: 0
   enemy1ShieldCount: 0
   enemy2ShieldCount: 0

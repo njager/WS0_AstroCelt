@@ -125,11 +125,10 @@ public class GlobalController : MonoBehaviour
     [Header("UI Variables")]
     public static Transform pfPopup;
 
-    [Header("Shielding")]
-    public Color shieldColor;
-    public Color enemy1NormalColor;
-    public Color enemy2NormalColor;
-    public Color enemy3NormalColor;
+    [Header("Shielding UI")]
+    public GameObject enemy1ShieldUI;
+    public GameObject enemy2ShieldUI;
+    public GameObject enemy3ShieldUI;
 
     public bool enemy1Shielded;
     public bool enemy2Shielded;
@@ -138,6 +137,10 @@ public class GlobalController : MonoBehaviour
     public GameObject enemy1Graphic;
     public GameObject enemy2Graphic;
     public GameObject enemy3Graphic;
+
+    public GameObject enemy1ShieldGraphic;
+    public GameObject enemy2ShieldGraphic;
+    public GameObject enemy3ShieldGraphic;
 
     public int playerShieldCount; // Set to 2
     public int enemy1ShieldCount; // Set to 2

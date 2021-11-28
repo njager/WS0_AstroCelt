@@ -41,9 +41,16 @@ public class PlayerScript : MonoBehaviour
     {
         if(global.playerShieldCount > 0)
         {
+            int _check = damage - global.playerShieldCount;
             global.playerShieldCount -= damage;
+            if(_check > 0)
+            {
+                PlayerStats.playerVitality -= _check;
+            }
             global.m_SoundEffectDamage.Play();
+            
         }
+        
         else
         {
             PlayerStats.playerVitality -= damage;
