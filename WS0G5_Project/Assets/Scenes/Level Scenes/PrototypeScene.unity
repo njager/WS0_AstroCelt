@@ -10340,7 +10340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.99, y: 2.35}
+  m_AnchoredPosition: {x: 14.3, y: 2.27}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &449987454
@@ -12774,6 +12774,7 @@ MonoBehaviour:
   starSpawnCount4: 0
   starSpawnCount5: 0
   counter: 20
+  previousMap: 0
   starMapCount: 0
   row1: []
   row2: []

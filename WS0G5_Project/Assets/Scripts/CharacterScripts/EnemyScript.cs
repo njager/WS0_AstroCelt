@@ -85,18 +85,21 @@ public class EnemyScript : MonoBehaviour
                 else
                 {
                     global.playerTurnBar.SetActive(false);
+                    global.enemyTurnBar.SetActive(true);
                     global.playerScript.isPlayerTurn = false;
                 }
             }
             else
             {
                 global.playerTurnBar.SetActive(false);
+                global.enemyTurnBar.SetActive(true);
                 global.playerScript.isPlayerTurn = false;
             }
         }
         else
         {
             global.playerTurnBar.SetActive(false);
+            global.enemyTurnBar.SetActive(true);
             global.playerScript.isPlayerTurn = false;
         }
         if (firstActionCall == 0)
@@ -105,8 +108,6 @@ public class EnemyScript : MonoBehaviour
         }
         if (turnAction == true)
         {
-            global.enemyTurnBar.SetActive(true);
-            global.playerTurnBar.SetActive(false);
             Debug.Log("Happening!");
             isYourTurn = false;
             turnActionCount = 0;
@@ -145,7 +146,7 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator EnemyTurnTimer()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         turnAction = true;
     }
 
@@ -159,8 +160,8 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //global.particleSystemScript.SpawnDamageParticleEffect(global.enemy1.transform);
+                    //Popup.Create(global.enemy1.transform.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     firstActionCall = 0;
                 }
@@ -170,8 +171,8 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //global.particleSystemScript.SpawnDamageParticleEffect(global.enemy2.transform);
+                    //Popup.Create(global.enemy2.transform.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     firstActionCall = 0;
                 }
@@ -181,8 +182,8 @@ public class EnemyScript : MonoBehaviour
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
                     global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.constellationBuilding.popUpCenterPoint);
-                    //Popup.Create(global.constellationBuilding.popUpCenterPoint.position, enemyDamage, 1, true);
+                    //global.particleSystemScript.SpawnDamageParticleEffect(global.enemy2.transform);
+                    //Popup.Create(global.enemy2.transform.position, enemyDamage, 1, true);
                     global.m_SoundEffectDamage.Play();
                     StartCoroutine(EnemyTurnTimer());
                     firstActionCall = 0;
