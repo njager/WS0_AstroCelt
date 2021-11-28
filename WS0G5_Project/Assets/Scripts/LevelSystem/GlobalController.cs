@@ -125,6 +125,10 @@ public class GlobalController : MonoBehaviour
     [Header("UI Variables")]
     public static Transform pfPopup;
 
+    public Transform enemyHealthBar1;
+    public Transform enemyHealthBar2;
+    public Transform enemyHealthBar3;
+
     [Header("Shielding UI")]
     public GameObject enemy1ShieldUI;
     public GameObject enemy2ShieldUI;
@@ -134,9 +138,9 @@ public class GlobalController : MonoBehaviour
     public bool enemy2Shielded;
     public bool enemy3Shielded;
 
-    public GameObject enemy1Graphic;
-    public GameObject enemy2Graphic;
-    public GameObject enemy3Graphic;
+    public bool enemy1Attacking;
+    public bool enemy2Attacking;
+    public bool enemy3Attacking;
 
     public GameObject enemy1ShieldGraphic;
     public GameObject enemy2ShieldGraphic;
@@ -162,9 +166,9 @@ public class GlobalController : MonoBehaviour
         //world = WorldController.instance;
 
         playerShieldCount = 20;
-        enemy1ShieldCount = 2;
-        enemy2ShieldCount = 2;
-        enemy3ShieldCount = 2;
+        enemy1ShieldCount = 5;
+        enemy2ShieldCount = 5;
+        enemy3ShieldCount = 5;
 
         enemy1Shielded = false;
         enemy2Shielded = false;

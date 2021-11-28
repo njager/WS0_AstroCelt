@@ -38,9 +38,9 @@ public class SelectorScript : MonoBehaviour
         enemy1Dead = false;
         enemy2Dead = false;
         enemy3Dead = false;
-        enemy1Attacking = false;
-        enemy2Attacking = false;
-        enemy3Attacking = false;
+        enemy1Attacking = true;
+        enemy2Attacking = true;
+        enemy3Attacking = true;
         enemy1Shielding = false;
         enemy2Shielding = false;
         enemy3Shielding = false;
@@ -48,47 +48,12 @@ public class SelectorScript : MonoBehaviour
         EnemyActionNextTurn(global.enemy1ActionIcon);
         EnemyActionNextTurn(global.enemy2ActionIcon);
         EnemyActionNextTurn(global.enemy3ActionIcon);
+        global.turnManagerScript.Attacking();
+        global.turnManagerScript.Shielding();
     }
 
     void Update() // Track Enemy Health
     {
-        if (enemy1Attacking == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy1Shielded = false;
-
-        }
-        if (enemy2Attacking == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy2Shielded = false;
-        }
-        if (enemy3Attacking == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy3Shielded = false;
-        }
-        if (enemy1Shielding == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy1Shielded = true;
-        }
-        if (enemy2Shielding == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy2Shielded = true;
-        }
-        if (enemy3Shielding == true)
-        {
-            global.enemy2Graphic.SetActive(true);
-            global.enemy2ShieldGraphic.SetActive(false);
-            global.enemy3Shielded = true;
-        }
         if (enemy1Dead == false)
         {
             if (StaticVariables.enemyCurrentHealth1 <= 0)
@@ -154,12 +119,6 @@ public class SelectorScript : MonoBehaviour
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)
     {
-        enemy1Attacking = false;
-        enemy2Attacking = false;
-        enemy3Attacking = false;
-        enemy1Shielding = false;
-        enemy2Shielding = false;
-        enemy3Shielding = false;
         int _chanceSelected = ShieldChance();
         if (_chanceSelected > 3) // Set To Damage Next Turn
         {

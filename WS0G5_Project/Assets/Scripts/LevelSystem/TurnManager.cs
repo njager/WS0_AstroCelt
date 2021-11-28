@@ -49,6 +49,7 @@ public class TurnManager : MonoBehaviour
     public void ChangeTurn()
     {
         ChangeEnemyDamage();
+        Attacking();
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
         global.drawingScript.starCount = 1;
@@ -71,6 +72,62 @@ public class TurnManager : MonoBehaviour
         {
             line.gameObject.SetActive(false);
             global.lineRendererList.Remove(line);
+        }
+        global.selector.EnemyActionNextTurn(global.enemy1ActionIcon);
+        global.selector.EnemyActionNextTurn(global.enemy2ActionIcon);
+        global.selector.EnemyActionNextTurn(global.enemy3ActionIcon);
+    }
+
+    public void Attacking()
+    {
+        if (global.selector.enemy1Attacking == true)
+        {
+            global.enemy1Attacking = true;
+        }
+        if (global.selector.enemy1Attacking == false)
+        {
+            global.enemy1Attacking = false;
+        }
+        if (global.selector.enemy2Attacking == true)
+        {
+            global.enemy2Attacking = true;
+        }
+        if (global.selector.enemy2Attacking == false)
+        {
+            global.enemy2Attacking = false;
+        }
+        if (global.selector.enemy3Attacking == true)
+        {
+            global.enemy3Attacking = true; 
+        }
+        if (global.selector.enemy3Attacking == false)
+        {
+            global.enemy3Attacking = false;
+        }
+    }
+
+    public void Shielding()
+    {
+        if (global.selector.enemy1Shielding == true)
+        {
+            global.enemy1Attacking = false;
+            global.enemy1ShieldGraphic.SetActive(true);
+            global.enemy1ShieldUI.SetActive(true);
+            global.enemy1Shielded = true;
+        }
+        if (global.selector.enemy2Shielding == true)
+        {
+            global.enemy2Attacking = false;
+            global.enemy2ShieldGraphic.SetActive(true);
+            global.enemy2ShieldUI.SetActive(true);
+            global.enemy2Shielded = true;
+        }
+        if (global.selector.enemy3Shielding == true)
+        {
+            global.enemy3Attacking = false;
+            global.enemy3ShieldGraphic.SetActive(true);
+            global.enemy3ShieldUI.SetActive(true);
+            global.enemy3Shielded = true;
         }
     }
 

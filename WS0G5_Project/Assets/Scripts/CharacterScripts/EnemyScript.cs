@@ -108,12 +108,54 @@ public class EnemyScript : MonoBehaviour
         }
         if (turnAction == true)
         {
-            Debug.Log("Happening!");
+            //Debug.Log("Happening!");
             isYourTurn = false;
             turnActionCount = 0;
             turnAction = false;
             firstActionCall++;
             return;
+        }
+
+        if(myIdentifier == "Enemy 1")
+        {
+            if (global.enemy1Attacking == true)
+            {
+                global.enemy1ShieldGraphic.SetActive(false);
+                global.enemy1ShieldUI.SetActive(false);
+            }
+            else
+            {
+                global.enemy1ShieldGraphic.SetActive(true);
+                global.enemy1ShieldUI.SetActive(true);
+            }
+        }
+
+        if (myIdentifier == "Enemy 2")
+        {
+            if (global.enemy2Attacking == true)
+            {
+                global.enemy2ShieldGraphic.SetActive(false);
+                global.enemy2ShieldUI.SetActive(false);
+            }
+            else
+            {
+                global.enemy2ShieldGraphic.SetActive(true);
+                global.enemy2ShieldUI.SetActive(true);
+            }
+        }
+
+        if (myIdentifier == "Enemy 3")
+        {
+            if (global.enemy3Attacking == true)
+            {
+                global.enemy3ShieldGraphic.SetActive(false);
+                global.enemy3ShieldUI.SetActive(false);
+            }
+            else
+            {
+                global.enemy3ShieldGraphic.SetActive(true);
+                global.enemy3ShieldUI.SetActive(true);
+            }
         }
     }
 
@@ -159,34 +201,57 @@ public class EnemyScript : MonoBehaviour
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.enemy1.transform);
-                    Popup.Create(global.enemy1.transform.position, enemyDamage, 1, true);
-                    global.m_SoundEffectDamage.Play();
-                    firstActionCall = 0;
+                    if(global.enemy1Attacking == true)
+                    {
+                        global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
+                        Popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy1 is now Shielded");
+                        firstActionCall = 0;
+                    }
                 }
             }
             if (myIdentifier == "Enemy2")
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.enemy2.transform);
-                    Popup.Create(global.enemy2.transform.position, enemyDamage, 1, true);
-                    global.m_SoundEffectDamage.Play();
-                    firstActionCall = 0;
+                    if(global.enemy2Attacking == true)
+                    {
+                        global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
+                        Popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy2 is now Shielded");
+                        firstActionCall = 0;
+                    }
                 }
             }
             if (myIdentifier == "Enemy3")
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
-                    global.particleSystemScript.SpawnDamageParticleEffect(global.enemy3.transform);
-                    Popup.Create(global.enemy3.transform.position, enemyDamage, 1, true);
-                    global.m_SoundEffectDamage.Play();
-                    StartCoroutine(EnemyTurnTimer());
-                    firstActionCall = 0;
+                    if (global.enemy3Attacking == true)
+                    {
+                        global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
+                        Popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy3 is now Shielded!");
+                        firstActionCall = 0;
+                    }
                 }
             }
         }
