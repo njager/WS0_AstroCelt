@@ -19418,7 +19418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926191799727, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: myStats.identifier
-      value: Enemy3
+      value: Enemy1
       objectReference: {fileID: 0}
     - target: {fileID: 1475303926906567920, guid: e11ba843cccd3a24b838ecf741319165, type: 3}
       propertyPath: m_IsActive
