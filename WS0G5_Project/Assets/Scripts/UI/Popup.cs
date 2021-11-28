@@ -39,8 +39,8 @@ public class Popup : MonoBehaviour
         pfPopupStatic = pfPopup;
         global = GlobalController.instance;
         DOTween.Init();
-        enemyHealthPos = new Vector3(21, 5, 0);
-        playerHealthPos = new Vector3(-21, 5, 0);
+        enemyHealthPos = new Vector3(14, -0.35f, 0);
+        playerHealthPos = new Vector3(-14, 2.35f, 0);
     }
 
     //create the popup at position with certain #
