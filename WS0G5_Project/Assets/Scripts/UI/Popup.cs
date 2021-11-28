@@ -58,6 +58,12 @@ public class Popup : MonoBehaviour
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+
+        Vector3 _newCenter = new Vector3(0f,0f,2f); 
+
+        gameObject.AddComponent<BoxCollider>();
+        BoxCollider _box = gameObject.GetComponent<BoxCollider>();
+        _box.center = _newCenter; 
     }
 
     //make the output amount into the text for the popup
@@ -106,7 +112,7 @@ public class Popup : MonoBehaviour
         textMesh.sortingOrder = sortingOrder;
 
         //add a box collider because it auto deletes when spawned
-        gameObject.AddComponent<BoxCollider>();
+        
 
         //reset the scale after tweening it in spawn
         gameObject.transform.DOScale(new Vector3(1, 1, 0), 0.01f);
