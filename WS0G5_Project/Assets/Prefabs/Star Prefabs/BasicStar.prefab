@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6657636607174309373}
   - component: {fileID: 4875646107116946667}
   - component: {fileID: 8879191325765608833}
-  - component: {fileID: 5268516002537983628}
+  - component: {fileID: 3287568510186085131}
   m_Layer: 0
   m_Name: BasicStar
   m_TagString: Star
@@ -71,7 +71,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.275
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5268516002537983628
+--- !u!54 &3287568510186085131
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

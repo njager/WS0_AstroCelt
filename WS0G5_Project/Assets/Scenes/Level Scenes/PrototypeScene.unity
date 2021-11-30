@@ -8240,17 +8240,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.00033824053
       value: 1.0023499
-      inSlope: 1.9717379
-      outSlope: 1.9717379
+      inSlope: 3.9993184
+      outSlope: 3.9993184
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.014774
-      value: 3.0025513
-      inSlope: 1.9717379
-      outSlope: 1.9717379
+      time: 1.0007708
+      value: 5.0033984
+      inSlope: 3.9993184
+      outSlope: 3.9993184
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -57044,7 +57044,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.5
+  m_Radius: 1.85
   m_Height: 8.7
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
