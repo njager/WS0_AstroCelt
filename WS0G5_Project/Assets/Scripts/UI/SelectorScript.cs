@@ -20,9 +20,6 @@ public class SelectorScript : MonoBehaviour
     public bool enemy1Attacking;
     public bool enemy2Attacking;
     public bool enemy3Attacking;
-    public bool enemy1Shielding;
-    public bool enemy2Shielding;
-    public bool enemy3Shielding;
 
     //private bool enemy1ActionSelected;
     //private bool enemy2ActionSelected;
@@ -38,12 +35,10 @@ public class SelectorScript : MonoBehaviour
         enemy1Dead = false;
         enemy2Dead = false;
         enemy3Dead = false;
-        enemy1Attacking = false;
-        enemy2Attacking = false;
-        enemy3Attacking = false;
-        enemy1Shielding = false;
-        enemy2Shielding = false;
-        enemy3Shielding = false;
+        enemy1Attacking = true;
+        enemy2Attacking = true;
+        enemy3Attacking = true;
+        global.turnManagerScript.Attacking();
 
         EnemyActionNextTurn(global.enemy1ActionIcon);
         EnemyActionNextTurn(global.enemy2ActionIcon);
@@ -98,16 +93,26 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3ShieldCount = 0;
         }
+        /*
+        if(global.enemy1ShieldCount == 0)
+        {
+            global.enemy1Shielded = false;
+            enemy1Attacking = true;
+        }
+        if (global.enemy2ShieldCount == 0)
+        {
+            global.enemy2Shielded = false;
+            enemy2Attacking = true;
+        }
+        if (global.enemy3ShieldCount == 0)
+        {
+            global.enemy3Shielded = false;
+            enemy3Attacking = true;
+        }*/
     }
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)
     {
-        enemy1Attacking = false;
-        enemy2Attacking = false;
-        enemy3Attacking = false;
-        enemy1Shielding = false;
-        enemy2Shielding = false;
-        enemy3Shielding = false;
         int _chanceSelected = ShieldChance();
         if (_chanceSelected > 3) // Set To Damage Next Turn
         {
@@ -124,7 +129,7 @@ public class SelectorScript : MonoBehaviour
             }
             if (_givenEnemyIcon.CompareTag("Icon3") == true)
             {
-                enemy1Attacking = true;
+                enemy3Attacking = true;
                 return;
             }
         }
@@ -133,17 +138,17 @@ public class SelectorScript : MonoBehaviour
             _givenEnemyIcon.GetComponent<SpriteRenderer>().sprite = enemyShield;
             if (_givenEnemyIcon.CompareTag("Icon1") == true)
             {
-                enemy1Shielding = true;
+                enemy1Attacking = false;
                 return;
             }
             if (_givenEnemyIcon.CompareTag("Icon2") == true)
             {
-                enemy2Shielding = true;
+                enemy2Attacking = false;
                 return;
             }
             if (_givenEnemyIcon.CompareTag("Icon3") == true)
             {
-                enemy1Shielding = true;
+                enemy3Attacking = false;
                 return;
             }
         }

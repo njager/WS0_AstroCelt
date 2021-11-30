@@ -23,7 +23,19 @@ public class TurnManager : MonoBehaviour
             Debug.Log("PLEASE SELECT AN ENEMY BEFORE ENDING YOUR TURN");
             return;
         }
+        if(global.playerScript.isPlayerTurn != true)
+        {
+            Debug.Log("IT'S NOT YOUR TURN YET");
+            return;
+        }
         ChangeTurn();
+    }
+
+    void ChangeEnemyDamage()
+    {
+        global.enemy1.UpdateDamage();
+        global.enemy2.UpdateDamage();
+        global.enemy3.UpdateDamage();
     }
 
     public void ConfirmButton() // Not being used
@@ -36,6 +48,8 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        ChangeEnemyDamage();
+        Attacking();
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
         global.drawingScript.starCount = 1;
@@ -58,6 +72,46 @@ public class TurnManager : MonoBehaviour
         {
             line.gameObject.SetActive(false);
             global.lineRendererList.Remove(line);
+        }
+        global.selector.EnemyActionNextTurn(global.enemy1ActionIcon);
+        global.selector.EnemyActionNextTurn(global.enemy2ActionIcon);
+        global.selector.EnemyActionNextTurn(global.enemy3ActionIcon);
+    }
+
+    public void Attacking()
+    {
+        if (global.selector.enemy1Attacking == true)
+        {
+            global.enemy1Attacking = true;
+            global.enemy1Shielded = false;
+        }
+        if (global.selector.enemy1Attacking == false)
+        {
+            global.enemy1Attacking = false;
+            global.enemy1Shielded = true;
+            global.enemy1ShieldCount = 5;
+        }
+        if (global.selector.enemy2Attacking == true)
+        {
+            global.enemy2Attacking = true;
+            global.enemy2Shielded = false;
+        }
+        if (global.selector.enemy2Attacking == false)
+        {
+            global.enemy2Attacking = false;
+            global.enemy2Shielded = true;
+            global.enemy2ShieldCount = 5;
+        }
+        if (global.selector.enemy3Attacking == true)
+        {
+            global.enemy3Attacking = true;
+            global.enemy3Shielded = false;
+        }
+        if (global.selector.enemy3Attacking == false)
+        {
+            global.enemy3Attacking = false;
+            global.enemy3Shielded = true;
+            global.enemy3ShieldCount = 5;
         }
     }
 

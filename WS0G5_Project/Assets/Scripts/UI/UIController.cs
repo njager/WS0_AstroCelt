@@ -130,7 +130,7 @@ public class UIController : MonoBehaviour
         enemy2ShieldVal = global.enemy2ShieldCount; 
         enemy3ShieldVal = global.enemy3ShieldCount;
 
-        shieldMaxCount = 2;
+        shieldMaxCount = 5;
         playerShieldMaxCount = 20;
 
         //Set up the text

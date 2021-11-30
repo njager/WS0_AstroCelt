@@ -125,11 +125,30 @@ public class GlobalController : MonoBehaviour
     [Header("UI Variables")]
     public static Transform pfPopup;
 
-    [Header("Shielding")]
-    public Color shieldColor;
-    public Color enemy1NormalColor;
-    public Color enemy2NormalColor;
-    public Color enemy3NormalColor;
+    public Transform enemyHealthBar1;
+    public Transform enemyHealthBar2;
+    public Transform enemyHealthBar3;
+
+    [Header("Shielding UI")]
+    public GameObject enemy1ShieldUI;
+    public GameObject enemy2ShieldUI;
+    public GameObject enemy3ShieldUI;
+
+    public GameObject enemy1UI;
+    public GameObject enemy2UI;
+    public GameObject enemy3UI;
+
+    public bool enemy1Shielded;
+    public bool enemy2Shielded;
+    public bool enemy3Shielded;
+
+    public bool enemy1Attacking;
+    public bool enemy2Attacking;
+    public bool enemy3Attacking;
+
+    public GameObject enemy1ShieldGraphic;
+    public GameObject enemy2ShieldGraphic;
+    public GameObject enemy3ShieldGraphic;
 
     public int playerShieldCount; // Set to 2
     public int enemy1ShieldCount; // Set to 2
@@ -151,9 +170,13 @@ public class GlobalController : MonoBehaviour
         //world = WorldController.instance;
 
         playerShieldCount = 20;
-        enemy1ShieldCount = 2;
-        enemy2ShieldCount = 2;
-        enemy3ShieldCount = 2;
+        enemy1ShieldCount = 5;
+        enemy2ShieldCount = 5;
+        enemy3ShieldCount = 5;
+
+        enemy1Shielded = false;
+        enemy2Shielded = false;
+        enemy3Shielded = false;
     }
 
     public void Update()
@@ -338,7 +361,7 @@ public class GlobalController : MonoBehaviour
 
     public void EndConditions()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         uiCanvas.SetActive(false);
         inWorldCanvas.SetActive(false);
         starSpawnerFrameworkScript.ClearStars();

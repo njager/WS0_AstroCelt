@@ -133,13 +133,13 @@ MonoBehaviour:
     constellationValue: 1
     starType: StunStar
   starUsed: 0
-  starFullyUsed: 0
   starSelf: {fileID: 4444467650669534561}
   starGraphicSelf: {fileID: 3570891433123180706}
   hoverColor: {r: 0.9245283, g: 0.8577887, b: 0.18752226, a: 1}
   usedColor: {r: 0.9245283, g: 0.6636854, b: 0.056692798, a: 1}
   positionOffset: {x: 0, y: 0, z: 0}
   starGraphic: {fileID: 0}
+  myCount: 0
 --- !u!135 &227660557962575357
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &8398846946989026616
 GameObject:

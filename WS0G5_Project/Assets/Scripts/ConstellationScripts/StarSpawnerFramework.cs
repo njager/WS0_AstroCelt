@@ -30,6 +30,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public int starSpawnCount5;
     public int counter = 20;
     private int iEnumeratorFramework = 0;
+    public int previousMap; // / See what the previous map was that was picked by the spawn, reduce maps repeating
 
     public int starMapCount;
 
@@ -702,6 +703,7 @@ public class StarSpawnerFramework : MonoBehaviour
         obstaclesForMap13.SetActive(false);
         obstaclesForMap14.SetActive(false);
         obstaclesForMap15.SetActive(false);
+        previousMap = -1;
         HCMapPicker();
     }
 
@@ -2414,6 +2416,7 @@ public class StarSpawnerFramework : MonoBehaviour
     {
         mainNodeStar = global.drawingScript.NodeStar;
         int _map = Random.Range(1, 12); // Needs to be max range +1;
+        
         /*if (_map == 1) // Map 1
         {
             Debug.Log("Map 1 Picked");
@@ -2428,29 +2431,313 @@ public class StarSpawnerFramework : MonoBehaviour
         }*/
         if (_map == 1) // Map 2, just damage
         {
-            Debug.Log("Map 2 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(2);
-            HCMap2(baseStar);
-            HCMap2(actionDamageStar);
-            HCMap2(actionHealthStar);
-            HCMap2(shieldStar);
+            if(previousMap == 1) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11);
+                if (_map2 == 1) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 2) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map == 3) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map == 4) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map == 5) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 2 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(2);
+                HCMap2(baseStar);
+                HCMap2(actionDamageStar);
+                HCMap2(actionHealthStar);
+                HCMap2(shieldStar);
+                previousMap = 1;
+            }
         }
-        if (_map == 2) // Map 3
+        if (_map == 2) // Map 3 
         {
-            Debug.Log("Map 3 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(3);
-            HCMap3(baseStar);
-            HCMap3(actionDamageStar);
-            HCMap3(actionHealthStar);
-            HCMap3(shieldStar);
+            if (previousMap == 2) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11);
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 3) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 4) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 5) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 3 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(3);
+                HCMap3(baseStar);
+                HCMap3(actionDamageStar);
+                HCMap3(actionHealthStar);
+                HCMap3(shieldStar);
+                previousMap = 2;
+            }
         }
         /*if (_map == 4) // Map 4
         {
@@ -2464,41 +2751,470 @@ public class StarSpawnerFramework : MonoBehaviour
             HCMap4(actionDamageStar);
             HCMap4(shieldStar);
         }*/
-        if (_map == 3) // Map 5
+        if (_map == 3) // Map 5 
         {
-            Debug.Log("Map 5 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(5);
-            HCMap5(baseStar);
-            HCMap5(actionDamageStar);
-            HCMap5(actionHealthStar);
-            HCMap5(shieldStar);
+            if (previousMap == 3) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11);
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 4) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 5) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 5 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(5);
+                HCMap5(baseStar);
+                HCMap5(actionDamageStar);
+                HCMap5(actionHealthStar);
+                HCMap5(shieldStar);
+                previousMap = 3;
+            }
         }
-        if (_map == 4) // Map 6
+        if (_map == 4) // Map 6 
         {
-            Debug.Log("Map 6 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(6);
-            HCMap6(baseStar);
-            HCMap6(actionDamageStar);
+            if (previousMap == 4) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11);
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 5) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 6 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(6);
+                HCMap6(baseStar);
+                HCMap6(actionDamageStar);
+                previousMap = 4;
+            }
         }
-        if (_map == 5) // Map 7
+        if (_map == 5) // Map 7 
         {
-            Debug.Log("Map 7 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(7);
-            HCMap7(baseStar);
-            HCMap7(actionDamageStar);
-            HCMap7(actionHealthStar);
+            if (previousMap == 5) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 7 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(7);
+                HCMap7(baseStar);
+                HCMap7(actionDamageStar);
+                HCMap7(actionHealthStar);
+                previousMap = 5;
+            }
         }
         /*if (_map == 8) // Map 8
         {
@@ -2514,16 +3230,158 @@ public class StarSpawnerFramework : MonoBehaviour
         }*/
         if (_map == 6) // Map 9
         {
-            Debug.Log("Map 9 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(9);
-            HCMap9(baseStar);
-            HCMap9(actionDamageStar);
-            HCMap9(actionHealthStar);
-            HCMap9(shieldStar);
+            if (previousMap == 6) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 9 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(9);
+                HCMap9(baseStar);
+                HCMap9(actionDamageStar);
+                HCMap9(actionHealthStar);
+                HCMap9(shieldStar);
+                previousMap = 6;
+            }
         }
         /*if (_map == 10) // Map 10
         {
@@ -2539,65 +3397,778 @@ public class StarSpawnerFramework : MonoBehaviour
         }*/
         if (_map == 7) // Map 11
         {
-            Debug.Log("Map 11 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(11);
-            HCMap11(baseStar);
-            HCMap11(actionDamageStar);
-            HCMap11(shieldStar);
+            if (previousMap == 7) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 11 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(11);
+                HCMap11(baseStar);
+                HCMap11(actionDamageStar);
+                HCMap11(shieldStar);
+                previousMap = 7;
+            }
         }
         if (_map == 8) // Map 12
         {
-            Debug.Log("Map 12 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(12);
-            HCMap12(baseStar);
-            HCMap12(actionDamageStar);
-            HCMap12(actionHealthStar);
-            HCMap12(shieldStar);
+            if (previousMap == 8) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 12 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(12);
+                HCMap12(baseStar);
+                HCMap12(actionDamageStar);
+                HCMap12(actionHealthStar);
+                HCMap12(shieldStar);
+                previousMap = 8;
+            }
         }
         if (_map == 9) // Map 13
         {
-            Debug.Log("Map 13 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(13);
-            HCMap13(baseStar);
-            HCMap13(actionDamageStar);
-            HCMap13(shieldStar);
+            if (previousMap == 9) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 9) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 13 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(13);
+                HCMap13(baseStar);
+                HCMap13(actionDamageStar);
+                HCMap13(shieldStar);
+                previousMap = 9;
+            }
         }
         if (_map == 10) // Map 14
         {
-            Debug.Log("Map 14 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(14);
-            HCMap14(baseStar);
-            HCMap14(actionDamageStar);
-            HCMap14(actionHealthStar);
-            HCMap14(shieldStar);
+            if (previousMap == 10) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 9) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 10) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 14 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(14);
+                HCMap14(baseStar);
+                HCMap14(actionDamageStar);
+                HCMap14(actionHealthStar);
+                HCMap14(shieldStar);
+                previousMap = 10;
+            }
         }
         if (_map == 11) // Map 15
         {
-            Debug.Log("Map 15 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(15);
-            HCMap15(baseStar);
-            HCMap15(actionDamageStar);
-            HCMap15(shieldStar);
+            if (previousMap == 11) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 9) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 10) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 15 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(15);
+                HCMap15(baseStar);
+                HCMap15(actionDamageStar);
+                HCMap15(shieldStar);
+                previousMap = 11;
+            }
         }
     }
 

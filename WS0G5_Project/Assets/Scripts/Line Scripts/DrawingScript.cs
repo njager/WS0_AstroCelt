@@ -21,7 +21,7 @@ public class DrawingScript : MonoBehaviour
     public Star star2;
     public Star starNext; // Use Star 2 for star1 after starCount > 0 
     public Star NodeStar;
-    public Star nodeStar2; 
+    public Star nodeStar2;
     public Star emptyStar; // Need something to start the game
 
     [Header("Drawing Script Ints")]
@@ -76,6 +76,7 @@ public class DrawingScript : MonoBehaviour
             GameObject _lineRenderer = Instantiate(lineRendererPrefab); 
             LineRenderer importedLineRenderer = _lineRenderer.GetComponent<LineRenderer>(); 
             LineRendererScript lineScript = _lineRenderer.GetComponent<LineRendererScript>();
+            lineScript.SetStars(starNext, star2);
             importedLineRenderer.useWorldSpace = true;
             Debug.Log("Spawned in Line");
             drawingLine(importedLineRenderer, lineScript);
@@ -90,7 +91,6 @@ public class DrawingScript : MonoBehaviour
     {
         if (starCount > 0)
         {
-            lineScript.SetStars(starNext, star2); // Should give stars to specific instance of LineRendererScript, it does
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;
@@ -108,7 +108,6 @@ public class DrawingScript : MonoBehaviour
         }
         if (starCount == 0)
         {
-            lineScript.SetStars(star1, star2);
             global.constellationBeingBuilt.Add(star1);
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = star1.transform.position;
@@ -128,7 +127,6 @@ public class DrawingScript : MonoBehaviour
         }
         if(starCount == -1)
         {
-            lineScript.SetStars(starNext, star2); 
             global.constellationBeingBuilt.Add(star2);
             lineStartingPoint = starNext.transform.position;
             lineEndingPoint = star2.transform.position;

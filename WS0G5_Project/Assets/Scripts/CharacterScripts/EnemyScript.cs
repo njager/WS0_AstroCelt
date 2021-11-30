@@ -33,7 +33,8 @@ public class EnemyScript : MonoBehaviour
     //private float spawnTimer = 2.5f; // Have the enemy wait for a timer
     private bool iEnumeratorTriggered; // Need a bool to control timer IEnumerator
     public int turnActionCount = 0; // Need it so update keeps occuring but that it only riggers once, but can be triggered again in the future in the next turn
-
+    public bool turnAction = false;
+    private int firstActionCall;
     
     
     void Awake() // Do this to set Enemy Count, and EnemyType
@@ -41,9 +42,13 @@ public class EnemyScript : MonoBehaviour
         StaticVariables.masterEnemyCount += 1;
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
         isDead = false;
+        // Set Health
         int _randEnemyHealth = Random.Range(27, 36);
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
+        // Set Damage
+        int _randEnemyDamage = Random.Range(5, 8);
+        enemyDamage = _randEnemyDamage; 
     }
 
     void Start()
@@ -53,9 +58,10 @@ public class EnemyScript : MonoBehaviour
         global = GlobalController.instance;
         //global.currentEnemy = enemySelf;
         global.UIController.isEnemyDead = false;
-        enemyDamage = myStats.damage;
+        //enemyDamage = myStats.damage;
         turnActionCount = 1;
-        global.UIController.selector.SetActive(false); 
+        global.UIController.selector.SetActive(false);
+        firstActionCall = -1;
     }
 
     public void Update()
@@ -68,7 +74,95 @@ public class EnemyScript : MonoBehaviour
                 EnemyTurnAction();
             }
         }
-        
+        if (global.enemy1.isYourTurn == false)
+        {
+            if (global.enemy2.isYourTurn == false)
+            {
+                if (global.enemy3.isYourTurn == false)
+                {
+                    global.playerScript.isPlayerTurn = true;
+                }
+                else
+                {
+                    global.playerTurnBar.SetActive(false);
+                    global.enemyTurnBar.SetActive(true);
+                    global.playerScript.isPlayerTurn = false;
+                }
+            }
+            else
+            {
+                global.playerTurnBar.SetActive(false);
+                global.enemyTurnBar.SetActive(true);
+                global.playerScript.isPlayerTurn = false;
+            }
+        }
+        else
+        {
+            global.playerTurnBar.SetActive(false);
+            global.enemyTurnBar.SetActive(true);
+            global.playerScript.isPlayerTurn = false;
+        }
+        if (firstActionCall == 0)
+        {
+            StartCoroutine(EnemyTurnTimer());
+        }
+        if (turnAction == true)
+        {
+            //Debug.Log("Happening!");
+            isYourTurn = false;
+            turnActionCount = 0;
+            turnAction = false;
+            firstActionCall++;
+        }
+
+        if(myIdentifier == "Enemy1")
+        {
+            if (global.enemy1Attacking == true)
+            {
+                global.enemy1ShieldGraphic.SetActive(false);
+                global.enemy1ShieldUI.SetActive(false);
+            }
+            if (global.enemy1Attacking == false)
+            {
+                global.enemy1ShieldGraphic.SetActive(true);
+                global.enemy1ShieldUI.SetActive(true);
+            }
+        }
+
+        if (myIdentifier == "Enemy2")
+        {
+            if (global.enemy2Attacking == true)
+            {
+                global.enemy2ShieldGraphic.SetActive(false);
+                global.enemy2ShieldUI.SetActive(false);
+            }
+            if (global.enemy2Attacking == false)
+            {
+                global.enemy2ShieldGraphic.SetActive(true);
+                global.enemy2ShieldUI.SetActive(true);
+            }
+        }
+
+        if (myIdentifier == "Enemy3")
+        {
+            if (global.enemy3Attacking == true)
+            {
+                global.enemy3ShieldGraphic.SetActive(false);
+                global.enemy3ShieldUI.SetActive(false);
+            }
+            if (global.enemy3Attacking == false)
+            {
+                global.enemy3ShieldGraphic.SetActive(true);
+                global.enemy3ShieldUI.SetActive(true);
+            }
+        }
+    }
+
+
+    public void UpdateDamage()
+    {
+        int _randEnemyDamage = Random.Range(5, 9);
+        enemyDamage = _randEnemyDamage;
     }
 
     private void OnMouseDown()
@@ -93,14 +187,10 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator EnemyTurnTimer()
     {
-        global.enemyTurnBar.SetActive(true);
-        global.playerTurnBar.SetActive(false);
-        Debug.Log("Happening!");
-        isYourTurn = false;
-        global.playerScript.isPlayerTurn = true;
-        turnActionCount = 0; 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        turnAction = true;
     }
+
 
     public void EnemyTurnAction() 
     {
@@ -110,33 +200,57 @@ public class EnemyScript : MonoBehaviour
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
-                    global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    return;
+                    if(global.enemy1Attacking == true)
+                    {
+                        global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
+                        Popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy1 is now Shielded");
+                        firstActionCall = 0;
+                    }
                 }
             }
             if (myIdentifier == "Enemy2")
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
-                    global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    return;
+                    if(global.enemy2Attacking == true)
+                    {
+                        global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
+                        Popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy2 is now Shielded");
+                        firstActionCall = 0;
+                    }
                 }
             }
             if (myIdentifier == "Enemy3")
             {
                 if (global.turnManagerScript.totalTurnCount >= 1)
                 {
-                    global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
-                    global.m_SoundEffectDamage.Play();
-                    iEnumeratorTriggered = true;
-                    StartCoroutine(EnemyTurnTimer());
-                    return;
+                    if (global.enemy3Attacking == true)
+                    {
+                        global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
+                        global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
+                        Popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
+                        global.m_SoundEffectDamage.Play();
+                        firstActionCall = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Enemy3 is now Shielded!");
+                        firstActionCall = 0;
+                    }
                 }
             }
         }
@@ -164,9 +278,95 @@ public class EnemyScript : MonoBehaviour
         //Debug.Log("Enemy Attacks"); 
     }
 
-    public void UniqueBehavior(string identity) 
+    public void enemyDie() // Death
     {
-        if(identity == "Swarm")
+        StaticVariables.masterEnemyCount -= 1;
+        isDead = true;
+        isYourTurn = false;
+        if(myIdentifier == "Enemy1")
+        {
+            global.enemy1UI.SetActive(false);
+        }
+        if (myIdentifier == "Enemy2")
+        {
+            global.enemy1UI.SetActive(false);
+        }
+        if (myIdentifier == "Enemy3")
+        {
+            global.enemy1UI.SetActive(false);
+        }
+        gameObject.SetActive(false);
+        //global.enemySwitcherFrameworkScript.EnemySwitch();
+        //global.UIController.isEnemyDead = true;
+        //Destroy(enemyGameObject)
+        //global.currentEnemy.gameObject.SetActive(false);
+        //global.enemySwitcherFrameworkScript.HCEnemySwitch();
+    }
+
+    public void EnemyDamaged(int _damage) // Enemy is damaged, adjust numbers
+    {
+        if (myIdentifier == "Enemy1")
+        {
+            if(global.enemy1Attacking == true)
+            {
+                StaticVariables.enemyCurrentHealth1 -= _damage;
+            }
+            else
+            {
+                int _check = _damage - global.enemy1ShieldCount;
+                if(global.enemy1ShieldCount > 0)
+                {
+                    global.enemy1ShieldCount -= _damage;
+                }
+                if(_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth1 -= _damage;
+                }
+            }
+        }
+        if (myIdentifier == "Enemy2")
+        {
+            if(global.enemy2Attacking == true)
+            {
+                StaticVariables.enemyCurrentHealth2 -= _damage;
+            }
+            else
+            {
+                int _check = _damage - global.enemy2ShieldCount;
+                if (global.enemy2ShieldCount > 0)
+                {
+                    global.enemy2ShieldCount -= _damage;
+                }
+                if (_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth2 -= _damage;
+                }
+            }
+        }
+        if (myIdentifier == "Enemy3")
+        {
+            if (global.enemy3Attacking == true)
+            {
+                StaticVariables.enemyCurrentHealth3 -= _damage;
+            }
+            else
+            {
+                int _check = _damage - global.enemy3ShieldCount;
+                if (global.enemy3ShieldCount > 0)
+                {
+                    global.enemy3ShieldCount -= _damage;
+                }
+                if (_check > 0)
+                {
+                    StaticVariables.enemyCurrentHealth3 -= _damage;
+                }
+            }
+        }
+    }
+
+    public void UniqueBehavior(string identity)
+    {
+        if (identity == "Swarm")
         {
             if (_frenzyTriggered == false)
             {
@@ -195,70 +395,20 @@ public class EnemyScript : MonoBehaviour
             {
                 Debug.Log("Frenzy already triggered");
             }
-            _swarmAttackedAmount = 0; 
+            _swarmAttackedAmount = 0;
         }
         if (identity == "Legionary")
         {
             if (legionaryEffectCounter == 0) // Makes it so the legionary only spawns a barrier once spawned in only once 
             {
                 global.starSpawnerFrameworkScript.LegionaryEffect();
-                legionaryEffectCounter += 1; 
+                legionaryEffectCounter += 1;
             }
             else
             {
-                return; 
+                return;
             }
-            
-        }
-    }
 
-    public void enemyDie() // Death
-    {
-        StaticVariables.masterEnemyCount -= 1;
-        gameObject.SetActive(false);
-        //global.enemySwitcherFrameworkScript.EnemySwitch();
-        //global.UIController.isEnemyDead = true;
-        //Destroy(enemyGameObject)
-        isDead = true;
-        //global.currentEnemy.gameObject.SetActive(false);
-        //global.enemySwitcherFrameworkScript.HCEnemySwitch();
-    }
-
-    public void EnemyDamaged(int _health) // Enemy is damaged, adjust numbers
-    {
-        if (myIdentifier == "Enemy1")
-        {
-            if(global.enemy1ShieldCount > 0)
-            {
-                global.enemy1ShieldCount -= _health;
-            }
-            else
-            {
-                StaticVariables.enemyCurrentHealth1 -= _health;
-            }
         }
-        if (myIdentifier == "Enemy2")
-        {
-            if(global.enemy2ShieldCount > 0)
-            {
-                global.enemy2ShieldCount -= _health;
-            }
-            else
-            {
-                StaticVariables.enemyCurrentHealth2 -= _health;
-            }
-        }
-        if (myIdentifier == "Enemy3")
-        {
-            if(global.enemy3ShieldCount > 0)
-            {
-                global.enemy3ShieldCount -= _health;
-            }
-            else
-            {
-                StaticVariables.enemyCurrentHealth3 -= _health;
-            }
-        }
-
     }
 }

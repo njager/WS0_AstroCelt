@@ -44,8 +44,7 @@ public class Star : MonoBehaviour
 
     public void OnMouseDown()
     {
-        //Sound Effects different per Star:
-        if(myStarClass.starType == "NodeStar")
+        if (myStarClass.starType == "NodeStar")
         {
             global.m_SoundEffectPopHigh.Play();
         }
@@ -53,10 +52,12 @@ public class Star : MonoBehaviour
         {
             global.m_SoundEffectPop.Play();
         }
+        //Sound Effects different per Star:
+
         if (global.UIController.selector.activeInHierarchy == true) // If the player has already drawn for turn, do nothing
         {
             if (global.playerScript.isPlayerTurn == true) // Check if it's the player's turns
-            {
+            { 
                 if (this == global.drawingScript.NodeStar) // Check to see if it's the node
                 {
                     Debug.Log("NodeStar");

@@ -25,6 +25,7 @@ public class Popup : MonoBehaviour
     //public variables
     public static GameObject pfPopupStatic;
     public GameObject pfPopup;
+    private BoxCollider box;
 
     //grab the transform of the OG popup
     static Transform GrabPopupTransform()
@@ -39,8 +40,8 @@ public class Popup : MonoBehaviour
         pfPopupStatic = pfPopup;
         global = GlobalController.instance;
         DOTween.Init();
-        enemyHealthPos = new Vector3(21, 5, 0);
-        playerHealthPos = new Vector3(-21, 5, 0);
+        enemyHealthPos = new Vector3(14, -0.35f, 0);
+        playerHealthPos = new Vector3(-14, 2.35f, 0);
     }
 
     //create the popup at position with certain #
@@ -58,6 +59,11 @@ public class Popup : MonoBehaviour
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+
+        Vector3 _newCenter = new Vector3(0f,0f,2f); 
+
+        gameObject.AddComponent<BoxCollider>();
+        box = gameObject.GetComponent<BoxCollider>();
     }
 
     //make the output amount into the text for the popup
@@ -106,7 +112,7 @@ public class Popup : MonoBehaviour
         textMesh.sortingOrder = sortingOrder;
 
         //add a box collider because it auto deletes when spawned
-        gameObject.AddComponent<BoxCollider>();
+        
 
         //reset the scale after tweening it in spawn
         gameObject.transform.DOScale(new Vector3(1, 1, 0), 0.01f);
@@ -176,7 +182,6 @@ public class Popup : MonoBehaviour
         {
             gameObject.transform.DOMove(playerHealthPos, 2f);
         }
-        
     }
 
     //if the popup enters the screen, move it
@@ -184,5 +189,6 @@ public class Popup : MonoBehaviour
     {
         Debug.Log("Popup entered the screen!");
         StartCoroutine("MovePopup");
+        box.enabled = false; 
     }
 }
