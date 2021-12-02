@@ -31,9 +31,6 @@ public class Popup : MonoBehaviour
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
-
-        Vector3 _newCenter = new Vector3(0f, 0f, 2f);
-
         gameObject.AddComponent<BoxCollider>();
         box = gameObject.GetComponent<BoxCollider>();
     }
@@ -51,7 +48,7 @@ public class Popup : MonoBehaviour
 
     //make the output amount into the text for the popup
     
-    private void Update()
+    void Update()
     {
         //float moveYSpeed = 20f;
         /*if (transform.parent != null && transform.parent.tag != "Reference")

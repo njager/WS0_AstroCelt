@@ -32,7 +32,7 @@ public class PopUpReferenceScript : MonoBehaviour
     public void Create(Vector3 position, int outputAmount, int colorIndex, bool toPlayer)
     {
         Transform instantiatePopupTransform = GrabPopupTransform();
-        GameObject popupTransform = Instantiate(popUpPrefab, instantiatePopupTransform.position, Quaternion.identity);
+        GameObject popupTransform = Instantiate(popUpPrefab, position, instantiatePopupTransform.rotation);
         Popup popup = popupTransform.GetComponent<Popup>();
         Setup(outputAmount, colorIndex, toPlayer, popup);
 
