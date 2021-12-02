@@ -204,7 +204,7 @@ public class EnemyScript : MonoBehaviour
                     {
                         global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
-                        Popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
+                        global.popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
                         global.m_SoundEffectDamage.Play();
                         firstActionCall = 0;
                     }
@@ -223,7 +223,7 @@ public class EnemyScript : MonoBehaviour
                     {
                         global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
-                        Popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
+                        global.popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
                         global.m_SoundEffectDamage.Play();
                         firstActionCall = 0;
                     }
@@ -242,7 +242,7 @@ public class EnemyScript : MonoBehaviour
                     {
                         global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
-                        Popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
+                        global.popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
                         global.m_SoundEffectDamage.Play();
                         firstActionCall = 0;
                     }

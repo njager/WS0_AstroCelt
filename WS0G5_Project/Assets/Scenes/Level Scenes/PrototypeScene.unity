@@ -8304,7 +8304,7 @@ MonoBehaviour:
   staticVariablesReference: {fileID: 779302970}
   newStarMapScript: {fileID: 1919828120}
   constellationBuilding: {fileID: 1365886407}
-  popUpReference: {fileID: 461686959}
+  popup: {fileID: 461686959}
   particleSystemScript: {fileID: 1453816332}
   turnManagerScript: {fileID: 433266640}
   selector: {fileID: 519335944}
@@ -10772,12 +10772,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 461686957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bf794894055cf43a813b2ea1d1672b, type: 3}
+  m_Script: {fileID: 11500000, guid: ccc393736b46433499fa662597d30bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpHolder: {fileID: 461686958}
+  popUpPrefab: {fileID: 6911597177360407794, guid: c82cba25cb6b2904a93481dcf94411f3, type: 3}
   enemyHealthPos: {x: 0, y: 0, z: 0}
   playerHealthPos: {x: 0, y: 0, z: 0}
-  pfPopup: {fileID: 6911597177360407794, guid: c82cba25cb6b2904a93481dcf94411f3, type: 3}
 --- !u!1 &463560669
 GameObject:
   m_ObjectHideFlags: 0

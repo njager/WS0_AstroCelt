@@ -171,11 +171,11 @@ public class UIController : MonoBehaviour
 
         SetText();
 
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer < 0)
+        //spawnTimer -= Time.deltaTime;
+        //if (spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
-            spawnTimer = 1f;
+            //global.popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
+            //spawnTimer = 1f;
         }
     }
 

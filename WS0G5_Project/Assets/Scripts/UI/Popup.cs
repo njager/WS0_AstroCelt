@@ -9,29 +9,33 @@ public class Popup : MonoBehaviour
 {
     //private variables
     private GlobalController global;
-    private TextMeshPro textMesh;
-    private float disappearTimer;
-    private float destroyTimer = 1f;
-    private Color textColor;
-    private const float DISAPPEAR_TIMER_MAX = 3f;
-    private static int sortingOrder;
+    public TextMeshPro textMesh;
+    public float disappearTimer;
+    public float destroyTimer = 1f;
+    public Color textColor;
+    public float DISAPPEAR_TIMER_MAX = 3f;
+    public int sortingOrder;
     [SerializeField] Vector3 enemyHealthPos;
     [SerializeField] Vector3 playerHealthPos;
-    private bool isRed;
-    private bool isGreen;
-    private bool isBlue;
-    private bool sendToPlayer;
+    public bool isRed;
+    public bool isGreen;
+    public bool isBlue;
+    public bool sendToPlayer;
 
     //public variables
-    public static GameObject pfPopupStatic;
+    public GameObject pfPopupStatic;
     public GameObject pfPopup;
     private BoxCollider box;
 
-    //grab the transform of the OG popup
-    static Transform GrabPopupTransform()
+    //get the transform component of the text
+    private void Awake()
     {
-        Transform pfPopupTransform = pfPopupStatic.GetComponent<Transform>();
-        return pfPopupTransform;
+        textMesh = transform.GetComponent<TextMeshPro>();
+
+        Vector3 _newCenter = new Vector3(0f, 0f, 2f);
+
+        gameObject.AddComponent<BoxCollider>();
+        box = gameObject.GetComponent<BoxCollider>();
     }
 
     //setup the popup
@@ -44,91 +48,20 @@ public class Popup : MonoBehaviour
         playerHealthPos = new Vector3(-14, 2.35f, 0);
     }
 
-    //create the popup at position with certain #
-    public static Popup Create(Vector3 position, int outputAmount, int colorIndex, bool toPlayer)
-    {
-        Transform instantiatePopupTransform = GrabPopupTransform();
-        Transform popupTransform = Instantiate(instantiatePopupTransform, position, Quaternion.identity);
-        Popup popup = popupTransform.GetComponent<Popup>();
-        popup.Setup(outputAmount, colorIndex, toPlayer);
-
-        return popup;
-    }
-    
-    //get the transform component of the text
-    private void Awake()
-    {
-        textMesh = transform.GetComponent<TextMeshPro>();
-
-        Vector3 _newCenter = new Vector3(0f,0f,2f); 
-
-        gameObject.AddComponent<BoxCollider>();
-        box = gameObject.GetComponent<BoxCollider>();
-    }
 
     //make the output amount into the text for the popup
-    public void Setup(int outputAmount, int colorIndex, bool toPlayer)
-    {
-        textMesh.SetText(outputAmount.ToString());
-
-        //check and set color
-        if (colorIndex == 0)
-        {
-            textColor = UtilsClass.GetColorFromString("5ECC71");
-            isRed = false;
-            isGreen = true;
-            isBlue = false;
-        }
-        else if (colorIndex == 1)
-        {
-            textColor = UtilsClass.GetColorFromString("DD6666");
-            isRed = true;
-            isGreen = false;
-            isBlue = false;
-        }
-        else if (colorIndex == 2)
-        {
-            textColor = UtilsClass.GetColorFromString("7598D1");
-            isRed = false;
-            isGreen = false;
-            isBlue = true;
-        }
-        textMesh.color = textColor;
-
-        //check and set bool for to player or to enemy
-        if (toPlayer)
-        {
-            sendToPlayer = true;
-        }
-        else
-        {
-            sendToPlayer = false;
-        }
-
-        disappearTimer = DISAPPEAR_TIMER_MAX;
-
-        //put newer popups on top
-        sortingOrder++;
-        textMesh.sortingOrder = sortingOrder;
-
-        //add a box collider because it auto deletes when spawned
-        
-
-        //reset the scale after tweening it in spawn
-        gameObject.transform.DOScale(new Vector3(1, 1, 0), 0.01f);
-    }
-
+    
     private void Update()
     {
         //float moveYSpeed = 20f;
-        if (transform.parent != null && transform.parent.tag != "Reference")
+        /*if (transform.parent != null && transform.parent.tag != "Reference")
         {
             //Debug.Log("Has a parent is not reference");
         }
         if (transform.parent != null && transform.parent.tag == "Reference")
         {
             Debug.Log("Has a parent is reference");
-        }
+        }*/
         
         //delay disappear for popup
         disappearTimer -= Time.deltaTime;

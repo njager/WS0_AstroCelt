@@ -819,7 +819,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnHealthParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
-            Popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
+            global.popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
             global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }
@@ -828,14 +828,14 @@ public class ConstellationBuildingScript : MonoBehaviour
             global.particleSystemScript.SpawnDamageParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
             global.m_SoundEffectWhoosh.Play();
-            Popup.Create(popUpCenterPoint.position, _constellationFinal, 1, false);
+            global.popup.Create(popUpCenterPoint.position, _constellationFinal, 1, false);
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 
         {
             global.particleSystemScript.SpawnShieldParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
-            Popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
+            global.popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
             global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }

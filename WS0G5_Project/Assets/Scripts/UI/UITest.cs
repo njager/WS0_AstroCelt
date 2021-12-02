@@ -61,11 +61,13 @@ public class UITest : MonoBehaviour
     [SerializeField] GameObject shieldTile;
     [SerializeField] Animator shieldTileAnimator;
     [SerializeField] Transform popupPosTest;
+    private GlobalController global;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        global = GlobalController.instance; 
         //Set up the text
         SetText();
         //Popup.Create(Vector3.zero, 5);
@@ -116,7 +118,7 @@ public class UITest : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0)
         {
-            Popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
+            global.popup.Create(new Vector3(-100, 0, 1), 1, 0, true);
             spawnTimer = 1f;
         }
 
@@ -126,19 +128,19 @@ public class UITest : MonoBehaviour
         //test popup
         if (Input.GetMouseButtonDown(0))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0, true);
+            global.popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 0, true);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1, false);
+            global.popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 1, false);
         }
         else if (Input.GetMouseButtonDown(2))
         {
-            Popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 2, true);
+            global.popup.Create(UtilsClass.GetMouseWorldPosition(), 9, 2, true);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            Popup.Create(new Vector3(21, 7, 0), 5, 1, true);
+            global.popup.Create(new Vector3(21, 7, 0), 5, 1, true);
         }
 
         //debug controls for the tile feedback
