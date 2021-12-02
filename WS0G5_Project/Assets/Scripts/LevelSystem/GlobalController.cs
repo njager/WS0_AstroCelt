@@ -109,7 +109,7 @@ public class GlobalController : MonoBehaviour
     public StaticVariables staticVariablesReference; // For a method call in UIController
     public NewStarMapScript newStarMapScript; // For use in UIController
     public ConstellationBuildingScript constellationBuilding; // To build constellation
-    public Popup popUpReference;
+    public PopUpReferenceScript popup;
     public ParticleSystemScript particleSystemScript; // For referencing particle systems
     public TurnManager turnManagerScript;
     public SelectorScript selector; 
