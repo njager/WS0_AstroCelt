@@ -43,11 +43,11 @@ public class EnemyScript : MonoBehaviour
         myIdentifier = myStats.identifier; // Grabbing information from the data class during runtime
         isDead = false;
         // Set Health
-        int _randEnemyHealth = Random.Range(27, 36);
+        int _randEnemyHealth = Random.Range(27, 37);
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
         // Set Damage
-        int _randEnemyDamage = Random.Range(6, 11);
+        int _randEnemyDamage = Random.Range(6, 12);
         enemyDamage = _randEnemyDamage; 
     }
 
