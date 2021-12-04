@@ -167,10 +167,6 @@ public class EnemyScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(isDead == true)
-        {
-            return; 
-        }
         if (global.UIController.selector.activeInHierarchy != true)
         {
             Debug.Log("Moved!");
@@ -186,7 +182,10 @@ public class EnemyScript : MonoBehaviour
             global.UIController.selector.transform.position = _newPosition;
             global.enemySelected = this; 
         }
-        
+        if (isDead == true)
+        {
+            return;
+        }
     }
 
     public IEnumerator EnemyTurnTimer()

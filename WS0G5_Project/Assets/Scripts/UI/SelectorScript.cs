@@ -104,23 +104,8 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3ShieldCount = 0;
         }
-        /*
-        if(global.enemy1ShieldCount == 0)
-        {
-            global.enemy1Shielded = false;
-            enemy1Attacking = true;
-        }
-        if (global.enemy2ShieldCount == 0)
-        {
-            global.enemy2Shielded = false;
-            enemy2Attacking = true;
-        }
-        if (global.enemy3ShieldCount == 0)
-        {
-            global.enemy3Shielded = false;
-            enemy3Attacking = true;
-        }*/
-        if(global.enemySelected = global.enemyNull)
+        
+        if(global.enemySelected == global.enemyNull)
         {
             selector.SetActive(false);
         }
