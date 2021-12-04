@@ -167,6 +167,10 @@ public class EnemyScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(isDead == true)
+        {
+            return; 
+        }
         if (global.UIController.selector.activeInHierarchy != true)
         {
             Debug.Log("Moved!");
@@ -267,6 +271,7 @@ public class EnemyScript : MonoBehaviour
         Destroy(this);
     }
 
+    // no longer occurs, enemy isn't destroyed
     public void OnDestroy() 
     {
         Debug.Log("Enemy Defeated"); // Logs Enemy Defeat
@@ -286,15 +291,19 @@ public class EnemyScript : MonoBehaviour
         if(myIdentifier == "Enemy1")
         {
             global.enemy1UI.SetActive(false);
+            global.enemy1isDead = true; 
         }
         if (myIdentifier == "Enemy2")
         {
             global.enemy2UI.SetActive(false);
+            global.enemy2isDead = true;
         }
         if (myIdentifier == "Enemy3")
         {
             global.enemy3UI.SetActive(false);
+            global.enemy3isDead = true;
         }
+        Debug.Log("Enemy Defeated");
         gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         //global.UIController.isEnemyDead = true;

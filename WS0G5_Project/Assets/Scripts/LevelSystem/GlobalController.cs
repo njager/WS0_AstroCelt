@@ -146,6 +146,10 @@ public class GlobalController : MonoBehaviour
     public bool enemy2Attacking;
     public bool enemy3Attacking;
 
+    public bool enemy1isDead;
+    public bool enemy2isDead;
+    public bool enemy3isDead;
+
     public GameObject enemy1ShieldGraphic;
     public GameObject enemy2ShieldGraphic;
     public GameObject enemy3ShieldGraphic;
@@ -207,6 +211,18 @@ public class GlobalController : MonoBehaviour
         if (enemy3ShieldCount <= 0)
         {
             enemy3ShieldGraphic.SetActive(false);
+        }
+
+        // Win Behavior
+        if(enemy1isDead == true)
+        {
+            if (enemy2isDead == true)
+            {
+                if(enemy3isDead == true)
+                {
+                    Win(); 
+                }
+            }
         }
     }
 
