@@ -47,7 +47,7 @@ public class EnemyScript : MonoBehaviour
         enemyHealth = _randEnemyHealth;
         enemyStartHealth = _randEnemyHealth;
         // Set Damage
-        int _randEnemyDamage = Random.Range(5, 8);
+        int _randEnemyDamage = Random.Range(6, 11);
         enemyDamage = _randEnemyDamage; 
     }
 
