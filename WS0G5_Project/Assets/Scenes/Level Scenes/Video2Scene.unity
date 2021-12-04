@@ -8403,6 +8403,9 @@ MonoBehaviour:
   enemy1Attacking: 0
   enemy2Attacking: 0
   enemy3Attacking: 0
+  enemy1isDead: 0
+  enemy2isDead: 0
+  enemy3isDead: 0
   enemy1ShieldGraphic: {fileID: 1183410859}
   enemy2ShieldGraphic: {fileID: 1391698310}
   enemy3ShieldGraphic: {fileID: 1224951948}
@@ -8410,6 +8413,7 @@ MonoBehaviour:
   enemy1ShieldCount: 0
   enemy2ShieldCount: 0
   enemy3ShieldCount: 0
+  enemyNull: {fileID: 0}
 --- !u!4 &353662683
 Transform:
   m_ObjectHideFlags: 0
@@ -11929,6 +11933,8 @@ MonoBehaviour:
   enemy3Attacking: 0
   enemyAttack: {fileID: 21300000, guid: ea30c135d4a1a6d4486b565ce81a0b0b, type: 3}
   enemyShield: {fileID: 21300000, guid: 039e61589c69fc8408f337ffcbda9a46, type: 3}
+  selectorGraphic: {fileID: 0}
+  selector: {fileID: 0}
 --- !u!1 &519345844
 GameObject:
   m_ObjectHideFlags: 0
@@ -43670,6 +43676,7 @@ GameObject:
   - component: {fileID: 1900979641}
   - component: {fileID: 1900979640}
   - component: {fileID: 1900979639}
+  - component: {fileID: 1900979642}
   m_Layer: 0
   m_Name: BigDipper
   m_TagString: Untagged
@@ -43752,9 +43759,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.23, y: -6.71}
+  m_AnchoredPosition: {x: -0.92, y: -1.67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1900979642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900979638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900eddcce59f4354e9df44859c084a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  dragging: 0
 --- !u!1 &1902082926
 GameObject:
   m_ObjectHideFlags: 0
