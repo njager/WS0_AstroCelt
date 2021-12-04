@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectorScript : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class SelectorScript : MonoBehaviour
     [Header("Sprite Icons")]
     public Sprite enemyAttack;
     public Sprite enemyShield;
+    public Image selectorGraphic;
+    public GameObject selector; 
+
+    public void Awake()
+    {
+        selectorGraphic = selector.GetComponent<Image>(); 
+    }
 
     void Start()
     {
@@ -52,6 +60,7 @@ public class SelectorScript : MonoBehaviour
             if (StaticVariables.enemyCurrentHealth1 <= 0)
             {
                 global.enemy1.enemyDie();
+                global.enemySelected = global.enemyNull;
                 enemy1Dead = true;
             }
         }
@@ -60,6 +69,7 @@ public class SelectorScript : MonoBehaviour
             if (StaticVariables.enemyCurrentHealth2 <= 0)
             {
                 global.enemy2.enemyDie();
+                global.enemySelected = global.enemyNull;
                 enemy2Dead = true;
             }
         }
@@ -68,6 +78,7 @@ public class SelectorScript : MonoBehaviour
             if (StaticVariables.enemyCurrentHealth3 <= 0)
             {
                 global.enemy3.enemyDie();
+                global.enemySelected = global.enemyNull; 
                 enemy3Dead = true;
             }
         }
@@ -93,22 +104,11 @@ public class SelectorScript : MonoBehaviour
         {
             global.enemy3ShieldCount = 0;
         }
-        /*
-        if(global.enemy1ShieldCount == 0)
+        
+        if(global.enemySelected == global.enemyNull)
         {
-            global.enemy1Shielded = false;
-            enemy1Attacking = true;
+            selector.SetActive(false);
         }
-        if (global.enemy2ShieldCount == 0)
-        {
-            global.enemy2Shielded = false;
-            enemy2Attacking = true;
-        }
-        if (global.enemy3ShieldCount == 0)
-        {
-            global.enemy3Shielded = false;
-            enemy3Attacking = true;
-        }*/
     }
 
     public void EnemyActionNextTurn(GameObject _givenEnemyIcon)

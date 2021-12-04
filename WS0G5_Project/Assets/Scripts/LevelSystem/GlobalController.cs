@@ -146,6 +146,10 @@ public class GlobalController : MonoBehaviour
     public bool enemy2Attacking;
     public bool enemy3Attacking;
 
+    public bool enemy1isDead;
+    public bool enemy2isDead;
+    public bool enemy3isDead;
+
     public GameObject enemy1ShieldGraphic;
     public GameObject enemy2ShieldGraphic;
     public GameObject enemy3ShieldGraphic;
@@ -154,6 +158,8 @@ public class GlobalController : MonoBehaviour
     public int enemy1ShieldCount; // Set to 2
     public int enemy2ShieldCount; // Set to 2
     public int enemy3ShieldCount; // Set to 2
+
+    public EnemyScript enemyNull; // Purposefully left empty
 
     //public WorldController world;
 
@@ -188,10 +194,37 @@ public class GlobalController : MonoBehaviour
             //Lose();
             //playerShieldCount -= 10;
             enemy1.enemyDie();
+            //enemy2.enemyDie();
+            //enemy3.enemyDie();
         }
         if(PlayerStats.playerVitality <= 0)
         {
             Lose();
+        }
+
+        if(enemy1ShieldCount <= 0)
+        {
+            enemy1ShieldGraphic.SetActive(false);
+        }
+        if (enemy2ShieldCount <= 0)
+        {
+            enemy2ShieldGraphic.SetActive(false);
+        }
+        if (enemy3ShieldCount <= 0)
+        {
+            enemy3ShieldGraphic.SetActive(false);
+        }
+
+        // Win Behavior
+        if(enemy1isDead == true)
+        {
+            if (enemy2isDead == true)
+            {
+                if(enemy3isDead == true)
+                {
+                    Win(); 
+                }
+            }
         }
     }
 

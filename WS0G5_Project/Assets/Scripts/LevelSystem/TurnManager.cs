@@ -28,6 +28,11 @@ public class TurnManager : MonoBehaviour
             Debug.Log("IT'S NOT YOUR TURN YET");
             return;
         }
+        if(global.enemySelected == global.enemyNull)
+        {
+            Debug.Log("PLEASE SELECT A NEW ENEMY BEFORE ENDING YOUR TURN");
+            return;
+        }
         ChangeTurn();
     }
 
