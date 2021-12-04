@@ -65,9 +65,18 @@ public class TurnManager : MonoBehaviour
         global.enemy1.turnActionCount = 0;
         global.enemy2.turnActionCount = 0;
         global.enemy3.turnActionCount = 0;
-        global.enemy1.isYourTurn = true;
-        global.enemy2.isYourTurn = true;
-        global.enemy3.isYourTurn = true;
+        if(global.enemy1isDead == false)
+        {
+            global.enemy1.isYourTurn = true;
+        }
+        if (global.enemy2isDead == false)
+        {
+            global.enemy2.isYourTurn = true;
+        }
+        if (global.enemy3isDead == false)
+        {
+            global.enemy3.isYourTurn = true;
+        }
         //global.drawingScript.activeStarCounter = 1;
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {

@@ -8311,6 +8311,11 @@ MonoBehaviour:
   m_SoundEffectPopHigh: {fileID: 1723282219}
   m_SoundEffectConFinish: {fileID: 1657911917}
   m_SoundEffectWhoosh: {fileID: 1044855834}
+  m_SoundEffectDamageSlice1: {fileID: 0}
+  m_SoundEffectDamageSlice2: {fileID: 0}
+  m_SoundEffectHealConstellation: {fileID: 0}
+  m_SoundEffectShieldConstellation: {fileID: 0}
+  m_SoundEffectPlayerAttack: {fileID: 0}
   altarText1: {fileID: 571263662}
   altarText2: {fileID: 307821534}
   altarText3: {fileID: 1032526032}
@@ -36978,11 +36983,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1630208514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7448904510718226989, guid: 5ed31372d894f2c40a4d36ecf38f86af, type: 3}
-  m_PrefabInstance: {fileID: 417431102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1632315885
 GameObject:
   m_ObjectHideFlags: 0
@@ -39477,8 +39477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e917709e0f5f67540943a263c3645638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPulse: {fileID: 1630208514}
-  selectIcon: {fileID: 918046286}
+  bigDipper: {fileID: 682696831}
 --- !u!1 &1722565976
 GameObject:
   m_ObjectHideFlags: 0

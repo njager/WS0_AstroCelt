@@ -8,14 +8,17 @@ public class DemoVideoScript : MonoBehaviour
 {
     //[SerializeField] GameObject attackPulse;
     //[SerializeField] GameObject selectIcon;
-    [SerializeField] GlobalController global;
+    private GlobalController global;
     [SerializeField] GameObject bigDipper;
-    Vector3 dipperPos;  
+
+    private void Awake()
+    {
+        global = GlobalController.instance; 
+    }
 
     private void Start()
     {
         bigDipper.SetActive(false);
-        dipperPos = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -44,8 +47,9 @@ public class DemoVideoScript : MonoBehaviour
 
     public void AbilityButton()
     {
+        Vector3 _popupVector3 = new Vector3(0, 0, 0);
         global.enemy1.EnemyDamaged(20);
-        global.popup.Create(dipperPos, 20, 1, false);
+        global.popup.Create(_popupVector3, 20, 1, false);
         
     }
 }
