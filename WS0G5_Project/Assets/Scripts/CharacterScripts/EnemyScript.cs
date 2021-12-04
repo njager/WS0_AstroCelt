@@ -303,6 +303,7 @@ public class EnemyScript : MonoBehaviour
             global.enemy3isDead = true;
         }
         Debug.Log("Enemy Defeated");
+        global.enemySelected = global.enemyNull;
         gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();
         //global.UIController.isEnemyDead = true;
