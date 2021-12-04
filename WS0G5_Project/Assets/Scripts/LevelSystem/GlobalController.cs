@@ -201,7 +201,7 @@ public class GlobalController : MonoBehaviour
             //Lose();
             //playerShieldCount -= 10;
             //enemy1.enemyDie();
-            //enemy2.enemyDie();
+            enemy2.enemyDie();
             //enemy3.enemyDie();
         }
         if(PlayerStats.playerVitality <= 0)
