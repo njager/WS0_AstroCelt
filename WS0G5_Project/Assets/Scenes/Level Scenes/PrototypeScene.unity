@@ -8334,6 +8334,7 @@ MonoBehaviour:
   enemy1ShieldCount: 0
   enemy2ShieldCount: 0
   enemy3ShieldCount: 0
+  enemyNull: {fileID: 0}
 --- !u!4 &353662683
 Transform:
   m_ObjectHideFlags: 0
@@ -11842,6 +11843,8 @@ MonoBehaviour:
   enemy3Attacking: 0
   enemyAttack: {fileID: 21300000, guid: ea30c135d4a1a6d4486b565ce81a0b0b, type: 3}
   enemyShield: {fileID: 21300000, guid: 039e61589c69fc8408f337ffcbda9a46, type: 3}
+  selectorGraphic: {fileID: 0}
+  selector: {fileID: 918046286}
 --- !u!1 &519345844
 GameObject:
   m_ObjectHideFlags: 0

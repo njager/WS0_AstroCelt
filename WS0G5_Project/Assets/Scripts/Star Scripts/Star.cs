@@ -56,86 +56,91 @@ public class Star : MonoBehaviour
 
         if (global.UIController.selector.activeInHierarchy == true) // If the player has already drawn for turn, do nothing
         {
-            if (global.playerScript.isPlayerTurn == true) // Check if it's the player's turns
-            { 
-                if (this == global.drawingScript.NodeStar) // Check to see if it's the node
+            if (global.enemySelected != global.enemyNull) // Enemy Died
+            {
+                if (global.playerScript.isPlayerTurn == true) // Check if it's the player's turns
                 {
-                    Debug.Log("NodeStar");
-                    global.drawingScript.star2 = global.drawingScript.NodeStar;
-                    global.drawingScript.activeStarCounter = 1;
-                    global.drawingScript.starCount = -1;
-                    global.drawingScript.drawLine();
-                }
-                if (starUsed == false) // See if the star has been used in the constellations thus far
-                {
-                    //Debug.Log("Clicked on Star");
-                    if (global.drawingScript.activeStarCounter == 0) // Regular star drawing
+                    if (this == global.drawingScript.NodeStar) // Check to see if it's the node
                     {
-                        Debug.Log("Normal Drawing");
-                        if (global.drawingScript.starCount == 0)
-                        {
-                            global.drawingScript.star2 = this;
-                            global.drawingScript.activeStarCounter = 1;
-                            //Debug.Log("Set activeStarCounter to 1");
-                            return;
-                        }
-                        if (global.drawingScript.starCount >= 0)
-                        {
-                            global.drawingScript.star2 = this;
-                            global.drawingScript.activeStarCounter = 1;
-                            global.drawingScript.drawLine();
-                            //Debug.Log("Else Triggered");
-                        }
+                        Debug.Log("NodeStar");
+                        global.drawingScript.star2 = global.drawingScript.NodeStar;
+                        global.drawingScript.activeStarCounter = 1;
+                        global.drawingScript.starCount = -1;
+                        global.drawingScript.drawLine();
                     }
-                    if (global.drawingScript.activeStarCounter == 1)
+                    if (starUsed == false) // See if the star has been used in the constellations thus far
                     {
-                        Debug.Log("Non-Normal drawing");
-                        if (global.drawingScript.starCount >= 0)
+                        //Debug.Log("Clicked on Star");
+                        if (global.drawingScript.activeStarCounter == 0) // Regular star drawing
                         {
-                            if (global.drawingScript.star2 == this)
-                            {
-                                Debug.Log("Please click a different Star");
-                                global.drawingScript.activeStarCounter = 1;
-                                return;
-                            }
-                            else if (global.drawingScript.starNext == this)
-                            {
-                                Debug.Log("Please click a different Star");
-                                global.drawingScript.activeStarCounter = 1;
-                                return;
-                            }
-                            else
+                            Debug.Log("Normal Drawing");
+                            if (global.drawingScript.starCount == 0)
                             {
                                 global.drawingScript.star2 = this;
-                                global.drawingScript.drawLine();
-                                //Debug.Log("Set activeStarCounter to 2");
+                                global.drawingScript.activeStarCounter = 1;
+                                //Debug.Log("Set activeStarCounter to 1");
                                 return;
                             }
+                            if (global.drawingScript.starCount >= 0)
+                            {
+                                global.drawingScript.star2 = this;
+                                global.drawingScript.activeStarCounter = 1;
+                                global.drawingScript.drawLine();
+                                //Debug.Log("Else Triggered");
+                            }
                         }
+                        if (global.drawingScript.activeStarCounter == 1)
+                        {
+                            Debug.Log("Non-Normal drawing");
+                            if (global.drawingScript.starCount >= 0)
+                            {
+                                if (global.drawingScript.star2 == this)
+                                {
+                                    Debug.Log("Please click a different Star");
+                                    global.drawingScript.activeStarCounter = 1;
+                                    return;
+                                }
+                                else if (global.drawingScript.starNext == this)
+                                {
+                                    Debug.Log("Please click a different Star");
+                                    global.drawingScript.activeStarCounter = 1;
+                                    return;
+                                }
+                                else
+                                {
+                                    global.drawingScript.star2 = this;
+                                    global.drawingScript.drawLine();
+                                    //Debug.Log("Set activeStarCounter to 2");
+                                    return;
+                                }
+                            }
+                        }
+                        /*if (global.drawingScript.activeStarCounter <= 1)
+                        {
+                            Debug.Log("Reseting activeStarCounter to 0");
+                            global.drawingScript.activeStarCounter = 0;
+                        }*/
                     }
-                    /*if (global.drawingScript.activeStarCounter <= 1)
+                    else
                     {
-                        Debug.Log("Reseting activeStarCounter to 0");
-                        global.drawingScript.activeStarCounter = 0;
-                    }*/
+                        Debug.Log("Star Used Up");
+                    }
                 }
                 else
                 {
-                    Debug.Log("Star Used Up");
+                    Debug.Log("It's not your turn!");
                 }
             }
             else
             {
-                Debug.Log("It's not your turn!");
+                Debug.Log("PLEASE SELECT A NEW ENEMY BEFORE ATTACKING");
             }
         }
         else
         {
-            Debug.Log("PLEASE SELECT AN ENEMY!"); 
+            Debug.Log("PLEASE SELECT AN ENEMY!");
         }
-        
     }
-
     public void OnMouseEnter()
     {
         rend.material.color = hoverColor;

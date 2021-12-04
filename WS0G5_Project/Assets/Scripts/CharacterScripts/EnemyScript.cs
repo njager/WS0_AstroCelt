@@ -289,11 +289,11 @@ public class EnemyScript : MonoBehaviour
         }
         if (myIdentifier == "Enemy2")
         {
-            global.enemy1UI.SetActive(false);
+            global.enemy2UI.SetActive(false);
         }
         if (myIdentifier == "Enemy3")
         {
-            global.enemy1UI.SetActive(false);
+            global.enemy3UI.SetActive(false);
         }
         gameObject.SetActive(false);
         //global.enemySwitcherFrameworkScript.EnemySwitch();

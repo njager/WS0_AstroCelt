@@ -155,6 +155,8 @@ public class GlobalController : MonoBehaviour
     public int enemy2ShieldCount; // Set to 2
     public int enemy3ShieldCount; // Set to 2
 
+    public EnemyScript enemyNull; // Purposefully left empty
+
     //public WorldController world;
 
     void Awake()
@@ -192,6 +194,19 @@ public class GlobalController : MonoBehaviour
         if(PlayerStats.playerVitality <= 0)
         {
             Lose();
+        }
+
+        if(enemy1ShieldCount <= 0)
+        {
+            enemy1ShieldGraphic.SetActive(false);
+        }
+        if (enemy2ShieldCount <= 0)
+        {
+            enemy2ShieldGraphic.SetActive(false);
+        }
+        if (enemy3ShieldCount <= 0)
+        {
+            enemy3ShieldGraphic.SetActive(false);
         }
     }
 
