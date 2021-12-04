@@ -11,6 +11,11 @@ public class DemoVideoScript : MonoBehaviour
     [SerializeField] GlobalController global;
     [SerializeField] GameObject bigDipper;
 
+    private void Start()
+    {
+        bigDipper.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
