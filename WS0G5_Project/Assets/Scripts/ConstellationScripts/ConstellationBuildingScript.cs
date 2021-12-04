@@ -827,8 +827,8 @@ public class ConstellationBuildingScript : MonoBehaviour
         {
             global.particleSystemScript.SpawnDamageParticleEffect(popUpCenterPoint);
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
-            global.m_SoundEffectWhoosh.Play();
             global.popup.Create(popUpCenterPoint.position, _constellationFinal, 1, false);
+            global.m_SoundEffectWhoosh.Play();
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 

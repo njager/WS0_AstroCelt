@@ -8,8 +8,13 @@ public class DemoVideoScript : MonoBehaviour
 {
     //[SerializeField] GameObject attackPulse;
     //[SerializeField] GameObject selectIcon;
-    [SerializeField] GlobalController global;
+    private GlobalController global;
     [SerializeField] GameObject bigDipper;
+
+    private void Awake()
+    {
+        global = GlobalController.instance; 
+    }
 
     private void Start()
     {
@@ -42,8 +47,9 @@ public class DemoVideoScript : MonoBehaviour
 
     public void AbilityButton()
     {
+        Vector3 _popupVector3 = new Vector3(0, 0, 0);
         global.enemy1.EnemyDamaged(20);
-        global.popup.Create(new Vector3(0, 0, 0), 20, 1, false);
+        global.popup.Create(_popupVector3, 20, 1, false);
         
     }
 }
