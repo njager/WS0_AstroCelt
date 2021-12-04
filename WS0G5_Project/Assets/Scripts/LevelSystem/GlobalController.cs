@@ -75,7 +75,14 @@ public class GlobalController : MonoBehaviour
     public AudioSource m_SoundEffectPopHigh;
     public AudioSource m_SoundEffectConFinish;
     public AudioSource m_SoundEffectWhoosh;
-    
+
+    [Header("New Audio")]
+    public AudioSource m_SoundEffectDamageSlice1;
+    public AudioSource m_SoundEffectDamageSlice2;
+    public AudioSource m_SoundEffectHealConstellation;
+    public AudioSource m_SoundEffectShieldConstellation;
+    public AudioSource m_SoundEffectPlayerAttack; 
+
     [Header("Altar Text")]
     public GameObject altarText1;
     public GameObject altarText2;

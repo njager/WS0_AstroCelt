@@ -197,6 +197,7 @@ public class EnemyScript : MonoBehaviour
 
     public void EnemyTurnAction() 
     {
+        int _enemySound = Random.Range(1, 3);
         if (isYourTurn == true)
         {
             if (myIdentifier == "Enemy1")
