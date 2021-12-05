@@ -33,7 +33,7 @@ public class HoverTextScript : MonoBehaviour
 
         if(global.lineMultiplierAmount > 1.5f)
         {
-            if (global.lineMultiplierAmount < 3.5f)
+            if (global.lineMultiplierAmount < 4f)
             {
                 global.UILineAmount = 1.5f;
             }
