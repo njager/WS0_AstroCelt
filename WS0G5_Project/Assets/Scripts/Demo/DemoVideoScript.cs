@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class DemoVideoScript : MonoBehaviour
 {
@@ -47,9 +48,26 @@ public class DemoVideoScript : MonoBehaviour
 
     public void AbilityButton()
     {
+        bigDipper.SetActive(true);
         Vector3 _popupVector3 = new Vector3(0, 0, 0);
         global.enemy1.EnemyDamaged(20);
         global.popup.Create(_popupVector3, 20, 1, false);
-        
+        StartCoroutine("FlashDipper");
+        global.particleSystemScript.DemoParticleEffect();
+    }
+
+    IEnumerator FlashDipper()
+    {
+        //punch the position for shake and scale
+        bigDipper.transform.DOShakePosition(1f, 0.3f, 10, 10f);
+        bigDipper.transform.DOScale(new Vector3(1.5f, 1.5f, 0), 0.2f);
+
+        yield return new WaitForSeconds(0.25f);
+
+        bigDipper.transform.DOScale(new Vector3(1, 1, 0), .2f);
+
+        yield return new WaitForSeconds(2f);
+
+        bigDipper.SetActive(false);
     }
 }
