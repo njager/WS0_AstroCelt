@@ -13,10 +13,12 @@ public class DemoVideoScript : MonoBehaviour
     [SerializeField] GameObject bigDipper;
     [SerializeField] AudioSource demoSound;
     [SerializeField] Image dipperGraphic;
+    bool canUse;
 
     private void Awake()
     {
-        global = GlobalController.instance; 
+        global = GlobalController.instance;
+        canUse = true;
     }
 
     private void Start()
@@ -48,17 +50,24 @@ public class DemoVideoScript : MonoBehaviour
 
     }
 
+    //calls the ability to deal damage and run tweening
     public void AbilityButton()
     {
-        bigDipper.SetActive(true);
-        Vector3 _popupVector3 = new Vector3(0, 0, 0);
-        global.enemySelected.EnemyDamaged(20);
-        global.popup.Create(_popupVector3, 20, 1, false);
-        StartCoroutine("FlashDipper");
-        global.particleSystemScript.DemoParticleEffect();
-        demoSound.Play();
+        if (canUse)
+        {
+            bigDipper.SetActive(true);
+            Vector3 _popupVector3 = new Vector3(0, 0, 0);
+            global.enemySelected.EnemyDamaged(20);
+            global.popup.Create(_popupVector3, 20, 1, false);
+            StartCoroutine("FlashDipper");
+            global.particleSystemScript.DemoParticleEffect();
+            demoSound.Play();
+            canUse = false;
+        }
+        
     }
 
+    //makes the ursa major look pretty
     IEnumerator FlashDipper()
     {
         //punch the position for shake and scale
