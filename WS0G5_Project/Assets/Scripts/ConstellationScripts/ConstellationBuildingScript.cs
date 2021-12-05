@@ -881,7 +881,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         float upperBoundCurve = comparatorCurve[1].value;
 
         float _lineValue = (lineAmount - global.lowerBoundLine) / global.upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
-        Debug.Log(_lineValue); 
+        //Debug.Log(_lineValue); 
 
         // Compare the normalized value to the curve values 
         if (_lineValue >= lowerBoundCurve)
@@ -889,19 +889,19 @@ public class ConstellationBuildingScript : MonoBehaviour
             if (_lineValue <= upperBoundCurve)
             {
                 lineMultiplier = comparatorCurve.Evaluate(_lineValue);
-                Debug.Log(lineMultiplier);
+                //Debug.Log(lineMultiplier);
                 return lineMultiplier; 
             } 
             else
             {
                 lineMultiplier = comparatorCurve.Evaluate(_lineValue);
-                Debug.Log(lineMultiplier);
+                //Debug.Log(lineMultiplier);
                 return lineMultiplier;
             }
         }
         else // If it fails the conditions, it returns a 1.0 mutliplier 
         {
-            Debug.Log(lineMultiplier);
+            //Debug.Log(lineMultiplier);
             return lineMultiplier = comparatorCurve.Evaluate(_lineValue);
         }
     }

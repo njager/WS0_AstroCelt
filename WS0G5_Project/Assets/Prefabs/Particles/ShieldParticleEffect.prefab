@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5398315151779637248}
   - component: {fileID: 4213321073924906420}
   m_Layer: 0
-  m_Name: ShieldParticleEffect 1
+  m_Name: ShieldParticleEffect
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

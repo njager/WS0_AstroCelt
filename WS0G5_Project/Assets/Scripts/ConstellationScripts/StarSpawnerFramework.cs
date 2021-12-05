@@ -2415,7 +2415,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HCMapPicker()
     {
         mainNodeStar = global.drawingScript.NodeStar;
-        int _map = Random.Range(1, 14); // Needs to be max range +1;
+        int _map = Random.Range(6, 7); // Needs to be max range +1;
         
         /*if (_map == 1) // Map 1
         {
