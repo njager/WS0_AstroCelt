@@ -92,6 +92,9 @@ public class TurnManager : MonoBehaviour
         global.selector.EnemyActionNextTurn(global.enemy1ActionIcon);
         global.selector.EnemyActionNextTurn(global.enemy2ActionIcon);
         global.selector.EnemyActionNextTurn(global.enemy3ActionIcon);
+        EnemyDamageChange(global.enemy1);
+        EnemyDamageChange(global.enemy2);
+        EnemyDamageChange(global.enemy3);
     }
 
     public void Attacking()
@@ -141,6 +144,12 @@ public class TurnManager : MonoBehaviour
             }
             global.enemy3ShieldCount = 5;
         }
+    }
+
+    public void EnemyDamageChange(EnemyScript enemy)
+    {
+        int _randEnemyDamageInt = Random.Range(6, 12);
+        enemy.enemyDamage = _randEnemyDamageInt; 
     }
 
 
