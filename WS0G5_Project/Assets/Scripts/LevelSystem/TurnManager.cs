@@ -46,7 +46,7 @@ public class TurnManager : MonoBehaviour
     public void ConfirmButton() // Not being used
     {
         FinishLinesColor();
-        global.selector.enemySoundChoosing(); 
+        global.selector.enemySoundChoosing(); // oops
         ChangeTurn();
     }
 
@@ -78,6 +78,7 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy3.isYourTurn = true;
         }
+        global.selector.enemySoundChoosing();
         //global.drawingScript.activeStarCounter = 1;
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
