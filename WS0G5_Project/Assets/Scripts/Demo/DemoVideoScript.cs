@@ -11,6 +11,8 @@ public class DemoVideoScript : MonoBehaviour
     //[SerializeField] GameObject selectIcon;
     private GlobalController global;
     [SerializeField] GameObject bigDipper;
+    [SerializeField] AudioSource demoSound;
+    [SerializeField] Image dipperGraphic;
 
     private void Awake()
     {
@@ -50,10 +52,11 @@ public class DemoVideoScript : MonoBehaviour
     {
         bigDipper.SetActive(true);
         Vector3 _popupVector3 = new Vector3(0, 0, 0);
-        global.enemy1.EnemyDamaged(20);
+        global.enemySelected.EnemyDamaged(20);
         global.popup.Create(_popupVector3, 20, 1, false);
         StartCoroutine("FlashDipper");
         global.particleSystemScript.DemoParticleEffect();
+        demoSound.Play();
     }
 
     IEnumerator FlashDipper()
@@ -66,7 +69,11 @@ public class DemoVideoScript : MonoBehaviour
 
         bigDipper.transform.DOScale(new Vector3(1, 1, 0), .2f);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
+
+        dipperGraphic.DOFade(0, 1f);
+
+        yield return new WaitForSeconds(1f);
 
         bigDipper.SetActive(false);
     }
