@@ -9134,6 +9134,12 @@ MonoBehaviour:
   enemy2ShieldCount: 0
   enemy3ShieldCount: 0
   enemyNull: {fileID: 0}
+  enemyHoverText1: {fileID: 1780851286}
+  enemyHoverText2: {fileID: 1754473931}
+  enemyHoverText3: {fileID: 1120694816}
+  enemyHoverTextBox1: {fileID: 1958130108}
+  enemyHoverTextBox2: {fileID: 488293886}
+  enemyHoverTextBox3: {fileID: 2030823499}
 --- !u!4 &353662683
 Transform:
   m_ObjectHideFlags: 0
@@ -30388,6 +30394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346476415}
+  - component: {fileID: 1346476416}
   m_Layer: 0
   m_Name: HoverTextBoxes
   m_TagString: Untagged
@@ -30412,6 +30419,18 @@ Transform:
   m_Father: {fileID: 1687274928}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1346476416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346476414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6342cd4db3a379438bec4fac4a03161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1347241961
 GameObject:
   m_ObjectHideFlags: 0

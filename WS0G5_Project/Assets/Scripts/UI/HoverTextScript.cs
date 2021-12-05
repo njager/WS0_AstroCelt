@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class HoverTextScript : MonoBehaviour
+{
+    /// <summary>
+    /// Been a bit since we made a new script, just a bit easier to keep clean for right now compared to working in UI Controller
+    /// </summary>
+
+    private GlobalController global;
+
+    void Start()
+    {
+        global = GlobalController.instance;
+
+        // These are only active while an enemy is moused over
+        global.enemyHoverTextBox1.SetActive(false);
+        global.enemyHoverTextBox2.SetActive(false);
+        global.enemyHoverTextBox3.SetActive(false);
+    }
+
+    // Update the Hover Text Elements every frame
+    void Update()
+    {
+        SetHoverText();
+    }
+
+    // Set The Text of the Hover Text
+    public void SetHoverText()
+    {
+        global.enemyHoverText1.text = "Expected DMG: " + global.enemy1.enemyDamage.ToString();
+        global.enemyHoverText2.text = "Expected DMG: " + global.enemy2.enemyDamage.ToString();
+        global.enemyHoverText3.text = "Expected DMG: " + global.enemy3.enemyDamage.ToString();
+    }
+}

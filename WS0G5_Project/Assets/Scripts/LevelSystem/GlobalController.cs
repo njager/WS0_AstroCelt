@@ -175,6 +175,15 @@ public class GlobalController : MonoBehaviour
 
     public EnemyScript enemyNull; // Purposefully left empty
 
+    [Header("Hover Text Variables")]
+    public TextMeshProUGUI enemyHoverText1;
+    public TextMeshProUGUI enemyHoverText2;
+    public TextMeshProUGUI enemyHoverText3;
+
+    public GameObject enemyHoverTextBox1;
+    public GameObject enemyHoverTextBox2;
+    public GameObject enemyHoverTextBox3;
+
     //public WorldController world;
 
     void Awake()
