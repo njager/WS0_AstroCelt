@@ -22,6 +22,7 @@ public class HoverTextScript : MonoBehaviour
         global.enemyHoverTextBox3.SetActive(false);
 
         global.lineMultiplierAmount = 0.0f;
+        global.UILineAmount = 0.0f; 
     }
 
     // Update the Hover Text Elements every frame
@@ -29,6 +30,22 @@ public class HoverTextScript : MonoBehaviour
     {
         SetHoverText();
         global.lineMultiplierAmount = Mathf.Round(EvaluateLineText() * 10f) / 10f;
+
+        if(global.lineMultiplierAmount > 1.5f)
+        {
+            if (global.lineMultiplierAmount < 3.5f)
+            {
+                global.UILineAmount = 1.5f;
+            }
+            else
+            {
+                global.UILineAmount = 2.0f;
+            }
+        }
+        else
+        {
+            global.UILineAmount = 1.0f; 
+        }
     }
 
     public float EvaluateLineText()
@@ -46,6 +63,6 @@ public class HoverTextScript : MonoBehaviour
         global.enemyHoverText3.text = "Expected DMG: " + global.enemy3.enemyDamage.ToString();
 
         // Line Calculator
-        global.lineMultText.text = "Star Multiplier: " + global.lineMultiplierAmount.ToString() + "x";
+        global.lineMultText.text = "Star Multiplier: " + global.UILineAmount.ToString() + "x";
     }
 }

@@ -187,6 +187,7 @@ public class GlobalController : MonoBehaviour
     [Header("Line Muliplier UI")]
     public TextMeshProUGUI lineMultText;
     public float lineMultiplierAmount; 
+    public float UILineAmount; 
 
     //public WorldController world;
 
