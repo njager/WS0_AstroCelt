@@ -7334,7 +7334,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_7.position;
         if (starSpawnCount == 41) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -7948,7 +7948,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint11_8.position;
         if (starSpawnCount == 42) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -8214,7 +8214,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint16_16);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_7.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_7.position;
         if (starSpawnCount == 36) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -8514,7 +8514,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint11_9.position;
         if (starSpawnCount == 41) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -8808,7 +8808,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint4_13);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint10_7.position;
         if (starSpawnCount == 40) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -9094,7 +9094,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_9.position;
         if (starSpawnCount == 39) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
