@@ -25899,7 +25899,7 @@ GameObject:
   - component: {fileID: 1120694817}
   - component: {fileID: 1120694816}
   m_Layer: 5
-  m_Name: PromptText
+  m_Name: HoverText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25914,7 +25914,7 @@ RectTransform:
   m_GameObject: {fileID: 1120694814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0807346, y: 2.6269903, z: 1}
+  m_LocalScale: {x: 1.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2030823500}
   m_RootOrder: 0
@@ -25944,7 +25944,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Draw the Constellation: Bear'
+  m_text: 'Damage: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48c7bf4deb05de4389e95742aff2128, type: 2}
   m_sharedMaterial: {fileID: -6565826102784084593, guid: f48c7bf4deb05de4389e95742aff2128, type: 2}
@@ -26007,7 +26007,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.087091446, z: -12.9922, w: -0.04354477}
+  m_margin: {x: 0.80765283, y: -0.087091446, z: -8.550096, w: -0.04354477}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -30295,6 +30295,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2027637496}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1346476414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346476415}
+  m_Layer: 0
+  m_Name: HoverTextBoxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1346476415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346476414}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2030823500}
+  m_Father: {fileID: 1687274928}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1347241961
 GameObject:
@@ -39273,7 +39304,7 @@ RectTransform:
   - {fileID: 519335943}
   - {fileID: 826087672}
   - {fileID: 1967636899}
-  - {fileID: 2030823500}
+  - {fileID: 1346476415}
   - {fileID: 1715678203}
   m_Father: {fileID: 369342702}
   m_RootOrder: 0
@@ -46571,12 +46602,12 @@ GameObject:
   - component: {fileID: 2030823500}
   - component: {fileID: 2030823501}
   m_Layer: 0
-  m_Name: ConstellationPrompt2
+  m_Name: EnemyHoverTextBox3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2030823500
 Transform:
   m_ObjectHideFlags: 0
@@ -46585,12 +46616,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030823499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.5, z: 0}
-  m_LocalScale: {x: 0.92529655, y: 0.38066375, z: 1}
+  m_LocalPosition: {x: 11.5, y: -5.5, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1120694815}
-  m_Father: {fileID: 1687274928}
-  m_RootOrder: 3
+  m_Father: {fileID: 1346476415}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2030823501
 SpriteRenderer:

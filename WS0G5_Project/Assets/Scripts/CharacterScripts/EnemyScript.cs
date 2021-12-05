@@ -338,6 +338,16 @@ public class EnemyScript : MonoBehaviour
         //Debug.Log("Enemy Attacks"); 
     }
 
+    public void OnMouseOver()
+    {
+
+    }
+
+    public void OnMouseExit()
+    {
+
+    }
+
     public void enemyDie() // Death
     {
         StaticVariables.masterEnemyCount -= 1;
