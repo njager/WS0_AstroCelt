@@ -68,7 +68,7 @@ public class GlobalController : MonoBehaviour
     public int enumeratorCheckBad;
     public int enumeratorCheckGood;
 
-    [Header("Audio")] // For when we implement audio, grab for holders 
+    [Header("Older Audio")] // For when we implement audio, grab for holders 
     public GameObject testAudioBackgroundMusic;
     public AudioSource m_SoundEffectDamage;
     public AudioSource m_SoundEffectPop;
@@ -76,13 +76,14 @@ public class GlobalController : MonoBehaviour
     public AudioSource m_SoundEffectConFinish;
     public AudioSource m_SoundEffectWhoosh;
 
-    [Header("New Audio")]
+    [Header("Newer Audio")]
     public AudioSource m_SoundEffectDamageSlice1;
     public AudioSource m_SoundEffectDamageSlice2;
     public AudioSource m_SoundEffectHealConstellation;
     public AudioSource m_SoundEffectShieldConstellation;
     public AudioSource m_SoundEffectDamageConstellation;
-    public AudioSource m_SoundEffectPlayerGrunt; 
+    public AudioSource m_SoundEffectPlayerGrunt;
+    public AudioSource m_SoundEffectEnemyGrunt; 
 
     [Header("Altar Text")]
     public GameObject altarText1;
