@@ -245,15 +245,15 @@ public class EnemyScript : MonoBehaviour
                         global.popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
                         if (global.enemy2Sound == 1) // If it's 1
                         {
-                            global.m_SoundEffectDamage.PlayDelayed(1f);
+                            global.m_SoundEffectDamage.PlayDelayed(0.5f);
                         }
                         if (global.enemy2Sound == 2) // If it's 2
                         {
-                            global.m_SoundEffectDamageSlice1.PlayDelayed(1f);
+                            global.m_SoundEffectDamageSlice1.PlayDelayed(0.5f);
                         }
                         if (global.enemy2Sound == 3) // If it' 3
                         {
-                            global.m_SoundEffectDamageSlice2.PlayDelayed(1f);
+                            global.m_SoundEffectDamageSlice2.PlayDelayed(0.5f);
                         }
                         firstActionCall = 0;
                     }
@@ -277,21 +277,6 @@ public class EnemyScript : MonoBehaviour
                         {
                             if (global.enemy3Sound == 1) // If it's 1
                             {
-                                global.m_SoundEffectDamage.PlayDelayed(1.5f);
-                            }
-                            if (global.enemy3Sound == 2) // If it' 2
-                            {
-                                global.m_SoundEffectDamageSlice1.PlayDelayed(1.5f);
-                            }
-                            if (global.enemy3Sound == 3) // If it' 3
-                            {
-                                global.m_SoundEffectDamageSlice2.PlayDelayed(1.5f);
-                            }
-                        }
-                        else
-                        {
-                            if (global.enemy3Sound == 1) // If it's 1
-                            {
                                 global.m_SoundEffectDamage.PlayDelayed(1f);
                             }
                             if (global.enemy3Sound == 2) // If it' 2
@@ -301,6 +286,21 @@ public class EnemyScript : MonoBehaviour
                             if (global.enemy3Sound == 3) // If it' 3
                             {
                                 global.m_SoundEffectDamageSlice2.PlayDelayed(1f);
+                            }
+                        }
+                        else
+                        {
+                            if (global.enemy3Sound == 1) // If it's 1
+                            {
+                                global.m_SoundEffectDamage.PlayDelayed(0.5f);
+                            }
+                            if (global.enemy3Sound == 2) // If it' 2
+                            {
+                                global.m_SoundEffectDamageSlice1.PlayDelayed(0.5f);
+                            }
+                            if (global.enemy3Sound == 3) // If it' 3
+                            {
+                                global.m_SoundEffectDamageSlice2.PlayDelayed(0.5f);
                             }
                         }
                         firstActionCall = 0;

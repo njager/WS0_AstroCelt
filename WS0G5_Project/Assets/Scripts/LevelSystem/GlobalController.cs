@@ -83,7 +83,8 @@ public class GlobalController : MonoBehaviour
     public AudioSource m_SoundEffectShieldConstellation;
     public AudioSource m_SoundEffectDamageConstellation;
     public AudioSource m_SoundEffectPlayerGrunt;
-    public AudioSource m_SoundEffectEnemyGrunt; 
+    public AudioSource m_SoundEffectEnemyGrunt;
+    public AudioSource m_SoundEffectEnemyShielding; 
 
     [Header("Altar Text")]
     public GameObject altarText1;

@@ -105,6 +105,10 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy1Attacking = false;
             global.enemy1Shielded = true;
+            if (global.enemy1isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.Play();
+            }   
             global.enemy1ShieldCount = 5;
         }
         if (global.selector.enemy2Attacking == true)
@@ -116,6 +120,10 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy2Attacking = false;
             global.enemy2Shielded = true;
+            if(global.enemy2isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.PlayDelayed(0.5f);
+            }
             global.enemy2ShieldCount = 5;
         }
         if (global.selector.enemy3Attacking == true)
@@ -127,6 +135,10 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy3Attacking = false;
             global.enemy3Shielded = true;
+            if (global.enemy1isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.PlayDelayed(1f);
+            }
             global.enemy3ShieldCount = 5;
         }
     }

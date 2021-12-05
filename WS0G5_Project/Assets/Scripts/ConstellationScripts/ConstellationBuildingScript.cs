@@ -830,7 +830,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
             global.popup.Create(popUpCenterPoint.position, _constellationFinal, 1, false);
             global.m_SoundEffectWhoosh.Play();
-            global.m_SoundEffectDamageConstellation.PlayDelayed(0.5f);
+            global.m_SoundEffectDamageConstellation.PlayDelayed(0.25f);
             global.m_SoundEffectEnemyGrunt.PlayDelayed(3f);
             Debug.Log("PopUp!");
         }
