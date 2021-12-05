@@ -31,20 +31,20 @@ public class HoverTextScript : MonoBehaviour
         SetHoverText();
         global.lineMultiplierAmount = Mathf.Round(EvaluateLineText() * 10f) / 10f;
 
-        if(global.lineMultiplierAmount > 1.5f)
+       // if(global.lineMultiplierAmount > 1.5f)
         {
-            if (global.lineMultiplierAmount < 4f)
+        //    if (global.lineMultiplierAmount < 4f)
             {
-                global.UILineAmount = 1.5f;
+       //         global.UILineAmount = 1.5f;
             }
-            else
+       //     else
             {
-                global.UILineAmount = 2.0f;
+       //         global.UILineAmount = 2.0f;
             }
         }
-        else
+      //  else
         {
-            global.UILineAmount = 1.0f; 
+       //     global.UILineAmount = 1.0f; 
         }
     }
 
@@ -63,6 +63,6 @@ public class HoverTextScript : MonoBehaviour
         global.enemyHoverText3.text = "Expected DMG: " + global.enemy3.enemyDamage.ToString();
 
         // Line Calculator
-        global.lineMultText.text = "Star Multiplier: " + global.UILineAmount.ToString() + "x";
+        global.lineMultText.text = "Star Multiplier: " + global.lineMultiplierAmount.ToString() + "x";
     }
 }

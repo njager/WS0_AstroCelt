@@ -683,9 +683,11 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         Debug.Log("Constellation Built for Damage!");
                         float _lineMultiplier = LineMultiplierCalculator();  
-                        global.constellationFinalDamage = global.constellationPotential + global.constellationPotentialDamage * _lineMultiplier;
-                        int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
+                        global.constellationFinalDamage = global.constellationPotential + global.constellationPotentialDamage;
+                        float _ConstMult = global.constellationFinalDamage * _lineMultiplier;
+                        int _constellationFinal = (int)Mathf.Round(_ConstMult);
                         global.enemySelected.EnemyDamaged(_constellationFinal);
+                        global.constellationFinalDamage = _constellationFinal;
                         //Debug.Log(global.currentEnemy.enemyHealth);
                         global.enumeratorCheckGood = 1; // Make it so the Coroutine doesn't autoreturn
                         //global.particleSystemScript.SpawnStarParticleEffect(global.enemyPopUpTransform);
@@ -715,8 +717,10 @@ public class ConstellationBuildingScript : MonoBehaviour
                     {
                         Debug.Log("Constellation Built for Health!");
                         float _lineMultiplier = LineMultiplierCalculator();
-                        global.constellationFinalHealth += global.constellationPotential + global.constellationPotentialHealth * _lineMultiplier * 0.5f;
-                        int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
+                        global.constellationFinalHealth += global.constellationPotential + global.constellationPotentialHealth;
+                        float _constMult = global.constellationFinalHealth * _lineMultiplier * 0.5f;
+                        int _constellationFinal = (int)Mathf.Round(_constMult);
+                        global.constellationFinalHealth = _constellationFinal; 
                         if(PlayerStats.playerVitality < 50)
                         {
                             global.playerScript.PlayerHealed(_constellationFinal);
@@ -743,7 +747,9 @@ public class ConstellationBuildingScript : MonoBehaviour
                 Debug.Log("Constellation Built for !");
                 float _lineMultiplier = LineMultiplierCalculator();
                 global.constellationFinalShield += global.constellationPotential + global.constellationPotentialShield * _lineMultiplier;
-                int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
+                float _constMult = global.constellationFinalShield * _lineMultiplier;
+                int _constellationFinal = (int)Mathf.Round(_constMult);
+                global.constellationFinalShield = _constellationFinal;
                 if (global.playerShieldCount < 20)
                 {
                     global.playerScript.PlayerShields(_constellationFinal);
