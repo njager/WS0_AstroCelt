@@ -2415,7 +2415,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HCMapPicker()
     {
         mainNodeStar = global.drawingScript.NodeStar;
-        int _map = Random.Range(6, 7); // Needs to be max range +1;
+        int _map = Random.Range(1, 14); // Needs to be max range +1;
         
         /*if (_map == 1) // Map 1
         {
@@ -6886,9 +6886,9 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 18)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_10.position, starSpawnPoint10_10.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_11.position, starSpawnPoint10_11.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint10_10);
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_11);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 19)
@@ -7013,9 +7013,9 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 36)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_3.position, starSpawnPoint6_3.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint9_13.position, starSpawnPoint9_13.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint6_3);
+            global.startingStarSpawnPointList.Add(starSpawnPoint9_13);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 37) 
@@ -7948,7 +7948,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint11_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_9.position;
         if (starSpawnCount == 42) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
