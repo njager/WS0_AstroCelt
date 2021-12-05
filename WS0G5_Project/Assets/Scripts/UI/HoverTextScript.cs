@@ -20,19 +20,32 @@ public class HoverTextScript : MonoBehaviour
         global.enemyHoverTextBox1.SetActive(false);
         global.enemyHoverTextBox2.SetActive(false);
         global.enemyHoverTextBox3.SetActive(false);
+
+        global.lineMultiplierAmount = 0.0f;
     }
 
     // Update the Hover Text Elements every frame
     void Update()
     {
         SetHoverText();
+        global.lineMultiplierAmount = Mathf.Round(EvaluateLineText() * 10f) / 10f;
+    }
+
+    public float EvaluateLineText()
+    {
+        float _LineMultiplier = global.constellationBuilding.LineMultiplierCalculator();
+        return _LineMultiplier; 
     }
 
     // Set The Text of the Hover Text
     public void SetHoverText()
     {
+        // Hover Text
         global.enemyHoverText1.text = "Expected DMG: " + global.enemy1.enemyDamage.ToString();
         global.enemyHoverText2.text = "Expected DMG: " + global.enemy2.enemyDamage.ToString();
         global.enemyHoverText3.text = "Expected DMG: " + global.enemy3.enemyDamage.ToString();
+
+        // Line Calculator
+        global.lineMultText.text = "Star Multiplier: " + global.lineMultiplierAmount.ToString() + "x";
     }
 }

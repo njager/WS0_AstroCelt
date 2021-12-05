@@ -184,6 +184,10 @@ public class GlobalController : MonoBehaviour
     public GameObject enemyHoverTextBox2;
     public GameObject enemyHoverTextBox3;
 
+    [Header("Line Muliplier UI")]
+    public TextMeshProUGUI lineMultText;
+    public float lineMultiplierAmount; 
+
     //public WorldController world;
 
     void Awake()
