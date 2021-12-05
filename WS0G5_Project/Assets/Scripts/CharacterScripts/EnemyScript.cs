@@ -197,7 +197,7 @@ public class EnemyScript : MonoBehaviour
 
     public void EnemyTurnAction() 
     {
-        int _enemySound = Random.Range(1, 3);
+        int _enemySound = Random.Range(1, 4); // In actuality 1-3
         if (isYourTurn == true)
         {
             if (myIdentifier == "Enemy1")
@@ -209,9 +209,17 @@ public class EnemyScript : MonoBehaviour
                         global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
                         global.popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
-                        if (_enemySound == 1)
+                        if (global.enemy1Sound == 1)
                         {
-                           
+                            global.m_SoundEffectDamage.Play(); 
+                        }
+                        if (_enemySound == 2)
+                        {
+                            global.m_SoundEffectDamageSlice1.Play();
+                        }
+                        if (_enemySound == 3)
+                        {
+                            global.m_SoundEffectDamageSlice2.Play();
                         }
                         firstActionCall = 0;
                     }
@@ -231,7 +239,18 @@ public class EnemyScript : MonoBehaviour
                         global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
                         global.popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
-                        global.m_SoundEffectDamage.Play();
+                        if (global.enemy1Sound == 1)
+                        {
+                            global.m_SoundEffectDamage.Play();
+                        }
+                        if (_enemySound == 2)
+                        {
+                            global.m_SoundEffectDamageSlice1.Play();
+                        }
+                        if (_enemySound == 3)
+                        {
+                            global.m_SoundEffectDamageSlice2.Play();
+                        }
                         firstActionCall = 0;
                     }
                     else
@@ -250,7 +269,18 @@ public class EnemyScript : MonoBehaviour
                         global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
                         global.popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
-                        global.m_SoundEffectDamage.Play();
+                        if (global.enemy1Sound == 1)
+                        {
+                            global.m_SoundEffectDamage.Play();
+                        }
+                        if (_enemySound == 2)
+                        {
+                            global.m_SoundEffectDamageSlice1.Play();
+                        }
+                        if (_enemySound == 3)
+                        {
+                            global.m_SoundEffectDamageSlice2.Play();
+                        }
                         firstActionCall = 0;
                     }
                     else

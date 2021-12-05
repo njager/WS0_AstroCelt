@@ -81,7 +81,8 @@ public class GlobalController : MonoBehaviour
     public AudioSource m_SoundEffectDamageSlice2;
     public AudioSource m_SoundEffectHealConstellation;
     public AudioSource m_SoundEffectShieldConstellation;
-    public AudioSource m_SoundEffectPlayerAttack; 
+    public AudioSource m_SoundEffectDamageConstellation;
+    public AudioSource m_SoundEffectPlayerGrunt; 
 
     [Header("Altar Text")]
     public GameObject altarText1;
@@ -156,6 +157,10 @@ public class GlobalController : MonoBehaviour
     public bool enemy1isDead;
     public bool enemy2isDead;
     public bool enemy3isDead;
+
+    public int enemy1Sound;
+    public int enemy2Sound;
+    public int enemy3Sound;
 
     public GameObject enemy1ShieldGraphic;
     public GameObject enemy2ShieldGraphic;

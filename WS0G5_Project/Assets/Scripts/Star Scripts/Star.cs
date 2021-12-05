@@ -23,12 +23,12 @@ public class Star : MonoBehaviour
 
     // Private Variables
     private SpriteRenderer rend;
-    private Color startColor;
+    public Color startColor;
 
     public void Start()
     {
         global = GlobalController.instance;
-
+        
         global.ListCount++;
         //Debug.Log("Star Added");
 
@@ -36,6 +36,19 @@ public class Star : MonoBehaviour
         startColor = rend.material.color;
         myCount = IncreaseStarCount();
         global.drawingScript.nodeClickCount = 0;
+    }
+
+    public void Update()
+    {
+        if(starUsed == true)
+        {
+            rend.color = usedColor; 
+        }
+        if(global.drawingScript.NodeStar.starUsed == true)
+        {
+            global.drawingScript.NodeStar.rend.color = global.drawingScript.NodeStar.startColor;
+            global.drawingScript.NodeStar.starUsed = false;
+        }
     }
 
     /// <summary>
