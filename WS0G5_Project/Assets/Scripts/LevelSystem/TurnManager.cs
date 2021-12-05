@@ -45,7 +45,8 @@ public class TurnManager : MonoBehaviour
 
     public void ConfirmButton() // Not being used
     {
-        FinishLinesColor(); 
+        FinishLinesColor();
+        global.selector.enemySoundChoosing(); 
         ChangeTurn();
     }
 

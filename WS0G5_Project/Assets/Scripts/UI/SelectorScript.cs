@@ -47,6 +47,7 @@ public class SelectorScript : MonoBehaviour
         enemy2Attacking = true;
         enemy3Attacking = true;
         global.turnManagerScript.Attacking();
+        enemySoundChoosing();
 
         EnemyActionNextTurn(global.enemy1ActionIcon);
         EnemyActionNextTurn(global.enemy2ActionIcon);
@@ -161,6 +162,7 @@ public class SelectorScript : MonoBehaviour
     }
 
     // Doing Sound here since this is my defacto non-object based enemy script
+    // Didn't make every contigency it's own if statement just collapsed the remaining options
     public void enemySoundChoosing()
     {
         int _enemy1Draw = Random.Range(1,4); // 3 Options

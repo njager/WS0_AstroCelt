@@ -197,7 +197,6 @@ public class EnemyScript : MonoBehaviour
 
     public void EnemyTurnAction() 
     {
-        int _enemySound = Random.Range(1, 4); // In actuality 1-3
         if (isYourTurn == true)
         {
             if (myIdentifier == "Enemy1")
@@ -209,15 +208,15 @@ public class EnemyScript : MonoBehaviour
                         global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
                         global.popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+                        if (global.enemy1Sound == 1) // If it's 1
                         {
                             global.m_SoundEffectDamage.Play(); 
                         }
-                        if (_enemySound == 2)
+                        if (global.enemy1Sound == 2) // If it's 2
                         {
                             global.m_SoundEffectDamageSlice1.Play();
                         }
-                        if (_enemySound == 3)
+                        if (global.enemy1Sound == 3) // If it's 3
                         {
                             global.m_SoundEffectDamageSlice2.Play();
                         }
@@ -239,15 +238,15 @@ public class EnemyScript : MonoBehaviour
                         global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
                         global.popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+                        if (global.enemy2Sound == 1) // If it's 1
                         {
                             global.m_SoundEffectDamage.Play();
                         }
-                        if (_enemySound == 2)
+                        if (global.enemy2Sound == 2) // If it's 2
                         {
                             global.m_SoundEffectDamageSlice1.Play();
                         }
-                        if (_enemySound == 3)
+                        if (global.enemy2Sound == 3) // If it' 3
                         {
                             global.m_SoundEffectDamageSlice2.Play();
                         }
@@ -269,15 +268,15 @@ public class EnemyScript : MonoBehaviour
                         global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
                         global.popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+                        if (global.enemy3Sound == 1) // If it's 1
                         {
                             global.m_SoundEffectDamage.Play();
                         }
-                        if (_enemySound == 2)
+                        if (global.enemy3Sound == 2) // If it' 2
                         {
                             global.m_SoundEffectDamageSlice1.Play();
                         }
-                        if (_enemySound == 3)
+                        if (global.enemy3Sound == 3) // If it' 3
                         {
                             global.m_SoundEffectDamageSlice2.Play();
                         }
