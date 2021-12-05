@@ -10569,6 +10569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTurnCount: 0
   playerTurnCount: 0
+  endTurnButtonTransform: {fileID: 826087672}
   enemyDefeated: 0
 --- !u!4 &433266641
 Transform:
@@ -32951,12 +32952,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStarParticlePrefab: {fileID: 5398315151779637249, guid: 4eab1920677676740b420c25d3f5639a, type: 3}
-  damageParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
-  healthParticlePrefab: {fileID: 5398315151779637249, guid: 919df616ac5d7463fb92229cfcf932e1, type: 3}
-  nodeClickedParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
-  shieldParticlePrefab: {fileID: 5398315151779637249, guid: c533bac420ac34b92b1d3547c1cc7fd2, type: 3}
-  stunParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
-  confirmParticlePrefab: {fileID: 5398315151779637249, guid: b6f337835471be34c9265c5dbe327cc4, type: 3}
+  damageParticlePrefab: {fileID: 5398315151779637249, guid: 5a3a327f2b475f8469cf7e9a649226b5, type: 3}
+  healthParticlePrefab: {fileID: 5398315151779637249, guid: 91a855930b0778548b12881160c268f3, type: 3}
+  shieldParticlePrefab: {fileID: 5398315151779637249, guid: 9bb2f3d9fd089234b97d6e27c4fcf777, type: 3}
+  nodeStarClickedParticlePrefab: {fileID: 5398315151779637249, guid: 3935c792d8460604084271eb15234f56, type: 3}
+  accentParticlePrefab: {fileID: 5398315151779637249, guid: 6190ffbe98f663e4e9cf77f3345109bf, type: 3}
+  damageClickPrefab: {fileID: 5398315151779637249, guid: 7c461c1d8ecf1924196daadd4c158711, type: 3}
+  healthClickPrefab: {fileID: 5398315151779637249, guid: a0c1286d6a171b448a5bef7f105ad4c4, type: 3}
+  shieldClickPrefab: {fileID: 5398315151779637249, guid: 45b13c51687ac0047841953e0e3ddb09, type: 3}
 --- !u!1 &1455077782
 GameObject:
   m_ObjectHideFlags: 0

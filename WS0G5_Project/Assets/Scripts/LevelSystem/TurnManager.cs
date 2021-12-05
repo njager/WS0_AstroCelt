@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     private GlobalController global;
     public int totalTurnCount;
     public int playerTurnCount; 
+    public Transform endTurnButtonTransform;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class TurnManager : MonoBehaviour
             Debug.Log("PLEASE SELECT A NEW ENEMY BEFORE ENDING YOUR TURN");
             return;
         }
+        //global.particleSystemScript.SpawnConfirmParticleEffect(endTurnButtonTransform);
         ChangeTurn();
     }
 
