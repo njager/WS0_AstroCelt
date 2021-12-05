@@ -155,7 +155,7 @@ public class LineRendererScript : MonoBehaviour
             {
                 if (_star != finalStar)
                 {
-                    Debug.LogError("Hit Star Without Clicking");
+                    Debug.Log("Hit Star Without Clicking");
                     global.drawingScript.starNext = initialStar;
                     global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
@@ -170,7 +170,7 @@ public class LineRendererScript : MonoBehaviour
             {
                 if (_star != finalStar)
                 {
-                    Debug.LogError("Hit Star Without Clicking");
+                    Debug.Log("Hit Star Without Clicking");
                     global.drawingScript.starNext = initialStar;
                     global.drawingScript.star2 = initialStar;
                     Destroy(lineGameObject);
