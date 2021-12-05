@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     private GlobalController global;
     public int totalTurnCount;
     public int playerTurnCount; 
+    public Transform endTurnButtonTransform;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class TurnManager : MonoBehaviour
             Debug.Log("PLEASE SELECT A NEW ENEMY BEFORE ENDING YOUR TURN");
             return;
         }
+        //global.particleSystemScript.SpawnConfirmParticleEffect(endTurnButtonTransform);
         ChangeTurn();
     }
 
@@ -45,7 +47,8 @@ public class TurnManager : MonoBehaviour
 
     public void ConfirmButton() // Not being used
     {
-        FinishLinesColor(); 
+        FinishLinesColor();
+        global.selector.enemySoundChoosing(); // oops
         ChangeTurn();
     }
 
@@ -53,7 +56,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        ChangeEnemyDamage();
+        //ChangeEnemyDamage(); Oops did already have it
         Attacking();
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
@@ -77,6 +80,7 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy3.isYourTurn = true;
         }
+        global.selector.enemySoundChoosing();
         //global.drawingScript.activeStarCounter = 1;
         foreach (Star star in global.constellationBeingBuilt.ToList())
         {
@@ -103,6 +107,10 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy1Attacking = false;
             global.enemy1Shielded = true;
+            if (global.enemy1isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.Play();
+            }   
             global.enemy1ShieldCount = 5;
         }
         if (global.selector.enemy2Attacking == true)
@@ -114,6 +122,10 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy2Attacking = false;
             global.enemy2Shielded = true;
+            if(global.enemy2isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.PlayDelayed(0.5f);
+            }
             global.enemy2ShieldCount = 5;
         }
         if (global.selector.enemy3Attacking == true)
@@ -125,8 +137,18 @@ public class TurnManager : MonoBehaviour
         {
             global.enemy3Attacking = false;
             global.enemy3Shielded = true;
+            if (global.enemy1isDead != true)
+            {
+                global.m_SoundEffectEnemyShielding.PlayDelayed(1f);
+            }
             global.enemy3ShieldCount = 5;
         }
+    }
+
+    public void EnemyDamageChange(EnemyScript enemy)
+    {
+        int _randEnemyDamageInt = Random.Range(6, 12);
+        enemy.enemyDamage = _randEnemyDamageInt; 
     }
 
 

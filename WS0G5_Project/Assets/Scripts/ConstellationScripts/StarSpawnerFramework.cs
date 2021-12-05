@@ -2415,7 +2415,7 @@ public class StarSpawnerFramework : MonoBehaviour
     public void HCMapPicker()
     {
         mainNodeStar = global.drawingScript.NodeStar;
-        int _map = Random.Range(1, 12); // Needs to be max range +1;
+        int _map = Random.Range(1, 14); // Needs to be max range +1;
         
         /*if (_map == 1) // Map 1
         {
@@ -2433,7 +2433,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if(previousMap == 1) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11);
+                int _map2 = Random.Range(1, 13);
                 if (_map2 == 1) // Map 3
                 {
                     Debug.Log("Map 3 Picked");
@@ -2568,6 +2568,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -2588,7 +2614,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 2) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11);
+                int _map2 = Random.Range(1, 13);
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -2723,6 +2749,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -2739,23 +2791,11 @@ public class StarSpawnerFramework : MonoBehaviour
                 previousMap = 2;
             }
         }
-        /*if (_map == 4) // Map 4
-        {
-            Debug.Log("Map 4 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(4);
-            HCMap4(baseStar);
-            HCMap4(actionDamageStar);
-            HCMap4(shieldStar);
-        }*/
         if (_map == 3) // Map 5 
         {
             if (previousMap == 3) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11);
+                int _map2 = Random.Range(1, 13);
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -2890,6 +2930,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -2910,7 +2976,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 4) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11);
+                int _map2 = Random.Range(1, 13);
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3047,6 +3113,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3065,7 +3157,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 5) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3201,6 +3293,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3216,23 +3334,11 @@ public class StarSpawnerFramework : MonoBehaviour
                 previousMap = 5;
             }
         }
-        /*if (_map == 8) // Map 8
-        {
-            Debug.Log("Map 8 Picked");
-            ClearStars();
-            ClearPoints();
-            ClearLines();
-            starSpawnCount = 0;
-            HCObstacleSwitcher(8);
-            HCMap8(baseStar);
-            HCMap8(actionDamageStar);
-            HCMap8(actionHealthStar);
-        }*/
         if (_map == 6) // Map 9
         {
             if (previousMap == 6) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3367,6 +3473,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3399,7 +3531,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 7) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3535,6 +3667,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3554,7 +3712,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 8) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3689,6 +3847,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3709,7 +3893,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 9) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3845,6 +4029,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -3864,7 +4074,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 10) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -3999,6 +4209,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap15(shieldStar);
                     previousMap = 11;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -4019,7 +4255,7 @@ public class StarSpawnerFramework : MonoBehaviour
         {
             if (previousMap == 11) // Need to pick another map
             {
-                int _map2 = Random.Range(1, 11); // PreviousMap will be according _map
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
                 if (_map2 == 1) // Map 2, just damage
                 {
                     Debug.Log("Map 2 Picked");
@@ -4155,6 +4391,32 @@ public class StarSpawnerFramework : MonoBehaviour
                     HCMap14(shieldStar);
                     previousMap = 10;
                 }
+                if (_map == 11) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
             }
             else
             {
@@ -4168,6 +4430,368 @@ public class StarSpawnerFramework : MonoBehaviour
                 HCMap15(actionDamageStar);
                 HCMap15(shieldStar);
                 previousMap = 11;
+            }
+        }
+        if (_map == 12) // Map 4
+        {
+            if (previousMap == 12) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 9) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 10) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map == 11) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+                if (_map == 12) // Map 8
+                {
+                    Debug.Log("Map 8 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(8);
+                    HCMap8(baseStar);
+                    HCMap8(actionDamageStar);
+                    HCMap8(actionHealthStar);
+                    previousMap = 13;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 4 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(4);
+                HCMap4(baseStar);
+                HCMap4(actionDamageStar);
+                HCMap4(shieldStar);
+                previousMap = 12;
+            }
+        }
+        if (_map == 13) // Map 8
+        {
+            if (previousMap == 13) // Need to pick another map
+            {
+                int _map2 = Random.Range(1, 13); // PreviousMap will be according _map
+                if (_map2 == 1) // Map 2, just damage
+                {
+                    Debug.Log("Map 2 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(2);
+                    HCMap2(baseStar);
+                    HCMap2(actionDamageStar);
+                    HCMap2(actionHealthStar);
+                    HCMap2(shieldStar);
+                    previousMap = 1;
+                }
+                if (_map2 == 2) // Map 3
+                {
+                    Debug.Log("Map 3 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(3);
+                    HCMap3(baseStar);
+                    HCMap3(actionDamageStar);
+                    HCMap3(actionHealthStar);
+                    HCMap3(shieldStar);
+                    previousMap = 2;
+                }
+                if (_map2 == 3) // Map 5
+                {
+                    Debug.Log("Map 5 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(5);
+                    HCMap5(baseStar);
+                    HCMap5(actionDamageStar);
+                    HCMap5(actionHealthStar);
+                    HCMap5(shieldStar);
+                    previousMap = 3;
+                }
+                if (_map2 == 4) // Map 6
+                {
+                    Debug.Log("Map 6 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(6);
+                    HCMap6(baseStar);
+                    HCMap6(actionDamageStar);
+                    previousMap = 4;
+                }
+                if (_map2 == 5) // Map 7
+                {
+                    Debug.Log("Map 7 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(7);
+                    HCMap7(baseStar);
+                    HCMap7(actionDamageStar);
+                    HCMap7(actionHealthStar);
+                    previousMap = 5;
+                }
+                if (_map2 == 6) // Map 9
+                {
+                    Debug.Log("Map 9 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(9);
+                    HCMap9(baseStar);
+                    HCMap9(actionDamageStar);
+                    HCMap9(actionHealthStar);
+                    HCMap9(shieldStar);
+                    previousMap = 6;
+                }
+                if (_map2 == 7) // Map 11
+                {
+                    Debug.Log("Map 11 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(11);
+                    HCMap11(baseStar);
+                    HCMap11(actionDamageStar);
+                    HCMap11(shieldStar);
+                    previousMap = 7;
+                }
+                if (_map2 == 8) // Map 12
+                {
+                    Debug.Log("Map 12 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(12);
+                    HCMap12(baseStar);
+                    HCMap12(actionDamageStar);
+                    HCMap12(actionHealthStar);
+                    HCMap12(shieldStar);
+                    previousMap = 8;
+                }
+                if (_map2 == 9) // Map 13
+                {
+                    Debug.Log("Map 13 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(13);
+                    HCMap13(baseStar);
+                    HCMap13(actionDamageStar);
+                    HCMap13(shieldStar);
+                    previousMap = 9;
+                }
+                if (_map2 == 10) // Map 14
+                {
+                    Debug.Log("Map 14 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(14);
+                    HCMap14(baseStar);
+                    HCMap14(actionDamageStar);
+                    HCMap14(actionHealthStar);
+                    HCMap14(shieldStar);
+                    previousMap = 10;
+                }
+                if (_map == 11) // Map 15
+                {
+                    Debug.Log("Map 15 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(15);
+                    HCMap15(baseStar);
+                    HCMap15(actionDamageStar);
+                    HCMap15(shieldStar);
+                    previousMap = 11;
+                }
+                if (_map == 12) // Map 4
+                {
+                    Debug.Log("Map 4 Picked");
+                    ClearStars();
+                    ClearPoints();
+                    ClearLines();
+                    starSpawnCount = 0;
+                    HCObstacleSwitcher(4);
+                    HCMap4(baseStar);
+                    HCMap4(actionDamageStar);
+                    HCMap4(shieldStar);
+                    previousMap = 12;
+                }
+            }
+            else
+            {
+                Debug.Log("Map 8 Picked");
+                ClearStars();
+                ClearPoints();
+                ClearLines();
+                starSpawnCount = 0;
+                HCObstacleSwitcher(8);
+                HCMap8(baseStar);
+                HCMap8(actionDamageStar);
+                HCMap8(actionHealthStar);
+                previousMap = 13;
             }
         }
     }
@@ -5104,23 +5728,23 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 12)
         {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_7.position, starSpawnPoint7_7.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint7_7);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 13)
+        {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_9.position, starSpawnPoint7_9.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint7_9);
             usedTransform.Add(starToBeSpawned);
         }
-        if (starSpawnCount == 13)
+        if (starSpawnCount == 14)
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint7_17.position, starSpawnPoint7_17.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint7_17);
-            usedTransform.Add(starToBeSpawned);
-        }
-        if (starSpawnCount == 14)
-        {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_5.position, starSpawnPoint8_5.rotation);
-            starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint8_5);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 15)
@@ -6103,20 +6727,20 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 37) 
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_3.position, starSpawnPoint10_3.rotation);
-            starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint10_3);
-            usedTransform.Add(starToBeSpawned);
-        }
-        if (starSpawnCount == 38)
-        {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint17_9.position, starSpawnPoint17_9.rotation);
             starSpawnCount++;
             global.startingStarSpawnPointList.Add(starSpawnPoint17_9);
             usedTransform.Add(starToBeSpawned);
             return;
         }
-        if (starSpawnCount == 39) // Health
+        if (starSpawnCount == 38) // Health
+        {
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_3.position, starSpawnPoint10_3.rotation);
+            starSpawnCount++;
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_3);
+            usedTransform.Add(starToBeSpawned);
+        }
+        if (starSpawnCount == 39) 
         {
             GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_15.position, starSpawnPoint10_15.rotation);
             starSpawnCount++;
@@ -6262,9 +6886,9 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 18)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_10.position, starSpawnPoint10_10.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint10_11.position, starSpawnPoint10_11.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint10_10);
+            global.startingStarSpawnPointList.Add(starSpawnPoint10_11);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 19)
@@ -6389,24 +7013,24 @@ public class StarSpawnerFramework : MonoBehaviour
         }
         if (starSpawnCount == 36)
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint6_3.position, starSpawnPoint6_3.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint9_13.position, starSpawnPoint9_13.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint6_3);
+            global.startingStarSpawnPointList.Add(starSpawnPoint9_13);
             usedTransform.Add(starToBeSpawned);
         }
         if (starSpawnCount == 37) 
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint15_5.position, starSpawnPoint15_5.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint8_3.position, starSpawnPoint8_3.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint15_5);
+            global.startingStarSpawnPointList.Add(starSpawnPoint8_3);
             usedTransform.Add(starToBeSpawned);
             return;
         }
         if (starSpawnCount == 38) // Health
         {
-            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint16_8.position, starSpawnPoint16_8.rotation);
+            GameObject starToBeSpawned = Instantiate(star.starPrefab, starSpawnPoint17_11.position, starSpawnPoint17_11.rotation);
             starSpawnCount++;
-            global.startingStarSpawnPointList.Add(starSpawnPoint16_8);
+            global.startingStarSpawnPointList.Add(starSpawnPoint17_11);
             usedTransform.Add(starToBeSpawned);
         }
         Vector3 _nodeStarVector3 = starSpawnPoint10_9.position;
@@ -6710,7 +7334,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_7.position;
         if (starSpawnCount == 41) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -7324,7 +7948,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_9.position;
         if (starSpawnCount == 42) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -7590,7 +8214,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint16_16);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_7.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_7.position;
         if (starSpawnCount == 36) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -7890,7 +8514,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint11_9.position;
         if (starSpawnCount == 41) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -8184,7 +8808,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint4_13);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint10_7.position;
         if (starSpawnCount == 40) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;
@@ -8470,7 +9094,7 @@ public class StarSpawnerFramework : MonoBehaviour
             global.startingStarSpawnPointList.Add(starSpawnPoint5_15);
             usedTransform.Add(starToBeSpawned);
         }
-        Vector3 _nodeStarVector3 = starSpawnPoint10_8.position;
+        Vector3 _nodeStarVector3 = starSpawnPoint9_9.position;
         if (starSpawnCount == 39) // Node Star
         {
             mainNodeStar.gameObject.transform.position = _nodeStarVector3;

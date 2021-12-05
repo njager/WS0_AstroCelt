@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
 { 
     [Header("Enemy Attributes")]
     public EnemyStats myStats;
-    public GameObject enemyGameObject;
+    public GameObject enemyGameObject; // Selfreference to specific game object
     public EnemyScript enemySelf;
     public int turnsBetweenAttacks = 1;
     public string myIdentifier;
@@ -194,10 +194,13 @@ public class EnemyScript : MonoBehaviour
         turnAction = true;
     }
 
+    /// <summary>
+    /// The enemy turns aren't perfect since it's triggering 3 different waiting coroutines rather than 1 full call that would really be more graceful,
+    /// it's fine for now, but a state machine controller would be a much better way to trigger enemy behavior in the remake
+    /// </summary>
 
     public void EnemyTurnAction() 
     {
-        int _enemySound = Random.Range(1, 4); // In actuality 1-3
         if (isYourTurn == true)
         {
             if (myIdentifier == "Enemy1")
@@ -209,19 +212,21 @@ public class EnemyScript : MonoBehaviour
                         global.enemy1.enemyAttacksPlayer(global.enemy1.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar1);
                         global.popup.Create(global.enemyHealthBar1.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+
+                        if (global.enemy1Sound == 1) // If it's 1
                         {
                             global.m_SoundEffectDamage.Play(); 
                         }
-                        if (_enemySound == 2)
+                        if (global.enemy1Sound == 2) // If it's 2
                         {
                             global.m_SoundEffectDamageSlice1.Play();
                         }
-                        if (_enemySound == 3)
+                        if (global.enemy1Sound == 3) // If it's 3
                         {
                             global.m_SoundEffectDamageSlice2.Play();
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy1);
                     }
                     else
                     {
@@ -239,19 +244,20 @@ public class EnemyScript : MonoBehaviour
                         global.enemy2.enemyAttacksPlayer(global.enemy2.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar2);
                         global.popup.Create(global.enemyHealthBar2.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+                        if (global.enemy2Sound == 1) // If it's 1
                         {
-                            global.m_SoundEffectDamage.Play();
+                            global.m_SoundEffectDamage.PlayDelayed(0.5f);
                         }
-                        if (_enemySound == 2)
+                        if (global.enemy2Sound == 2) // If it's 2
                         {
-                            global.m_SoundEffectDamageSlice1.Play();
+                            global.m_SoundEffectDamageSlice1.PlayDelayed(0.5f);
                         }
-                        if (_enemySound == 3)
+                        if (global.enemy2Sound == 3) // If it' 3
                         {
-                            global.m_SoundEffectDamageSlice2.Play();
+                            global.m_SoundEffectDamageSlice2.PlayDelayed(0.5f);
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy2);
                     }
                     else
                     {
@@ -269,19 +275,38 @@ public class EnemyScript : MonoBehaviour
                         global.enemy3.enemyAttacksPlayer(global.enemy3.enemyDamage);
                         global.particleSystemScript.SpawnDamageParticleEffect(global.enemyHealthBar3);
                         global.popup.Create(global.enemyHealthBar3.position, enemyDamage, 1, true);
-                        if (global.enemy1Sound == 1)
+                        if (global.enemy2isDead != true) // Just enemy 1 dying should allow the 2 to be in better lockstep with eachother
                         {
-                            global.m_SoundEffectDamage.Play();
+                            if (global.enemy3Sound == 1) // If it's 1
+                            {
+                                global.m_SoundEffectDamage.PlayDelayed(1f);
+                            }
+                            if (global.enemy3Sound == 2) // If it' 2
+                            {
+                                global.m_SoundEffectDamageSlice1.PlayDelayed(1f);
+                            }
+                            if (global.enemy3Sound == 3) // If it' 3
+                            {
+                                global.m_SoundEffectDamageSlice2.PlayDelayed(1f);
+                            }
                         }
-                        if (_enemySound == 2)
+                        else
                         {
-                            global.m_SoundEffectDamageSlice1.Play();
-                        }
-                        if (_enemySound == 3)
-                        {
-                            global.m_SoundEffectDamageSlice2.Play();
+                            if (global.enemy3Sound == 1) // If it's 1
+                            {
+                                global.m_SoundEffectDamage.PlayDelayed(0.5f);
+                            }
+                            if (global.enemy3Sound == 2) // If it' 2
+                            {
+                                global.m_SoundEffectDamageSlice1.PlayDelayed(0.5f);
+                            }
+                            if (global.enemy3Sound == 3) // If it' 3
+                            {
+                                global.m_SoundEffectDamageSlice2.PlayDelayed(0.5f);
+                            }
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy3);
                     }
                     else
                     {
@@ -314,6 +339,38 @@ public class EnemyScript : MonoBehaviour
     {
         global.playerScript.playerDamaged(damage);
         //Debug.Log("Enemy Attacks"); 
+    }
+
+    public void OnMouseOver()
+    {
+        if(myIdentifier == ("Enemy1"))
+        {
+            global.enemyHoverTextBox1.SetActive(true);
+        }
+        if (myIdentifier == ("Enemy2"))
+        {
+            global.enemyHoverTextBox2.SetActive(true);
+        }
+        if (myIdentifier == ("Enemy3"))
+        {
+            global.enemyHoverTextBox3.SetActive(true);
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        if (myIdentifier == ("Enemy1"))
+        {
+            global.enemyHoverTextBox1.SetActive(false);
+        }
+        if (myIdentifier == ("Enemy2"))
+        {
+            global.enemyHoverTextBox2.SetActive(false);
+        }
+        if (myIdentifier == ("Enemy3"))
+        {
+            global.enemyHoverTextBox3.SetActive(false);
+        }
     }
 
     public void enemyDie() // Death

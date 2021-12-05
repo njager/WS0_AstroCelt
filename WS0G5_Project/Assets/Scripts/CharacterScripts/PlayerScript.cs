@@ -6,11 +6,11 @@ public class PlayerScript : MonoBehaviour
 {
     public GameObject playerSelf; 
 
-    private int playerHealthLimit;
-    private int _startingPlayerVitality = PlayerStats.startingPlayerVitality;
+    private int playerHealthLimit; // Not fully working, superceded elsewhere
+    private int _startingPlayerVitality = PlayerStats.startingPlayerVitality; 
     public int showHealth; // I want to see health in inspector 
     private GlobalController global; // Global Controller reference
-    public bool isPlayerTurn; 
+    public bool isPlayerTurn; // State control to let the game know if it's the player's turn or not
 
     void Start()
     {
@@ -47,14 +47,13 @@ public class PlayerScript : MonoBehaviour
             {
                 PlayerStats.playerVitality -= _check;
             }
-            global.m_SoundEffectDamage.Play();
+            global.m_SoundEffectPlayerGrunt.Play();
             
         }
-        
         else
         {
             PlayerStats.playerVitality -= damage;
-            global.m_SoundEffectDamage.Play();
+            global.m_SoundEffectPlayerGrunt.Play();
             //Debug.Log("Player Hit"); 
             showHealth = PlayerStats.playerVitality;
         }

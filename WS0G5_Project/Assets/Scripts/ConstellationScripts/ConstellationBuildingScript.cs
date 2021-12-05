@@ -821,6 +821,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalHealth);
             global.popup.Create(popUpCenterPoint.position, _constellationFinal, 0, true);
             global.m_SoundEffectWhoosh.Play();
+            global.m_SoundEffectHealConstellation.PlayDelayed(0.5f);
             Debug.Log("PopUp!");
         }
         if (_identity == "damage")
@@ -829,6 +830,8 @@ public class ConstellationBuildingScript : MonoBehaviour
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalDamage);
             global.popup.Create(popUpCenterPoint.position, _constellationFinal, 1, false);
             global.m_SoundEffectWhoosh.Play();
+            global.m_SoundEffectDamageConstellation.PlayDelayed(0.25f);
+            global.m_SoundEffectEnemyGrunt.PlayDelayed(3f);
             Debug.Log("PopUp!");
         }
         if (_identity == "shield") 
@@ -837,6 +840,7 @@ public class ConstellationBuildingScript : MonoBehaviour
             int _constellationFinal = (int)Mathf.Round(global.constellationFinalShield);
             global.popup.Create(popUpCenterPoint.position, _constellationFinal, 2, true);
             global.m_SoundEffectWhoosh.Play();
+            global.m_SoundEffectShieldConstellation.PlayDelayed(0.5f);
             Debug.Log("PopUp!");
         }
         global.constellationPotentialHealth = 0;
@@ -877,7 +881,7 @@ public class ConstellationBuildingScript : MonoBehaviour
         float upperBoundCurve = comparatorCurve[1].value;
 
         float _lineValue = (lineAmount - global.lowerBoundLine) / global.upperBoundLine; // Normalize the tally amount into a decimal values around 1.0 
-        Debug.Log(_lineValue); 
+        //Debug.Log(_lineValue); 
 
         // Compare the normalized value to the curve values 
         if (_lineValue >= lowerBoundCurve)
@@ -885,19 +889,19 @@ public class ConstellationBuildingScript : MonoBehaviour
             if (_lineValue <= upperBoundCurve)
             {
                 lineMultiplier = comparatorCurve.Evaluate(_lineValue);
-                Debug.Log(lineMultiplier);
+                //Debug.Log(lineMultiplier);
                 return lineMultiplier; 
             } 
             else
             {
                 lineMultiplier = comparatorCurve.Evaluate(_lineValue);
-                Debug.Log(lineMultiplier);
+                //Debug.Log(lineMultiplier);
                 return lineMultiplier;
             }
         }
         else // If it fails the conditions, it returns a 1.0 mutliplier 
         {
-            Debug.Log(lineMultiplier);
+            //Debug.Log(lineMultiplier);
             return lineMultiplier = comparatorCurve.Evaluate(_lineValue);
         }
     }

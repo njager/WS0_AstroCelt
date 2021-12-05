@@ -68,7 +68,7 @@ public class GlobalController : MonoBehaviour
     public int enumeratorCheckBad;
     public int enumeratorCheckGood;
 
-    [Header("Audio")] // For when we implement audio, grab for holders 
+    [Header("Older Audio")] // For when we implement audio, grab for holders 
     public GameObject testAudioBackgroundMusic;
     public AudioSource m_SoundEffectDamage;
     public AudioSource m_SoundEffectPop;
@@ -76,13 +76,15 @@ public class GlobalController : MonoBehaviour
     public AudioSource m_SoundEffectConFinish;
     public AudioSource m_SoundEffectWhoosh;
 
-    [Header("New Audio")]
+    [Header("Newer Audio")]
     public AudioSource m_SoundEffectDamageSlice1;
     public AudioSource m_SoundEffectDamageSlice2;
     public AudioSource m_SoundEffectHealConstellation;
     public AudioSource m_SoundEffectShieldConstellation;
     public AudioSource m_SoundEffectDamageConstellation;
-    public AudioSource m_SoundEffectPlayerGrunt; 
+    public AudioSource m_SoundEffectPlayerGrunt;
+    public AudioSource m_SoundEffectEnemyGrunt;
+    public AudioSource m_SoundEffectEnemyShielding; 
 
     [Header("Altar Text")]
     public GameObject altarText1;
@@ -173,6 +175,20 @@ public class GlobalController : MonoBehaviour
 
     public EnemyScript enemyNull; // Purposefully left empty
 
+    [Header("Hover Text Variables")]
+    public TextMeshProUGUI enemyHoverText1;
+    public TextMeshProUGUI enemyHoverText2;
+    public TextMeshProUGUI enemyHoverText3;
+
+    public GameObject enemyHoverTextBox1;
+    public GameObject enemyHoverTextBox2;
+    public GameObject enemyHoverTextBox3;
+
+    [Header("Line Muliplier UI")]
+    public TextMeshProUGUI lineMultText;
+    public float lineMultiplierAmount; 
+    public float UILineAmount; 
+
     //public WorldController world;
 
     void Awake()
@@ -195,6 +211,10 @@ public class GlobalController : MonoBehaviour
         enemy1Shielded = false;
         enemy2Shielded = false;
         enemy3Shielded = false;
+
+        enemy1Sound = 0;
+        enemy2Sound = 0;
+        enemy3Sound = 0;
     }
 
     public void Update()
@@ -208,6 +228,7 @@ public class GlobalController : MonoBehaviour
             //enemy1.enemyDie();
             //enemy2.enemyDie();
             //enemy3.enemyDie();
+            //particleSystemScript.DemoParticleEffect();
         }
         if(PlayerStats.playerVitality <= 0)
         {

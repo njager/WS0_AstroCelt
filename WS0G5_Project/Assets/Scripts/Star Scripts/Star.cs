@@ -65,8 +65,32 @@ public class Star : MonoBehaviour
         {
             global.m_SoundEffectPop.Play();
         }
-        //Sound Effects different per Star:
-
+        if (global.UIController.selector.activeInHierarchy == true)
+        {
+            if (global.playerScript.isPlayerTurn == true)
+            {
+                if (myStarClass.starType == "NodeStar")
+                {
+                    global.particleSystemScript.SpawnNodeParticleEffect(global.drawingScript.NodeStar.gameObject.transform);
+                }
+                if (myStarClass.starType == "Star")
+                {
+                    global.particleSystemScript.SpawnBaseStarParticleEffect(gameObject.transform);
+                }
+                if (myStarClass.starType == "ShieldStar")
+                {
+                    global.particleSystemScript.SpawnShieldClickEffect(gameObject.transform);
+                }
+                if (myStarClass.starType == "HealthStar")
+                {
+                    global.particleSystemScript.SpawnHealthClickEffect(gameObject.transform);
+                }
+                if (myStarClass.starType == "DamageStar")
+                {
+                    global.particleSystemScript.SpawnDamageClickEffect(gameObject.transform);
+                }
+            }
+        }
         if (global.UIController.selector.activeInHierarchy == true) // If the player has already drawn for turn, do nothing
         {
             if (global.enemySelected != global.enemyNull) // Enemy Died

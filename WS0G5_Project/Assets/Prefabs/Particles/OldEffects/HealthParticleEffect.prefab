@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5398315151779637248}
   - component: {fileID: 4213321073924906420}
   m_Layer: 0
-  m_Name: HealthParticleEffect 2
+  m_Name: HealthParticleEffect
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4804,7 +4804,7 @@ ParticleSystemRenderer:
   m_AllowRoll: 1
   m_FreeformStretching: 1
   m_RotateWithStretchDirection: 1
-  m_VertexStreams: 0001030409
+  m_VertexStreams: 00010304
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}

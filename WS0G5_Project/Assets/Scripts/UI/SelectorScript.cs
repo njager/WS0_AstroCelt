@@ -47,6 +47,7 @@ public class SelectorScript : MonoBehaviour
         enemy2Attacking = true;
         enemy3Attacking = true;
         global.turnManagerScript.Attacking();
+        enemySoundChoosing();
 
         EnemyActionNextTurn(global.enemy1ActionIcon);
         EnemyActionNextTurn(global.enemy2ActionIcon);
@@ -158,6 +159,55 @@ public class SelectorScript : MonoBehaviour
     {
         int _chance = Random.Range(1, 11);
         return _chance;
+    }
+
+    // Doing Sound here since this is my defacto non-object based enemy script
+    // Didn't make every contigency it's own if statement just collapsed the remaining options
+    public void enemySoundChoosing()
+    {
+        int _enemy1Draw = Random.Range(1,4); // 3 Options
+        global.enemy1Sound = _enemy1Draw; 
+        if (_enemy1Draw == 1)
+        {
+            int _enemy2Draw = Random.Range(2, 4); // 2 Options
+            global.enemy2Sound = _enemy2Draw;
+            if (_enemy2Draw == 2)
+            {
+                global.enemy3Sound = 3; // Last option
+            }
+            else
+            {
+                global.enemy3Sound = 2; // Last option
+            }
+        }
+        if (_enemy1Draw == 2)
+        {
+            int _enemy2Draw = Random.Range(1, 3); // 2 Options
+            if (_enemy2Draw == 1)
+            {
+                global.enemy2Sound = _enemy2Draw;
+                global.enemy3Sound = 3; // Last option
+            }
+            else
+            {
+                global.enemy3Sound = 1; // Last option
+                global.enemy2Sound = 3;
+            }
+        }
+        if (_enemy1Draw == 3)
+        {
+            int _enemy2Draw = Random.Range(1, 3); // 2 Options
+            global.enemy2Sound = _enemy2Draw;
+            if (_enemy2Draw == 1)
+            {
+                
+                global.enemy3Sound = 2; // Last option
+            }
+            else
+            {
+                global.enemy3Sound = 1; // Last Option 
+            }
+        }
     }
 
 
