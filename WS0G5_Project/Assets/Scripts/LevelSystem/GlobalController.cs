@@ -195,6 +195,10 @@ public class GlobalController : MonoBehaviour
         enemy1Shielded = false;
         enemy2Shielded = false;
         enemy3Shielded = false;
+
+        enemy1Sound = 0;
+        enemy2Sound = 0;
+        enemy3Sound = 0;
     }
 
     public void Update()
