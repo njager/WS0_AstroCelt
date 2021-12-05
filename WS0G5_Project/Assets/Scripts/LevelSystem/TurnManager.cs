@@ -54,7 +54,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        ChangeEnemyDamage();
+        //ChangeEnemyDamage(); Oops did already have it
         Attacking();
         global.drawingScript.starNext = global.drawingScript.NodeStar;
         //global.drawingScript.star2 = global.drawingScript.nodeStar2;
@@ -92,9 +92,6 @@ public class TurnManager : MonoBehaviour
         global.selector.EnemyActionNextTurn(global.enemy1ActionIcon);
         global.selector.EnemyActionNextTurn(global.enemy2ActionIcon);
         global.selector.EnemyActionNextTurn(global.enemy3ActionIcon);
-        EnemyDamageChange(global.enemy1);
-        EnemyDamageChange(global.enemy2);
-        EnemyDamageChange(global.enemy3);
     }
 
     public void Attacking()

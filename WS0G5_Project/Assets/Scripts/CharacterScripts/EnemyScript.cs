@@ -226,6 +226,7 @@ public class EnemyScript : MonoBehaviour
                             global.m_SoundEffectDamageSlice2.Play();
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy1);
                     }
                     else
                     {
@@ -256,6 +257,7 @@ public class EnemyScript : MonoBehaviour
                             global.m_SoundEffectDamageSlice2.PlayDelayed(0.5f);
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy2);
                     }
                     else
                     {
@@ -304,6 +306,7 @@ public class EnemyScript : MonoBehaviour
                             }
                         }
                         firstActionCall = 0;
+                        global.turnManagerScript.EnemyDamageChange(global.enemy3);
                     }
                     else
                     {
@@ -340,12 +343,34 @@ public class EnemyScript : MonoBehaviour
 
     public void OnMouseOver()
     {
-
+        if(myIdentifier == ("Enemy1"))
+        {
+            global.enemyHoverTextBox1.SetActive(true);
+        }
+        if (myIdentifier == ("Enemy2"))
+        {
+            global.enemyHoverTextBox2.SetActive(true);
+        }
+        if (myIdentifier == ("Enemy3"))
+        {
+            global.enemyHoverTextBox3.SetActive(true);
+        }
     }
 
     public void OnMouseExit()
     {
-
+        if (myIdentifier == ("Enemy1"))
+        {
+            global.enemyHoverTextBox1.SetActive(false);
+        }
+        if (myIdentifier == ("Enemy2"))
+        {
+            global.enemyHoverTextBox2.SetActive(false);
+        }
+        if (myIdentifier == ("Enemy3"))
+        {
+            global.enemyHoverTextBox3.SetActive(false);
+        }
     }
 
     public void enemyDie() // Death
