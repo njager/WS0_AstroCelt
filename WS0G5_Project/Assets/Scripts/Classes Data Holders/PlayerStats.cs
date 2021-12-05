@@ -25,6 +25,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] int _startingCosmicEnergy = 400;
 
     // UI Start Methods, by doing this I explicitly request and send back data
+    private void Update()
+    {
+        // Enemy Health Limiter
+        if(playerVitality > 50)
+        {
+            playerVitality = 50;
+        }
+    }
 
     public static int returnStartingVitality() // Not used
     {

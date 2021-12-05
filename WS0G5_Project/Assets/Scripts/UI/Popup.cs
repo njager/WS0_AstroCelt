@@ -117,7 +117,7 @@ public class Popup : MonoBehaviour
     //if the popup enters the screen, move it
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Popup entered the screen!");
+        //Debug.Log("Popup entered the screen!");
         StartCoroutine("MovePopup");
         box.enabled = false; 
     }
