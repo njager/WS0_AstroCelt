@@ -7,6 +7,8 @@ public class Particle : MonoBehaviour
     public ParticleClass myInfo;
     public GameObject myPrefab;
 
+    //public string particleTag; 
+
     void Start()
     {
         myPrefab = myInfo.myPrefab;

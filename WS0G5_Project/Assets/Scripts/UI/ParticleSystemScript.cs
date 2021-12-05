@@ -14,6 +14,10 @@ public class ParticleSystemScript : MonoBehaviour
     public GameObject healthClickPrefab;
     public GameObject shieldClickPrefab;
 
+    [Header("Demo Particles")]
+    public ParticleSystem demoPurple;
+    public ParticleSystem demoOrange;
+
     // These can also be used when clicking on the stars
     public void SpawnDamageParticleEffect(Transform _transform)
     {
@@ -97,9 +101,10 @@ public class ParticleSystemScript : MonoBehaviour
         return;
     }
 
-    public void DemoParticleEffect(Transform _transform)
+    public void DemoParticleEffect()
     {
-
+        demoOrange.Play();
+        demoPurple.Play();
     }
 }
 

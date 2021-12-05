@@ -228,6 +228,7 @@ public class GlobalController : MonoBehaviour
             //enemy1.enemyDie();
             //enemy2.enemyDie();
             //enemy3.enemyDie();
+            particleSystemScript.DemoParticleEffect();
         }
         if(PlayerStats.playerVitality <= 0)
         {
