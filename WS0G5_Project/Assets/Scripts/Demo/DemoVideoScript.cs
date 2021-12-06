@@ -53,18 +53,20 @@ public class DemoVideoScript : MonoBehaviour
     //calls the ability to deal damage and run tweening
     public void AbilityButton()
     {
-        if (canUse)
+        if(global.enemySelected != global.enemyNull)
         {
-            bigDipper.SetActive(true);
-            Vector3 _popupVector3 = new Vector3(0, 0, 0);
-            global.enemySelected.EnemyDamaged(20);
-            global.popup.Create(_popupVector3, 20, 1, false);
-            StartCoroutine("FlashDipper");
-            global.particleSystemScript.DemoParticleEffect();
-            demoSound.Play();
-            canUse = false;
+            if (canUse)
+            {
+                bigDipper.SetActive(true);
+                Vector3 _popupVector3 = new Vector3(0, 0, 0);
+                global.enemySelected.EnemyDamaged(20);
+                global.popup.Create(_popupVector3, 20, 1, false);
+                StartCoroutine("FlashDipper");
+                global.particleSystemScript.DemoParticleEffect();
+                demoSound.Play();
+                canUse = false;
+            }
         }
-        
     }
 
     //makes the ursa major look pretty
